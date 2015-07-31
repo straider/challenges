@@ -1,0 +1,48 @@
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'distribution'
+apply plugin: 'application'
+
+sourceCompatibility = source_version
+targetCompatibility = target_version
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  testCompile 'junit:junit:4.12'
+}
+
+compileJava {
+  options.compilerArgs = [ '-Xlint:unchecked' ]
+  options.encoding     = 'UTF-8'
+  options.incremental  = true
+  options.fork         = true
+}
+
+compileTestJava {
+  options.compilerArgs  = [ '-Xlint:unchecked' ]
+  options.encoding      = 'UTF-8'
+  options.incremental   = true
+  options.fork          = true
+}
+
+jar {
+  archiveName = application_file + '.' + extension
+  manifest {
+    attributes ( 'Implementation-Title'    : application_name                     ,
+                 'Implementation-Version'  : application_version                  ,
+                 'Implementation-Vendor'   : application_vendor                   ,
+                 'Implementation-Timestamp': new Date()                           ,
+                 'Built-Date'              : new Date()                           ,
+                 'Built-JDK'               : System.getProperty( 'java.version' ) ,
+                 'Built-By'                : System.getProperty( 'user.name'    ) ,
+                 'Main-Class'              : application_class
+               )
+  }
+}
+
+defaultTasks ':assemble'
+
+mainClassName = application_class

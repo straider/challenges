@@ -1,0 +1,140 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ms5-package_run" default = "package" basedir = "." xmlns:if = "ant:if">
+
+  <description>JP Morgan Super Simple Stocks</description>
+
+  <property file = "build.properties" />
+
+  <hostinfo prefix = "host." />
+  <property name = "host_info" value = "${host.NAME}.${host.DOMAIN}" />
+  <property environment = "env" />
+  <tstamp>
+    <format property = "build_time" pattern = "yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
+  <target name = "info" description = "Outputs project information.">
+    <echo>
+      Application    : ${application_name} v${application_version}
+      Hostname       : ${host_info}
+      Processors     : ${env.NUMBER_OF_PROCESSORS}
+      OS Name        : ${os.name}
+      OS Architecture: ${os.arch}
+      OS Version     : ${os.version}
+      Java Home      : ${java.home}
+      Run Date       : ${build_time}
+      Run By         : ${user.name}
+      Base           : ${basedir}
+      Build File     : ${ant.file}
+
+      Sources Folder     : ${sources_folder}/
+      Build Folder       : ${build_folder}/
+      Distribution Folder: ${distribution_folder}/
+      Vendors Folder     : ${vendors_folder}/
+    </echo>
+  </target>
+
+  <target name = "clean" description = "Removes the working folders.">
+    <delete includeEmptyDirs = "true" failonerror = "false">
+      <fileset dir = "${reports_folder}/"      includes = "**/*" />
+      <fileset dir = "${build_folder}/"        includes = "**/*" />
+      <fileset dir = "${distribution_folder}/" includes = "**/*" />
+    </delete>
+
+    <delete dir = "${reports_folder}"      />
+    <delete dir = "${build_folder}"        />
+    <delete dir = "${distribution_folder}" />
+  </target>
+
+  <target name = "init" description = "Initializes the project with required working folders.">
+    <mkdir dir = "${reports_folder}"      />
+    <mkdir dir = "${build_folder}"        />
+    <mkdir dir = "${distribution_folder}" />
+  </target>
+
+  <path id = "libraries">
+    <fileset dir = "${vendors_folder}">
+      <patternset id = "vendors-jars">
+        <include name = "**/*.jar"         />
+        <exclude name = "**/*-tests.jar"   />
+        <exclude name = "**/*-javadoc.jar" />
+        <exclude name = "**/*-sources.jar" />
+      </patternset>
+    </fileset>
+  </path>
+
+  <target name = "build" depends = "init" description = "Builds the class files.">
+    <javac srcdir            = "${sources_folder}"
+           destdir           = "${build_folder}"
+           encoding          = "utf-8"
+           compiler          = "${compiler_version}"
+           source            = "${source_version}"
+           target            = "${target_version}"
+           includeAntRuntime = "false"
+           debug             = "true"
+    >
+      <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
+    </javac>
+  </target>
+
+  <tstamp>
+    <format property = "build-time" pattern = "yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
+  <target name = "test" depends = "build" description = "Executes tests on class files and produces report.">
+    <javac srcdir            = "${tests_folder}"
+           destdir           = "${build_folder}"
+           encoding          = "utf-8"
+           compiler          = "${compiler_version}"
+           source            = "${source_version}"
+           target            = "${target_version}"
+           includeAntRuntime = "false"
+           classpathref      = "libraries"
+           >
+      <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
+    </javac>
+
+    <junit printsummary = "yes" haltonfailure = "no">
+      <classpath>
+        <path refid = "libraries" />
+        <pathelement location = "${build_folder}"/>
+      </classpath>
+
+      <formatter type = "brief" usefile = "false" />
+      <formatter type = "plain" />
+      <formatter type = "xml"   />
+
+      <batchtest fork = "no" todir = "${reports_folder}">
+        <fileset dir = "${build_folder}" includes = "**/*Test.class" />
+      </batchtest>
+    </junit>
+
+    <junitreport todir = "${reports_folder}">
+      <fileset dir = "${reports_folder}">
+        <include name = "TEST-*.xml" />
+      </fileset>
+      <report todir = "${reports_folder}/html/" format = "frames" />
+    </junitreport>
+  </target>
+
+  <target name = "package" depends = "build" description = "Creates the JAR archive for distribution.">
+    <jar destfile = "${distribution_folder}/${application_file}.jar" >
+      <fileset dir = "${sources_folder}" if:set = "include_sources">
+        <include name = "**/*.java" />
+      </fileset>
+      <fileset dir = "${build_folder}">
+        <include name = "**/*.class" />
+      </fileset>
+
+      <manifest>
+        <attribute name = "Implementation-Title"     value = "${application_name}"    />
+        <attribute name = "Implementation-Version"   value = "${application_version}" />
+        <attribute name = "Implementation-Vendor"    value = "${application_vendor}"  />
+        <attribute name = "Implementation-Timestamp" value = "${build-time}"          />
+        <attribute name = "Built-Date"               value = "${build-time}"          />
+        <attribute name = "Built-By"                 value = "${user.name}"           />
+        <attribute name = "Main-Class"               value = "${application_class}"   />
+      </manifest>
+    </jar>
+  </target>
+
+</project>
