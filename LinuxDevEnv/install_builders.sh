@@ -21,7 +21,7 @@ tar -zxvf $HOME/var/packages/apache-ant-$ANT_VERSION-bin.tar.gz -C $HOME/opt/Bui
 if [ -h $HOME/opt/Builders/ant ]; then
   rm $HOME/opt/Builders/ant
 fi
-ln -sf $HOME/opt/Builders/apache-ant-$ANT_VERSION $HOME/opt/Builders/ant
+ln -sf $HOME/opt/Builders/apache-ant-$ANT_VERSION/ $HOME/opt/Builders/ant
 ant -version
 # rm $HOME/var/packages/apache-ant-$ANT_VERSION-bin.tar.gz
 
@@ -33,7 +33,7 @@ tar -zxvf $HOME/var/packages/apache-maven-$MAVEN_VERSION-bin.tar.gz -C $HOME/opt
 if [ -h $HOME/opt/Builders/maven ]; then
   rm $HOME/opt/Builders/maven
 fi
-ln -sf $HOME/opt/Builders/apache-maven-$MAVEN_VERSION $HOME/opt/Builders/maven
+ln -sf $HOME/opt/Builders/apache-maven-$MAVEN_VERSION/ $HOME/opt/Builders/maven
 mvn --version
 # rm $HOME/var/packages/apache-maven-$MAVEN_VERSION-bin.tar.gz
 
@@ -45,6 +45,6 @@ unzip -o $HOME/var/packages/gradle-$GRADLE_VERSION-bin.zip -d $HOME/opt/Builders
 if [ -h $HOME/opt/Builders/gradle ]; then
   rm $HOME/opt/Builders/gradle
 fi
-ln -sf $HOME/opt/Builders/gradle-$GRADLE_VERSION $HOME/opt/Builders/gradle
+ln -sf $HOME/opt/Builders/gradle-$GRADLE_VERSION/ $HOME/opt/Builders/gradle
 gradle --version
 # rm $HOME/var/packages/gradle-$GRADLE_VERSION-bin.zip

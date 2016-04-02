@@ -27,7 +27,7 @@ popd
 if [ -h $HOME/opt/Builders/ant ]; then
   rm $HOME/opt/Builders/ant
 fi
-ln -sf $HOME/opt/Builders/apache-ant-$ANT_VERSION $HOME/opt/Builders/ant
+ln -sf $HOME/opt/Builders/apache-ant-$ANT_VERSION/ $HOME/opt/Builders/ant
 ant -version
 
 export MAVEN_VERSION=3.3.9
@@ -42,7 +42,7 @@ popd
 if [ -h $HOME/opt/Builders/maven ]; then
   rm $HOME/opt/Builders/maven
 fi
-ln -sf $HOME/opt/Builders/apache-maven-$MAVEN_VERSION $HOME/opt/Builders/maven
+ln -sf $HOME/opt/Builders/apache-maven-$MAVEN_VERSION/ $HOME/opt/Builders/maven
 mvn --version
 
 export GRADLE_VERSION=2.12
@@ -60,5 +60,5 @@ mv $HOME/opt/Builders/gradle-$GRADLE_VERSION* $HOME/opt/Builders/gradle-$GRADLE_
 if [ -h $HOME/opt/Builders/gradle ]; then
   rm $HOME/opt/Builders/gradle
 fi
-ln -sf $HOME/opt/Builders/gradle-$GRADLE_VERSION $HOME/opt/Builders/gradle
+ln -sf $HOME/opt/Builders/gradle-$GRADLE_VERSION/ $HOME/opt/Builders/gradle
 gradle --version

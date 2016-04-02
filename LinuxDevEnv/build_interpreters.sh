@@ -79,7 +79,7 @@ popd
 if [ -h $HOME/opt/Interpreters/python ]; then
   rm $HOME/opt/Interpreters/python
 fi
-ln -sf $HOME/opt/Interpreters/python-$PYTHON_VERSION $HOME/opt/Interpreters/python
+ln -sf $HOME/opt/Interpreters/python-$PYTHON_VERSION/ $HOME/opt/Interpreters/python
 python --version
 python2 --version
 # rm $HOME/var/packages/Python-$PYTHON_VERSION.tgz
@@ -98,7 +98,7 @@ popd
 # if [ -h $HOME/opt/Interpreters/python ]; then
 #   rm $HOME/opt/Interpreters/python
 # fi
-# ln -sf $HOME/opt/Interpreters/python-$PYTHON_VERSION $HOME/opt/Interpreters/python
+# ln -sf $HOME/opt/Interpreters/python-$PYTHON_VERSION/ $HOME/opt/Interpreters/python
 # python --version
 python3 --version
 # rm $HOME/var/packages/Python-$PYTHON_VERSION.tgz
@@ -117,7 +117,7 @@ popd
 if [ -h $HOME/opt/Interpreters/ruby ]; then
   rm $HOME/opt/Interpreters/ruby
 fi
-ln -sf $HOME/opt/Interpreters/ruby-$RUBY_VERSION $HOME/opt/Interpreters/ruby
+ln -sf $HOME/opt/Interpreters/ruby-$RUBY_VERSION/ $HOME/opt/Interpreters/ruby
 ruby --version
 # rm $HOME/var/packages/ruby-$RUBY_VERSION.tar.gz
 
@@ -135,7 +135,7 @@ popd
 if [ -h $HOME/opt/Interpreters/jruby ]; then
   rm $HOME/opt/Interpreters/jruby
 fi
-ln -sf $HOME/opt/Interpreters/jruby-$JRUBY_VERSION $HOME/opt/Interpreters/jruby
+ln -sf $HOME/opt/Interpreters/jruby-$JRUBY_VERSION/ $HOME/opt/Interpreters/jruby
 jruby --version
 # rm $HOME/var/packages/jruby-src-$JRUBY_VERSION.tar.gz
 
@@ -153,7 +153,7 @@ popd
 if [ -h $HOME/opt/Interpreters/jruby ]; then
   rm $HOME/opt/Interpreters/jruby
 fi
-ln -sf $HOME/opt/Interpreters/jruby-$JRUBY_VERSION $HOME/opt/Interpreters/jruby
+ln -sf $HOME/opt/Interpreters/jruby-$JRUBY_VERSION/ $HOME/opt/Interpreters/jruby
 jruby --version
 # rm $HOME/var/packages/jruby-src-$JRUBY_VERSION.tar.gz
 
@@ -171,6 +171,6 @@ popd
 if [ -h $HOME/opt/Interpreters/groovy ]; then
   rm $HOME/opt/Interpreters/groovy
 fi
-ln -sf $HOME/opt/Interpreters/groovy-$GROOVY_VERSION $HOME/opt/Interpreters/groovy
+ln -sf $HOME/opt/Interpreters/groovy-$GROOVY_VERSION/ $HOME/opt/Interpreters/groovy
 groovy --version
 # rm $HOME/var/packages/apache-groovy-src-$GROOVY_VERSION.zip
