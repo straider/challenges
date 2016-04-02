@@ -38,7 +38,7 @@ export GRADLE_VERSION=2.12
 if [ ! -f $HOME/var/packages/gradle-$GRADLE_VERSION-bin.zip ]; then
   wget https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip
 fi
-unzip $HOME/var/packages/gradle-$GRADLE_VERSION-bin.zip -d $HOME/opt/Builders/
+unzip -o $HOME/var/packages/gradle-$GRADLE_VERSION-bin.zip -d $HOME/opt/Builders/
 if [ -h $HOME/opt/Builders/gradle ]; then
   rm $HOME/opt/Builders/gradle
 fi

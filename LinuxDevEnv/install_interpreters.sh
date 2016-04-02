@@ -15,6 +15,9 @@ if [ ! -f $HOME/var/packages/ActiveTcl$TCL_VERSION.299124-linux-x86_64-threaded.
   wget http://downloads.activestate.com/ActiveTcl/releases/$TCL_VERSION/ActiveTcl$TCL_VERSION.299124-linux-x86_64-threaded.tar.gz
 fi
 tar -zxvf $HOME/var/packages/ActiveTcl$TCL_VERSION.299124-linux-x86_64-threaded.tar.gz -C $HOME/opt/Interpreters/
+if [ -d $HOME/opt/Interpreters/ActiveTcl-$TCL_VERSION ]; then
+  rm -Rf $HOME/opt/Interpreters/ActiveTcl-$TCL_VERSION
+fi
 mv $HOME/opt/Interpreters/ActiveTcl$TCL_VERSION.299124-linux-x86_64-threaded $HOME/opt/Interpreters/ActiveTcl-$TCL_VERSION
 if [ -h $HOME/opt/Interpreters/tcltk ]; then
   rm $HOME/opt/Interpreters/tcltk
@@ -28,6 +31,9 @@ if [ ! -f $HOME/var/packages/ActivePerl-$PERL_VERSION-x86_64-linux-glibc-2.15-29
   wget http://downloads.activestate.com/ActivePerl/releases/$PERL_VERSION/ActivePerl-$PERL_VERSION-x86_64-linux-glibc-2.15-299574.tar.gz
 fi
 tar -zxvf $HOME/var/packages/ActivePerl-$PERL_VERSION-x86_64-linux-glibc-2.15-299574.tar.gz -C $HOME/opt/Interpreters/
+if [ -d $HOME/opt/Interpreters/ActivePerl-$PERL_VERSION ]; then
+  rm -Rf $HOME/opt/Interpreters/ActivePerl-$PERL_VERSION
+fi
 mv $HOME/opt/Interpreters/ActivePerl-$PERL_VERSION-x86_64-linux-glibc-2.15-299574 $HOME/opt/Interpreters/ActivePerl-$PERL_VERSION
 if [ -h $HOME/opt/Interpreters/perl ]; then
   rm $HOME/opt/Interpreters/perl
@@ -42,6 +48,9 @@ if [ ! -f $HOME/var/packages/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz ];
   wget http://downloads.activestate.com/ActivePython/releases/$PYTHON_VERSION/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz
 fi
 tar -zxvf $HOME/var/packages/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz -C $HOME/opt/Interpreters/
+if [ -d $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION ]; then
+  rm -Rf $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION
+fi
 mv $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION-linux-x86_64 $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION
 if [ -h $HOME/opt/Interpreters/python ]; then
   rm $HOME/opt/Interpreters/python
@@ -56,18 +65,24 @@ if [ ! -f $HOME/var/packages/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz ];
   wget http://downloads.activestate.com/ActivePython/releases/$PYTHON_VERSION/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz
 fi
 tar -zxvf $HOME/var/packages/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz -C $HOME/opt/Interpreters/
+if [ -d $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION ]; then
+  rm -Rf $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION
+fi
 mv $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION-linux-x86_64 $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION
 if [ -h $HOME/opt/Interpreters/python ]; then
   rm $HOME/opt/Interpreters/python
 fi
-ln -sf $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION/INSTALLDIR/ $HOME/opt/Interpreters/python
-python --version
+# ln -sf $HOME/opt/Interpreters/ActivePython-$PYTHON_VERSION/INSTALLDIR/ $HOME/opt/Interpreters/python
+# python --version
 python3 --version
 # rm $HOME/var/packages/ActivePython-$PYTHON_VERSION-linux-x86_64.tar.gz
 
 export JYTHON_VERSION=2.7.0
 if [ ! -f $HOME/var/packages/jython-installer-$JYTHON_VERSION.jar ]; then
   wget https://repo1.maven.org/maven2/org/python/jython-installer/$JYTHON_VERSION/jython-installer-$JYTHON_VERSION.jar
+fi
+if [ -d $HOME/opt/Interpreters/jython-$JYTHON_VERSION ]; then
+  rm -Rf $HOME/opt/Interpreters/jython-$JYTHON_VERSION
 fi
 java -jar $HOME/var/packages/jython-installer-$JYTHON_VERSION.jar --directory $HOME/opt/Interpreters/jython-$JYTHON_VERSION --type standard --silent --verbose
 if [ -h $HOME/opt/Interpreters/jython ]; then
@@ -106,7 +121,7 @@ export GROOVY_VERSION=2.4.6
 if [ ! -f $HOME/var/packages/apache-groovy-binary-$GROOVY_VERSION.zip ]; then
   wget https://dl.bintray.com/groovy/maven/apache-groovy-binary-$GROOVY_VERSION.zip
 fi
-unzip $HOME/var/packages/apache-groovy-binary-$GROOVY_VERSION.zip -d $HOME/opt/Interpreters/
+unzip -o $HOME/var/packages/apache-groovy-binary-$GROOVY_VERSION.zip -d $HOME/opt/Interpreters/
 if [ -h $HOME/opt/Interpreters/groovy ]; then
   rm $HOME/opt/Interpreters/groovy
 fi

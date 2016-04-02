@@ -38,7 +38,7 @@ export CLOJURE_VERSION=1.8.0
 if [ ! -f $HOME/var/packages/clojure-$CLOJURE_VERSION.zip ]; then
   wget http://repo1.maven.org/maven2/org/clojure/clojure/$CLOJURE_VERSION/clojure-$CLOJURE_VERSION.zip
 fi
-unzip $HOME/var/packages/clojure-$CLOJURE_VERSION.zip -d $HOME/opt/Compilers/
+unzip -o $HOME/var/packages/clojure-$CLOJURE_VERSION.zip -d $HOME/opt/Compilers/
 if [ -h $HOME/opt/Compilers/clojure ]; then
   rm $HOME/opt/Compilers/clojure
 fi
@@ -51,9 +51,12 @@ if [ ! -f $HOME/var/packages/go$GO_VERSION.linux-amd64.tar.gz ]; then
   wget https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz
 fi
 tar -zxvf $HOME/var/packages/go$GO_VERSION.linux-amd64.tar.gz -C $HOME/opt/Compilers/
+if [ -d $HOME/opt/Compilers/go-$GO_VERSION ]; then
+  rm -Rf $HOME/opt/Compilers/go-$GO_VERSION
+fi
 mv $HOME/opt/Compilers/go $HOME/opt/Compilers/go-$GO_VERSION
 if [ -h $HOME/opt/Compilers/go ]; then
-  rm $$HOME/opt/Compilers/go
+  rm $HOME/opt/Compilers/go
 fi
 ln -sf $HOME/opt/Compilers/go-$GO_VERSION/ $HOME/opt/Compilers/go
 go version
