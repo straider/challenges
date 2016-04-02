@@ -54,15 +54,18 @@ export PATH=$JAVA_HOME/bin:$SCALA_HOME/bin:$ANT_HOME/bin:$MAVEN_HOME/bin:$GRADLE
 #-----------------------------
 export TCL_HOME=$HOME/opt/Interpreters/tcltk
 export PERL_HOME=$HOME/opt/Interpreters/perl
-export PERL_MODULES=$HOME/.local/modules/
 export PERL_VERSION=5.22.1
-export PERL5LIB=$PERL_MODULES/lib/$PERL_VERSION:$PERL_MODULES/lib/site_perl/$PERL_VERSION
+# export PERL_MODULES=$HOME/.local/modules/
+export LOCAL_MODULES=$HOME/.local # Works for Perl and Python.
+export PERL5LIB=$LOCAL_MODULES/lib/$PERL_VERSION:$LOCAL_MODULES/lib/site_perl/$PERL_VERSION
 export PYTHON_HOME=$HOME/opt/Interpreters/python
 export RUBY_HOME=$HOME/opt/Interpreters/ruby
 export JRUBY_HOME=$HOME/opt/Interpreters/jruby
 export JYTHON_HOME=$HOME/opt/Interpreters/jython
 export GROOVY_HOME=$HOME/opt/Interpreters/groovy
-export PATH=$TCL_HOME/bin:$PERL_HOME/bin:$PERL_MODULES/bin:$PYTHON_HOME/bin:$HOME/.local/bin:$RUBY_HOME/bin:$JRUBY_HOME/bin:$JYTHON_HOME/bin:$GROOVY_HOME/bin:$PATH
+export PATH=$TCL_HOME/bin:$PERL_HOME/bin:$PYTHON_HOME/bin:$LOCAL_MODULES/bin:$RUBY_HOME/bin:$JRUBY_HOME/bin:$JYTHON_HOME/bin:$GROOVY_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TCL_HOME/lib:$PYTHON_HOME/lib
 ...
 ```
+
+**Note**: there's a Shell script, set_environment_ariables.sh, that sets all the above environment variables and that causes no changes to the $HOME/.bash_profile.

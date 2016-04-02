@@ -6,7 +6,10 @@ set -eu
 # JOCAMO - 2016.04.01: Should handle option --folder  to set installation folder other than $HOME/opt/
 # JOCAMO - 2016.04.01: Should iterate through a collection of packages ( VERSION, URL, ARCHIVE_TYPE, ... )
 
-. set_environment_variables.sh
+. $HOME/set_environment_variables.sh
+mkdir -p $HOME/var/packages
+mkdir -p $HOME/opt/Interpreters
+mkdir -p $HOME/tmp
 
 pushd $HOME/var/packages
 
