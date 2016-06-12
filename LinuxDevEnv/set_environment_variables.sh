@@ -37,3 +37,10 @@ export JYTHON_HOME=$HOME/opt/Interpreters/jython
 export GROOVY_HOME=$HOME/opt/Interpreters/groovy
 export PATH=$TCL_HOME/bin:$PERL_HOME/bin:$PYTHON_HOME/bin:$LOCAL_MODULES/bin:$RUBY_HOME/bin:$JRUBY_HOME/bin:$JYTHON_HOME/bin:$GROOVY_HOME/bin:$PATH
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH-''}:$TCL_HOME/lib:$PYTHON_HOME/lib
+
+# IDEs Environment Variables.
+#-----------------------------
+export NETBEANS_HOME=$HOME/opt/IDEs/netbeans-8.1
+export ECLIPSE_HOME=$HOME/opt/IDEs/eclipse-mars
+# export IDEA_HOME=$HOME/opt/IDEs/idea-IC-145.1617.8
+export PATH=$NETBEANS_HOME/bin:$ECLIPSE_HOME:$PATH
