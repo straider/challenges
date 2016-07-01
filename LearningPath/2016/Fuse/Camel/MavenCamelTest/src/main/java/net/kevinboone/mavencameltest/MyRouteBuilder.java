@@ -2,27 +2,17 @@ package net.kevinboone.mavencameltest;
 
 import org.apache.camel.builder.RouteBuilder;
 
-/**
- * A Camel Java DSL Router
- */
 public class MyRouteBuilder extends RouteBuilder {
 
-    /**
-     * Let's configure the Camel routing rules using Java code...
-     */
     public void configure() {
-
-        // here is a sample which processes the input files
-        // (leaving them in place - see the 'noop' flag)
-        // then performs content based routing on the message using XPath
-        from("file:src/data?noop=true")
-            .choice()
-                .when(xpath("/person/city = 'London'"))
-                    .log("UK message")
-                    .to("file:target/messages/uk")
-                .otherwise()
-                    .log("Other message")
-                    .to("file:target/messages/others");
+        // Override the configure() method to define the route. We're
+        //  reading from a directory, logging, and then copying to a
+        //  directory. The log class is defined to be
+        //  net.kevinboone.mavencameltest.MyRouteBuilder — we'll need
+        //  this information for the log4j configuration file
+        from ("file:tmp/in?noop=true")
+            .to("log:net.kevinboone.mavencameltest.MyRouteBuilder?level=DEBUG")
+                .to("file:tmp/out");
     }
 
 }
