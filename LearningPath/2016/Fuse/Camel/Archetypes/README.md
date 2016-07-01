@@ -72,3 +72,17 @@ mvn archetype:generate                              \
     -DgroupId=com.github.straider.fuse.camel        \
     -DartifactId=CamelBlueprint
 ```
+
+## Web
+
+To create a new Camel web project that deploys the Camel routes as a WAR:
+
+```sh
+mvn archetype:generate                             \
+    -DarchetypeGroupId=org.apache.camel.archetypes \
+    -DarchetypeArtifactId=camel-archetype-web      \
+    -DarchetypeVersion=2.17.1                      \
+    -DinteractiveMode=false                        \
+    -DgroupId=com.github.straider.fuse.camel       \
+    -DartifactId=CamelWeb
+```
