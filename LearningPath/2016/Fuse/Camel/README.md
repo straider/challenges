@@ -3,6 +3,8 @@
 
 # Challenges
 
+## Camel Archetypes for Maven
+
 ## Camel with Maven
 
 ### Steps
