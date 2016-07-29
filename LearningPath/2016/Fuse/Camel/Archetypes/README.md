@@ -59,20 +59,6 @@ mvn archetype:generate                             \
     -DartifactId=CamelActiveMQ
 ```
 
-## Blueprint (OSGi) Based Router
-
-To create a new Camel project with OSGi blueprint support. Ready to be deployed in OSGi.:
-
-```sh
-mvn archetype:generate                              \
-    -DarchetypeGroupId=org.apache.camel.archetypes  \
-    -DarchetypeArtifactId=camel-archetype-blueprint \
-    -DarchetypeVersion=2.17.1                       \
-    -DinteractiveMode=false                         \
-    -DgroupId=com.github.straider.fuse.camel        \
-    -DartifactId=CamelBlueprint
-```
-
 ## Web
 
 To create a new Camel web project that deploys the Camel routes as a WAR:
@@ -85,4 +71,46 @@ mvn archetype:generate                             \
     -DinteractiveMode=false                        \
     -DgroupId=com.github.straider.fuse.camel       \
     -DartifactId=CamelWeb
+```
+
+## WAR
+
+To create a new Camel project that deploys the Camel Web Console, REST API, and your routes as a WAR:
+
+```sh
+mvn archetype:generate                             \
+    -DarchetypeGroupId=org.apache.camel.archetypes \
+    -DarchetypeArtifactId=camel-archetype-war      \
+    -DarchetypeVersion=2.17.1                      \
+    -DinteractiveMode=false                        \
+    -DgroupId=com.github.straider.fuse.camel       \
+    -DartifactId=CamelWAR
+```
+
+## Web Console
+
+To create a new Camel project that deploys the Camel Web Console, REST API, and your routes as a WAR:
+
+```sh
+mvn archetype:generate                               \
+    -DarchetypeGroupId=org.apache.camel.archetypes   \
+    -DarchetypeArtifactId=camel-archetype-webconsole \
+    -DarchetypeVersion=2.17.1                        \
+    -DinteractiveMode=false                          \
+    -DgroupId=com.github.straider.fuse.camel         \
+    -DartifactId=CamelWebConsole
+```
+
+## Blueprint (OSGi) Based Router
+
+To create a new Camel project with OSGi blueprint support, ready to be deployed in OSGi:
+
+```sh
+mvn archetype:generate                              \
+    -DarchetypeGroupId=org.apache.camel.archetypes  \
+    -DarchetypeArtifactId=camel-archetype-blueprint \
+    -DarchetypeVersion=2.17.1                       \
+    -DinteractiveMode=false                         \
+    -DgroupId=com.github.straider.fuse.camel        \
+    -DartifactId=CamelBlueprint
 ```
