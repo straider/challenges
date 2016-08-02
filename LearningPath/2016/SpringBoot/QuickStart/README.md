@@ -77,3 +77,33 @@ mvn initialize # compile works, but clean and validate or initialize should do t
 
 ## Gradle
 
+Although it's possible to generate a simple build.gradle file and initialize a sample Java project with the following command it's best to do it by hand:
+
+```bash
+gradle init --type java-library
+```
+
+### Initial build.gradle
+
+```groovy
+apply plugin: 'java'
+
+version = '1.0.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+}
+```
+
+Command to add the Graddle Wrapper to the project:
+
+```bash
+gradle wrapper
+```
+
+### Add Dependency
+
+### Update Local Repository

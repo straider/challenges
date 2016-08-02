@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+version = '1.0.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+}
