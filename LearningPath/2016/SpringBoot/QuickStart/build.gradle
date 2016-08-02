@@ -8,3 +8,7 @@ targetCompatibility = 1.7
 repositories {
   mavenCentral()
 }
+
+dependencies {
+  compile( 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE' )
+}

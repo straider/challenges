@@ -72,7 +72,7 @@ It's better to code a pom.xml by hand instead of using an archetype that just ge
 ### Update Local Repository
 
 ```bash
-mvn initialize # compile works, but clean and validate or initialize should do the trick.
+mvn validate
 ```
 
 ## Gradle
@@ -106,4 +106,14 @@ gradle wrapper
 
 ### Add Dependency
 
+```groovy
+dependencies {
+  compile( 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE' )
+}
+```
+
 ### Update Local Repository
+
+```bash
+gradle check
+```
