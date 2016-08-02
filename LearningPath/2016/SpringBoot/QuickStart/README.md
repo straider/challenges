@@ -36,6 +36,8 @@ The defined artifact is not an archetype
 
 It's better to code a pom.xml by hand instead of using an archetype that just generates the simplest pom.xml and empty folder layout for a project.
 
+### Initial pom.xml
+
 ```xml
 <?xml version = "1.0" encoding = "UTF-8"?>
 <project xmlns              = "http://maven.apache.org/POM/4.0.0"
@@ -48,6 +50,29 @@ It's better to code a pom.xml by hand instead of using an archetype that just ge
   <artifactId>QuickStart</artifactId>
   <version>1.0.0</version>
 </project>
+```
+
+### Add Dependency
+
+```xml
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>1.4.0.RELEASE</version>
+  </parent>
+
+  <dependencies>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+  </dependencies>
+```
+
+### Update Local Repository
+
+```bash
+mvn initialize # compile works, but clean and validate or initialize should do the trick.
 ```
 
 ## Gradle
