@@ -105,6 +105,7 @@ gradle init --type java-library
 
 ```groovy
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 version = '1.0.0'
 
@@ -139,9 +140,6 @@ apply plugin: 'spring-boot'
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url 'http://repo.spring.io/release'   }
-    maven { url 'http://repo.spring.io/milestone' }
-    maven { url 'http://repo.spring.io/snapshot'  }
 }
 
 dependencies {

@@ -52,7 +52,16 @@ This dojo is aimed for programmers that know Java and Maven or Gradle but have n
 
 By default, Spring Boot requires Java 7 and Spring Framework 4.3.2 or above. Explicit build support is provided for Maven (3.2+) and Gradle (1.12+).
 
-## 1.6. Articles
+## 1.7. Architecture
+
+Spring Boot main components are:
+
+- SpringApplication
+- Configuration
+
+Usually an application has 4 layers: Controller, Service, Repository and Domain Model.
+
+## 1.7. Articles
 
 - [Why SpringBoot?](http://sivalabs.in/2016/03/why-springboot/)
 - [How SpringBoot AutoConfiguration magic works?](http://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/)

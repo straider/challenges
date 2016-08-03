@@ -1,4 +1,4 @@
-package com.github.straider.spring.boot;
+package com.github.straider.spring.boot
 
 import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,20 +6,20 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class JavaSpringApplication {
+public class GroovySpringApplication {
 
-    private Logger log = Logger.getLogger( JavaSpringApplication.class );
+    Logger log = Logger.getLogger( GroovySpringApplication.class );
 
-    public static void main( final String[] arguments ) {
+    static main( arguments ) {
         final ConfigurableApplicationContext context = new SpringApplicationBuilder()
-                .sources( JavaSpringApplication.class )
+                .sources( GroovySpringApplication.class )
                 .run( arguments );
 
-        JavaSpringApplication application = context.getBean( JavaSpringApplication.class );
+        GroovySpringApplication application = context.getBean( GroovySpringApplication.class );
         application.start();
     }
 
-    private void start() {
-        log.info( "Hello, World!" );
+    def start() {
+        log.info( 'Hello, World!' );
     }
 }
