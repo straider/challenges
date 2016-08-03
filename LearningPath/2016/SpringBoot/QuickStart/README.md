@@ -55,18 +55,29 @@ It's better to code a pom.xml by hand instead of using an archetype that just ge
 ### Add Dependency
 
 ```xml
-  <parent>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-parent</artifactId>
-      <version>1.4.0.RELEASE</version>
-  </parent>
-
   <dependencies>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>1.4.0.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>1.4.0.RELEASE</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>1.4.0.RELEASE</version>
+      </plugin>
+    </plugins>
+  </build>
 ```
 
 ### Update Local Repository
@@ -107,8 +118,19 @@ gradle wrapper
 ### Add Dependency
 
 ```groovy
+apply plugin: 'spring-boot'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven { url 'http://repo.spring.io/release'   }
+  maven { url 'http://repo.spring.io/milestone' }
+  maven { url 'http://repo.spring.io/snapshot'  }
+}
+
 dependencies {
-  compile( 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE' )
+  compile( 'org.springframework.boot:spring-boot-starter' )
+  testCompile( 'org.springframework.boot:spring-boot-starter-test' )
 }
 ```
 
