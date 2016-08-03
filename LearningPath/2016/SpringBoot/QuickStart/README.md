@@ -55,29 +55,36 @@ It's better to code a pom.xml by hand instead of using an archetype that just ge
 ### Add Dependency
 
 ```xml
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <version>1.4.0.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <version>1.4.0.RELEASE</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.4.0.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>1.4.0.RELEASE</version>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.0.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 ```
 
 ### Update Local Repository
@@ -105,7 +112,7 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 ```
 
@@ -118,19 +125,28 @@ gradle wrapper
 ### Add Dependency
 
 ```groovy
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath( 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE' )
+    }
+}
+
 apply plugin: 'spring-boot'
 
 repositories {
-  mavenLocal()
-  mavenCentral()
-  maven { url 'http://repo.spring.io/release'   }
-  maven { url 'http://repo.spring.io/milestone' }
-  maven { url 'http://repo.spring.io/snapshot'  }
+    mavenLocal()
+    mavenCentral()
+    maven { url 'http://repo.spring.io/release'   }
+    maven { url 'http://repo.spring.io/milestone' }
+    maven { url 'http://repo.spring.io/snapshot'  }
 }
 
 dependencies {
-  compile( 'org.springframework.boot:spring-boot-starter' )
-  testCompile( 'org.springframework.boot:spring-boot-starter-test' )
+    compile( 'org.springframework.boot:spring-boot-starter' )
+    testCompile( 'org.springframework.boot:spring-boot-starter-test' )
 }
 ```
 
