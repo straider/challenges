@@ -53,6 +53,27 @@ public class JavaSpringApplication {
 
 To run this main class just issue the command ``mvn spring-boot:run```.
 
+A minimal Spring Application has a context that result from bootstrapping and launching the main method:
+
+```java
+package com.github.straider.spring.boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class JavaSpringApplication {
+
+    public static void main( final String[] arguments ) {
+        final ApplicationContext context = SpringApplication.run( JavaSpringApplication.class, arguments );
+
+        System.out.println( "Hello, World!" );
+    }
+
+}
+```
+
 ## Gradle
 
 ### build.gradle
@@ -99,3 +120,24 @@ public class JavaSpringApplication {
 ```
 
 To run this main class just issue the command ``gradle bootRun```.
+
+A minimal Spring Application has a context that result from bootstrapping and launching the main method:
+
+```java
+package com.github.straider.spring.boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class JavaSpringApplication {
+
+    public static void main( final String[] arguments ) {
+        final ApplicationContext context = SpringApplication.run( JavaSpringApplication.class, arguments );
+
+        System.out.println( "Hello, World!" );
+    }
+
+}
+```
