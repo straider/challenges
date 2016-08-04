@@ -45,10 +45,17 @@ It's better to code a pom.xml by hand instead of using an archetype that just ge
          xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0
                                http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.straider.spring.boot</groupId>
-  <artifactId>QuickStart</artifactId>
-  <version>1.0.0</version>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.straider.spring.boot</groupId>
+    <artifactId>QuickStart</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
 </project>
 ```
 
@@ -108,9 +115,6 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 
 version = '1.0.0'
-
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
 
 repositories {
     mavenCentral()

@@ -97,6 +97,7 @@ public class JavaSpringApplication {
     private void start() {
         System.out.println( "Hello, World!" );
     }
+
 }
 ```
 
@@ -193,6 +194,7 @@ public class GroovySpringApplication {
     static start() {
         println( 'Hello, World!' );
     }
+
 }
 ```
 

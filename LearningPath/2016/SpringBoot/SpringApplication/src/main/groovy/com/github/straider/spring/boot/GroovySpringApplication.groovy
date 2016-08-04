@@ -22,4 +22,5 @@ public class GroovySpringApplication {
     def start() {
         log.info( 'Hello, World!' );
     }
+
 }

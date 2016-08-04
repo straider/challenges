@@ -22,4 +22,5 @@ public class JavaSpringApplication {
     private void start() {
         log.info( "Hello, World!" );
     }
+
 }
