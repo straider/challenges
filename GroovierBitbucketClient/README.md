@@ -9,12 +9,13 @@ GroovierBitbucketClient
 
 ## Resources
 
-### Groovy and JSON
+### Groovy and Files/Folders
 
-- [Parsing and producing JSON](http://groovy-lang.org/json.html)
-- [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder)
-- [StreamingJsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_streamingjsonbuilder)
-- [JsonUnit](https://github.com/lukas-krecan/JsonUnit) is a Java library that simplifies JSON comparison in unit tests
+### Groovy and HTTP
+
+### Groovy and XML
+
+### Groovy and JSON
 
 ### Groovy and Git
 
@@ -22,55 +23,29 @@ GroovierBitbucketClient
 
 ## JSON
 
-How to work with JSON in Groovy
-
 ### Reading JSON Configuration
 
-Groovy and JSON: Read configuration.json
-- URL
-- Username
-- Password
-- ProjectName
-- LimitResultsPerPage ( defaults to 100 )
-
-### Iterating over JSON Response ( sample )
-
-Groovy and JSON: Parse Bitbucket Server API Response
+### Parsing Bitbucket Server API JSON Responses
 
 ## Git Operations
 
-Groovy with Git ( or with Java and Git )
+### Clone
 
-How to work with Git in Groovy
-- clone
-- pull
-
-API operations
-- List all repositories
-- Clone new repositories
-- Pull all repositories
-- All operations: list + clone + pull
-
-### Clone ( if working repository does not exist )
-
-### Pull ( if working repository does exist )
+### Pull
 
 ## Command-Line Options
-
-- configuration file
-- API operation
 
 # Technologies
 
 ## Groovy
+
+## XML
 
 ## JSON
 
 ## Git
 
 ## BitbucketServer ( REST API )
-
-How to work with Bitbucket Server REST API
 
 - [Stash](https://en.wikipedia.org/wiki/Stash_(software))
 - [Stash](https://www.atlassian.com/software/bitbucket/server) - Stash is now Bitbucket Server
