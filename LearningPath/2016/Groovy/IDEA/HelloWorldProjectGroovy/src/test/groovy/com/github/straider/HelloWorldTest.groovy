@@ -9,4 +9,9 @@ class HelloWorldTest extends GroovyTestCase {
     void tearDown() {
     }
 
+    void testDefaultGreeting() {
+        HelloWorld instance = new HelloWorld()
+        assert instance.greet() == 'Hello, World!'
+    }
+
 }
