@@ -14,4 +14,9 @@ class HelloWorldTest extends GroovyTestCase {
         assert instance.greet() == 'Hello, World!'
     }
 
+    void testGreetingSomeoneByName() {
+        HelloWorld instance = new HelloWorld()
+        assert instance.greet( 'José' ) == 'Hello, José!'
+    }
+
 }
