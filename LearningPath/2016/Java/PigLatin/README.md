@@ -28,6 +28,13 @@ Simple project to explor TDD, Unit Testing and Intgeration testing (using JUnit,
 
 ## Goals & Objectives
 
+- Time each step:
+    - Ant
+    - Maven
+    - Gradle
+    - TDD
+    - BDD
+
 # Miletones
 
 ## Without Regular Expressions
