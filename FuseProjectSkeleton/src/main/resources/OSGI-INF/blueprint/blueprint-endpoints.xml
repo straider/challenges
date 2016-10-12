@@ -1,0 +1,48 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<blueprint xmlns              = "http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cxf          = "http://camel.apache.org/schema/blueprint/cxf"
+           xsi:schemaLocation = "http://www.osgi.org/xmlns/blueprint/v1.0.0   http://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+                                 http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/cxf-blueprint.xsd">
+
+    <cxf:cxfEndpoint id = "[SERVICE_ID]"
+                     address = "{{[SERVICE_URL]}}"
+                     serviceClass = "uk.co.mo.fusebox.renameme.endpoint.[SERVICE_CLASS]">
+        <cxf:outInterceptors>
+            <bean id = "loggingOutInterceptor" class = "org.apache.cxf.interceptor.LoggingOutInterceptor" />
+        </cxf:outInterceptors>
+        <cxf:inInterceptors>
+            <bean id = "loggingInInterceptor" class = "org.apache.cxf.interceptor.LoggingInInterceptor" />
+        </cxf:inInterceptors>
+    </cxf:cxfEndpoint>
+
+    <cxf:rsClient id = "[SERVICE_ID]"
+                  address = "{{[SERVICE_URL]}}"
+                  serviceClass = "uk.co.mo.fusebox.renameme.endpoint.[SERVICE_CLASS]"
+                  loggingFeatureEnabled = "true">
+        <cxf:providers>
+            <bean class = "com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+        </cxf:providers>
+        <cxf:outInterceptors>
+            <bean id = "loggingOutInterceptor" class = "org.apache.cxf.interceptor.LoggingOutInterceptor" />
+        </cxf:outInterceptors>
+        <cxf:inInterceptors>
+            <bean id = "oggingInInterceptor" class = "org.apache.cxf.interceptor.LoggingInInterceptor" />
+        </cxf:inInterceptors>
+    </cxf:rsClient>
+
+    <cxf:rsServer id = "[SERVICE_ID]"
+                  address = "{{[SERVICE_URL]}}"
+                  serviceClass = "uk.co.mo.fusebox.renameme.endpoint.[SERVICE_CLASS]">
+        <cxf:outInterceptors>
+            <bean id = "loggingOutInterceptor" class = "org.apache.cxf.interceptor.LoggingOutInterceptor" />
+        </cxf:outInterceptors>
+        <cxf:inInterceptors>
+            <bean id = "loggingInInterceptor" class = "org.apache.cxf.interceptor.LoggingInInterceptor" />
+        </cxf:inInterceptors>
+        <cxf:providers>
+            <bean class = "com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+        </cxf:providers>
+    </cxf:rsServer>
+
+</blueprint>

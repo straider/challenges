@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<blueprint xmlns              = "http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation = "http://www.osgi.org/xmlns/blueprint/v1.0.0 http://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <bean id = "sessionFactoryBuilder" class = "uk.co.mo.fusebox.common.database.SqlSessionFactoryBuilder" />
+
+    <bean id = "enterpriseDataSource" class = "com.jnetdirect.jsql.JSQLDataSource">
+        <property name = "databaseName" value = "enterprise"             />
+        <property name = "URL"          value = "${enterprise.url}"      />
+        <property name = "user"         value = "${enterprise.username}" />
+        <property name = "password"     value = "${enterprise.password}" />
+    </bean>
+
+    <bean id = "enterpriseSqlSessionFactory" class = "org.apache.ibatis.session.SqlSessionFactory" factory-ref = "sessionFactoryBuilder" factory-method = "buildSessionFactory">
+        <argument ref = "enterpriseDataSource" />
+        <argument value = "[MAPPER].xml"  />
+        <argument value = "[ROUTE_CLASS]" />
+    </bean>
+
+    <bean id = "enterpriseMyBatis" class = "org.apache.camel.component.mybatis.MyBatisComponent">
+        <property name = "sqlSessionFactory" ref = "enterpriseSqlSessionFactory" />
+    </bean>
+
+    <bean id = "odsDataSource" class = "oracle.jdbc.pool.OracleConnectionPoolDataSource">
+        <property name = "URL"      value = "jdbc:oracle:thin:@${ods.datasource.host}:${ods.datasource.port}/${ods.datasource.name}" />
+        <property name = "user"     value = "${ods.datasource.username}" />
+        <property name = "password" value = "${ods.datasource.password}" />
+    </bean>
+
+    <bean id = "odsSqlSessionFactory" class = "org.apache.ibatis.session.SqlSessionFactory" factory-ref = "sessionFactoryBuilder" factory-method = "buildSessionFactory">
+        <argument ref = "odsDataSource" />
+        <argument value = "[MAPPER].xml"  />
+        <argument value = "[ROUTE_CLASS]" />
+    </bean>
+
+    <bean id = "odsMyBatis" class = "org.apache.camel.component.mybatis.MyBatisComponent">
+        <property name = "sqlSessionFactory" ref = "odsSqlSessionFactory" />
+    </bean>
+
+</blueprint>

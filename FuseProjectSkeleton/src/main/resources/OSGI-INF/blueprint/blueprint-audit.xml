@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<blueprint xmlns              = "http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation = "http://www.osgi.org/xmlns/blueprint/v1.0.0 http://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <bean id = "auditTracerProcessor" class = "uk.co.mo.fusebox.common.processors.AuditTracerProcessor">
+        <property name = "auditInboundQueue" value = "${queues.audit.in}" />
+        <property name = "excludedFromEndpointsList">
+            <list>
+                <value>direct:*</value>
+                <value>seda:*</value>
+                <value>cxf:bean:*</value>
+                <value>activemq:*</value>
+            </list>
+        </property>
+        <property name = "outboundComponentPropertiesList">
+            <list>
+                <value>logAudit:*</value>
+                <value>seda:*</value>
+                <value>cxfrs:*</value>
+                <value>MASTER:*</value>
+                <value>ftp:*</value>
+            </list>
+        </property>
+        <property name = "businessKeyNameList">
+            <list>
+                <value>UUID</value>
+                <value>ARN</value>
+            </list>
+        </property>
+    </bean>
+
+</blueprint>
