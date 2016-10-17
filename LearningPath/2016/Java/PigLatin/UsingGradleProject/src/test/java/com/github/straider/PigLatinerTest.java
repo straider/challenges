@@ -71,4 +71,12 @@ public class PigLatinerTest {
         Assert.assertEquals( "EEsechay", translation );
     }
 
+    @Test
+    public void translationOfLowercaseWordWithoutVowels() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "sky" );
+
+        Assert.assertEquals( "sky", translation );
+    }
+
 }
