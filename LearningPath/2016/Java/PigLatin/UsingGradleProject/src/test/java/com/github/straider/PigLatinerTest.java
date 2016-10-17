@@ -95,4 +95,17 @@ public class PigLatinerTest {
         Assert.assertEquals( "Sky", translation );
     }
 
+    @Test
+    public void translationOfSingleVowel() throws Exception {
+        PigLatiner translator = new PigLatiner();
+
+        String translation;
+
+        translation = translator.translate( "I" );
+        Assert.assertEquals( "Iway", translation );
+
+        translation = translator.translate( "a" );
+        Assert.assertEquals( "away", translation );
+    }
+
 }
