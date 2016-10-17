@@ -47,4 +47,12 @@ public class StringManipulatorTest {
         Assert.assertEquals( "Index should be 2", 2, manipulator.getIndexOfFirstVowel() );
     }
 
+    @Test
+    public void getIndexOfFirstVowelFromEmptyString() throws Exception {
+        StringManipulator manipulator;
+
+        manipulator= new StringManipulator( "" );
+        Assert.assertEquals( -1, manipulator.getIndexOfFirstVowel() );
+    }
+
 }
