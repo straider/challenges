@@ -33,4 +33,18 @@ public class StringManipulatorTest {
         Assert.assertEquals( "Camelcase", manipulator.toTitlecase() );
     }
 
+    @Test
+    public void getIndexOfFirstVowel() throws Exception {
+        StringManipulator manipulator;
+
+        manipulator= new StringManipulator( "apple" );
+        Assert.assertEquals( "Index should be 0", 0, manipulator.getIndexOfFirstVowel() );
+
+        manipulator = new StringManipulator( "hello" );
+        Assert.assertEquals( "Index should be 1", 1, manipulator.getIndexOfFirstVowel() );
+
+        manipulator = new StringManipulator( "cheese" );
+        Assert.assertEquals( "Index should be 2", 2, manipulator.getIndexOfFirstVowel() );
+    }
+
 }
