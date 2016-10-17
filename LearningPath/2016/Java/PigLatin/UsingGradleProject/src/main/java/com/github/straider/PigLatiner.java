@@ -8,16 +8,19 @@ public class PigLatiner {
         final String reword;
         final String suffix;
 
-        final String firstLetter = word.substring( 0, 1 ).toLowerCase();
-        if ( VOWELS.contains( firstLetter ) ) {
+        int index = new StringManipulator( word ).getIndexOfFirstVowel();
+
+        if ( index == 0 ) {
             suffix = "way";
             reword = word;
         } else {
             suffix = "ay";
+
+            final String cutConsonants = word.substring( 0, index ).toLowerCase();
             if ( Character.isUpperCase( word.charAt( 0 ) ) ) {
-                reword = new StringManipulator( word.substring( 1 ) ).toTitlecase() + firstLetter;
+                reword = new StringManipulator( word.substring( index ) ).toTitlecase() + cutConsonants;
             } else {
-                reword = word.substring( 1 ) + firstLetter;
+                reword = word.substring( index ) + cutConsonants;
             }
         }
 
