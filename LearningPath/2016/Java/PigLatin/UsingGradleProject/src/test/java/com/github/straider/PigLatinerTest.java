@@ -20,7 +20,15 @@ public class PigLatinerTest {
         PigLatiner translator = new PigLatiner();
         final String translation = translator.translate( "apple" );
 
-        Assert.assertEquals( "apple -> appleway", translation, "appleway" );
+        Assert.assertEquals( translation, "appleway" );
+    }
+
+    @Test
+    public void translationOfTitlecaseWordStartingWithVowel() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "Apple" );
+
+        Assert.assertEquals( translation, "Appleway" );
     }
 
 }
