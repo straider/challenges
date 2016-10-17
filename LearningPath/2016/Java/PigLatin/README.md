@@ -8,15 +8,17 @@ Simple project to explore TDD, Unit Testing and Integration Testing (using JUnit
     - Apple    -> Appleway
     - hello    -> ellohay
     - Hello    -> Ellohay
+    - José     -> Oséjay
     - chest    -> estchay
     - CheEse   -> EEsechay
-    - niGht    -> iGhtnay
-    - quiet    -> ietquay
     - sky      -> sky
     - Sky      -> Sky
     - SKY      -> SKY
     - I        -> Iway
-    - ""       -> ?
+    - a        -> away
+    - ""       -> ""
+    -          -> ""
+    - quiet    -> ietquay
     - half-way -> alfhay-ayway
 - PigLatinerSpec (borrowed from BDD, Spock, ... )
     - Mock user input and translate a phrase, word by word
