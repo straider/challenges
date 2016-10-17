@@ -5,6 +5,10 @@ public class PigLatiner {
     private static final String VOWELS = "aeiou";
 
     public String translate( String word ) {
+        if ( word == null ) {
+            return null;
+        }
+
         final String reword;
         final String suffix;
 

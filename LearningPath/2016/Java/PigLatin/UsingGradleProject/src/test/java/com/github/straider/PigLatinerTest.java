@@ -121,7 +121,7 @@ public class PigLatinerTest {
         PigLatiner translator = new PigLatiner();
         final String translation = translator.translate( null );
 
-        Assert.assertEquals( "", translation );
+        Assert.assertNull( translation );
     }
 
 }
