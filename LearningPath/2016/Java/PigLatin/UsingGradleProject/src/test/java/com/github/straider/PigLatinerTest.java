@@ -55,4 +55,12 @@ public class PigLatinerTest {
         Assert.assertEquals( "Oséjay", translation );
     }
 
+    @Test
+    public void translationOfLowercaseWordStartingWithConsonants() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "chest" );
+
+        Assert.assertEquals( "estchay", translation );
+    }
+
 }
