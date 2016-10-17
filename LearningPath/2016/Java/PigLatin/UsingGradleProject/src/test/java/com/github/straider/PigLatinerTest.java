@@ -47,4 +47,12 @@ public class PigLatinerTest {
         Assert.assertEquals( "Ellohay", translation );
     }
 
+    @Test
+    public void translationOfTitlecaseWordStartingWithConsonantAndHavingAccentedCharacters() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "José" );
+
+        Assert.assertEquals( "Oséjay", translation );
+    }
+
 }
