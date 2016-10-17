@@ -20,7 +20,7 @@ public class PigLatinerTest {
         PigLatiner translator = new PigLatiner();
         final String translation = translator.translate( "apple" );
 
-        Assert.assertEquals( translation, "appleway" );
+        Assert.assertEquals( "appleway", translation );
     }
 
     @Test
@@ -28,7 +28,15 @@ public class PigLatinerTest {
         PigLatiner translator = new PigLatiner();
         final String translation = translator.translate( "Apple" );
 
-        Assert.assertEquals( translation, "Appleway" );
+        Assert.assertEquals( "Appleway", translation );
+    }
+
+    @Test
+    public void translationOfLowercaseWordStartingWithConsonant() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "hello" );
+
+        Assert.assertEquals( "ellohay", translation );
     }
 
 }
