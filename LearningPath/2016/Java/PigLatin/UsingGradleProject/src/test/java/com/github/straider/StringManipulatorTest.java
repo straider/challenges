@@ -30,7 +30,7 @@ public class StringManipulatorTest {
     @Test
     public void convertToTitlecaseWithMixedcaseCharacters() throws Exception {
         StringManipulator manipulator = new StringManipulator( "camelCase" );
-        Assert.assertEquals( "Camelcase", manipulator.toTitlecase() );
+        Assert.assertEquals( "CamelCase", manipulator.toTitlecase() );
     }
 
     @Test

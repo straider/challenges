@@ -11,7 +11,7 @@ public class StringManipulator {
     }
 
     public String toTitlecase() {
-        return string.substring( 0, 1 ).toUpperCase() + string.substring( 1 ).toLowerCase();
+        return string.substring( 0, 1 ).toUpperCase() + string.substring( 1 );
     }
 
     public int getIndexOfFirstVowel() {
@@ -26,4 +26,5 @@ public class StringManipulator {
 
         return index;
     }
+
 }
