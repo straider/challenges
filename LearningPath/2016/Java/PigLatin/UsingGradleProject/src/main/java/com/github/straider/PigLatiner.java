@@ -10,7 +10,10 @@ public class PigLatiner {
 
         int index = new StringManipulator( word ).getIndexOfFirstVowel();
 
-        if ( index == 0 ) {
+        if ( index < 0 ) {
+            suffix = "";
+            reword = word;
+        } else if ( index == 0 ) {
             suffix = "way";
             reword = word;
         } else {
