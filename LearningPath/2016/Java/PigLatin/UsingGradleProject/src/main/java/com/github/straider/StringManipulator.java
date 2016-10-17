@@ -15,7 +15,7 @@ public class StringManipulator {
     }
 
     public int getIndexOfFirstVowel() {
-        int index = 0;
+        int index = -1;
 
         for ( int at = 0; at < string.length(); at++ ) {
             if ( VOWELS.contains( Character.toString( string.charAt( at ) ).toLowerCase() ) ) {
