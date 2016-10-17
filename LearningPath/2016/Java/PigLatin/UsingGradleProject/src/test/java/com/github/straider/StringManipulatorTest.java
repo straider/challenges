@@ -21,4 +21,10 @@ public class StringManipulatorTest {
         Assert.assertEquals( "Hello", manipulator.toTitlecase() );
     }
 
+    @Test
+    public void convertToTitlecaseWithAccentedCharacters() throws Exception {
+        StringManipulator manipulator = new StringManipulator( "água" );
+        Assert.assertEquals( "Água", manipulator.toTitlecase() );
+    }
+
 }
