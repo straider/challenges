@@ -108,4 +108,12 @@ public class PigLatinerTest {
         Assert.assertEquals( "away", translation );
     }
 
+    @Test
+    public void translationOfEmptyString() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "" );
+
+        Assert.assertEquals( "", translation );
+    }
+
 }
