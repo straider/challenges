@@ -27,4 +27,10 @@ public class StringManipulatorTest {
         Assert.assertEquals( "Água", manipulator.toTitlecase() );
     }
 
+    @Test
+    public void convertToTitlecaseWithMixedcaseCharacters() throws Exception {
+        StringManipulator manipulator = new StringManipulator( "camelCase" );
+        Assert.assertEquals( "Camelcase", manipulator.toTitlecase() );
+    }
+
 }
