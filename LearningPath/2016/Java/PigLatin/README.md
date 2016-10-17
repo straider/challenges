@@ -1,7 +1,7 @@
-PigLatin
+﻿PigLatin
 ========
 
-Simple project to explor TDD, Unit Testing and Intgeration testing (using JUnit, Mockito and PowerMockito).
+Simple project to explore TDD, Unit Testing and Integration Testing (using JUnit, Mockito and PowerMockito).
 - PigLatiner
 - PigLatinerTest
     - apple    -> appleway
@@ -9,7 +9,7 @@ Simple project to explor TDD, Unit Testing and Intgeration testing (using JUnit,
     - hello    -> ellohay
     - Hello    -> Ellohay
     - chest    -> estchay
-    - ChEese   -> Eesechay
+    - CheEse   -> EEsechay
     - niGht    -> iGhtnay
     - quiet    -> ietquay
     - sky      -> sky
