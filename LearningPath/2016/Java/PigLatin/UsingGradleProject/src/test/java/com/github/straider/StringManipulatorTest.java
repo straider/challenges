@@ -1,7 +1,9 @@
 package com.github.straider;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 public class StringManipulatorTest {
 
@@ -11,6 +13,12 @@ public class StringManipulatorTest {
 
     @After
     public void tearDown() throws Exception {
+    }
+
+    @Test
+    public void convertToTitlecase() throws Exception {
+        StringManipulator manipulator = new StringManipulator( "hello" );
+        Assert.assertEquals( "Hello", manipulator.toTitlecase() );
     }
 
 }
