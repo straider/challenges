@@ -1,15 +1,26 @@
 package com.github.straider;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-public class PigLatinerTest extends TestCase {
+public class PigLatinerTest {
 
-    @org.junit.Before
+    @Before
     public void setUp() throws Exception {
     }
 
-    @org.junit.After
+    @After
     public void tearDown() throws Exception {
+    }
+
+    @Test
+    public void translationOfLowercaseWordStartingWithVowel() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "apple" );
+
+        Assert.assertEquals( "appleway", translation );
     }
 
 }
