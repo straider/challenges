@@ -39,4 +39,12 @@ public class PigLatinerTest {
         Assert.assertEquals( "ellohay", translation );
     }
 
+    @Test
+    public void translationOfTitlecaseWordStartingWithConsonant() throws Exception {
+        PigLatiner translator = new PigLatiner();
+        final String translation = translator.translate( "Hello" );
+
+        Assert.assertEquals( "Ellohay", translation );
+    }
+
 }
