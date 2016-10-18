@@ -14,7 +14,11 @@ public class PigLatiner {
             reword = word;
         } else {
             suffix = "ay";
-            reword = word.substring( 1 ) + firstLetter;
+            if ( Character.isUpperCase( word.charAt( 0 ) ) ) {
+                reword = word.substring( 1, 2 ).toUpperCase() + word.substring( 2 ) + firstLetter;
+            } else {
+                reword = word.substring( 1 ) + firstLetter;
+            }
         }
 
         return String.format( "%s%s", reword, suffix );
