@@ -8,13 +8,13 @@ public class PigLatiner {
         final String reword;
         final String suffix;
 
-        final Character firstLetter = word.charAt( 0 );
-        if ( VOWELS.contains( firstLetter.toString() ) ) {
+        final String firstLetter = word.substring( 1, 1 );
+        if ( VOWELS.contains( firstLetter ) ) {
             suffix = "way";
             reword = word;
         } else {
             suffix = "ay";
-            reword = word.substring( 1 ) + firstLetter;
+            reword = word.substring( 1 ) + firstLetter.toLowerCase();
         }
 
         return String.format( "%s%s", reword, suffix );
