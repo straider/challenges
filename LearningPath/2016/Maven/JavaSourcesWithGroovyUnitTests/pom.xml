@@ -31,6 +31,7 @@
         <groovy.eclipse.compiler.version>2.9.2-01</groovy.eclipse.compiler.version>
         <groovy.eclipse.batch.version>2.4.3-01</groovy.eclipse.batch.version>
         <junit.version>4.12</junit.version>
+        <spock.version>1.0-groovy-2.4</spock.version>
     </properties>
 
     <dependencies>
@@ -46,6 +47,19 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.codehaus.groovy</groupId>
+                    <artifactId>groovy-all</artifactId>
+                </exclusion>
+            </exclusions>
             <scope>test</scope>
         </dependency>
 
@@ -172,6 +186,7 @@
                         <configuration>
                             <includes>
                                 <include>**/*Test.groovy</include>
+                                <include>**/*Spec.class</include>
                             </includes>
                         </configuration>
                     </execution>
