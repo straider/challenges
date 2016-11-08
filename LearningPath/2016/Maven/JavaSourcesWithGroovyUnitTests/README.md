@@ -17,4 +17,4 @@ Only suitable for projects with unit tests that have following folder structure:
     - main/resources/ - with production resources
     - test/groovy/ - with testing sources
 
-*Note*: unit tests are in Groovy and it only uses Maven SureFire Plugin.
+**Note**: unit tests are in Groovy and it only uses [Maven SureFire Plugin](http://maven.apache.org/components/surefire/maven-surefire-plugin/).
