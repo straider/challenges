@@ -1,8 +1,9 @@
 {
-    "hostname" : [HOSTNAME]      ,
-    "port"     : [PORT_NUMBER]   ,
-    "project"  : [PROJECTNAME]   ,
-    "username" : [USERNAME]      ,
-    "password" : [PASSWORD]      ,
-    "folder"   : [WORKING_FOLDER]
+    "folder"   : "[WORKING_FOLDER]",
+    "project"  : "[PROJECTNAME]"   ,
+    "branch"   : "[BRANCH_NAME]"   ,
+    "hostname" : "[HOSTNAME]"      ,
+    "port"     : "[PORT_NUMBER]"   ,
+    "username" : "[USERNAME]"      ,
+    "password" : "[PASSWORD]"
 }
