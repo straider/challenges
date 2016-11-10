@@ -6,8 +6,8 @@ import org.junit.runner.RunWith
 
 @RunWith( Cucumber.class )
 @CucumberOptions(
-        glue     = 'com.github.straider.maven.example',
-        features = 'classpath:resources/features/'
+        //glue     = 'com.github.straider.maven.example',
+        features = 'classpath:features/'
 )
 class IntegrationRunner {
 }
