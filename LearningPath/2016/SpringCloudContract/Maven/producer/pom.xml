@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.straider.cdc</groupId>
+        <artifactId>spring-cloud-contract-example</artifactId>
+        <version>1.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>spring-cloud-contract-example-producer</artifactId>
+    <version>1.0.0</version>
+    <name>Spring Cloud Contract Example Producer</name>
+    <description>Spring Cloud Contract Example of HTTP Producer</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/SpringCloudContract</url>
+
+    <packaging>jar</packaging>
+
+</project>
