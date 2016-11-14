@@ -21,4 +21,24 @@
 
     <packaging>jar</packaging>
 
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <baseClassForTests>com.github.straider.cdc.ProducerTest</baseClassForTests>
+                    <!--
+                    <packageWithBaseClasses>com.github.straider.cdc</packageWithBaseClasses>
+                    !-->
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
 </project>

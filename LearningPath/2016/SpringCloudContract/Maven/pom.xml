@@ -23,7 +23,7 @@
     </parent>
 
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
@@ -128,7 +128,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <!--
-                    <baseClassForTests>com.github.straider.cdc.</baseClassForTests>
+                    <baseClassForTests>com.github.straider.cdc.ProducerTest</baseClassForTests>
                     <packageWithBaseClasses>com.github.straider.cdc</packageWithBaseClasses>
                     !-->
                 </configuration>
