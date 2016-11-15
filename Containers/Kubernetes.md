@@ -1,4 +1,4 @@
-:: Containers and Microservices :: Kubernetes ::
+﻿:: Containers and Microservices :: Kubernetes ::
 ================================================
 
 # Overview
@@ -30,17 +30,16 @@
 - [Scaling Docker with Kubernetes](https://www.infoq.com/articles/scaling-docker-with-kubernetes)
 - [Google Create Kubernetes-based VM/Docker Image Building Framework](https://www.infoq.com/news/2015/06/gce-image-builder)
 - [Recipes for Deploying Java EE Apps with Docker and Kubernetes](https://www.infoq.com/news/2015/03/gupta-javaee-docker-kubernetes)
+- [Demystifying Kubernetes: the tool to manage Google-scale workloads in the cloud](http://www.computerweekly.com/feature/Demystifying-Kubernetes-the-tool-to-manage-Google-scale-workloads-in-the-cloud)
 - [Container Orchestration Tools: Compare Kubernetes vs Docker Swarm](https://platform9.com/blog/compare-kubernetes-vs-docker-swarm/)
 - [Docker Clustering Tools Compared: Kubernetes vs Docker Swarm](https://technologyconversations.com/2015/11/04/docker-clustering-tools-compared-kubernetes-vs-docker-swarm/)
+- [Docker vs. Kubernetes](http://www.zymr.com/docker-vs-kubernetes/)
+- [Kubernetes vs. Swarm: Which Container Orchestrator is Best for You?](http://containerjournal.com/2016/04/07/kubernetes-vs-swarm-container-orchestrator-best/)
+- [Docker Swarm beats Kubernetes? Not so fast](http://www.infoworld.com/article/3042573/application-virtualization/docker-swarm-beats-kubernetes-not-so-fast.html)
+- [Docker 'swarm mode' aims to steal Kubernetes' thunder](http://www.infoworld.com/article/3086064/application-virtualization/docker-swarm-mode-is-out-to-steal-kubernetes-thunder.html)
+- [What does the new Docker Swarm announement mean for Kubernetes?](http://preilly.me/2016/07/17/what-does-the-new-docker-swarm-announement-mean-for-kubernetes/)
 - [Hands on orchestration: Docker 1.12 Swarm vs Kubernetes](https://torusware.com/blog/2016/09/hands-on-orchestration-docker-1-12-swarm-vs-kubernetes/)
+- [Understanding Cattle, Swarm and Kubernetes in Rancher](http://rancher.com/cattle-swarm-kubernetes-side-side/)
 - [Swarm v. Fleet v. Kubernetes v. Mesos](https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos)
-
-- http://www.zymr.com/docker-vs-kubernetes/
-- http://containerjournal.com/2016/04/07/kubernetes-vs-swarm-container-orchestrator-best/
-- http://www.infoworld.com/article/3042573/application-virtualization/docker-swarm-beats-kubernetes-not-so-fast.html
-- http://www.infoworld.com/article/3086064/application-virtualization/docker-swarm-mode-is-out-to-steal-kubernetes-thunder.html
-- http://preilly.me/2016/07/17/what-does-the-new-docker-swarm-announement-mean-for-kubernetes/
-- http://rancher.com/cattle-swarm-kubernetes-side-side/
-- http://stackoverflow.com/questions/33946144/what-are-the-differences-between-kubernetes-pods-and-docker-composes-composur
-- http://thenewstack.io/a-brief-comparison-of-mesos-and-kubernetes/
-- http://www.computerweekly.com/feature/Demystifying-Kubernetes-the-tool-to-manage-Google-scale-workloads-in-the-cloud
+- [Kubernetes, Mesos, and Swarm: Comparing the Rancher Orchestration Engine Options](http://rancher.com/comparing-rancher-orchestration-engine-options/)
+- [A Brief Comparison of Mesos and Kubernetes](http://thenewstack.io/a-brief-comparison-of-mesos-and-kubernetes/)

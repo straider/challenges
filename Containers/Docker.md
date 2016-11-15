@@ -1,9 +1,9 @@
-:: Containers and Microservices :: Docker ::
+ï»¿:: Containers and Microservices :: Docker ::
 ============================================
 
 # Overview
 
-- [Docker](https://www.docker.com/) containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
+- [Docker](https://www.docker.com/) containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries - anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
 - [docker](https://github.com/docker/docker) @ GitHub
 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox) is an installer for quick setup and launch of a Docker environment on older Mac and Windows systems that do not meet the requirements of the new Docker for Mac and Docker for Windows apps
 - [Get started with Docker](https://docs.docker.com/engine/getstarted/)
@@ -58,7 +58,7 @@ There are several flavours of Docker, depending on the host operating system:
     - [Part 8: Docker Remote API](http://blog.flux7.com/blogs/docker/docker-tutorial-series-part-8-docker-remote-api)
     - [Part 9: 10 Docker Remote API Commands for Images](http://blog.flux7.com/blogs/docker/docker-tutorial-series-part-9-10-docker-remote-api-commands-for-images)
 - [Learn Docker & Containers using Interactive Browser-Based Labs](https://www.katacoda.com/courses/docker)
-- [WordPress developer’s intro to Docker](https://codeable.io/wordpress-developers-intro-docker/)
+- [WordPress developer's intro to Docker](https://codeable.io/wordpress-developers-intro-docker/)
 - [How To Build a Local Development Environment Using Docker](http://www.masterzendframework.com/docker-development-environment/)
 - [Intro to Docker](https://thoughtbot.com/upcase/videos/intro-to-docker)
 - [To Use Physical Or To Use Virtual: That Is The Container Deployment Question](https://blog.docker.com/2016/04/physical-virtual-container-deployment/)
@@ -69,7 +69,7 @@ There are several flavours of Docker, depending on the host operating system:
 - [Docker: Using Linux Containers to Support Portable Application Deployment](https://www.infoq.com/articles/docker-containers)
 - [Containers Are Not VMs](https://blog.docker.com/2016/03/containers-are-not-vms/)
 - [Containers And VMs Together](https://blog.docker.com/2016/04/containers-and-vms-together/)
-- [There’s Application Virtualization And There’s Docker](https://blog.docker.com/2016/04/app-virtualization-docker/)
+- [There's Application Virtualization And There's Docker](https://blog.docker.com/2016/04/app-virtualization-docker/)
 - [So, When Do You Use A Container Or VM?](https://blog.docker.com/2016/05/vm-or-containers/)
 - [Architecting Containers Part 1: Why Understanding User Space vs. Kernel Space Matters](http://rhelblog.redhat.com/2015/07/29/architecting-containers-part-1-user-space-vs-kernel-space/)
 - [Architecting Containers Part 2: Why the User Space Matters](http://rhelblog.redhat.com/2015/09/17/architecting-containers-part-2-why-the-user-space-matters-2/)
@@ -93,24 +93,25 @@ There are several flavours of Docker, depending on the host operating system:
 
 > The Docker Toolbox setup does not run Docker natively on Windows. Instead, it uses docker-machine to create and attach to a virtual machine (VM). This machine is a Linux VM that hosts Docker for you on your Windows system. To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
+[Using Docker on Windows](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Using_Docker_Machine_On_Windows)
+> Docker is great but it is not easy to use on Windows. Indeed, Docker containers are built on Linux. As a result, Docker needs a Linux machine to run. For Windows, the way to use Docker so far was to install a specific Linux VM called Boot2Docker, then log into that VM and proceed with Docker. 
+
+[How to use Docker on Windows](https://blog.tutum.co/2014/11/05/how-to-use-docker-on-windows/)
+> Since we aren't using Linux, it is not yet possible to use Docker natively. We are going to need some sort of lightweight VM that emulates a Docker Host. This is what Boot2docker is for. Basically, Boot2Docker will encapsulate our Docker server into a virtual machine and let us access it through the Windows Docker client.
+
+[Docker Engine Installation on Windows](https://docs.docker.com/v1.11/engine/installation/windows/)
+> Release 1.11 of Docker deprecates the Boot2Docker command line in favor of Docker Machine. Use the Docker Toolbox to install Docker Machine as well as the other Docker tools.
+
+> Note: If you have Docker hosts running and you don't wish to do a Docker Toolbox installation, you can install the docker.exe using the unofficial Windows package manager Chocolatey. For information on how to do this, see [Docker package on Chocolatey](http://chocolatey.org/packages/docker).
+
+
 #### Requirements
 
 - Make sure Windows is 64 bit;
-- Make sure virtualization is enabled, using [Microsoft® Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
+- Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
 - [VirtualBox](https://www.virtualbox.org/) 5.1.8, on C:\Hosting\VirtualBox\ (always trust software from Oracle Corporation);
 - [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
 - [Git for Windows](https://git-for-windows.github.io/) 2.10.2 64 bit, AKA msysGit, on C:\Hosting\Git\.
-
-https://www.ibm.com/developerworks/community/blogs/jfp/entry/Using_Docker_Machine_On_Windows
-> Docker is great but it is not easy to use on Windows. Indeed, Docker containers are built on Linux. As a result, Docker needs a Linux machine to run. For Windows, the way to use Docker so far was to install a specific Linux VM called Boot2Docker, then log into that VM and proceed with Docker. 
-
-https://blog.tutum.co/2014/11/05/how-to-use-docker-on-windows/
-> Since we aren’t using Linux, it is not yet possible to use Docker natively. We are going to need some sort of lightweight VM that emulates a Docker Host. This is what Boot2docker is for. Basically, Boot2Docker will encapsulate our Docker server into a virtual machine and let us access it through the Windows Docker client.
-
-https://docs.docker.com/v1.11/engine/installation/windows/
-> Release 1.11 of Docker deprecates the Boot2Docker command line in favor of Docker Machine. Use the Docker Toolbox to install Docker Machine as well as the other Docker tools.
-
-> Note: If you have Docker hosts running and you don’t wish to do a Docker Toolbox installation, you can install the docker.exe using the unofficial Windows package manager Chocolatey. For information on how to do this, see [Docker package on Chocolatey](http://chocolatey.org/packages/docker).
 
 #### Docker Toolbox
 
