@@ -30,8 +30,11 @@
 
 ## Articles
 
+- [Contract Versioning, Compatibility and Composability](https://www.infoq.com/articles/contract-versioning-comp2)
 - [Consumer-Driven Contracts: A Service Evolution Pattern](http://martinfowler.com/articles/consumerDrivenContracts.html)
+- [Accurest Becomes Part of the Spring Cloud Contract](https://dzone.com/articles/accurest-becomes-part-of-the-spring-cloud-contract)
 - [Spring Cloud Contract 1.0.0.RELEASE Available!](http://toomuchcoding.com/blog/2016/09/24/spring-cloud-contract-1-dot-0-0-dot-release-available/)
+- [Consumer Driven Contracts and Your Microservice Architecture](http://www.slideshare.net/MarcinGrzejszczak/consumer-driven-contracts-and-your-microservice-architecture-67641511)
 
 # Milestones
 
