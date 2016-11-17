@@ -3,7 +3,7 @@
 
 # Overview
 
-- [OpenShift Application Platform](https://www.openshift.org/): Origin is a distribution of Kubernetes optimized for enterprise application development and deployment, used by OpenShift 3 and Atomic Enterprise. Origin embeds Kubernetes and adds additional functionality to offer a simple, powerful, and easy-to-approach developer and operator experience for building applications in containers;
+- [OpenShift Application Platform](https://www.openshift.org/):
 - [OpenShift Origin](https://github.com/openshift/origin) is a distribution of Kubernetes optimized for continuous application development and multi-tenant deployment. Origin adds developer and operations-centric tools on top of Kubernetes to enable rapid application development, easy deployment and scaling, and long-term lifecycle maintenance for small and large teams;
 - [Getting Started](https://docs.openshift.org/latest/getting_started/index.html)
 - [Advanced Installation](https://docs.openshift.org/latest/install_config/install/advanced_install.html)
@@ -64,19 +64,28 @@
 
 - Make sure Windows is 64 bit;
 - Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
-- [VirtualBox](https://www.virtualbox.org/) 5.0.28, on C:\Hosting\VirtualBox\ (always trust software from Oracle Corporation);
-- [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
-- [Cygwin](https://www.cygwin.com/) / [MSYS2](https://msys2.github.io/) / [MinGW](http://www.mingw.org/) - required for sftp-server.
+- Download [openshift-origin-client-tools-v1.3.1-*.zip](https://github.com/openshift/origin/releases/download/v1.3.1/openshift-origin-client-tools-v1.3.1-dad658de7465ba8a234a4fb40b5b446a45a4cee1-windows.zip).
 
 ### OpenShift Client Tools
 
 Just unzip the openshift-origin-client-tools-v1.3.1-*.zip to a folder, like C:\Hosting\OpenShift Client Tools\ and add it to the PATH.
 
-### Container Development Kit
+### OpenShift Container Platform 3.2
 
-Just unzip the cdk-2.2.0.zip to a folder, like C:\DevKits\ContainerDevelopmentKit-2.2.0\.
+#### Requirements
 
-### Vagrant Plugins
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28, on C:\Hosting\VirtualBox\ (always trust software from Oracle Corporation);
+- [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
+- [Cygwin](https://www.cygwin.com/) / [MSYS2](https://msys2.github.io/) / [MinGW](http://www.mingw.org/) - required for sftp-server;
+- Download [cdk-2.2.0.zip](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip);
+- Download [RHEL 7.2 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box) - size is 914 MB.
+
+#### Container Development Kit
+
+- Unzip the cdk-2.2.0.zip to a folder, like C:\DevKits\ContainerDevelopmentKit-2.2.0\;
+- Put the RHEL 7.2 Vagrant Box for VirtualBox inside the sub-folder components/rhel/ of the CDK.
+
+#### Vagrant Red Hat Plugins
 
 Issue the following command on a Cygwin terminal to install required Vagrant Plugins that support Red Hat Subscription Management and other features:
 
@@ -84,7 +93,7 @@ Issue the following command on a Cygwin terminal to install required Vagrant Plu
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 ```
 
-### Vagrant Box
+#### Vagrant Box
 
 Issue the following command on a Cygwin terminal to add cdkv2 Vagrant Box:
 
@@ -92,7 +101,7 @@ Issue the following command on a Cygwin terminal to add cdkv2 Vagrant Box:
 vagrant box add --name cdkv2 '[PATH_TO_RHEL_BOX]'
 ```
 
-Where [PATH_TO_RHEL_BOX] should be replaced by the absolute Windows path to the file rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box, between single quotes.
+Where [PATH_TO_RHEL_BOX] should be replaced by the absolute Windows path to the file rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box, between single quotes. Another option is to issue the above command from the components/rhel/ sub-folder of the installed CDK.
 
 The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
@@ -100,6 +109,7 @@ Issue the following commands on a Cygwin terminal, at the folder where CDK was u
 
 ```bash
 cd components/rhel/rhel-ose
+
 export VM_MEMORY=6000
 
 export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
@@ -120,22 +130,18 @@ This is not an error message; everything may continue to work properly,
 in which case you may ignore this message.
 ```
 
-### Validate Installation
+#### Validate Installation
 
-#### OpenShift Console
+##### OpenShift Console
 
 Simply open a browser to the URL given at the end of the output from the command ```vagrant up```.
 
-#### OpenShift CLI
+##### OpenShift CLI
 
 Issue the following command on a Cygwin terminal:
 
 ```bash
 vagrant ssh
-...
-[vagrant@rhel-cdk ~]$ docker ps
-...
-[vagrant@rhel-cdk ~]$ oc login
 ```
 
 Inside the SSH session then issue the following command:
@@ -150,7 +156,7 @@ Verify that the following images exist:
 - 1x openshift3/ose-docker-registry:v3.2.1.9
 - 1x openshift3/ose-haproxy-router:v3.2.1.9
 - 2x openshift3/ose-pod:v3.2.1.9
-- registry.access.redhat.com/openshift3/ose:v3.2.1.9
+- 1x registry.access.redhat.com/openshift3/ose:v3.2.1.9
 
 Inside the SSH session then issue the following command:
 
@@ -174,6 +180,40 @@ oc login https://10.1.2.2:8443 --username=openshift-dev --password=devel
 Verify that there's access to the following projects:
 
 - sample-project (current)
+
+### OpenShift Container Platform 3.3
+
+#### Requirements
+
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28, on C:\Hosting\VirtualBox\ (always trust software from Oracle Corporation);
+- [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
+- [Docker Machine](https://github.com/docker/machine/) 0.8.2
+
+#### All-in-One Cluster
+
+Issue the following command on a Docker Quickstart Terminal:
+
+```bash
+docker-machine create --driver virtualbox                      \
+                      --engine-insecure-registry 172.30.0.0/16 \
+                      --engine-env HTTP_PROXY=$HTTP_PROXY      \
+                      --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
+                      --engine-env NO_PROXY=$NO_PROXY          \
+                      openshift
+
+eval $(docker-machine env openshift)
+export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
+
+oc cluster up --docker-machine=openshift \
+              --use-existing-config      \
+              --host-data-dir=[HOST_DATA_FOLDER] \
+              --version=latest           \
+              --image=registry.access.redhat.com/openshift3/ose
+```
+
+Where:
+
+- [HOST_DATA_FOLDER] is to be replaced by folder on Docker host for OpenShift data. If not specified, etcd data will not be persisted on the host.
 
 ### Well Known Errors
 
@@ -240,7 +280,7 @@ If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but 
 
 #### Unable to start 2nd CDK box
 
-if step "Configuring and enabling network interfaces" fails with the following error:
+If the step "Configuring and enabling network interfaces" fails with the following error:
 
 ```
 The following SSH command responded with a non-zero exit status.
