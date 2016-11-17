@@ -1,5 +1,11 @@
-:: Fuse :: Karaf :: Maven Archetypes ::
-=======================================
+:: EnterpriseIntegration :: Karaf :: Maven Archetypes ::
+========================================================
+
+# Overview
+
+## Objectives
+
+## Scope
 
 http://kevinboone.net/camelosgimaventest.html
 http://www.hascode.com/2012/04/wiring-made-easy-using-osgi-blueprint-and-apache-karaf/

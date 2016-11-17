@@ -1,5 +1,5 @@
-:: Fuse :: Sample Project :: Camel
-==================================
+:: EnterpriseIntegration :: Fuse ::
+===================================
 
 # Overview
 
@@ -7,23 +7,7 @@
 
 ## Scope
 
-# Tutorials
-
-## Camel
-
-- [Apache Camel - Tutorials](http://camel.apache.org/tutorials.html)
-- [Apache Camel Using Java DSL](http://www.javainuse.com/camel/camel_java)
-- [Intro to Camel By Example](https://davidvaleri.wordpress.com/2013/03/28/intro-to-camel-by-example/)
-- [Apache Camel – developing application from the scratch (part 1 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-1-2/)
-- [Apache Camel – developing application from the scratch (part 2 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-2-2/)
-- [Apache Camel Tutorial—EIP, Routes, Components, Testing, and More](https://dzone.com/articles/apache-camel-tutorial-eip)
-- [Camel Introduction](http://www.mastertheintegration.com/camel/camel-introduction.html)
-- [Transforming Data with Camel](http://www.mastertheintegration.com/camel/transforming-data-with-camel.html)
-- [Camel and Web Services](http://www.mastertheintegration.com/camel/camel-and-web-services.html)
-- [Camel and JMS](http://www.mastertheintegration.com/camel/camel-and-jms.html)
-- [Using the Timer component with Camel](http://www.mastertheintegration.com/camel/timer-component/using-the-timer-component-with-camel.html)
-
-## JBoss Fuse
+## Tutorials
 
 - [Fuse IDE 7.1 - Tutorials](https://access.redhat.com/documentation/en-US/Fuse_IDE/7.1/html/Tutorials/files/front.html)
 - [JBoss Fuse 6.0 - Getting Started](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.0/html/Getting_Started/files/front.html)
@@ -49,3 +33,7 @@
 - [JBoss Fuse 6.2 released – guide how to quickly try it](https://www.javacodegeeks.com/2015/07/jboss-fuse-6-2-released-guide-how-to-quickly-try-it.html)
 - [Introduction to JBoss Fuse – Part 1 – Creating a Fuse Application](http://blog.c2b2.co.uk/2015/09/introduction-to-jboss-fuse-part-1.html)
 - [Introduction to JBoss Fuse – Part 2 - deploying, monitoring, debugging & error handling](http://blog.c2b2.co.uk/2015/11/introduction-to-jboss-fuse-part-2.html)
+
+## Articles
+
+## Challenges
