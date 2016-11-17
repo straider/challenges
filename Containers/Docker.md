@@ -71,6 +71,9 @@ There are several flavours of Docker, depending on the host operating system:
 - [Containers And VMs Together](https://blog.docker.com/2016/04/containers-and-vms-together/)
 - [There's Application Virtualization And There's Docker](https://blog.docker.com/2016/04/app-virtualization-docker/)
 - [So, When Do You Use A Container Or VM?](https://blog.docker.com/2016/05/vm-or-containers/)
+- [Containers 101: Linux containers and Docker explained](http://www.infoworld.com/article/3072929/linux/containers-101-linux-containers-and-docker-explained.html)
+- [Operating System Containers vs. Application Containers](https://blog.risingstack.com/operating-system-containers-vs-application-containers/)
+- [How Linux Containers Work](https://www.flockport.com/how-linux-containers-work/)
 - [Architecting Containers Part 1: Why Understanding User Space vs. Kernel Space Matters](http://rhelblog.redhat.com/2015/07/29/architecting-containers-part-1-user-space-vs-kernel-space/)
 - [Architecting Containers Part 2: Why the User Space Matters](http://rhelblog.redhat.com/2015/09/17/architecting-containers-part-2-why-the-user-space-matters-2/)
 - [Architecting Containers Part 3: How the User Space Affects Your Application](http://rhelblog.redhat.com/2015/11/10/architecting-containers-part-3-how-the-user-space-affects-your-application/)
@@ -79,7 +82,10 @@ There are several flavours of Docker, depending on the host operating system:
 - [9 Docker recipes for Java EE Applications](http://blog.arungupta.me/9-docker-recipes-javaee-applications-techtip80/)
 - [The Hitchhiker's Guide to Docker and Modulus](https://code.tutsplus.com/tutorials/the-hitchhikers-guide-to-docker-and-modulus--cms-24770)
 - [Docker Swarm Introduction (Tour Around Docker 1.12 Series)](https://technologyconversations.com/2016/07/29/docker-swarm-introduction-tour-around-docker-1-12-series/)
-- [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator;
+- [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
+
+### Against Docker
+
 - [boycott docker](http://www.boycottdocker.org/)
 - [Using the docker command to root the host (totally not a security issue)](http://reventlov.com/advisories/using-the-docker-command-to-root-the-host)
 - [The case against Docker](https://www.andreas-jung.com/contents/the-case-against-docker)
@@ -87,9 +93,28 @@ There are several flavours of Docker, depending on the host operating system:
 - [The sad state of sysadmin in the age of containers](http://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html)
 - [doger.io](http://doger.io/)
 
-## Installation
+### Alternatives
 
-### Windows 7
+- [Alternatives to Docker and LXC](https://www.flockport.com/alternatives-to-docker-and-lxc/)
+- [Five alternatives to Docker you should consider](http://searchcloudapplications.techtarget.com/tip/Five-development-containers-to-consider-that-arent-Docker)
+- [Top 3 Docker Alternatives for System Administrators](http://blogs.site24x7.com/2015/09/22/top-3-docker-alternatives-sysadmins/)
+- [Windows Containers and Docker: The 5 Things You Need to Know](https://blog.sixeyed.com/windows-containers-and-docker-5-things-you-need-to-know/)
+- [Drawbridge](https://www.microsoft.com/en-us/research/project/drawbridge/)
+- [turbo.net](https://turbo.net/)
+- [rkt](https://coreos.com/rkt/docs/latest/)
+    - [CoreOS is building a container runtime, rkt](https://coreos.com/blog/rocket/)
+    - [rkt vs other projects](https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html)
+    - [rkt](https://github.com/coreos/rkt) is a container engine for Linux designed to be composable, secure, and built on standards
+    - [Google Backs Rival of Docker, the Cloud's Next Big Thing | WIRED](https://www.wired.com/2015/05/google-backs-alternative-docker-cloud-computing-s-next-big-idea/)
+- [The LXD container hypervisor](https://www.ubuntu.com/cloud/lxd)
+- [LVE: an alternative container technology to Docker and Virtuozzo/LXC](https://blog.phusion.nl/2016/02/03/lve-an-alternative-container-technology-to-docker-and-virtuozzolxc/)
+- [LinuxContainers.org](https://linuxcontainers.org/) - Infrastructure for container projects and is the umbrella project behind LXC, LXD, LXCFS and CGManager;
+- [Open Container Initiative](https://www.opencontainers.org/) - The OCI currently contains two specifications: the Runtime Specification (runtime-spec) and the Image Specification (image-spec). The Runtime Specification outlines how to run a “filesystem bundle” that is unpacked on disk. At a high-level an OCI implementation would download an OCI Image then unpack that image into an OCI Runtime filesystem bundle. At this point the OCI Runtime Bundle would be run by an OCI Runtime;
+- [Red Hat’s OCID is a Docker Alternative, But Not a Fork](http://containerjournal.com/2016/10/04/red-hats-ocid-docker-alternative-not-fork/)
+
+# Installation
+
+## Windows 7
 
 > The Docker Toolbox setup does not run Docker natively on Windows. Instead, it uses docker-machine to create and attach to a virtual machine (VM). This machine is a Linux VM that hosts Docker for you on your Windows system. To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
@@ -104,8 +129,7 @@ There are several flavours of Docker, depending on the host operating system:
 
 > Note: If you have Docker hosts running and you don't wish to do a Docker Toolbox installation, you can install the docker.exe using the unofficial Windows package manager Chocolatey. For information on how to do this, see [Docker package on Chocolatey](http://chocolatey.org/packages/docker).
 
-
-#### Requirements
+### Requirements
 
 - Make sure Windows is 64 bit;
 - Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
@@ -113,7 +137,7 @@ There are several flavours of Docker, depending on the host operating system:
 - [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
 - [Git for Windows](https://git-for-windows.github.io/) 2.10.2 64 bit, AKA msysGit, on C:\Hosting\Git\.
 
-#### Docker Toolbox
+### Docker Toolbox
 
 Follow the [Install Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/) guide:
 - Install to C:\Hosting\Docker Toolbox\;
@@ -138,7 +162,7 @@ Follow the [Install Docker Toolbox on Windows](https://docs.docker.com/toolbox/t
 - [b2d](https://github.com/VonC/b2d): Prepare the environment for running boot2docker on Windows, even behind corporate proxy.
 - [How to install Docker on Windows behind a proxy](http://www.netinstructions.com/how-to-install-docker-on-windows-behind-a-proxy/)
 
-#### Hello World
+### Hello World
 
 Start Docker Quickstart Terminal and issue the following command:
 
@@ -151,11 +175,11 @@ If there's no hardware assisted virtualization then Docker Quickstart Terminal w
 Error creating machine: Error in driver during machine creation: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory.
 ```
 
-### Windows 10
+## Windows 10
 
-### Ubuntu 14.04
+## Ubuntu 14.04
 
-#### Requirements
+### Requirements
 
 ```bash
 sudo apt-get update
@@ -163,7 +187,7 @@ sudo apt-get install apt-transport-https ca-certificates
 sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
 ```
 
-#### Repository
+### Repository
 
 ```bash
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -172,14 +196,14 @@ sudo apt-get update
 apt-cache policy docker-engine
 ```
 
-#### Docker Engine
+### Docker Engine
 
 ```bash
 sudo apt-get update
 sudo apt-get install docker-engine
 ```
 
-#### Docker Group
+### Docker Group
 
 ```bash
 # sudo groupadd docker
@@ -187,7 +211,7 @@ sudo usermod -aG docker $USER
 # sudo service docker start
 ```
 
-#### Hello World
+### Hello World
 
 ```bash
 docker run hello-world

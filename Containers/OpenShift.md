@@ -55,3 +55,208 @@
 - [OpenShift 3 Application Lifecycle Sample](https://github.com/openshift/origin/blob/master/examples/sample-app/README.md)
 
 ## Articles
+
+# Installation
+
+## Windows 7
+
+### Requirements
+
+- Make sure Windows is 64 bit;
+- Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28, on C:\Hosting\VirtualBox\ (always trust software from Oracle Corporation);
+- [Vagrant](https://www.vagrantup.com/) 1.8.7, on C:\Hosting\Vagrant\;
+- [Cygwin](https://www.cygwin.com/) / [MSYS2](https://msys2.github.io/) / [MinGW](http://www.mingw.org/) - required for sftp-server.
+
+### OpenShift Client Tools
+
+Just unzip the openshift-origin-client-tools-v1.3.1-*.zip to a folder, like C:\Hosting\OpenShift Client Tools\ and add it to the PATH.
+
+### Container Development Kit
+
+Just unzip the cdk-2.2.0.zip to a folder, like C:\DevKits\ContainerDevelopmentKit-2.2.0\.
+
+### Vagrant Plugins
+
+Issue the following command on a Cygwin terminal to install required Vagrant Plugins that support Red Hat Subscription Management and other features:
+
+```bash
+vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
+```
+
+### Vagrant Box
+
+Issue the following command on a Cygwin terminal to add cdkv2 Vagrant Box:
+
+```bash
+vagrant box add --name cdkv2 '[PATH_TO_RHEL_BOX]'
+```
+
+Where [PATH_TO_RHEL_BOX] should be replaced by the absolute Windows path to the file rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box, between single quotes.
+
+The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
+
+Issue the following commands on a Cygwin terminal, at the folder where CDK was uncompressed to, to start up the cdkv2 Vagrant Box:
+
+```bash
+cd components/rhel/rhel-ose
+export VM_MEMORY=6000
+
+export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
+export SUB_PASSWORD=<your-subscription-password>
+
+vagrant up
+```
+
+The step "Checking for guest additions in VM" ended with the following message:
+
+```
+No guest additions were detected on the base box for this VM! Guest
+additions are required for forwarded ports, shared folders, host only
+networking, and more. If SSH fails on this machine, please install
+the guest additions and repackage the box to continue.
+
+This is not an error message; everything may continue to work properly,
+in which case you may ignore this message.
+```
+
+### Validate Installation
+
+#### OpenShift Console
+
+Simply open a browser to the URL given at the end of the output from the command ```vagrant up```.
+
+#### OpenShift CLI
+
+Issue the following command on a Cygwin terminal:
+
+```bash
+vagrant ssh
+...
+[vagrant@rhel-cdk ~]$ docker ps
+...
+[vagrant@rhel-cdk ~]$ oc login
+```
+
+Inside the SSH session then issue the following command:
+
+```bash
+docker ps
+```
+
+Verify that the following images exist:
+
+- 1x prom/haproxy-exporter:latest
+- 1x openshift3/ose-docker-registry:v3.2.1.9
+- 1x openshift3/ose-haproxy-router:v3.2.1.9
+- 2x openshift3/ose-pod:v3.2.1.9
+- registry.access.redhat.com/openshift3/ose:v3.2.1.9
+
+Inside the SSH session then issue the following command:
+
+```bash
+oc login --username=admin --password=admin
+```
+
+Verify that there's access to the following projects:
+
+- default
+- openshift
+- openshift-infra
+- sample-project (current)
+
+Issue the following command on a Windows Command Prompt:
+
+```bash
+oc login https://10.1.2.2:8443 --username=openshift-dev --password=devel
+```
+
+Verify that there's access to the following projects:
+
+- sample-project (current)
+
+### Well Known Errors
+
+#### Unable to execute vagrant run
+
+The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
+
+```
+A Vagrant environment or target machine is required to run this
+command. Run `vagrant init` to create a new Vagrant environment. Or,
+get an ID of a target machine from `vagrant global-status` to run
+this command on. A final option is to change to a directory with a
+Vagrantfile and to try again.
+```
+
+**Note**: an useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
+
+#### Subscription
+
+If the step "Registering box with vagrant-registration" asks for an username and password it's because the environment variables SUB_USERNAME and SUB_PASSWORD have not be set up previously before running ```vagrant up```. Either exit and set them up before running the command or input the Red Hat Portal credentials.
+
+```bash
+export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
+export SUB_PASSWORD=<your-subscription-password>
+```
+
+#### Proxy
+
+The step "Registering box with vagrant-registration" failed with the following error:
+
+```
+Network error, unable to connect to server. Please see /var/log/rhsm/rhsm.log for more information.
+Registering to: subscription.rhn.redhat.com:443/subscription
+```
+
+It seems to be a PROXY problem. To configure the proxy issue the following commands before issueing ```vagrant up```:
+
+```bash
+export PROXY=[HOSTNAME:PORT]
+export PROXY_USER=[USERNAME]
+export PROXY_PASSWORD=[PASSWORD]
+```
+
+#### sftp-server
+
+The step "Configuring and enabling network interfaces" failed with the following error:
+
+```
+The 'sftp-server' executable file can't be found on the host machine but
+is required for sshfs mounting to work. Please install the software and
+try again.
+```
+
+This will require a Cygwin or MinGW environment, although technical any kind of utility named sftp-server that can act as a SFTP Server might work.
+
+Install Cygwin x64, with openssh, rsync and chere.
+It may require libusb0.
+
+#### Unable to access OpenShift Console
+
+If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
+
+> Container Development Kit 2.2 is known to not work correctly with VirtualBox 5.1.x. If you intend to use VirtualBox as your virtualization provider, and you already have VirtualBox 5.1.x installed, downgrade your installation to VirtualBox 5.0.26.
+
+#### Unable to start 2nd CDK box
+
+if step "Configuring and enabling network interfaces" fails with the following error:
+
+```
+The following SSH command responded with a non-zero exit status.
+Vagrant assumes that this means the command failed!
+
+# Down the interface before munging the config file. This might
+# fail if the interface is not actually set up yet so ignore
+# errors.
+...
+Job for network.service failed because the control process exited with error code. See "systemctl status network.service" and "journalctl -xe" for details.
+```
+
+It may be because there's another CDK box running. It seems there could be only one running at a time. If that's the case then one a Cygwin terminal change to the folder that contains the Vagrantfile of the 1st CDK box and issue the following command:
+
+```bash
+vagrant halt
+```
+
+Then change back to the folder with the Vagrantfile  of the 2nd CDK box and fire it up.
