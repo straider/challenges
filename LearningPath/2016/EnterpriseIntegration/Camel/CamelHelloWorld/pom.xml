@@ -19,6 +19,10 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <activemq.version>5.14.1</activemq.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -31,6 +35,12 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jms</artifactId>
             <version>${camel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-camel</artifactId>
+            <version>${activemq.version}</version>
         </dependency>
 
     </dependencies>
