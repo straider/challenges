@@ -8,9 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainSpring {
 
-    static final String ACTIVEMQ_TAG       = "activemq";
-    static final String QUEUE_NAME         = "test.queue";
-    static final String INBOUND_ROUTE_NAME = String.format( "%s:%s", ACTIVEMQ_TAG, QUEUE_NAME);
+    private static final String ACTIVEMQ_TAG       = "activemq";
+    private static final String QUEUE_NAME         = "test.queue";
+    private static final String INBOUND_ROUTE_NAME = String.format( "%s:%s", ACTIVEMQ_TAG, QUEUE_NAME);
 
     public static void main( final String[] arguments ) throws Exception {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext( "springRoute.xml" );
