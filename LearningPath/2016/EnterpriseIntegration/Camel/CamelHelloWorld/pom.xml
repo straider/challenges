@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>camel-hello-world-example</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>Camel Hello World Example</name>
     <description>https://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-hello-world-example/</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/EnterpriseIntegration/Camel/CamelHelloWorld</url>
