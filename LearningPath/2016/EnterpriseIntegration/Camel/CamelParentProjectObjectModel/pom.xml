@@ -9,7 +9,6 @@
     <artifactId>camel-parent-pom</artifactId>
     <version>1.0.2</version>
     <name>Camel parent-pom</name>
-
     <description>Camel Parent Project Object Model.</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/EnterpriseIntegration/Camel/CamelParentProjectObjectModel</url>
 

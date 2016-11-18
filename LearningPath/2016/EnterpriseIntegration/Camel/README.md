@@ -1,26 +1,30 @@
-:: EnterpriseIntegration :: Camel ::
+﻿:: EnterpriseIntegration :: Camel ::
 ====================================
 
 # Overview
 
-- What is Apache Camel?
-- Why use Apache Camel?
-- What distinct DSL routes does it support?
-- If not Camel then what else?
+**What is Apache Camel?**
+> [Apache Camel](https://en.wikipedia.org/wiki/Apache_Camel) is a rule-based routing and mediation engine that provides a Java object-based implementation of the [Enterprise Integration Patterns](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns) using an API or [DSL](http://camel.apache.org/dsl.html) to configure routing and mediation rules. The domain-specific language means that Apache Camel can support type-safe smart completion of routing rules in an integrated development environment using regular Java, Groovy or Scala code without large amounts of XML configuration files, though XML configuration using [Spring Framework](http://camel.apache.org/spring.html) or [OSGi Blueprint](http://camel.apache.org/using-osgi-blueprint-with-camel.html) is also supported.
+>> Camel is often used with Apache ServiceMix, Apache ActiveMQ and Apache CXF in service-oriented architecture infrastructure projects.
 
-https://www.manning.com/books/camel-in-action
-> Apache Camel is a Java framework that lets you implement the standard enterprise integration patterns in a few lines of code. With a concise but sophisticated DSL you snap integration logic into your app, Lego-style, using Java, XML, or Scala. Camel supports over 80 common transports such as HTTP, REST, JMS, and Web Services.
-> Apache Camel is an open source integration framework that aims to make integrating systems easier.
-> At the core of the Camel framework is a routing engine, or more precisely a routing engine builder. It allows you to define your own routing rules, decide from which sources to accept messages, and determine how to process and send those messages to other destinations. Camel uses an integration language that allows you to define complex routing rules, akin to business processes.
+**Why use Apache Camel?**
+> Apache Camel uses URIs to work directly with any kind of [Transport](http://camel.apache.org/transport.html) or messaging model such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable [Components](http://camel.apache.org/components.html) and [Data Format](http://camel.apache.org/data-format.html) options. Apache Camel is a small library with minimal dependencies for easy embedding in any Java application. Apache Camel lets you work with the same API regardless which kind of Transport is used - so learn the API once and you can interact with all the Components provided out-of-box.
 
-https://www.packtpub.com/application-development/apache-camel-developers-cookbook
-> Apache Camel is a de-facto standard for developing integrations in Java, and is based on well-understood Enterprise Integration Patterns. It is used within many commercial and open source integration products. Camel makes common integration tasks easy while still providing the developer with the means to customize the framework when the situation demands it. Tasks such as protocol mediation, message routing and transformation, and auditing are common usages of Camel.
+**What DSLs can be used?**
+> Camel uses a Java Domain Specific Language or DSL for creating Enterprise Integration Patterns or Routes in a variety of domain-specific languages:
+- [Java](http://camel.apache.org/java-dsl.html);
+- [Groovy](http://camel.apache.org/groovy-dsl.html);
+- [Scala](http://camel.apache.org/scala-dsl.html);
+- [Spring Framework XML](http://camel.apache.org/spring.html);
+- [OSGi Blueprint XML](http://camel.apache.org/using-osgi-blueprint-with-camel.html);
+- [Java Bean Annotations](http://camel.apache.org/bean-integration.html);
+- [REST](http://camel.apache.org/rest-dsl.html);
+- [Kotlin](https://github.com/koolio/kool/tree/master/kool-camel).
 
-https://dzone.com/articles/apache-camel-integration
-> Apache Camel is an open source Java framework that focuses on making integration easier and more accessible to developers. It does this by providing:
-- concrete implementations of all the widely used EIPs
-- connectivity to a great variety of transports and APIs
-- easy to use Domain Specific Language (DSL) to wire EIPs and transports together
+**Alternatives to Camel?**
+- [Spring Integration](http://projects.spring.io/spring-integration/) 
+- [Mule ESB](https://www.mulesoft.com/platform/soa/mule-esb-open-source-esb)
+- [Apache Synapse Enterprise Service Bus](http://synapse.apache.org/)
 
 ## Objectives
 
@@ -46,6 +50,8 @@ This learning path just focus on Camel standalone, although it also covers its u
 
 The router is coded in Java and not using Spring or Blueprint XML files, which is more within the OSGi scope.
 
+# Resources
+
 ## Tutorials
 
 - [Apache Camel - Tutorials](http://camel.apache.org/tutorials.html)
@@ -60,11 +66,20 @@ The router is coded in Java and not using Spring or Blueprint XML files, which i
 - [Camel and Web Services](http://www.mastertheintegration.com/camel/camel-and-web-services.html)
 - [Camel and JMS](http://www.mastertheintegration.com/camel/camel-and-jms.html)
 - [Using the Timer component with Camel](http://www.mastertheintegration.com/camel/timer-component/using-the-timer-component-with-camel.html)
+- [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 
 ## Articles
 
-- [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 - [Entreprise Integration Pattern with Apache Camel 2.0](http://onjavahell.blogspot.co.uk/2009/05/taking-apache-camel-for-ride.html)
+- [Camellos - Discovering Apache Camel I](http://hillert.blogspot.co.uk/2009/09/camellos-discovering-apache-camel-i.html)
+- [Camellos - Discovering Apache Camel II](http://hillert.blogspot.co.uk/2009/09/camellos-discovering-apache-camel-ii.html)
+- [Camellos III - Zipping Files with Apache Camel Example](http://hillert.blogspot.co.uk/2009/10/camellos-iii-zipping-files-with-apache.html)
+- [Open Source Integration with Apache Camel and How Fuse IDE Can Help](https://dzone.com/articles/open-source-integration-apache)
+- [Camel Essential Components](https://dzone.com/refcardz/essential-camel-components)
+- [When to Use Apache Camel?](https://dzone.com/articles/when-use-apache-camel)
+- [Which Integration Framework Should You Use – Spring Integration, Mule ESB or Apache Camel?](https://dzone.com/articles/which-integration-framework)
+- [Light-weight, open-source integration: Apache Camel or Spring Integration?](http://blog.christianposta.com/comparison/light-weight-open-source-integration-apache-camel-or-spring-integration/)
+- [Java Tip: Write an SOA integration layer with Apache Camel](http://www.javaworld.com/article/2078883/open-source-tools/java-tip-write-an-soa-integration-layer-with-apache-camel.html)
 
 ## Books
 
@@ -95,6 +110,7 @@ The following [Maven archetypes](Archetypes/README.md) exist to start Camel proj
 - camel-archetype-scala: Scala Router
 - camel-archetype-activemq: Camel with ActiveMQ
 - camel-archetype-blueprint: Blueprint (OSGi) Based Router
+- camel-archetype-spring: Spring Framework Based Router
 
 ## Camel with Maven
 
@@ -136,6 +152,8 @@ Common requirements to follow all examples:
 
 ### [Apache Camel Hello World example](https://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-hello-world-example/)
 
+#### Steps
+
 - Create pom.xml;
 - Add camel-core dependency to the project;
 - Add Camel components dependencies:
@@ -149,44 +167,49 @@ Common requirements to follow all examples:
 - Build the route, using Spring DSL;
 - Build the route, using Java DSL and Timer component.
 
-**Notes**:
+#### Notes
 
 - There are no Unit Tests;
 - There are no Integration Tests;
 - There is no logging;
-- Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy.
+- Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy and also gets rid of logging warnings.
 
-Known Errors:
+#### Known Errors
 
-> Unsupported major.minor version 52.0
->> This is because Java 8 is required when using latest Camel release, 2.18.0.
+##### Unsupported major.minor version 52.0
 
-> Failed to load class "org.slf4j.impl.StaticLoggerBinder".
->> The following error occurs because there's no logger configured by Camel:
+This is because Java 8 is required when using latest Camel release, 2.18.0.
+
+##### Failed to load class "org.slf4j.impl.StaticLoggerBinder"
+
+The following error occurs because there's no logger configured by Camel:
 ```
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 ```
 
-> Failed to load class "org.slf4j.impl.StaticMDCBinder".
->> The following error occurs because there's no logger configured by ActiveMQ:
+##### Failed to load class "org.slf4j.impl.StaticMDCBinder".
+
+The following error occurs because there's no logger configured by ActiveMQ:
 ```
 SLF4J: Failed to load class "org.slf4j.impl.StaticMDCBinder".
 SLF4J: Defaulting to no-operation MDCAdapter implementation.
 SLF4J: See http://www.slf4j.org/codes.html#no_static_mdc_binder for further details.
 ```
 
-> No appenders could be found for logger (org.apache.camel.impl.SharedProducerServicePool).
->> The following error occurs because there are no appenders configured for Log4J:
+##### No appenders could be found for logger (org.apache.camel.impl.SharedProducerServicePool).
+
+The following error occurs because there are no appenders configured for Log4J:
 ```
 log4j:WARN No appenders could be found for logger (org.apache.camel.impl.SharedProducerServicePool).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
 ```
 
-> java.lang.ClassNotFoundException: org.springframework.beans.factory.config.EmbeddedValueResolver
->> The following error occurs because the spring-beans dependency is missing in the pom.xml file:
+##### java.lang.ClassNotFoundException: org.springframework.beans.factory.config.EmbeddedValueResolver
+
+The following error occurs because the spring-beans dependency is missing in the pom.xml file:
 ```
 Exception in thread "main" java.lang.NoClassDefFoundError: org/springframework/beans/factory/config/EmbeddedValueResolver
 	at org.springframework.context.support.ApplicationContextAwareProcessor.<init>(ApplicationContextAwareProcessor.java:72)
@@ -204,8 +227,9 @@ Caused by: java.lang.ClassNotFoundException: org.springframework.beans.factory.c
 ...
 ```
 
-> ... nested exception is java.lang.NoClassDefFoundError: org/slf4j/LoggerFactory
->> The following error occurs because the spring-beans dependency also requires slf4j-api ans this is missing in the pom.xml file:
+##### Nested exception is java.lang.NoClassDefFoundError: org/slf4j/LoggerFactory
+
+The following error occurs because the spring-beans dependency also requires slf4j-api ans this is missing in the pom.xml file:
 ```
 Exception in thread "main" org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [springRoute.xml]; nested exception is org.springframework.beans.FatalBeanException: Invalid NamespaceHandler class [org.apache.camel.spring.handler.CamelNamespaceHandler] for namespace [http://camel.apache.org/schema/spring]: problem with handler class file or dependent class; nested exception is java.lang.NoClassDefFoundError: org/slf4j/LoggerFactory
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:414)
