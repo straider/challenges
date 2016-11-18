@@ -1,7 +1,5 @@
 :: EnterpriseIntegration :: Karaf ::
 ====================================
-:: Fuse :: Karaf :: Maven Archetypes ::
-=======================================
 
 # Overview
 
@@ -14,3 +12,7 @@
 ## Articles
 
 ## Challenges
+
+### OSGi
+
+- [OSGi Modularity - Tutorial](http://www.vogella.com/tutorials/OSGi/article.html)

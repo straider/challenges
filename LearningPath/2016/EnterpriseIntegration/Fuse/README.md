@@ -14,6 +14,7 @@
 - [JBoss Fuse Tutorial](https://www.tutorialspoint.com/jboss_fuse/index.htm) @ TutorialsPoint
 - [Fuse By Example](https://github.com/FuseByExample)
     - [servicemix4-example-payment-service](https://github.com/FuseByExample/servicemix4-example-payment-service)
+    - [smx-ws-examples](https://github.com/FuseByExample/smx-ws-examples)
     - [HelloCamel](https://github.com/FuseByExample/HelloCamel)
     - [microservice-camel-in-action](https://github.com/FuseByExample/microservice-camel-in-action)
     - [rest-dsl-in-action](https://github.com/FuseByExample/rest-dsl-in-action)
@@ -36,4 +37,10 @@
 
 ## Articles
 
+- [rider-auto-osgi](https://github.com/RedHatWorkshops/rider-auto-osgi): Getting Started with Apache ServiceMix
+
 ## Challenges
+
+### ServiceMix
+
+- [Apache ServiceMix](http://servicemix.apache.org/)
