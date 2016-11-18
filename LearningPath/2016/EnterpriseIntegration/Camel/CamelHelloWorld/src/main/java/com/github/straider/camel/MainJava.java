@@ -8,24 +8,24 @@ import org.apache.camel.impl.DefaultCamelContext;
 import static com.github.straider.camel.JavaRoute.ACTIVEMQ_TAG;
 import static com.github.straider.camel.JavaRoute.INBOUND_ROUTE_NAME;
 
-public class JavaCamelContext {
+public class MainJava {
 
     private static final String BROKER_HOST = "localhost";
     private static final String BROKER_URL  = String.format( "vm://%s?broker.persistent=false", BROKER_HOST );
 
     public static void main( final String[] arguments ) throws Exception {
-        final CamelContext context = new DefaultCamelContext();
+        final CamelContext camelContext = new DefaultCamelContext();
 
         try {
-            context.addComponent( ACTIVEMQ_TAG, ActiveMQComponent.activeMQComponent( BROKER_URL ) );
-            context.addRoutes( new JavaRoute() );
+            camelContext.addComponent( ACTIVEMQ_TAG, ActiveMQComponent.activeMQComponent( BROKER_URL ) );
+            camelContext.addRoutes( new JavaRoute() );
 
-            ProducerTemplate template = context.createProducerTemplate();
+            ProducerTemplate template = camelContext.createProducerTemplate();
 
-            context.start();
+            camelContext.start();
             template.sendBody( INBOUND_ROUTE_NAME, "Hello, World!" );
         } finally {
-            context.stop();
+            camelContext.stop();
         }
     }
 
