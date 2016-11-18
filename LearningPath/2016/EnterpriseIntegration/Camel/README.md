@@ -27,6 +27,14 @@
 
 ### Camel Archetypes for Maven
 
+The following Maven archetypes exist to start Camel projects:
+
+- camel-archetype-java: Java Router
+- camel-archetype-groovy: Groovy Router
+- camel-archetype-scala: Scala Router
+- camel-archetype-activemq: Camel with ActiveMQ
+- camel-archetype-blueprint: Blueprint (OSGi) Based Router
+
 ### Camel with Maven
 
 #### Steps
@@ -45,7 +53,6 @@ mvn archetype:generate                             \
     -DgroupId=net.kevinboone.mavencameltest        \
     -DartifactId=MavenCamelTest
 ```
-
 
 ```sh
 mvn compile exec:java
