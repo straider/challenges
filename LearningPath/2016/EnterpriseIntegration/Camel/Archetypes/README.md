@@ -45,6 +45,20 @@ mvn archetype:generate                             \
     -DartifactId=CamelScala
 ```
 
+## Spring Router
+
+To create a new Camel project using Spring Framework Context:
+
+```sh
+mvn archetype:generate                             \
+    -DarchetypeGroupId=org.apache.camel.archetypes \
+    -DarchetypeArtifactId=camel-archetype-spring   \
+    -DarchetypeVersion=2.17.1                      \
+    -DinteractiveMode=false                        \
+    -DgroupId=com.github.straider.fuse.camel       \
+    -DartifactId=CamelSpring
+```
+
 ## ActiveMQ
 
 To create a new Camel project that configures and interacts with ActiveMQ:
