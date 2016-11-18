@@ -7,7 +7,7 @@
 
     <groupId>com.github.straider.camel</groupId>
     <artifactId>camel-parent-pom</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Camel parent-pom</name>
 
     <description>Camel Parent Project Object Model.</description>
@@ -41,7 +41,7 @@
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.21</slf4j.version>
 
-        <camel.version>2.18.0</camel.version>
+        <camel.version>2.17.3</camel.version>
     </properties>
 
     <dependencies>
