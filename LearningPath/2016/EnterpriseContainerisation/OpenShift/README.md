@@ -29,6 +29,19 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 > Otherwise, you can see the security documentation for descriptions on how to relax these restrictions.
 
+## Tutorials
+
+## Articles
+
+## Books
+
+- [OpenShift for Developers - A Guide for Impatient Beginners](http://shop.oreilly.com/product/0636920052012.do)
+- [Getting Started with OpenShift: A Guide for Impatient Beginners](http://shop.oreilly.com/product/0636920033226.do)
+- [Learning OpenShift](https://www.packtpub.com/virtualization-and-cloud/learning-openshift)
+- [OpenShift Cookbook](https://www.packtpub.com/virtualization-and-cloud/openshift-cookbook)
+- [Implementing OpenShift](https://www.packtpub.com/virtualization-and-cloud/implementing-openshift)
+- [OpenShift Primer](http://www.schabell.org/2016/04/available-free-online-openshift-primer-book.html)
+
 # Installation Recipes
 
 ## Common Requirements
