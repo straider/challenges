@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.github.straider.camel</groupId>
         <artifactId>camel-parent-pom</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>camel-hello-world-example</artifactId>
