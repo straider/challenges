@@ -163,6 +163,7 @@ Common requirements to follow all examples:
 - Build the route, using Java DSL (providing a route ID);
 - Add Spring dependencies:
     - spring-context
+    - spring-beans
     - camel-spring
 - Build the route, using Spring DSL;
 - Build the route, using Java DSL and Timer component.
@@ -258,8 +259,63 @@ Caused by: org.springframework.beans.FatalBeanException: Invalid NamespaceHandle
 
 ### [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 
+#### Steps
+
+- Create pom.xml;
+- Add camel-core dependency to the project;
+- Add Camel components dependencies:
+    - activemq-core
+    - activemq-camel
+    - ~~camel-jms~~
+    - camel-jaxb
+    - camel-csv
+    - ~~camel-jetty~~
+- Add Spring dependencies:
+    - spring-context
+    - xbean-spring
+    - camel-spring
+- Build the context, using Spring Beans;
+- Build the route, using Java DSL (providing a route ID):
+    - From inbound CSV file;
+    - From inbound XML by HTTP;
+    - From internal JMS queue;
+    - To outbound JMS queue;
+- Add the helper;
+- Add the domain JAXB POJO;
+- Add the CSV Normalizer.
+
+#### Notes
+
+- There are no Unit Tests;
+- There are no Integration Tests;
+- There is no logging;
+- Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy and also gets rid of logging warnings;
+- Add inbound JSON by HTTP? Requires Jackson dependencies.
+
+#### Known Errors
+
+
 ### [Cafe Example](http://camel.apache.org/cafe-example.html)
 
 ### [Loan Broker Example](http://camel.apache.org/loan-broker-example.html)
 
 ### [Tutorial-Example-ReportIncident](http://camel.apache.org/tutorial-example-reportincident.html)
+
+# Camel's Architecture
+
+## Components
+
+https://dzone.com/articles/apache-camel-integration
+> Components are the extension point in Camel to add connectivity to other systems. Camel has a small core set of components included by default. The rest of the components exist as separate modules.
+
+## Endpoints
+
+## Routes
+
+https://dzone.com/articles/apache-camel-integration
+> Routes wire Processors and Endpoints together. In Camel, DSL means a fluent API that contains methods named like terms from the EIP book.
+
+## Processors
+
+https://dzone.com/articles/apache-camel-integration
+> Processors are used to manipulate and mediate messages in between Endpoints. All of the EIPs are defined as Processors or sets of Processors.
