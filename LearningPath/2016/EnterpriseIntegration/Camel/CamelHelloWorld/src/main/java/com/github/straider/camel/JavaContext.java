@@ -20,10 +20,11 @@ public class JavaContext {
             camelContext.addComponent( ACTIVEMQ_TAG, ActiveMQComponent.activeMQComponent( BROKER_URL ) );
             camelContext.addRoutes( new JavaRoute() );
 
-            ProducerTemplate template = camelContext.createProducerTemplate();
+            final ProducerTemplate template = camelContext.createProducerTemplate();
 
             camelContext.start();
             template.sendBody( INBOUND_ROUTE_NAME, "Hello, World!" );
+            Thread.sleep( 2500 );
         } finally {
             camelContext.stop();
         }
