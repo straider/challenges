@@ -1,4 +1,4 @@
-OpenShift Container Platform
+﻿OpenShift Container Platform
 ============================
 
 # Overview
@@ -16,7 +16,7 @@ OpenShift Container Platform
 This option installs OpenShift Container Platform 3.2:
 - Download [Red Hat CDK 2.2.0](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip), which requires a valid Red Hat Portal account;
 - Download [RHEL 7.2 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account and its size is 914 MB;
-- Unzip cdk-2.2.0.zip, for example to C:\DevKits\ContainerDevelopmentKit-2.2.0\;
+- Unzip cdk-2.2.0.zip;
 - Put the RHEL 7.2 Vagrant Box file inside the components/rhel/ sub-folder of the CDK folder;
 - Install required Vagrant plugins;
 - Add RHEL 7.2 box to Vagrant;
@@ -30,13 +30,14 @@ This option installs OpenShift Container Platform 3.2:
 
 ### Requirements
 
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
+- [Vagrant](https://www.vagrantup.com/) 1.8.7;
+
 ### Operating Systems
 
 #### Windows 7 64 bits
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
-
-##### Installation
 
 These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
 
@@ -70,7 +71,39 @@ Where:
 
 **Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
-##### Validation
+#### Ubuntu 14.04
+
+```bash
+cd [CDK_FOLDER]/components/rhel/
+ 
+# Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
+vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
+vagrant plugin list
+vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
+vagrant box list
+ 
+# Set CDK Memory.
+export VM_MEMORY=6000
+ 
+# Set Red Hat Portal Subscription credentials.
+export SUB_USERNAME=[SUB_USERNAME]
+export SUB_PASSWORD=[SUB_PASSWORD]
+ 
+# Startup RHEL 7.2 Vagrant box.
+cd rhel-ose
+vagrant up
+ 
+# Connect to RHEL 7.2 Vagrant box.
+vagrant ssh
+```
+
+Where:
+- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example $HOME/opt/Servers/openshift-cdk-2.2.0/;
+- [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
+
+**Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under $HOME folder.
+
+#### Validation
 
 The following commands are to be issued inside the Vagrant box, in order to verify installation:
  
@@ -104,8 +137,6 @@ Verify that there's access to the following projects:
 - sample-project (current)
 
 Then connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
-
-#### Ubuntu 14.04
 
 ## With Docker Machine
 
@@ -172,6 +203,10 @@ Finally, open a browser and point it to the given address, something like https:
 
 #### Ubuntu 14.04
 
+##### Installation
+
+##### Validation
+
 # Well Known Errors
 
 ## Unable to execute vagrant run
@@ -224,10 +259,16 @@ is required for sshfs mounting to work. Please install the software and
 try again.
 ```
 
-This will require a Cygwin or MinGW environment, although technical any kind of utility named sftp-server that can act as a SFTP Server might work.
+On Windows this will require a Cygwin or MinGW environment, although technical any kind of utility named sftp-server that can act as a SFTP Server might work.
 
 Install Cygwin x64, with openssh, rsync and chere.
 It may require libusb0.
+
+On Ubuntu simply issue the following command:
+
+```bash
+sudo apt-get install openssh-server
+```
 
 ## Unable to access OpenShift Console
 
