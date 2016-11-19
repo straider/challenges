@@ -6,14 +6,14 @@ import org.apache.camel.spring.SpringCamelContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MainSpring {
+public class SpringContext {
 
     private static final String ACTIVEMQ_TAG       = "activemq";
     private static final String QUEUE_NAME         = "test.queue";
     private static final String INBOUND_ROUTE_NAME = String.format( "%s:%s", ACTIVEMQ_TAG, QUEUE_NAME);
 
     public static void main( final String[] arguments ) throws Exception {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext( "springRoute.xml" );
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-route.xml");
 
         CamelContext camelContext = SpringCamelContext.springCamelContext( applicationContext, false );
         try {

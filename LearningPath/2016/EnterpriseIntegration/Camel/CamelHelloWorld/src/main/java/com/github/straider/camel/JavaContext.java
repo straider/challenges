@@ -8,7 +8,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import static com.github.straider.camel.JavaRoute.ACTIVEMQ_TAG;
 import static com.github.straider.camel.JavaRoute.INBOUND_ROUTE_NAME;
 
-public class MainJava {
+public class JavaContext {
 
     private static final String BROKER_HOST = "localhost";
     private static final String BROKER_URL  = String.format( "vm://%s?broker.persistent=false", BROKER_HOST );
