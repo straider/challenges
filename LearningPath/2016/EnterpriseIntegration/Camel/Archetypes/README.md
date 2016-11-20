@@ -1,5 +1,5 @@
-:: Fuse :: Camel :: Maven Archetypes ::
-=======================================
+﻿:: Camel :: Maven Archetypes ::
+===============================
 
 # Maven Archetypes
 
@@ -59,6 +59,20 @@ mvn archetype:generate                             \
     -DartifactId=CamelSpring
 ```
 
+## Blueprint (OSGi) Based Router
+
+To create a new Camel project with OSGi blueprint support, ready to be deployed in OSGi:
+
+```sh
+mvn archetype:generate                              \
+    -DarchetypeGroupId=org.apache.camel.archetypes  \
+    -DarchetypeArtifactId=camel-archetype-blueprint \
+    -DarchetypeVersion=2.17.1                       \
+    -DinteractiveMode=false                         \
+    -DgroupId=com.github.straider.fuse.camel        \
+    -DartifactId=CamelBlueprint
+```
+
 ## ActiveMQ
 
 To create a new Camel project that configures and interacts with ActiveMQ:
@@ -113,18 +127,4 @@ mvn archetype:generate                               \
     -DinteractiveMode=false                          \
     -DgroupId=com.github.straider.fuse.camel         \
     -DartifactId=CamelWebConsole
-```
-
-## Blueprint (OSGi) Based Router
-
-To create a new Camel project with OSGi blueprint support, ready to be deployed in OSGi:
-
-```sh
-mvn archetype:generate                              \
-    -DarchetypeGroupId=org.apache.camel.archetypes  \
-    -DarchetypeArtifactId=camel-archetype-blueprint \
-    -DarchetypeVersion=2.17.1                       \
-    -DinteractiveMode=false                         \
-    -DgroupId=com.github.straider.fuse.camel        \
-    -DartifactId=CamelBlueprint
 ```
