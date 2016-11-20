@@ -154,6 +154,31 @@ Common requirements to follow all examples:
 - [ActiveMQ 5.14.1](http://activemq.apache.org/download.html)
 - [Eclipse Neon.1a](https://www.eclipse.org/downloads/packages/) / [IntelliJ IDEA 2016.2.4](https://www.jetbrains.com/idea/download/)
 
+### [Getting Started with Apache Camel using Java](https://dzone.com/articles/getting-started-apache-camel-0)
+
+#### Steps
+
+- Create pom.xml;
+- Add camel-core dependency to the project;
+- Add Camel components dependencies:
+    - slf4j-simple
+- Build the route, using Java DSL (providing a route ID);
+- Add the processor;
+- Build the context;
+- Add shutdown hook and thread block after context starts;
+- Extend Camel Main;
+- Add bean processors.
+
+#### Notes
+
+- There are no Unit Tests;
+- There are no Integration Tests;
+- There is logging, using SLF4J Simple;
+- Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy;
+- Replaced inner classes with Processors.
+
+#### Well Known Errors
+
 ### [Apache Camel Hello World example](https://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-hello-world-example/)
 
 #### Steps
@@ -296,7 +321,7 @@ A workaround is to add a ```Thread.sleep( 2500 )``` statement after the context 
     - From inbound CSV file;
     - From inbound XML by HTTP;
     - From internal JMS queue;
-    - To outbound JMS queue;
+    - To outbound JMS queue.
 - Add the helper;
 - Add the domain JAXB POJO;
 - Add the CSV Normalizer.
@@ -368,8 +393,6 @@ The following error occurs because the HTTP inbound is not associated with Jetty
 org.apache.camel.RuntimeCamelException: java.lang.UnsupportedOperationException: Cannot consume from http endpoint
 ```
 
-### [Getting Started with Apache Camel using Java](https://dzone.com/articles/getting-started-apache-camel-0)
-
 ### [REST endpoint for integration using Apache Camel](http://blog.christianposta.com/camel/rest-endpoint-for-integration-using-apache-camel/)
 
 ### [Cafe Example](http://camel.apache.org/cafe-example.html)
@@ -380,19 +403,67 @@ org.apache.camel.RuntimeCamelException: java.lang.UnsupportedOperationException:
 
 # Camel's Architecture
 
+> Camel uses [Routing Domain Specific Language](http://camel.apache.org/dsl.html) (DSL) or an XML configuration to configure routing and mediation rules which are added to a [CamelContext](http://camel.apache.org/camelcontext.html) to implement the various Enterprise Integration Patterns.
+
+> At a high level Camel consists of a CamelContext which contains a collection of Component instances. The CamelContext represents a single Camel routing rulebase.
+
+> The DSL makes heavy use of pluggable [Languages](http://camel.apache.org/languages.html) to create an [Expression](http://camel.apache.org/expression.html) or [Predicate](http://camel.apache.org/predicate.html) to make a truly powerful DSL which is extensible to the most suitable language depending on your needs.
+
 ## Components
 
-https://dzone.com/articles/apache-camel-integration
+> A component is essentially a factory of endpoint instances. Component is confusing terminology; EndpointFactory would have been more appropriate because a Component is a factory for creating Endpoint instances.
+
+From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 > Components are the extension point in Camel to add connectivity to other systems. Camel has a small core set of components included by default. The rest of the components exist as separate modules.
+
+The camel-core provides the following components *out of the box*:
+- [bean](http://camel.apache.org/bean.html)
+- [direct](http://camel.apache.org/direct.html)
+- [file](http://camel.apache.org/file2.html)
+- [log](http://camel.apache.org/log.html)
+- [properties](http://camel.apache.org/properties.html)
+- [seda](http://camel.apache.org/seda.html)
+- [timer](http://camel.apache.org/timer.html)
+- [validator](http://camel.apache.org/validation.html)
+- [vm](http://camel.apache.org/vm.html)
+- [xslt](http://camel.apache.org/xslt.html)
+- [browse](http://camel.apache.org/browse.html)
+- [dataset](http://camel.apache.org/dataset.html)
+- [mock](http://camel.apache.org/mock.html)
+- [test](http://camel.apache.org/test.html)
+- [stub](http://camel.apache.org/stub.html)
 
 ## Endpoints
 
-## Routes
+> An [Endpoint](http://camel.apache.org/endpoint.html) acts rather like a URI or URL in a web application or a Destination in a JMS system. One can communicate with an endpoint by either sending messages to it or consuming messages from it. One can then create a [Producer](http://camel.apache.org/maven/current/camel-core/apidocs/org/apache/camel/Producer.html) or [Consumer](http://camel.apache.org/maven/current/camel-core/apidocs/org/apache/camel/Consumer.html) on an Endpoint to exchange messages with it.
 
-https://dzone.com/articles/apache-camel-integration
-> Routes wire Processors and Endpoints together. In Camel, DSL means a fluent API that contains methods named like terms from the EIP book.
+> Camel supports the [Message Endpoint](http://camel.apache.org/message-endpoint.html) pattern using the Endpoint interface. Endpoints are usually created by a Component and Endpoints are usually referred to in the DSL via their URIs.
+
+> From an Endpoint you can use the following methods:
+- createProducer() will create a Producer for sending message exchanges to the endpoint;
+- createConsumer() implements the Event Driven Consumer pattern for consuming message exchanges from the endpoint via a Processor when creating a Consumer;
+- createPollingConsumer() implements the Polling Consumer pattern for consuming message exchanges from the endpoint via a PollingConsumer.
+
+## Message and Exchange
+
+> The Message interface provides an abstraction for a single message, such as a request, reply or exception message.
+
+> The Exchange interface provides an abstraction for an exchange of messages, that is, a request message and its corresponding reply or exception message. In Camel terminology, the request, reply and exception messages are called in, out and fault messages.
 
 ## Processors
 
-https://dzone.com/articles/apache-camel-integration
+> The [Processor](http://camel.apache.org/processor.html) interface is used to implement consumers of message exchanges or to implement a [Event Driven Consumer](http://camel.apache.org/event-driven-consumer.html) or [Message Translator](http://camel.apache.org/message-translator.html) pattern.
+
+From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 > Processors are used to manipulate and mediate messages in between Endpoints. All of the EIPs are defined as Processors or sets of Processors.
+
+## Routes
+
+> A [route](http://camel.apache.org/routes.html) is the step-by-step movement of a Message from an input queue, through arbitrary types of decision making (such as filters and routers) to a destination queue (if any).
+
+> Camel provides two ways for an application developer to specify routes:
+- One way is to specify route information in an XML file;
+- The other way is through what Camel calls a DSL.
+
+From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
+> Routes wire Processors and Endpoints together. In Camel, DSL means a fluent API that contains methods named like terms from the EIP book.
