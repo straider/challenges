@@ -9,7 +9,8 @@
 >
 
     <bean id = "connectionFactory" class = "org.apache.activemq.ActiveMQConnectionFactory">
-        <property name = "brokerURL" value = "tcp://localhost:61616" />
+        <property name = "brokerURL" value = "vm://localhost?broker.persistent=false" />
+        <!--<property name = "brokerURL" value = "tcp://localhost:61616" />-->
     </bean>
 
     <bean id = "jms" class = "org.apache.activemq.camel.component.ActiveMQComponent">
@@ -19,11 +20,13 @@
     <bean id = "helper"     class = "com.github.straider.camel.OrderHelper"     />
     <bean id = "normalizer" class = "com.github.straider.camel.OrderNormalizer" />
 
+<!--
     <activemq:broker useJmx = "false" persistent = "false">
         <activemq:transportConnectors>
             <activemq:transportConnector uri = "tcp://localhost:61616" />
         </activemq:transportConnectors>
     </activemq:broker>
+-->
 
     <camel:camelContext id = "SpringCamelContext">
         <camel:package>com.github.straider.camel</camel:package>

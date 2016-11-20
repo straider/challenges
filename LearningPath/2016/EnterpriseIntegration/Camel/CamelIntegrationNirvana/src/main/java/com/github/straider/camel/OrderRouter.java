@@ -19,17 +19,17 @@ public class OrderRouter extends RouteBuilder {
     public void configure() throws Exception {
         JaxbDataFormat jaxb = new JaxbDataFormat( "com.github.straider.camel" );
 
-        from( INBOUND_ROUTE_FILE )
+        from( INBOUND_ROUTE_FILE ).routeId( "file.in" )
                 .to( INTERNAL_ROUTE_QUEUE )
         ;
 
-        from( INBOUND_ROUTE_HTTP )
+        from( INBOUND_ROUTE_HTTP ).routeId( "http.in" )
                 .inOnly()
                 .to( INTERNAL_ROUTE_QUEUE )
                 .transform().constant( "OK" )
         ;
 
-        from( INTERNAL_ROUTE_QUEUE )
+        from( INTERNAL_ROUTE_QUEUE ).routeId( "jms.internal" )
                 .convertBodyTo( String.class )
                 .choice()
                     .when().method( "helper", "isXml" )
