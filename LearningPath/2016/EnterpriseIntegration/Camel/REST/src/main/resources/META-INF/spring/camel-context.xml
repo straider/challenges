@@ -9,11 +9,11 @@
 >
 
     <cxf:rsServer id           = "rsServer"
-                  address      = "http://localhost:10000/route"
+                  address      = "http://localhost:10002/route"
                   serviceClass = "com.github.straider.camel.CustomerServiceResource"
     />
 
-    <bean id = "routeBuilder" class = "com.github.straider.camel.CustomerServiceBeanBasedRoute"/>
+    <bean id = "routeBuilder" class = "com.github.straider.camel.CustomerServiceBeanBasedRoute" />
 
     <camel:camelContext id = "SpringCamelContext">
         <camel:routeBuilder ref = "routeBuilder" />

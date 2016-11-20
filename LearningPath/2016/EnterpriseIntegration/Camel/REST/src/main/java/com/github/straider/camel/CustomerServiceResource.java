@@ -15,14 +15,14 @@ public class CustomerServiceResource {
     }
 
     @GET
-    @Path( "/customers/{id}/" )
+    @Path( "/customer/{id}/" )
     @Produces( "text/xml" )
     public CustomerModel getCustomer( @PathParam( "id" ) final String id ) {
         return null;
     }
 
     @PUT
-    @Path( "/customers/" )
+    @Path( "/customer/" )
     public Response updateCustomer( final CustomerModel customer ) {
         return null;
     }
