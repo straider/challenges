@@ -1,0 +1,46 @@
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.straider.camel</groupId>
+        <artifactId>camel-parent-pom</artifactId>
+        <version>1.0.3</version>
+    </parent>
+
+    <artifactId>camel-getting-started-example</artifactId>
+    <version>1.0.0</version>
+    <name>Camel Getting Started Example</name>
+    <description>http://saltnlight5.blogspot.co.uk/2013/08/getting-started-with-apache-camel-using.html</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/EnterpriseIntegration/Camel/CamelGettingStarted</url>
+
+    <packaging>jar</packaging>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
+
