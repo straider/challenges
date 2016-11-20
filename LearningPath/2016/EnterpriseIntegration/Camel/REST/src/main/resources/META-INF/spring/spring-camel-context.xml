@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns              = "http://www.springframework.org/schema/beans"
+       xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel        = "http://camel.apache.org/schema/spring"
+       xmlns:cxf          = "http://camel.apache.org/schema/cxf"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd
+                             http://camel.apache.org/schema/cxf          http://camel.apache.org/schema/cxf/camel-cxf.xsd"
+>
+
+    <cxf:rsServer id           = "rsServer"
+                  address      = "http://localhost:10000/route"
+                  serviceClass = "com.github.straider.camel.CustomerServiceResource"
+    />
+
+    <bean id = "routeBuilder" class = "com.github.straider.camel.CustomerServiceBeanBasedRoute"/>
+
+    <camel:camelContext id = "SpringCamelContext">
+        <camel:routeBuilder ref = "routeBuilder" />
+    </camel:camelContext>
+
+</beans>
