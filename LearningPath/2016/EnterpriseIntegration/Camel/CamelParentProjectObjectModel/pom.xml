@@ -7,7 +7,7 @@
 
     <groupId>com.github.straider.camel</groupId>
     <artifactId>camel-parent-pom</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>Camel parent-pom</name>
     <description>Camel Parent Project Object Model.</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/EnterpriseIntegration/Camel/CamelParentProjectObjectModel</url>
@@ -16,7 +16,7 @@
 
     <properties>
         <minimum.maven.version>[3.3,)</minimum.maven.version>
-        <java.version>1.6</java.version>
+        <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
@@ -194,24 +194,6 @@
                     <configuration>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
-                    <executions>
-                        <execution>
-                            <id>copy-artifacts</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>target/etc/deploy</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>src/etc/deploy</directory>
-                                        <filtering>true</filtering>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
 
                 <plugin>

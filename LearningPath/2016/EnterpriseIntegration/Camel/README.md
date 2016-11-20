@@ -56,6 +56,8 @@ The router is coded in Java and not using Spring or Blueprint XML files, which i
 
 - [Apache Camel - Tutorials](http://camel.apache.org/tutorials.html)
 - [Apache Camel Hello World example](https://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-hello-world-example/)
+- [Getting Started with Apache Camel using Groovy](http://saltnlight5.blogspot.co.uk/2012/08/getting-started-with-apache-camel-using.html)
+- [Getting Started with Apache Camel using Java](http://saltnlight5.blogspot.co.uk/2013/08/getting-started-with-apache-camel-using.html)
 - [Apache Camel Using Java DSL](http://www.javainuse.com/camel/camel_java)
 - [Intro to Camel By Example](https://davidvaleri.wordpress.com/2013/03/28/intro-to-camel-by-example/)
 - [Apache Camel – developing application from the scratch (part 1 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-1-2/)
@@ -67,6 +69,8 @@ The router is coded in Java and not using Spring or Blueprint XML files, which i
 - [Camel and JMS](http://www.mastertheintegration.com/camel/camel-and-jms.html)
 - [Using the Timer component with Camel](http://www.mastertheintegration.com/camel/timer-component/using-the-timer-component-with-camel.html)
 - [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
+- [REST endpoint for integration using Apache Camel](http://blog.christianposta.com/camel/rest-endpoint-for-integration-using-apache-camel/)
+- [Apache Camel: open source integration framework](http://www.jeroenreijn.com/2009/03/apache-camel-open-source-integration.html)
 
 ## Articles
 
@@ -190,6 +194,8 @@ SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 ```
 
+Please read [How to configure SLF4J with different logger implementations](http://saltnlight5.blogspot.co.uk/2013/08/how-to-configure-slf4j-with-different.html).
+
 ##### Failed to load class "org.slf4j.impl.StaticMDCBinder".
 
 The following error occurs because there's no logger configured by ActiveMQ:
@@ -257,6 +263,16 @@ Caused by: org.springframework.beans.FatalBeanException: Invalid NamespaceHandle
 ...
 ```
 
+##### Context stopped before handling JMS message
+
+The following error occurs because the context stopped before ActiveMQ could handle the message:
+
+```
+Rejecting received message because of the listener container having been stopped in the meantime: ActiveMQTextMessage
+```
+
+A workaround is to add a ```Thread.sleep( 2500 )``` statement after the context starts, to give enough time for the route to process the message.
+
 ### [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 
 #### Steps
@@ -269,10 +285,11 @@ Caused by: org.springframework.beans.FatalBeanException: Invalid NamespaceHandle
     - ~~camel-jms~~
     - camel-jaxb
     - camel-csv
-    - ~~camel-jetty~~
+    - camel-http
+    - camel-jetty
 - Add Spring dependencies:
     - spring-context
-    - xbean-spring
+    - ~~xbean-spring~~
     - camel-spring
 - Build the context, using Spring Beans;
 - Build the route, using Java DSL (providing a route ID):
@@ -290,10 +307,70 @@ Caused by: org.springframework.beans.FatalBeanException: Invalid NamespaceHandle
 - There are no Integration Tests;
 - There is no logging;
 - Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy and also gets rid of logging warnings;
-- Add inbound JSON by HTTP? Requires Jackson dependencies.
+- Add inbound JSON by HTTP? Requires Jackson dependencies;
+- Should return HTTP Response Codes.
 
 #### Known Errors
 
+##### Spring NamespaceHandler for XML schema namespace activemq
+
+The following error occurs because the activemq-core dependency is missing in the pom.xml file:
+
+```
+Exception in thread "main" org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem:
+Unable to locate Spring NamespaceHandler for XML schema namespace [http://activemq.apache.org/schema/core]
+```
+
+##### Data format 'csv' could not be created.
+
+The following error occurs because the camel-csv dependency is missing in the pom.xml file:
+
+```
+java.lang.IllegalArgumentException: Data format 'csv' could not be created.
+Ensure that the data format is valid and the associated Camel component is present on the classpath
+```
+
+##### Does not contain ObjectFactory.class or jaxb.index
+
+The following error occurs because the jaxb.index file is missing in folder with same name as the package:
+
+```
+javax.xml.bind.JAXBException: Provider com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: doesnt contain ObjectFactory.class or jaxb.index
+```
+
+##### Localhost interface
+
+The following warning message occurs because the host for the Jetty HTTP endpoint is set to localhost instead of 0.0.0.0:
+
+```
+You use localhost interface! It means that no external connections will be available. Don't you want to use 0.0.0.0 instead (all network interfaces)?
+```
+
+##### Failed to resolve endpoint
+
+The following error occurs because camel-jetty dependency is missing in the pom.xml file:
+
+```
+Failed to resolve endpoint: jetty://http://0.0.0.0:10000/placeorder due to: No component found with scheme: jetty
+```
+
+The following error occurs because camel-http dependency is missing in the pom.xml file:
+
+```
+Failed to resolve endpoint: http://0.0.0.0:10000/placeorder due to: No component found with scheme: http
+```
+
+##### Cannot consume from http endpoint
+
+The following error occurs because the HTTP inbound is not associated with Jetty Camel component:
+
+```
+org.apache.camel.RuntimeCamelException: java.lang.UnsupportedOperationException: Cannot consume from http endpoint
+```
+
+### [Getting Started with Apache Camel using Java](https://dzone.com/articles/getting-started-apache-camel-0)
+
+### [REST endpoint for integration using Apache Camel](http://blog.christianposta.com/camel/rest-endpoint-for-integration-using-apache-camel/)
 
 ### [Cafe Example](http://camel.apache.org/cafe-example.html)
 
