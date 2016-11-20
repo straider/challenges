@@ -20,6 +20,25 @@ public class TimerContext {
         camelContext.addRoutes( createRouteBuilder() );
         camelContext.setTracing( true );
         camelContext.start();
+
+        Runtime.getRuntime().addShutdownHook( new Thread() {
+            @Override
+            public void run() {
+                try {
+                    camelContext.stop();
+                } catch ( Exception exception ) {
+                    throw new RuntimeException( exception );
+                }
+            }
+        } );
+
+        while ( true ) {
+            try {
+                Thread.sleep( Long.MAX_VALUE );
+            } catch ( InterruptedException exception ) {
+                break;
+            }
+        }
     }
 
     private RoutesBuilder createRouteBuilder() {
