@@ -1,16 +1,21 @@
 package com.github.straider.camel;
 
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 
-public class TimerRouteBuilder extends RouteBuilder {
+class TimerRouteBuilder extends RouteBuilder {
 
-    private final TimerProcessor processor = new TimerProcessor();
+    private Processor processor;
 
     @Override
     public void configure() throws Exception {
         from( "timer://timer1?period=1000" ).routeId( "timer.in" )
                 .process( processor )
         ;
+    }
+
+    public void setProcessor( final Processor processor ) {
+        this.processor = processor;
     }
 
 }

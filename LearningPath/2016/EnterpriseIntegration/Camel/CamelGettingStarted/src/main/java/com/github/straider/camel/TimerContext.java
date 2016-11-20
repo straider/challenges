@@ -1,6 +1,7 @@
 package com.github.straider.camel;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
@@ -38,7 +39,11 @@ public class TimerContext {
     }
 
     private RoutesBuilder createRouteBuilder() {
-        return new TimerRouteBuilder();
+        final TimerRouteBuilder builder   = new TimerRouteBuilder();
+        final Processor         processor = new TimerProcessor();
+        builder.setProcessor( processor );
+
+        return builder;
     }
 
 }

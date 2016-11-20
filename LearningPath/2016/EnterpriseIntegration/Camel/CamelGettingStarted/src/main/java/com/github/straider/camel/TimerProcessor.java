@@ -5,7 +5,7 @@ import org.apache.camel.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TimerProcessor implements Processor {
+class TimerProcessor implements Processor {
 
     private static final Logger logger = LoggerFactory.getLogger( TimerRouteBuilder.class );
 

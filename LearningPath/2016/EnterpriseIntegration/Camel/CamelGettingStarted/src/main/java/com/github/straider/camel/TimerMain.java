@@ -10,11 +10,7 @@ public class TimerMain extends Main {
 
         main.enableHangupSupport();
         main.addRouteBuilder( createRouteBuilder() );
-        if ( arguments.length > 0 ) {
-            main.run( arguments );
-        } else {
-            main.run();
-        }
+        main.run( arguments );
     }
 
     private static RouteBuilder createRouteBuilder() {
