@@ -31,3 +31,11 @@
 - Replaced the simple pom.xml with one that depends on parent-pom artifact, which enables Unit Tests and Integration Tests coded in Groovy.
 
 ## Well Known Errors
+
+### Cannot find HttpDestinationFactory
+
+The following error occurs when cxf-rt-transports-http-jetty dependency is missing in the pom.xml file:
+
+```
+SEVERE: Cannot find any registered HttpDestinationFactory from the Bus.
+```
