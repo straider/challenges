@@ -86,8 +86,6 @@
 - [Base Tutorial](http://enroute.osgi.org/tutorial_base/050-start.html)
 - [Distributed OSGi Tutorial](http://enroute.osgi.org/tutorial_rsa/050-start.html)
 - [Creating OSGi bundles](https://spring.io/blog/2008/02/18/creating-osgi-bundles/)
-- [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
-- [OSGi and Spring Dynamic Modules – Simple Hello World](https://www.javacodegeeks.com/2011/11/osgi-and-spring-dynamic-modules-simple.html)
 - [OSGi Tutorial: From project structure to release](http://blog.knowhowlab.org/2010/06/osgi-tutorial-from-project-structure-to.html)
 
 ### Articles
@@ -100,6 +98,12 @@
 - [Cloud & OSGi - Beyond the VM](http://www.slideshare.net/mfrancis/paremus-cloud-and-osgi-beyond-the-vm-osgi-cloud-workshop-march-2012)
 - [Cloud and OSGi @ eBay](http://www.slideshare.net/mfrancis/cloud-and-osgi-at-ebay-osgi-cloud-workshop-march-2012)
 - [Eclipse Gyrex OSGi based PaaS-Like Programming Stack](http://www.slideshare.net/mfrancis/eclipse-gyrex-osgi-based-paas-like-os-gi-cloud-workshop-march-2012)
+- [Making Plain Old Java OSGi Compatible](http://www.stoyanr.com/2012/09/making-plain-old-java-osgi-compatible.html)
+- [Understanding how OSGI bundles get resolved](http://blog.christianposta.com/osgi/understanding-how-osgi-bundles-get-resolved-part-i/)
+- [Learn by Errors : Java + OSGi](https://chamibuddhika.wordpress.com/2012/05/15/learn-by-errors-java-osgi/)
+- [OSGI – Modularizing your application](https://eclipsebrazil.wordpress.com/2011/03/01/osgi-%E2%80%93-modularizing-your-application/)
+- [Introduction to OSGi - Java Modular](https://cnapagoda.blogspot.co.uk/2011/09/introduction-to-osgijava-modular.html)
+- [Introduction to OSGi - OSGi Services](https://cnapagoda.blogspot.co.uk/2012/01/introduction-to-osgi-2-osgi-services.html)
 - [Java 9, OSGi and the Future of Modularity (Part 1)](https://www.infoq.com/articles/java9-osgi-future-modularity)
 - [Java 9, OSGi and the Future of Modularity (Part 2)](https://www.infoq.com/articles/java9-osgi-future-modularity-part-2)
 - [OSGi leads application development into the future](http://www.theserverside.com/news/1280100062/OSGi-leads-application-development-into-the-future)
@@ -184,19 +188,25 @@
 
 ### Felix
 
-- [Apache Felix](http://felix.apache.org/)  is a community effort to implement the OSGi Framework and Service platform and other interesting OSGi-related technologies under the Apache license.
+- [Apache Felix](http://felix.apache.org/) is a community effort to implement the OSGi Framework and Service platform and other interesting OSGi-related technologies under the Apache license.
+- [PojoSR](https://github.com/lefou/pojosr) is service registry that enables OSGi style service registry programs without using an OSGi framework. The current implementation is based in parts on Apache Felix and is a work in progress.
+    - [PojoSR brings Service Registry to Java](https://www.infoq.com/news/2011/10/pojosr)
+    - [Using PojoSR for unit testing OSGi bundles](https://kgilmersden.wordpress.com/2011/12/15/using-pojosr-for-unit-testing-osgi-bundles/)
 - [Apache Felix OSGi Tutorial](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html)
-- [OSGi – Simple Hello World with services](https://www.javacodegeeks.com/2011/11/osgi-simple-hello-world-with-services.html)
+- [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
+- [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
 
 ### Equinox
 
 - [Equinox](http://www.eclipse.org/equinox/) is an implementation of the OSGi core framework specification, a set of bundles that implement various optional OSGi services and other infrastructure for running OSGi-based systems. The Equinox OSGi core framework implementation is used as the reference implementation and as such it implements all the required features of the latest OSGi core framework specification.
+- [Concierge](http://www.eclipse.org/proposals/rt.concierge/) is an alternative implementation to Equinox of the OSGi core framework and can serve as the sandbox for experimental work on the OSGi core which can later be adopted by Equinox.
 - [Tutorial: Using REST and OSGi Standards for Micro Services](https://wiki.eclipse.org/Tutorial:_Using_REST_and_OSGi_Standards_for_Micro_Services)
 - [Tutorial: Exposing a Jax REST service as an OSGi Remote Service](https://wiki.eclipse.org/Tutorial:_Exposing_a_Jax_REST_service_as_an_OSGi_Remote_Service)
 - [OSGi Component Programming](https://github.com/osgi/eclipsecon/tree/master/2006/tutorial)
 - [OSGi Modularity - Tutorial](http://www.vogella.com/tutorials/OSGi/article.html)
 - [OSGi Services - Tutorial](http://www.vogella.com/tutorials/OSGiServices/article.html)
 - [OSGi Using Maven with Equinox](https://www.javacodegeeks.com/2011/06/osgi-using-maven-equinox.html)
+- [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
 - [Hello, OSGi, Part 1: Bundles for beginners](http://www.javaworld.com/article/2077837/java-se/java-se-hello-osgi-part-1-bundles-for-beginners.html)
 - [Hello, OSGi, Part 2: Introduction to Spring Dynamic Modules](http://www.javaworld.com/article/2077853/java-se/java-se-hello-osgi-part-2-introduction-to-spring-dynamic-modules.html)
 - [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
@@ -237,6 +247,7 @@
 - [JAX-RS applications in OSGi – whiteboard style](http://www.jeremias-maerki.ch/wordpress/2011/08/20/jaxrs-applications-in-osgi-whiteboard-style/)
 - [Deploying Apache CXF services using Whiteboard Pattern in OSGi Container](https://nadirsaghar.wordpress.com/2013/07/31/deploying-apache-cxf-services-using-whiteboard-pattern-in-osgi-container/)
 - [Building OSGi applications with the Blueprint Container specification](https://www.ibm.com/developerworks/library/os-osgiblueprint/)
+- [Blueprint and Service Dynamism in OSGi](http://javabeat.net/blueprint-and-service-dynamism-in-osgi/)
 
 ### Spring Dynamic Modules
 
