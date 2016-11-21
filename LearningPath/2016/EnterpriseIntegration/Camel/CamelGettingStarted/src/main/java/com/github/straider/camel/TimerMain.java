@@ -1,5 +1,6 @@
 package com.github.straider.camel;
 
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.main.Main;
 
@@ -14,7 +15,11 @@ public class TimerMain extends Main {
     }
 
     private static RouteBuilder createRouteBuilder() {
-        return new TimerRouteBuilder();
+        final TimerRouteBuilder builder   = new TimerRouteBuilder();
+        final Processor         processor = new TimerProcessor();
+        builder.setProcessor( processor );
+
+        return builder;
     }
 
 }
