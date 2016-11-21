@@ -7,7 +7,7 @@
 
     <groupId>com.github.straider.camel</groupId>
     <artifactId>camel-parent-pom</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <name>Camel parent-pom</name>
     <description>Camel Parent Project Object Model.</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/EnterpriseIntegration/Camel/CamelParentProjectObjectModel</url>
@@ -301,6 +301,12 @@
                         <failIfNoTests>true</failIfNoTests>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.camel</groupId>
+                    <artifactId>camel-maven-plugin</artifactId>
+                    <version>${camel.version}</version>
                 </plugin>
 
             </plugins>
