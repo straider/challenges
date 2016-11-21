@@ -20,7 +20,7 @@ public class SpringContext {
     public static void main(String[] args) throws Exception {
         final String response;
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext( "spring-context.xml" );
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext( "camel-context.xml" );
 
         CamelContext camelContext = SpringCamelContext.springCamelContext( applicationContext, false );
         try {
