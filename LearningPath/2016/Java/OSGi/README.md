@@ -91,13 +91,14 @@
 ### Articles
 
 - [OSGi (Open Service Gateway Initiative)](http://searchnetworking.techtarget.com/definition/OSGi)
-- [Best practices for OSGi development in enterprise Java integration](http://searchsoa.techtarget.com/tip/Best-practices-for-OSGi-development-in-enterprise-Java-integration)
 - [Best practices for developing and working with OSGi applications](http://www.ibm.com/developerworks/websphere/techjournal/1007_charters/1007_charters.html)
+- [Best practices for OSGi development in enterprise Java integration](http://searchsoa.techtarget.com/tip/Best-practices-for-OSGi-development-in-enterprise-Java-integration)
 - [OSGi and The Rise of The Stackless Stack: Just in Time](http://redmonk.com/jgovernor/2008/02/05/osgi-and-the-rise-of-the-stackless-stack-just-in-time/)
 - [OSGi plugs along](http://www.javaworld.com/article/2073293/osgi-plugs-along.html)
 - [Cloud & OSGi - Beyond the VM](http://www.slideshare.net/mfrancis/paremus-cloud-and-osgi-beyond-the-vm-osgi-cloud-workshop-march-2012)
 - [Cloud and OSGi @ eBay](http://www.slideshare.net/mfrancis/cloud-and-osgi-at-ebay-osgi-cloud-workshop-march-2012)
 - [Eclipse Gyrex OSGi based PaaS-Like Programming Stack](http://www.slideshare.net/mfrancis/eclipse-gyrex-osgi-based-paas-like-os-gi-cloud-workshop-march-2012)
+- [Lean microservices on OSGi](http://www.slideshare.net/ChristianSchneider3/lean-microservices-on-osgi)
 - [Making Plain Old Java OSGi Compatible](http://www.stoyanr.com/2012/09/making-plain-old-java-osgi-compatible.html)
 - [Understanding how OSGI bundles get resolved](http://blog.christianposta.com/osgi/understanding-how-osgi-bundles-get-resolved-part-i/)
 - [Learn by Errors : Java + OSGi](https://chamibuddhika.wordpress.com/2012/05/15/learn-by-errors-java-osgi/)
@@ -299,3 +300,5 @@
 - [Pax Runner](https://ops4j1.jira.com/wiki/display/paxrunner/Pax+Runner)
 - [Pax Logging](https://ops4j1.jira.com/wiki/display/paxlogging/Pax+Logging)
 - [OSGi - JAX-RS Connector](https://github.com/hstaudacher/osgi-jax-rs-connector)
+- [Apache CXF Distributed OSGi](http://cxf.apache.org/distributed-osgi.html) subproject provides CXF based distribution providers for Aries Remote Service Admin (RSA).
+    - [Develop and Deploy Web Services as OSGi Bundles](https://www.ibm.com/developerworks/library/ws-OSGi/)
