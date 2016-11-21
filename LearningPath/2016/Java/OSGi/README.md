@@ -216,6 +216,7 @@
 ### Knopflerfish
 
 - [Knopflerfish](http://www.knopflerfish.org/)
+- [OSGi Service tutorial](http://www.knopflerfish.org/osgi_service_tutorial.html)
 
 ### Karaf
 
@@ -242,6 +243,9 @@
 - [Web Applications with OSGi – Static Files](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-static-files/)
 - [Web Applications with OSGi – Working with Jersey](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-working-with-jersey/)
 - [Web Applications with OSGi – Working with Jersey and iPojo](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-working-with-jersey-and-ipojo/)
+- [tutorial-osgi-camel-part1](http://camel.apache.org/tutorial-osgi-camel-part1.html)
+- [tutorial-osgi-camel-part2](http://camel.apache.org/tutorial-osgi-camel-part2.html)
+- [CXF Example OSGi](http://camel.apache.org/cxf-example-osgi.html)
 
 ## Blueprints
 
@@ -249,6 +253,9 @@
 - [Deploying Apache CXF services using Whiteboard Pattern in OSGi Container](https://nadirsaghar.wordpress.com/2013/07/31/deploying-apache-cxf-services-using-whiteboard-pattern-in-osgi-container/)
 - [Building OSGi applications with the Blueprint Container specification](https://www.ibm.com/developerworks/library/os-osgiblueprint/)
 - [Blueprint and Service Dynamism in OSGi](http://javabeat.net/blueprint-and-service-dynamism-in-osgi/)
+- [Jumpstarting Camel Blueprint Testing](http://www.sixtree.com.au/articles/2016/jumpstarting-camel-blueprint-testing/)
+- [Testing (utest and itest) Apache Camel Blueprint route](http://blog.nanthrax.net/2014/08/testing-utest-and-itest-apache-camel-blueprint-route/)
+- [Camel Blueprint test support](http://ggrzybek.blogspot.co.uk/2015/12/camel-blueprint-test-support.html)
 
 ### Spring Dynamic Modules
 
@@ -274,6 +281,7 @@
 - [The Greeter Tutorial](http://aries.apache.org/documentation/tutorials/greetertutorial.html)
 - [Apache CXF and Aries Blueprint Everywhere](http://sberyozkin.blogspot.co.uk/2015/10/apache-cxf-and-aries-blueprint.html)
 - [Creating a CXF REST service with Camel Blueprint](https://capgemini.github.io/development/creating-a-cxf-restful-service-in-camel-blueprint/)
+- [Using OSGi blueprint with Camel](https://camel.apache.org/using-osgi-blueprint-with-camel.html)
 
 ## Maven Plugins
 
