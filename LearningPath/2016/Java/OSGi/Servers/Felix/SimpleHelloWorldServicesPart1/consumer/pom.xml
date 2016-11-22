@@ -11,7 +11,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>${parent.groupId}.consumer</groupId>
+    <groupId>com.github.straider.felix.consumer</groupId>
     <artifactId>simple-helloworld-services-consumer1</artifactId>
     <version>1.0.0</version>
     <name>Felix Simple Hello World Services Consumer - Part 1</name>
@@ -23,7 +23,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>${parent.groupId}.producer</groupId>
+            <groupId>${project.parent.groupId}.producer</groupId>
             <artifactId>simple-helloworld-services-producer1</artifactId>
             <version>1.0.0</version>
         </dependency>
