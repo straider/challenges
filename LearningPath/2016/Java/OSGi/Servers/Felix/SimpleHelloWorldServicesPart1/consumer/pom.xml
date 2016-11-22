@@ -17,7 +17,7 @@
     <description>http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/Java/OSGi/Servers/Felix/SimpleHelloWorldServicesPart1</url>
 
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <build>
 
