@@ -129,6 +129,7 @@ This learning path just focus on Spring Integration standalone, although it also
 - [Spring Tutorials for Beginners](http://www.java4s.com/spring/)
 - [Spring by Example](http://www.springbyexample.org/)
 - [Spring Tutorial](http://www.mkyong.com/tutorials/spring-tutorials/)
+- [Shall we do some Spring together?](https://vrtoonjava.wordpress.com/2012/06/17/shall-we-do-some-spring-together/)
 - [Spring WS](http://memorynotfound.com/category/spring-framework/spring-ws/)
 - [Spring Data](http://memorynotfound.com/category/spring-framework/spring-data/)
 

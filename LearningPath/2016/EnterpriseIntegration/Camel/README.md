@@ -3,14 +3,25 @@
 
 # Overview
 
-**What is Apache Camel?**
+## Questions
+
+### What is Apache Camel?
+
 > [Apache Camel](https://en.wikipedia.org/wiki/Apache_Camel) is a rule-based routing and mediation engine that provides a Java object-based implementation of the [Enterprise Integration Patterns](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns) using an API or [DSL](http://camel.apache.org/dsl.html) to configure routing and mediation rules. The domain-specific language means that Apache Camel can support type-safe smart completion of routing rules in an integrated development environment using regular Java, Groovy or Scala code without large amounts of XML configuration files, though XML configuration using [Spring Framework](http://camel.apache.org/spring.html) or [OSGi Blueprint](http://camel.apache.org/using-osgi-blueprint-with-camel.html) is also supported.
 >> Camel is often used with Apache ServiceMix, Apache ActiveMQ and Apache CXF in service-oriented architecture infrastructure projects.
 
-**Why use Apache Camel?**
+### Why use Apache Camel?
+
 > Apache Camel uses URIs to work directly with any kind of [Transport](http://camel.apache.org/transport.html) or messaging model such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable [Components](http://camel.apache.org/components.html) and [Data Format](http://camel.apache.org/data-format.html) options. Apache Camel is a small library with minimal dependencies for easy embedding in any Java application. Apache Camel lets you work with the same API regardless which kind of Transport is used - so learn the API once and you can interact with all the Components provided out-of-box.
 
-**What DSLs can be used?**
+### Alternatives to Camel?
+
+- [Spring Integration](http://projects.spring.io/spring-integration/) 
+- [Mule ESB](https://www.mulesoft.com/platform/soa/mule-esb-open-source-esb)
+- [Apache Synapse Enterprise Service Bus](http://synapse.apache.org/)
+
+### What DSLs can be used?
+
 > Camel uses a Java Domain Specific Language or DSL for creating Enterprise Integration Patterns or Routes in a variety of domain-specific languages:
 - [Java](http://camel.apache.org/java-dsl.html);
 - [Groovy](http://camel.apache.org/groovy-dsl.html);
@@ -20,11 +31,6 @@
 - [Java Bean Annotations](http://camel.apache.org/bean-integration.html);
 - [REST](http://camel.apache.org/rest-dsl.html);
 - [Kotlin](https://github.com/koolio/kool/tree/master/kool-camel).
-
-**Alternatives to Camel?**
-- [Spring Integration](http://projects.spring.io/spring-integration/) 
-- [Mule ESB](https://www.mulesoft.com/platform/soa/mule-esb-open-source-esb)
-- [Apache Synapse Enterprise Service Bus](http://synapse.apache.org/)
 
 ## Objectives
 
@@ -122,13 +128,18 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 ## Tutorials
 
 - [Apache Camel - Tutorials](http://camel.apache.org/tutorials.html)
+    - [tutorial-osgi-camel-part1](http://camel.apache.org/tutorial-osgi-camel-part1.html)
+    - [tutorial-osgi-camel-part2](http://camel.apache.org/tutorial-osgi-camel-part2.html)
+        - [tutorial-osgi-camel-part2a](http://camel.apache.org/tutorial-osgi-camel-part2a.html)
+        - [tutorial-osgi-camel-part2b](http://camel.apache.org/tutorial-osgi-camel-part2b.html)
+        - [tutorial-osgi-camel-part2c](http://camel.apache.org/tutorial-osgi-camel-part2c.html)
+    - [Tutorial-Example-ReportIncident](http://camel.apache.org/tutorial-example-reportincident.html)
 - [Apache Camel Hello World example](https://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-hello-world-example/)
 - [Getting Started with Apache Camel using Groovy](http://saltnlight5.blogspot.co.uk/2012/08/getting-started-with-apache-camel-using.html)
 - [Getting Started with Apache Camel using Java](http://saltnlight5.blogspot.co.uk/2013/08/getting-started-with-apache-camel-using.html)
 - [Apache Camel Using Java DSL](http://www.javainuse.com/camel/camel_java)
 - [Intro to Camel By Example](https://davidvaleri.wordpress.com/2013/03/28/intro-to-camel-by-example/)
-- [Apache Camel – developing application from the scratch (part 1 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-1-2/)
-- [Apache Camel – developing application from the scratch (part 2 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-2-2/)
+    - [Intro to Camel By Example](https://github.com/DavidValeri/intro-to-camel-by-example)
 - [Apache Camel Tutorial—EIP, Routes, Components, Testing, and More](https://dzone.com/articles/apache-camel-tutorial-eip)
 - [Camel Introduction](http://www.mastertheintegration.com/camel/camel-introduction.html)
 - [Transforming Data with Camel](http://www.mastertheintegration.com/camel/transforming-data-with-camel.html)
@@ -138,6 +149,8 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 - [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel-integration)
 - [REST endpoint for integration using Apache Camel](http://blog.christianposta.com/camel/rest-endpoint-for-integration-using-apache-camel/)
 - [Apache Camel: open source integration framework](http://www.jeroenreijn.com/2009/03/apache-camel-open-source-integration.html)
+- [Apache Camel – developing application from the scratch (part 1 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-1-2/)
+- [Apache Camel – developing application from the scratch (part 2 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-2-2/)
 
 ## Articles
 
