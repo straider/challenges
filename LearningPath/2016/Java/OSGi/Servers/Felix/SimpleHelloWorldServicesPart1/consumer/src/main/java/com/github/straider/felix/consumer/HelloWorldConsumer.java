@@ -1,4 +1,6 @@
-package com.github.straider.felix;
+package com.github.straider.felix.consumer;
+
+import com.github.straider.felix.producer.HelloWorldService;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;

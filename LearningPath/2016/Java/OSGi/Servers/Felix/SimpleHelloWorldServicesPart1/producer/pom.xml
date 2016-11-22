@@ -11,6 +11,7 @@
         <version>1.0.0</version>
     </parent>
 
+    <groupId>com.github.straider.felix.producer</groupId>
     <artifactId>simple-helloworld-services-producer1</artifactId>
     <version>1.0.0</version>
     <name>Felix Simple Hello World Services Producer - Part 1</name>
@@ -44,12 +45,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Import-Package>org.osgi.framework,*;resolution:=optional</Import-Package>
                         <Export-Package>${project.groupId}</Export-Package>
-                        <Private-Package>${project.groupId}</Private-Package>
                         <Bundle-Activator>${project.groupId}.ProducerActivator</Bundle-Activator>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Version>${project.version}</Bundle-Version>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>

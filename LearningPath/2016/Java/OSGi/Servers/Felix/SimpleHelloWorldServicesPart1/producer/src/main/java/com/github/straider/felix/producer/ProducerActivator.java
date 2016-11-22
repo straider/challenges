@@ -1,12 +1,12 @@
-package com.github.straider.felix;
+package com.github.straider.felix.producer;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-public class ProducerActivator implements BundleActivator {
+import static com.github.straider.felix.producer.HelloWorldService.INTERFACE_NAME;
 
-    private static final String INTERFACE_NAME = HelloWorldService.class.getName();
+public class ProducerActivator implements BundleActivator {
 
     private ServiceRegistration registration;
 

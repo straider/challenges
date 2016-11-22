@@ -1,4 +1,4 @@
-package com.github.straider.felix;
+package com.github.straider.felix.producer;
 
 public class HelloWorldServiceImplementation implements HelloWorldService {
 
