@@ -1,0 +1,58 @@
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.straider.osgi</groupId>
+        <artifactId>spring-dm-translator</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.github.straider.osgi.common</groupId>
+    <artifactId>spring-dm-translator-common</artifactId>
+    <version>1.0.0</version>
+    <name>Spring-DM Translator - Common</name>
+    <description>Common Bundle for Spring-DM Translator</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/Java/OSGi/Servers/Felix/SpringDynamicModulesTranslator</url>
+
+    <packaging>bundle</packaging>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>${project.groupId}</Export-Package>
+                        <Bundle-Vendor>straider</Bundle-Vendor>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

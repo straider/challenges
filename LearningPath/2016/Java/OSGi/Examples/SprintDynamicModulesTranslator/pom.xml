@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.straider.felix</groupId>
+    <groupId>com.github.straider.osgi</groupId>
     <artifactId>spring-dm-translator</artifactId>
     <version>1.0.0</version>
     <name>Spring-DM Translator</name>
@@ -13,6 +13,12 @@
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/Java/OSGi/Servers/Felix/SpringDynamicModulesTranslator</url>
 
     <packaging>pom</packaging>
+
+    <modules>
+        <module>common</module>
+        <module>producer</module>
+        <module>consumer</module>
+    </modules>
 
     <properties>
         <minimum.maven.version>[3.3,)</minimum.maven.version>
