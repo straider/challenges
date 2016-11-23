@@ -23,7 +23,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>${project.parent.groupId}.producer</groupId>
+            <groupId>${project.parent.groupId}.common</groupId>
             <artifactId>${project.parent.artifactId}-common</artifactId>
             <version>1.0.0</version>
         </dependency>
