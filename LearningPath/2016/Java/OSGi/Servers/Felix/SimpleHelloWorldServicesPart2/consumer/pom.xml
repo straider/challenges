@@ -55,7 +55,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>${project.groupId}.ConsumerActivator</Bundle-Activator>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>

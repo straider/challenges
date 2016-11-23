@@ -46,7 +46,6 @@
                 <configuration>
                     <instructions>
                         <Export-Package>${project.groupId}</Export-Package>
-                        <Bundle-Activator>${project.groupId}.ProducerActivator</Bundle-Activator>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>
