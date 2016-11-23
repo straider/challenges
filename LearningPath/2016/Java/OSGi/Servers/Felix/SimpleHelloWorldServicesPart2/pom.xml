@@ -1,0 +1,17 @@
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.straider.felix</groupId>
+    <artifactId>simple-helloworld-services2</artifactId>
+    <version>1.0.0</version>
+    <name>Felix Simple Hello World Services - Part 2</name>
+    <description>http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/Java/OSGi/Servers/Felix/SimpleHelloWorldServicesPart2</url>
+
+    <packaging>pom</packaging>
+
+</project>
