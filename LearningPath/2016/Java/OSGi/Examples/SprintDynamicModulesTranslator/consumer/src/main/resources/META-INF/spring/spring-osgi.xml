@@ -8,6 +8,10 @@
                              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 >
 
-    <osgi:reference id = "translator" interface = "com.github.straider.osgi.common.Translator" timeout = "60000" />
+    <osgi:reference id        = "translator"
+                    interface = "com.github.straider.osgi.common.Translator"
+                    timeout   = "60000"
+                    filter    = "(translator.language=Pig Latin)"
+    />
 
 </beans>

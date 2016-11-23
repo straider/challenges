@@ -12,10 +12,14 @@
 
     <!--<osgi:service ref = "pigLatinTranslator">-->
         <!--<osgi:interfaces>-->
-            <!--<osgi:value>com.github.straider.osgi.prod  <osgi:valinTranslator</osgi:value>-->
+            <!--<value>com.github.straider.osgi.producer.PigLatinTranslator</value>-->
         <!--</osgi:interfaces>-->
     <!--</osgi:service>-->
 
-    <osgi:service ref = "pigLatinTranslator" auto-export = "interfaces" />
+    <osgi:service ref = "pigLatinTranslator" auto-export = "interfaces">
+        <service-properties>
+            <entry key = "translator.language" value = "Pig Latin" />
+        </service-properties>
+    </osgi:service>
 
 </beans>
