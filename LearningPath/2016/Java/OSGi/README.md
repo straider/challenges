@@ -13,6 +13,10 @@
 
 > [A simple answer](http://stackoverflow.com/a/106263): An OSGi Service Platform provides a standardized, component-oriented computing environment for cooperating networked services. This architecture significantly reduces the overall complexity of building, maintaining and deploying applications. The OSGi Service Platform provides the functions to change the composition dynamically on the device of a variety of networks, without requiring a restarts.
 
+[An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/):
+
+> The OSGi framework maintains a Service Registry. Service providers can register with the framework and service consumers can then look up the service from the registry. The interaction between services, including a detailed description the service registry, can be found in the Service Layer section of the OSGi specification. Deployable services exist in the OSGi world as bundles. Physically, a bundle is a JAR file containing an OSGi-specific manifest.
+
 ## Questions
 
 ### What is it?
@@ -95,11 +99,17 @@
 - [Best practices for OSGi development in enterprise Java integration](http://searchsoa.techtarget.com/tip/Best-practices-for-OSGi-development-in-enterprise-Java-integration)
 - [OSGi and The Rise of The Stackless Stack: Just in Time](http://redmonk.com/jgovernor/2008/02/05/osgi-and-the-rise-of-the-stackless-stack-just-in-time/)
 - [OSGi plugs along](http://www.javaworld.com/article/2073293/osgi-plugs-along.html)
+- [Getting Started With OSGI](http://naveenbalani.com/index.php/articles/getting-started-with-osgi/)
+- [Getting Started With OSGI And Spring DM](http://naveenbalani.com/index.php/articles/getting-started-with-osgi-and-spring-dm/)
+- [Looking At Enterprise OSGI And Apache Aries](http://naveenbalani.com/index.php/featured/looking-at-eneteprise-osgi-apache-aries/)
+- [Converting an enterprise application to an OSGi application](http://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.0/com.ibm.websphere.osgi.doc/ae/ra_convert_ear_to_osgi.html)
+- [Converting a Spring application to an OSGi application](http://www.ibm.com/support/knowledgecenter/SSEQTP_9.0.0/com.ibm.websphere.osgi.doc/ae/ta_mig_spring.html)
 - [Cloud & OSGi - Beyond the VM](http://www.slideshare.net/mfrancis/paremus-cloud-and-osgi-beyond-the-vm-osgi-cloud-workshop-march-2012)
 - [Cloud and OSGi @ eBay](http://www.slideshare.net/mfrancis/cloud-and-osgi-at-ebay-osgi-cloud-workshop-march-2012)
 - [Eclipse Gyrex OSGi based PaaS-Like Programming Stack](http://www.slideshare.net/mfrancis/eclipse-gyrex-osgi-based-paas-like-os-gi-cloud-workshop-march-2012)
 - [Lean microservices on OSGi](http://www.slideshare.net/ChristianSchneider3/lean-microservices-on-osgi)
 - [Making Plain Old Java OSGi Compatible](http://www.stoyanr.com/2012/09/making-plain-old-java-osgi-compatible.html)
+- [An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/)
 - [Understanding how OSGI bundles get resolved](http://blog.christianposta.com/osgi/understanding-how-osgi-bundles-get-resolved-part-i/)
 - [Learn by Errors : Java + OSGi](https://chamibuddhika.wordpress.com/2012/05/15/learn-by-errors-java-osgi/)
 - [OSGI – Modularizing your application](https://eclipsebrazil.wordpress.com/2011/03/01/osgi-%E2%80%93-modularizing-your-application/)
@@ -108,8 +118,11 @@
 - [Java 9, OSGi and the Future of Modularity (Part 1)](https://www.infoq.com/articles/java9-osgi-future-modularity)
 - [Java 9, OSGi and the Future of Modularity (Part 2)](https://www.infoq.com/articles/java9-osgi-future-modularity-part-2)
 - [OSGi leads application development into the future](http://www.theserverside.com/news/1280100062/OSGi-leads-application-development-into-the-future)
+- [A Dozen OSGi Myths and Misconceptions](http://www.jroller.com/habuma/entry/a_dozen_osgi_myths_and)
 - [OSGi - the next big thing? (a beginner's view)](http://seewah.blogspot.co.uk/2009/05/osgi-next-big-thing-beginners-view.html)
 - [All we need to do is take these lies and make them true (somehow)](http://web.archive.org/web/20091023053049/http://www.tensegrity.hellblazer.com/2009/10/all-we-need-to-do-is-take-these-lies-and-make-them-true-somehow.html)
+- [OSGi Import Package and Split Package Woes](http://eclipsesource.com/blogs/2009/07/14/why-i-cant-recommend-using-import-package/)
+- [Tip: Split Packages and Visibility](http://eclipsesource.com/blogs/2008/08/22/tip-split-packages-and-visibility/)
 
 ### Books
 
@@ -122,6 +135,7 @@
 - [Modular Java - Creating Flexible Applications with OSGi and Spring](https://pragprog.com/book/cwosg/modular-java)
 - [Pro Spring Dynamic Modules for OSGi Service Platforms](http://www.apress.com/us/book/9781430216124)
 - [OSGi and Equinox: Creating Highly Modular Java Systems](https://www.amazon.com/OSGi-Equinox-Creating-Modular-Systems/dp/0321585712)
+- [OSGi with spring 4 and hibernate 4](https://www.gitbook.com/book/gurke300/osgi-with-spring-4-and-hibernate-4/details)
 
 # Architecture
 
@@ -187,15 +201,7 @@
 
 ## Framework Implementations
 
-### Felix
-
-- [Apache Felix](http://felix.apache.org/) is a community effort to implement the OSGi Framework and Service platform and other interesting OSGi-related technologies under the Apache license.
-- [PojoSR](https://github.com/lefou/pojosr) is service registry that enables OSGi style service registry programs without using an OSGi framework. The current implementation is based in parts on Apache Felix and is a work in progress.
-    - [PojoSR brings Service Registry to Java](https://www.infoq.com/news/2011/10/pojosr)
-    - [Using PojoSR for unit testing OSGi bundles](https://kgilmersden.wordpress.com/2011/12/15/using-pojosr-for-unit-testing-osgi-bundles/)
-- [Apache Felix OSGi Tutorial](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html)
-- [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
-- [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
+### [Felix](Servers/Felix/README.md)
 
 ### Equinox
 
@@ -210,8 +216,10 @@
 - [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
 - [Hello, OSGi, Part 1: Bundles for beginners](http://www.javaworld.com/article/2077837/java-se/java-se-hello-osgi-part-1-bundles-for-beginners.html)
 - [Hello, OSGi, Part 2: Introduction to Spring Dynamic Modules](http://www.javaworld.com/article/2077853/java-se/java-se-hello-osgi-part-2-introduction-to-spring-dynamic-modules.html)
+- [Hello, OSGi, Part 3: Take it to the server side](http://www.javaworld.com/article/2077868/java-se/java-se-hello-osgi-part-3-take-it-to-the-server-side.html)
 - [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
 - [Creating an OSGi bundle](http://underlap.blogspot.co.uk/2007/01/creating-osgi-bundle.html)
+- [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
 
 ### Knopflerfish
 
@@ -247,8 +255,13 @@
 - [tutorial-osgi-camel-part2](http://camel.apache.org/tutorial-osgi-camel-part2.html)
 - [CXF Example OSGi](http://camel.apache.org/cxf-example-osgi.html)
 
+### Carbon
+
+- [WSO2 Carbon](http://wso2.com/products/carbon/)
+
 ## Blueprints
 
+- [Spring and OSGi](http://dkacetl.blogspot.co.uk/2016/01/spring-and-osgi.html)
 - [JAX-RS applications in OSGi – whiteboard style](http://www.jeremias-maerki.ch/wordpress/2011/08/20/jaxrs-applications-in-osgi-whiteboard-style/)
 - [Deploying Apache CXF services using Whiteboard Pattern in OSGi Container](https://nadirsaghar.wordpress.com/2013/07/31/deploying-apache-cxf-services-using-whiteboard-pattern-in-osgi-container/)
 - [Building OSGi applications with the Blueprint Container specification](https://www.ibm.com/developerworks/library/os-osgiblueprint/)
@@ -262,7 +275,11 @@
 - [Spring Dynamic Modules reaches 1.0!](https://spring.io/blog/2008/01/25/spring-dynamic-modules-reaches-1-0)
 - [Spring Dynamic Modules 1.0 is here](https://spring.io/blog/2008/01/25/spring-dynamic-modules-1-0-is-here) (formerly known as Spring OSGi)
 - [Spring Dynamic Modules Reference Guide](http://docs.spring.io/osgi/docs/current/reference/html/)
-- [Moving from Spring to OSGi Blueprint](https://gurke300.gitbooks.io/osgi-with-spring-4-and-hibernate-4/content/moving_from_spring_to_osgi_blueprint/index.html)
+- [Getting Started with Spring-DM](https://dzone.com/refcardz/getting-started-spring-dm)
+- [Let's play with OSGi, Spring and Maven, part 1](https://blog.krecan.net/2008/05/29/lets-play-with-osgi-spring-and-maven-part-1/)
+- [Let's play with OSGi, Spring and Maven, part 2](https://blog.krecan.net/2008/06/01/lets-play-with-osgi-spring-and-maven-part-2/)
+- [Testing OSGi...Spring Style](https://nofluffjuststuff.com/blog/craig_walls/2009/08/testing_osgi__spring_style)
+- [Starting with OSGI with Maven and Spring, and understanding OSGI dependency problems](http://www.integratingstuff.com/2012/07/29/starting-with-osgi-with-maven-and-spring-and-understanding-osgi-dependency-problems/)
 
 ### Gemini Blueprint
 
@@ -271,6 +288,7 @@
 - [Gemini Blueprint – Converting from Spring OSGi](https://dzone.com/articles/gemini-blueprint-%E2%80%93-converting)
 - [How to create blueprints for your OSGi building blocks](http://eclipsesource.com/blogs/2012/08/11/how-to-create-blueprints-for-your-osgi-building-blocks/)
 - [Control Your OSGi Application at Runtime](http://eclipsesource.com/blogs/2013/08/05/take-control-of-your-osgi-application-at-runtime/)
+- [Moving from Spring to OSGi Blueprint](https://gurke300.gitbooks.io/osgi-with-spring-4-and-hibernate-4/content/moving_from_spring_to_osgi_blueprint/index.html)
 
 ### Aires Blueprint
 
@@ -283,30 +301,52 @@
 - [Creating a CXF REST service with Camel Blueprint](https://capgemini.github.io/development/creating-a-cxf-restful-service-in-camel-blueprint/)
 - [Using OSGi blueprint with Camel](https://camel.apache.org/using-osgi-blueprint-with-camel.html)
 
-## Maven Plugins
+## Plugins
 
+### Maven
+
+- [OSGi Bundle Utility for Apache Ant](http://www.jeremias-maerki.ch/wordpress/software/osgi/bundle-utility/)
 - [Bndtools](http://njbartlett.name/bndtools_intro.html) is an Eclipse-based development environment for OSGi bundles and applications that focuses on ease of use, rapid development and producing accurate bundle metadata;
     - [Bndtools Tutorial](http://bndtools.org/tutorial.html)
 - [Bundle Maven Plugin](http://felix.apache.org/components/bundle-plugin/index.html)
     - [Secrets of The Felix Bundle Plug-in Macros Revealed](https://davidvaleri.wordpress.com/2011/04/07/secrets-of-the-felix-bundle-plug-in-macros-revealed/)
+    - [Release an OSGI Bundle into an OBR with Maven](http://www.flexthinker.com/2012/06/release-an-osgi-bundle-into-an-obr-with-maven/)
 - [Do you know the Apache Karaf Maven plugins?](http://blog.nanthrax.net/2011/12/do-you-know-the-apache-karaf-maven-plugins/)
-- [OSGi Bundle Utility for Apache Ant](http://www.jeremias-maerki.ch/wordpress/software/osgi/bundle-utility/)
-
-## Testing
-
-### Pax Exame
-
-- [Pax Exam](https://ops4j1.jira.com/wiki/display/PAXEXAM4/Pax+Exam)
-- [Putting OSGi to the Test with Pax Exam](https://dzone.com/articles/putting-osgi-test-pax-exam)
-
-## Assorted
-
+- [Maven Launchpad Plugin](http://sling.apache.org/site/maven-launchpad-plugin.html)
 - [Pax Construct](https://ops4j1.jira.com/wiki/display/paxconstruct/Pax+Construct)
     - [Maven Tips and Tricks: Creating an OSGi Project with Maven](http://blog.sonatype.com/2009/09/maven-tips-and-tricks-creating-an-osgi-project-with-maven/)
     - [Generating an OSGi Project with Maven](https://books.sonatype.com/mcookbook/reference/sect-osgi-generate-project.html)
     - [OSGi, Maven, Pax, and web applications](http://leshazlewood.com/2010/09/08/osgi-maven-pax-and-web-applications/)
+    - [Pax Construct: From zero to OSGi](http://www.jroller.com/habuma/entry/pax_construct_from_zero_to)
 - [Pax Runner](https://ops4j1.jira.com/wiki/display/paxrunner/Pax+Runner)
+    - [Launching OSGi With Pax Runner](http://www.jroller.com/habuma/entry/launching_osgi_with_pax_runner)
+    - [Getting started with Pax Runner](https://thecarlhall.wordpress.com/2012/07/10/getting-started-with-pax-unner/)
+- [Pax Cursor](https://ops4j1.jira.com/wiki/display/ops4j/Pax+Cursor) is an Eclipse Plugin that adds Eclipse launch configurations for all platforms / versions supported by Pax Runner. Starting with May 28, 2009 Pax Cursor has been merged into Pax Runner as Pax Runner Plugin for Eclipse.
+
+### Gradle Plugins
+
+- [OSGi Plugin](https://docs.gradle.org/current/userguide/osgi_plugin.html)
+
+## Testing
+
+### Pax Drone / JUnit 3
+
+[Pax Drone](https://ops4j1.jira.com/wiki/display/ops4j/Pax+Drone)
+
+### Pax Exame / JUnit 4
+
+[Pax Exam](https://ops4j1.jira.com/wiki/display/PAXEXAM4/Pax+Exam)
+- [Getting Started with OSGi Tests](https://ops4j1.jira.com/wiki/display/PAXEXAM3/Getting+Started+with+OSGi+Tests)
+- [OSGi Containers](https://ops4j1.jira.com/wiki/display/PAXEXAM3/OSGi+Containers)
+- [Putting OSGi to the Test with Pax Exam](https://dzone.com/articles/putting-osgi-test-pax-exam)
+
+## Assorted
+
+- [Pax Web](https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web)
 - [Pax Logging](https://ops4j1.jira.com/wiki/display/paxlogging/Pax+Logging)
+- [Pax URL](https://ops4j1.jira.com/wiki/display/paxurl/Pax+URL)
+    - [Provision your build directory as an OSGi bundle](https://adreghiciu.wordpress.com/2009/09/05/provision-your-build-directory-as-an-osgi-bundle/)
+    - [Install your build directory as a bundle in Apache Felix](https://adreghiciu.wordpress.com/2009/09/06/install-your-directory-as-a-bundle-in-apache-felix/)
 - [OSGi - JAX-RS Connector](https://github.com/hstaudacher/osgi-jax-rs-connector)
 - [Apache CXF Distributed OSGi](http://cxf.apache.org/distributed-osgi.html) subproject provides CXF based distribution providers for Aries Remote Service Admin (RSA).
     - [Develop and Deploy Web Services as OSGi Bundles](https://www.ibm.com/developerworks/library/ws-OSGi/)
