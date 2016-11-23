@@ -8,10 +8,14 @@
                              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 >
 
-    <osgi:service ref = "pigLatinTranslator">
-        <osgi:interfaces>
-            <osgi:value>com.github.straider.osgi.producer.PigLatinTranslator</osgi:value>
-        </osgi:interfaces>
-    </osgi:service>
+    <!--<osgi:service ref = "pigLatinTranslator" interface = "com.github.straider.osgi.producer.PigLatinTranslator" />-->
+
+    <!--<osgi:service ref = "pigLatinTranslator">-->
+        <!--<osgi:interfaces>-->
+            <!--<osgi:value>com.github.straider.osgi.prod  <osgi:valinTranslator</osgi:value>-->
+        <!--</osgi:interfaces>-->
+    <!--</osgi:service>-->
+
+    <osgi:service ref = "pigLatinTranslator" auto-export = "interfaces" />
 
 </beans>

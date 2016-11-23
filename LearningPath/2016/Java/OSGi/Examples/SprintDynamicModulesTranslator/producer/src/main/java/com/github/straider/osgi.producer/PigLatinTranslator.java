@@ -5,7 +5,7 @@ import com.github.straider.osgi.common.Translator;
 public class PigLatinTranslator implements Translator {
 
     @Override
-    public String translate(String text) {
+    public String translate( final String text ) {
         return null;
     }
 
