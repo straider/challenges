@@ -14,7 +14,7 @@
     <groupId>com.github.straider.osgi.consumer</groupId>
     <artifactId>spring-dm-translator-consumer</artifactId>
     <version>1.0.0</version>
-    <name>Spring-DM Translator - consumer</name>
+    <name>Spring-DM Translator - Consumer</name>
     <description>Consumer Bundle for Spring-DM Translator</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2016/Java/OSGi/Servers/Felix/SpringDynamicModulesTranslator</url>
 
