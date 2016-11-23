@@ -8,8 +8,8 @@
                              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 >
 
-    <bean id = "helloWorldService" class = "com.github.straider.felix.producer.HelloWorldServiceImplementation " />
+    <bean id = "producer" class = "com.github.straider.felix.producer.HelloWorldServiceImplementation " />
 
-    <osgi:service ref = "helloWorldService" interface = "com.github.straider.felix.producer.HelloWorldService " />
+    <osgi:service ref = "producer" interface = "com.github.straider.felix.producer.HelloWorldService " />
 
 </beans>
