@@ -35,6 +35,9 @@
   <description>Generated using Pax-Construct</description>
 
   <properties>
+    <java.version>1.5</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <!--
      | some example OSGi runtime properties
     -->
@@ -49,6 +52,14 @@
     <module>provision</module>
     <module>producer</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
