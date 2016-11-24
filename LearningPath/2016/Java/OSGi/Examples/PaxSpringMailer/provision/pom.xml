@@ -25,86 +25,6 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>3.1.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>3.1.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aop</artifactId>
-      <version>3.1.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>3.1.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>3.1.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>com.springsource.javax.mail</artifactId>
-      <version>1.4.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.osgi</groupId>
-      <artifactId>spring-osgi-extender</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.osgi</groupId>
-      <artifactId>spring-osgi-core</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.osgi</groupId>
-      <artifactId>spring-osgi-io</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>com.springsource.slf4j.org.apache.commons.logging</artifactId>
-      <version>1.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>com.springsource.slf4j.api</artifactId>
-      <version>1.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>com.springsource.slf4j.log4j</artifactId>
-      <version>1.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>org.springframework.aop</artifactId>
-      <version>2.5.6.SEC01</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>org.springframework.beans</artifactId>
-      <version>2.5.6.SEC01</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>org.springframework.context</artifactId>
-      <version>2.5.6.SEC01</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>org.springframework.core</artifactId>
-      <version>2.5.6.SEC01</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>org.springframework.test</artifactId>
       <version>2.5.6.SEC01</version>
     </dependency>
     <dependency>
@@ -113,64 +33,24 @@
       <version>1.0.0</version>
     </dependency>
     <dependency>
-      <groupId>edu.emory.mathcs.backport</groupId>
-      <artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.log4j</groupId>
-      <artifactId>com.springsource.org.apache.log4j</artifactId>
-      <version>1.2.15</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>com.springsource.org.apache.commons.logging</artifactId>
       <version>1.1.1</version>
     </dependency>
     <dependency>
-      <groupId>javax.el</groupId>
-      <artifactId>com.springsource.javax.el</artifactId>
-      <version>2.1.0</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>2.5.6.SEC01</version>
     </dependency>
     <dependency>
-      <groupId>com.sun.enterprise</groupId>
-      <artifactId>com.springsource.com.sun.enterprise.loader</artifactId>
-      <version>1.0.0</version>
+      <groupId>javax.mail</groupId>
+      <artifactId>com.springsource.javax.mail</artifactId>
+      <version>1.4.5</version>
     </dependency>
     <dependency>
       <groupId>javax.activation</groupId>
       <artifactId>com.springsource.javax.activation</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>com.springsource.javax.persistence</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.portlet</groupId>
-      <artifactId>com.springsource.javax.portlet</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>com.springsource.javax.servlet</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>com.springsource.javax.servlet.jsp</artifactId>
-      <version>2.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.jms</groupId>
-      <artifactId>com.springsource.javax.jms</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>com.springsource.javax.transaction</artifactId>
-      <version>1.1.0</version>
+      <version>1.1.1</version>
     </dependency>
   </dependencies>
 
