@@ -2,19 +2,60 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.straider.osgi.mailer.PaxSpringMailer.build</groupId>
+  <parent>
+    <groupId>com.github.straider.osgi.mailer.PaxSpringMailer.build</groupId>
+    <artifactId>compiled-bundle-settings</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../poms/compiled/</relativePath>
+  </parent>
+  <groupId>com.github.straider.osgi.mailer.PaxSpringMailer.producer.build</groupId>
   <artifactId>deployment</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
-  <name>com.github.straider.osgi.mailer.PaxSpringMailer (OSGi project)</name>
+  <name>producer</name>
   <description>Generated using Pax-Construct</description>
   <properties>
     <downloadSources>true</downloadSources>
     <downloadJavadocs>true</downloadJavadocs>
+    <bundle.symbolicName>producer</bundle.symbolicName>
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <bundle.namespace>producer</bundle.namespace>
   </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.straider.osgi.mailer.PaxSpringMailer.build</groupId>
+        <artifactId>provision</artifactId>
+        <version>1.0.0</version>
+        <type>pom</type>
+        <scope>provided</scope>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi_R4_core</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi_R4_compendium</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
+        <optional>true</optional>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>com.github.straider.osgi.mailer.PaxSpringMailer</groupId>
+      <artifactId>producer</artifactId>
+      <version>1.0.0</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
@@ -55,13 +96,6 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <version>3.1.4.RELEASE</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.straider.osgi.mailer.PaxSpringMailer</groupId>
-      <artifactId>producer</artifactId>
-      <version>1.0.0</version>
-      <type>bundle</type>
       <scope>provided</scope>
     </dependency>
   </dependencies>
