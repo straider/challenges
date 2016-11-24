@@ -57,6 +57,7 @@ Most common shell commands:
 ## Articles
 
 - [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
+- [OSGi and Apache Felix 3.0](http://javabeat.net/osgi-and-apache-felix-3-0/)
 - [Apache Felix – OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
 - [Apache Felix – Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
 - [Maven – Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
