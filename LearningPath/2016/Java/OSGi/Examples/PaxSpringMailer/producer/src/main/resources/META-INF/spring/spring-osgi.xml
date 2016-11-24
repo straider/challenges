@@ -1,0 +1,10 @@
+<beans:beans xmlns              = "http://www.springframework.org/schema/osgi"
+             xmlns:beans        = "http://www.springframework.org/schema/beans"
+             xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation = "http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
+                                   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+    <service ref = "theMailerService" interface = "com.github.straider.osgi.producer.IMailerService" />
+
+</beans:beans>
