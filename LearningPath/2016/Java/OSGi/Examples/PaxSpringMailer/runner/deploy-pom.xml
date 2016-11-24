@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.straider.osgi.mailer.PaxSpringMailer.build</groupId>
+  <artifactId>deployment</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>com.github.straider.osgi.mailer.PaxSpringMailer (OSGi project)</name>
+  <description>Generated using Pax-Construct</description>
+  <properties>
+    <downloadSources>true</downloadSources>
+    <downloadJavadocs>true</downloadJavadocs>
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+  </properties>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>http://artifactory.mfl.co.uk/libs-release</url>
+    </repository>
+    <repository>
+      <id>snapshots</id>
+      <name>libs-snapshot</name>
+      <url>http://artifactory.mfl.co.uk/libs-snapshot</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>mo_artifactory</id>
+      <name>Motability Fuse Repository</name>
+      <url>http://artifactory.mfl.co.uk/repo</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>fusebox</id>
+      <name>Artifactory-releases</name>
+      <url>http://artifactory.mfl.co.uk/fusebox</url>
+    </repository>
+  </repositories>
+</project>
