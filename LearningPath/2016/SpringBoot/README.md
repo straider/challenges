@@ -1,5 +1,5 @@
-﻿:: Dojo :: Java :: Spring Boot ::
-=================================
+﻿:: Spring Boot ::
+=================
 
 ----
 
@@ -61,6 +61,10 @@ Spring Boot main components are:
 
 Usually an application has 4 layers: Controller, Service, Repository and Domain Model.
 
+The main class should be annotated with @SpringBootApplication and the context of the application can be obtained by bootstrapping and launching the main class with either SpringApplication or SpringApplicationBuilder.
+
+The Sprint Application can be made of several components, which usually implement either the CommandLineRunner or the ApplicationRunner interface. The main difference between both interfaces is that the last handles ApplicationArguments instead of just a string array of arguments as the former does. These components usually run sequentially and can be ordered amongst themselves.
+
 # 2. Resources
 
 ## 2.1. Tutorials
@@ -104,8 +108,38 @@ Usually an application has 4 layers: Controller, Service, Repository and Domain 
 
 # 3. Milestones
 
-## 3.1. CLI: Hello World
+These milestones aim to be simple to understand and should be fairly easy and fast to accomplish.
 
-## 3.2. JAX-RS: Hello World
+The intent is to provide the minimal experience challenges to solve while learning to work with Spring Boot container technologies. There are 2 main container architectures to deal with: command line and HTTP client/server (either with REST or SOAP based Web Services ).
 
-## 3.3. JAX-WS: Hello World
+## 3.1. QuickStart
+
+The goal is to deliver a set of build files, for Maven and Gradle ~~and Ant/Ivy~~, that can be used as project templates for the following milestones. The other milestones should not need to change anything on the build files.
+
+## 3.2. CLI
+
+The goal is to deliver sample command line applications that do very little but already have in place the structure generally used by most command line applications.
+
+### 3.2.1. SpringApplication
+
+The goal here is to deliver a simple "Hello, World!" application that already has in place features such as logging.
+
+### 3.2.2. CommandLineRunner
+
+The goal here is to deliver an application that is made of simple components, executed sequentially by alphabetic order of the implementation class name. The application should be configurable, through either YAML or JSON configuration files.
+
+### 3.2.3. ApplicationRunner
+
+How to demonstrate the differences, benefits and caveats of CommandLineRunner vs. ApplicationRunner?
+
+## 3.3. JAX-RS
+
+The goal here is to deliver a Checksum service that given an algorithm and a string request it then responds with the hash result of applying that checksum algorithm to that string.
+
+It should demonstrate the clear differences between HTTP methods - GET, PUT, POST, DELETE, ... - and how to represent a resource. It should also demonstrate service versioning.
+
+## 3.4. JAX-WS
+
+The goal here is to deliver a Checksum service that given an algorithm and a string request it then responds with the hash result of applying that checksum algorithm to that string.
+
+It should demonstrate the differences in following a contract-first approach vs. a class-first approach and should demonstrate service versioning.
