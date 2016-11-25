@@ -1,4 +1,4 @@
-:: OSGi ::
+﻿:: OSGi ::
 ==========
 
 # Overview
@@ -11,7 +11,8 @@
 - The first part is a specification for modular components called bundles, which are commonly referred to as plug-ins. The specification defines an infrastructure for a bundle's life cycle and determines how bundles will interact;
 - The second part of OSGi is a Java Virtual Machine (JVM)-level service registry that bundles can use to publish, discover and bind to services in a service-oriented architecture.
 
-> [A simple answer](http://stackoverflow.com/a/106263): An OSGi Service Platform provides a standardized, component-oriented computing environment for cooperating networked services. This architecture significantly reduces the overall complexity of building, maintaining and deploying applications. The OSGi Service Platform provides the functions to change the composition dynamically on the device of a variety of networks, without requiring a restarts.
+[A simple answer](http://stackoverflow.com/a/106263):
+> An OSGi Service Platform provides a standardized, component-oriented computing environment for cooperating networked services. This architecture significantly reduces the overall complexity of building, maintaining and deploying applications. The OSGi Service Platform provides the functions to change the composition dynamically on the device of a variety of networks, without requiring a restarts.
 
 [An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/):
 > The OSGi framework maintains a Service Registry. Service providers can register with the framework and service consumers can then look up the service from the registry. The interaction between services, including a detailed description the service registry, can be found in the Service Layer section of the OSGi specification. Deployable services exist in the OSGi world as bundles. Physically, a bundle is a JAR file containing an OSGi-specific manifest.
@@ -87,12 +88,12 @@
 > The OSGi technology is a set of specifications that define a dynamic component system for Java. These specifications enable a development model where applications are (dynamically) composed of many different (reusable) components. The OSGi specifications enable components to hide their implementations from other components while communicating through services, which are objects that are specifically shared between components. This surprisingly simple model has far reaching effects for almost any aspect of the software development process.
 
 > The OSGi has a layered model and the following list contains a short definition of the terms:
-- Bundles: Bundles are the OSGi components made by the developers;
-- Services: The services layer connects bundles in a dynamic way by offering a publish-find-bind model for plain old Java objects;
-- Life-Cycle: The API to install, start, stop, update, and uninstall bundles;
-- Modules: The layer that defines how a bundle can import and export code;
-- Security: The layer that handles the security aspects;
-- Execution Environment: Defines what methods and classes are available in a specific platform.
+- **Bundles**: Bundles are the OSGi components made by the developers;
+- **Services**: The services layer connects bundles in a dynamic way by offering a publish-find-bind model for plain old Java objects;
+- **Life-Cycle**: The API to install, start, stop, update, and uninstall bundles;
+- **Modules**: The layer that defines how a bundle can import and export code;
+- **Security**: The layer that handles the security aspects;
+- **Execution Environment**: Defines what methods and classes are available in a specific platform.
 
 ## Bundles
 

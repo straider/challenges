@@ -1,4 +1,4 @@
-:: OSGi :: Articles ::
+﻿:: OSGi :: Articles ::
 ======================
 
 - [OSGi (Open Service Gateway Initiative)](http://searchnetworking.techtarget.com/definition/OSGi)
@@ -44,4 +44,6 @@
 - [An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/)
 - [A Dozen OSGi Myths and Misconceptions](http://www.jroller.com/habuma/entry/a_dozen_osgi_myths_and)
 - [Me, OSGi and Maven](https://codepitbull.wordpress.com/2010/01/19/me-osgi-and-maven/)
+- [OSGi is Irrelevant](https://rossmason.blogspot.co.uk/2008/04/osgi-is-irrelevant.html)
 - [All we need to do is take these lies and make them true (somehow)](http://web.archive.org/web/20091023053049/http://www.tensegrity.hellblazer.com/2009/10/all-we-need-to-do-is-take-these-lies-and-make-them-true-somehow.html)
+- [OSGi? No Thanks](http://blogs.mulesoft.com/dev/news-dev/osgi-no-thanks/)

@@ -1,4 +1,4 @@
-:: OSGi :: Felix ::
+ï»¿:: OSGi :: Felix ::
 ===================
 
 # Overview
@@ -53,14 +53,18 @@ Most common shell commands:
 - [Apache Felix OSGi Tutorial](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html)
 - [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
 - [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
+- [OSGi and Spring, Part 1: Build and deploy OSGi bundles using Apache Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring1/)
+- [OSGi and Spring: Part 2: Build and deploy OSGi as Spring bundles using Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring2/)
+- [Getting started with Spring-OSGi â€” part 1](http://lsd.luminis.eu/en/getting-started-with-spring-osgi/)
+- [Getting started with Spring-OSGi â€” part 2](http://lsd.luminis.eu/en/getting-started-with-spring-osgi-part-2/)
 
 ## Articles
 
 - [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
 - [OSGi and Apache Felix 3.0](http://javabeat.net/osgi-and-apache-felix-3-0/)
-- [Apache Felix – OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
-- [Apache Felix – Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
-- [Maven – Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
+- [Apache Felix - OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
+- [Apache Felix - Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
+- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
 
 ## Books
 
