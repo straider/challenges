@@ -41,6 +41,7 @@
 - [Characterizing Microservices](http://www.sixtree.com.au/articles/2014/microservices-characterised/)
 - [Microservices: Comparing DIY with Apache Camel](http://developers.redhat.com/blog/2016/11/07/microservices-comparing-diy-with-apache-camel/)
 - [Developing Microservices with Apache Camel](http://www.slideshare.net/davsclaus/developing-microservices-with-apache-camel)
+- [Microservices with Spring](https://spring.io/blog/2015/07/14/microservices-with-spring)
 
 ## Immutability
 
@@ -56,3 +57,7 @@
     - [The AWS CodeDeploy Integration on Codeship](https://blog.codeship.com/aws-codedeploy-codeship/)
 - [AWS IAM: Securing your Infrastructure](https://blog.codeship.com/aws-iam-security/)
 - [Why Immutable Infrastructure?](https://boxfuse.com/learn/why.html)
+
+## Continuous Deployment
+
+- [Continuous Deployment with Containers](https://www.infoq.com/articles/continuous-deployment-containers)

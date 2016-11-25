@@ -87,8 +87,10 @@ There are several flavours of Docker, depending on the host operating system:
 - [9 Docker recipes for Java EE Applications](http://blog.arungupta.me/9-docker-recipes-javaee-applications-techtip80/)
 - [The Hitchhiker's Guide to Docker and Modulus](https://code.tutsplus.com/tutorials/the-hitchhikers-guide-to-docker-and-modulus--cms-24770)
 - [Docker Swarm Introduction (Tour Around Docker 1.12 Series)](https://technologyconversations.com/2016/07/29/docker-swarm-introduction-tour-around-docker-1-12-series/)
-- [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
+- [Learn Docker Swarm Mode - scale in 5 minutes!](http://blog.alexellis.io/docker-swarm-mode-part1/)
+- [Scale a real microservice with Docker 1.12 Swarm Mode](http://blog.alexellis.io/microservice-swarm-mode/)
 - [Dock Tales, Or: How I Learned to Stop Worrying and Love the Container](http://www.sixtree.com.au/articles/2015/dock-tales/)
+- [Test-drive Docker Healthcheck in 10 minutes](http://blog.alexellis.io/test-drive-healthcheck/)
 
 ### Against Docker
 
@@ -135,3 +137,4 @@ There are several flavours of Docker, depending on the host operating system:
     - [We started using Vagrant and Packer for our build process. You won't believe what happened next...](http://getcloudify.org/2015/06/24/vagrant-packer-etc.html)
 - [Ansible](https://www.ansible.com/) is a simple automation language that can perfectly describe an IT application infrastructure.
     - [Ansible Crash Course](http://www.sixtree.com.au/articles/2016/ansible-crash-course/)
+- [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
