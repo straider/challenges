@@ -44,6 +44,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 # Installation Recipes
 
+- [Pick the installation that's right for you](https://install.openshift.com/)
+
 ## Common Requirements
 
 - Account at [Red Hat Customer Portal](https://access.redhat.com/);
