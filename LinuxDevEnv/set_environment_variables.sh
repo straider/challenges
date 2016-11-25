@@ -44,3 +44,13 @@ export NETBEANS_HOME=$HOME/opt/IDEs/netbeans-8.1
 export ECLIPSE_HOME=$HOME/opt/IDEs/eclipse-mars
 # export IDEA_HOME=$HOME/opt/IDEs/idea-IC-145.1617.8
 export PATH=$NETBEANS_HOME/bin:$ECLIPSE_HOME:$PATH
+
+# Servers Environment Variables.
+#-----------------------------
+export TOMCAT_HOME=$HOME/opt/Servers/tomcat-8.5.3
+export JETTY_HOME=$HOME/opt/Servers/jetty-9.2.17.v20160517
+export GLASSFISH_HOME=$HOME/Servers/IDEs/glassfish-4.1.1
+export JBOSS_HOME=$HOME/opt/Servers/jboss-as-7.1.1
+export WILDFLY_HOME=$HOME/opt/Servers/wildfly-10.0.0
+export GERONIMO_HOME=$HOME/opt/Servers/geronimo-3.0.1
+# export PATH=$TOMCAT_HOME/bin:$JETTY_HOME/bin:$GLASSFISH_HOME/bin:$JBOSS_HOME/bin:$WILDFLY_HOME/bin:$GERONIMO_HOME/bin:$PATH
