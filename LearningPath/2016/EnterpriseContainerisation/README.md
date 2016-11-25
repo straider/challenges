@@ -36,3 +36,23 @@
 - [Developing Microservices with Aggregates](http://www.slideshare.net/SpringCentral/developing-microservices-with-aggregates)
 - [The Microservices and DevOps Journey](http://www.slideshare.net/InfoQ/the-microservices-and-devops-journey)
 - [Microservices Minus the Hype: How to Build and Why](http://www.slideshare.net/HecklerMark/microservices-minus-the-hype-how-to-build-and-why)
+- [Crisis of the Monolith](http://www.sixtree.com.au/articles/2014/crisis-of-the-monolith/)
+- [Microservices! Really?](http://www.sixtree.com.au/articles/2014/microservices-really/)
+- [Characterizing Microservices](http://www.sixtree.com.au/articles/2014/microservices-characterised/)
+- [Microservices: Comparing DIY with Apache Camel](http://developers.redhat.com/blog/2016/11/07/microservices-comparing-diy-with-apache-camel/)
+- [Developing Microservices with Apache Camel](http://www.slideshare.net/davsclaus/developing-microservices-with-apache-camel)
+
+## Immutability
+
+- [Netflix: Dystopia as a Service](https://www.infoq.com/news/2013/05/dystopia-as-a-service)
+- [Why an EC2 Instance is Not a Server](http://www.rightbrainnetworks.com/blog/why-an-ec2-instance-isnt-a-server/)
+- [Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components](http://chadfowler.com/2013/06/23/immutable-deployments.html)
+- [About Immutable Infrastructure](https://blog.codeship.com/immutable-deployments/)
+- [Why You Should Build an Immutable Infrastructure](https://blog.codeship.com/immutable-infrastructure/)
+- Efficiency in Development Workflows:
+    - [Software Development Workflow: New Features](http://blog.codeship.com/software-development-workflow-new-feature/)
+    - [GitHub Code Reviews](http://blog.codeship.com/github-code-review/)
+    - [Zero Downtime Deployment and Deployment Pipelines](http://blog.codeship.com/zero-downtime-deployment/)
+    - [The AWS CodeDeploy Integration on Codeship](https://blog.codeship.com/aws-codedeploy-codeship/)
+- [AWS IAM: Securing your Infrastructure](https://blog.codeship.com/aws-iam-security/)
+- [Why Immutable Infrastructure?](https://boxfuse.com/learn/why.html)

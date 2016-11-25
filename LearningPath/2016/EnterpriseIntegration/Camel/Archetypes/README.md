@@ -13,7 +13,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-java     \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelJava
 ```
 
@@ -27,7 +27,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-groovy   \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelGroovy
 ```
 
@@ -41,7 +41,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-scala    \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelScala
 ```
 
@@ -55,7 +55,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-spring   \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelSpring
 ```
 
@@ -69,7 +69,7 @@ mvn archetype:generate                              \
     -DarchetypeArtifactId=camel-archetype-blueprint \
     -DarchetypeVersion=2.17.1                       \
     -DinteractiveMode=false                         \
-    -DgroupId=com.github.straider.fuse.camel        \
+    -DgroupId=com.github.straider.camel             \
     -DartifactId=CamelBlueprint
 ```
 
@@ -83,7 +83,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-activemq \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelActiveMQ
 ```
 
@@ -97,7 +97,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-web      \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelWeb
 ```
 
@@ -111,7 +111,7 @@ mvn archetype:generate                             \
     -DarchetypeArtifactId=camel-archetype-war      \
     -DarchetypeVersion=2.17.1                      \
     -DinteractiveMode=false                        \
-    -DgroupId=com.github.straider.fuse.camel       \
+    -DgroupId=com.github.straider.camel            \
     -DartifactId=CamelWAR
 ```
 
@@ -125,6 +125,6 @@ mvn archetype:generate                               \
     -DarchetypeArtifactId=camel-archetype-webconsole \
     -DarchetypeVersion=2.17.1                        \
     -DinteractiveMode=false                          \
-    -DgroupId=com.github.straider.fuse.camel         \
+    -DgroupId=com.github.straider.camel              \
     -DartifactId=CamelWebConsole
 ```

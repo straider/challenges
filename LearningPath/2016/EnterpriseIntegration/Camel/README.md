@@ -151,6 +151,7 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 - [Apache Camel: open source integration framework](http://www.jeroenreijn.com/2009/03/apache-camel-open-source-integration.html)
 - [Apache Camel – developing application from the scratch (part 1 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-1-2/)
 - [Apache Camel – developing application from the scratch (part 2 / 2)](https://vrtoonjava.wordpress.com/2013/10/20/apache-camel-developing-application-from-the-scratch-part-2-2/)
+- [REST with Camel 2.15](http://joaodiogovicente.blogspot.co.uk/2015/04/rest-with-camel-215.html)
 
 ## Articles
 
@@ -164,6 +165,12 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 - [Which Integration Framework Should You Use – Spring Integration, Mule ESB or Apache Camel?](https://dzone.com/articles/which-integration-framework)
 - [Light-weight, open-source integration: Apache Camel or Spring Integration?](http://blog.christianposta.com/comparison/light-weight-open-source-integration-apache-camel-or-spring-integration/)
 - [Java Tip: Write an SOA integration layer with Apache Camel](http://www.javaworld.com/article/2078883/open-source-tools/java-tip-write-an-soa-integration-layer-with-apache-camel.html)
+- [Apache Camel 2.14: Java 8, Spring 4, REST DSL and Metrics](https://www.infoq.com/news/2014/10/apache-camel-2.14)
+- [Apache Camel API Component Framework](http://rockablogbaby.blogspot.co.uk/2014/09/apache-camel-api-component-framework-or.html)
+- [Master/Slave Failover for Camel Routes](http://www.ofbizian.com/2014/01/masterslave-failover-for-camel-routes.html)
+- [Hot Standby failover for Apache Camel routes](http://www.liquid-reality.de/display/liquid/2011/11/11/Hot+Standby+failover+for+Apache+Camel+routes)
+- [Integration using Apache Camel and Groovy](http://www.slideshare.net/davsclaus/apache-camel-gr8conf)
+- [A Groovy way to implement a JMS Request Response client using Camel](http://www.sixtree.com.au/articles/2014/groovy-camel-jms-client/)
 
 ## Books
 
@@ -178,12 +185,39 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 - [Instant Apache Camel Messaging System](https://www.packtpub.com/application-development/instant-apache-camel-messaging-system)
 - [Apache Camel Essentials](https://www.packtpub.com/application-development/apache-camel-essentials)
 
+## Spring Boot
+
+- [Spring Boot meets Apache Camel](http://www.frommknecht.net/spring-boot-meets-apache-camel/)
+- [Spring Boot](https://cwiki.apache.org/confluence/display/CAMEL/Spring+Boot)
+- [Spring Boot](http://camel.apache.org/spring-boot.html)
+- [Spring Boot Example](http://camel.apache.org/spring-boot-example.html)
+- [Using Apache Camel with Spring Boot](http://henryk-konsek.blogspot.co.uk/2014/10/using-apache-camel-with-spring-boot.html)
+- [Developing Services with Apache Camel - Part I: The Inspiration](http://raibledesigns.com/rd/entry/developing_services_with_apache_camel)
+- [Developing Services with Apache Camel - Part II: Creating and Testing Routes](http://raibledesigns.com/rd/entry/developing_services_with_apache_camel1)
+- [Developing Services with Apache Camel - Part III: Integrating Spring 4 and Spring Boot](http://raibledesigns.com/rd/entry/developing_services_with_apache_camel2)
+- [Developing Services with Apache Camel - Part IV: Load Testing and Monitoring](http://raibledesigns.com/rd/entry/developing_services_with_apache_camel3)
+- [Testing Apache Camel Applications with Spring Boot](http://tech.willhaben.at/2015/10/testing-apache-camel-applications-with.html)
+- [Using Camel commands to manage a Spring Boot Camel application](http://www.davsclaus.com/2015/11/using-camel-commands-to-manage-spring.html)
+
+## hawtio
+
+- [DevOps with ActiveMQ, Camel, Fabric8, and HawtIO](http://www.slideshare.net/ceposta/devops-with-activemq-camel-fabric8-and-hawtio)
+- [Apache Camel web dashboard with hawtio](http://www.davsclaus.com/2013/04/apache-camel-web-dashboard-with-hawtio.html)
+- [Monitoring Camel Application](http://bushorn.com/monitoring-camel-application/)
+- [More metrics in Apache Camel 2.14](http://www.davsclaus.com/2014/09/more-metrics-in-apache-camel-214.html)
+
 ## Maven Plugins
 
 - [Camel Maven Plugin](http://camel.apache.org/camel-maven-plugin.html) allows to run Enterprise Integration Patterns using Spring for Dependency Injection inside Maven;
 - [hawtio Maven](http://hawt.io/plugins/camel/)
 
 # Examples
+
+- [Spring Boot Camel Sample](https://github.com/apache/camel/tree/master/examples/camel-example-spring-boot-starter)
+- [Spring Boot Example](https://github.com/apache/camel/tree/master/examples/camel-example-spring-boot)
+- [Spring Boot Example](https://github.com/brentos/spring-boot-camel-rest)
+- [Spring Boot Camel REST / JPA Example](https://github.com/astefanutti/spring-boot-camel-rest-jpa)
+- [Camel REST + Swagger](https://github.com/mraible/camel-rest-swagger)
 
 ## Requirements
 

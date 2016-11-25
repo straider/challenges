@@ -10,8 +10,6 @@
 - [Self-Paced Training](https://training.docker.com/self-paced-training)
 - [Docker Hub](https://hub.docker.com/)
 - [Docker Machine](https://github.com/docker/machine)
-- [InfraKit](https://github.com/docker/infrakit/)
-- [runc](https://github.com/opencontainers/runc) is a CLI tool for spawning and running containers according to the OCI specification.
 
 Docker uses the resource isolation features of the Linux kernel such as [cgroups](https://en.wikipedia.org/wiki/Cgroups) and kernel [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces), and a union-capable file system, such as [aufs](https://en.wikipedia.org/wiki/Aufs)  or [OverlayFS](https://en.wikipedia.org/wiki/OverlayFS), to allow independent "containers" to run within a single Linux instance, avoiding the overhead of starting and maintaining virtual machines.
 
@@ -32,6 +30,8 @@ There are several flavours of Docker, depending on the host operating system:
 - On June 8, 2016, Microsoft announced that Docker now could be used natively on Windows 10 with Hyper-V Containers, to build, ship and run containers utilizing the Windows Server 2016 Technical Preview 5 Nano Server container OS image;
 - On October 4, 2016, Solomon Hykes announced InfraKit as a new self-healing container infrastructure effort for Docker container environments.
 
+# Resources
+
 ## Tutorials
 
 - [Docker for Beginners](https://prakhar.me/docker-curriculum/)
@@ -39,11 +39,12 @@ There are several flavours of Docker, depending on the host operating system:
 - [Getting Started with Docker](http://blog.arungupta.me/getting-started-with-docker/) - Arun Gupta Tech Tip #39
 - [Getting Started with Docker](https://scotch.io/tutorials/getting-started-with-docker)
 - [Getting Started with Docker](https://serversforhackers.com/getting-started-with-docker)
+- [Docker with Docker Toolbox for Windows Tutorial](https://github.com/burrsutter/docker_tutorial)
+- [Docker with Docker Toolbox for Windows Java EE + MySQL](https://github.com/burrsutter/docker_mysql_tutorial)
 - [Docker](http://www.containertutorials.com/) @ Container Tutorials
 - [Docker Tutorial Series](https://rominirani.com/docker-tutorial-series-a7e6ff90a023#.h2pctnoml)
 - [First steps with Docker](http://www.alexecollins.com/first-steps-with-docker/)
 - [Getting Started with Docker: Simplifying DevOps](https://www.toptal.com/devops/getting-started-with-docker-simplifying-devops)
-- [A Practical Introduction to Docker Containers](http://developers.redhat.com/blog/2014/05/15/practical-introduction-to-docker-containers/)
 - [Docker - Light weight containers - Tutorial](http://www.vogella.com/tutorials/Docker/article.html)
 - [Learn Docker by building a Microservice](http://www.dwmkerr.com/learn-docker-by-building-a-microservice/)
 - [Docker Jumpstart](http://odewahn.github.io/docker-jumpstart/)
@@ -63,6 +64,10 @@ There are several flavours of Docker, depending on the host operating system:
 - [Intro to Docker](https://thoughtbot.com/upcase/videos/intro-to-docker)
 - [To Use Physical Or To Use Virtual: That Is The Container Deployment Question](https://blog.docker.com/2016/04/physical-virtual-container-deployment/)
 - [From Vagrant to Docker: How to use Docker for local web development](http://tech.osteel.me/posts/2015/12/18/from-vagrant-to-docker-how-to-use-docker-for-local-web-development.html)
+- [A Practical Introduction to Docker Containers](http://developers.redhat.com/blog/2014/05/15/practical-introduction-to-docker-containers/)
+- [A Practical Introduction to Docker Container Terminology](https://developers.redhat.com/blog/2016/01/13/a-practical-introduction-to-docker-container-terminology/)
+- [A Practical Introduction to Docker Containers](http://crunchtools.com/a-practical-introduction-to-docker-containers/)
+- [A Practical Introduction to the Docker Registry Server](http://crunchtools.com/practical-docker-registry/)
 
 ## Articles
 
@@ -83,6 +88,7 @@ There are several flavours of Docker, depending on the host operating system:
 - [The Hitchhiker's Guide to Docker and Modulus](https://code.tutsplus.com/tutorials/the-hitchhikers-guide-to-docker-and-modulus--cms-24770)
 - [Docker Swarm Introduction (Tour Around Docker 1.12 Series)](https://technologyconversations.com/2016/07/29/docker-swarm-introduction-tour-around-docker-1-12-series/)
 - [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
+- [Dock Tales, Or: How I Learned to Stop Worrying and Love the Container](http://www.sixtree.com.au/articles/2015/dock-tales/)
 
 ### Against Docker
 
@@ -111,3 +117,21 @@ There are several flavours of Docker, depending on the host operating system:
 - [LinuxContainers.org](https://linuxcontainers.org/) - Infrastructure for container projects and is the umbrella project behind LXC, LXD, LXCFS and CGManager;
 - [Open Container Initiative](https://www.opencontainers.org/) - The OCI currently contains two specifications: the Runtime Specification (runtime-spec) and the Image Specification (image-spec). The Runtime Specification outlines how to run a “filesystem bundle” that is unpacked on disk. At a high-level an OCI implementation would download an OCI Image then unpack that image into an OCI Runtime filesystem bundle. At this point the OCI Runtime Bundle would be run by an OCI Runtime;
 - [Red Hat’s OCID is a Docker Alternative, But Not a Fork](http://containerjournal.com/2016/10/04/red-hats-ocid-docker-alternative-not-fork/)
+
+# Tools
+
+- [InfraKit](https://github.com/docker/infrakit/)
+- [runc](https://github.com/opencontainers/runc) is a CLI tool for spawning and running containers according to the OCI specification.
+- [docker-provider](https://github.com/fgrehm/docker-provider) (no longer being maintained as its functionality has been merged back to Vagrant core);
+- [vocker](https://github.com/fgrehm/vocker): Docker provisioner for Vagrant (no longer being maintained as its functionality has been merged back into Vagrant core);
+- [Vagrant Shell Provider](https://github.com/dstrctrng/vagrant-shell)
+- [Ventriloquist](https://github.com/fgrehm/ventriloquist): combines Vagrant and Docker to give developers the ability to configure portable and disposable development environments with ease;
+- [Dockramp](https://github.com/jlhawn/dockramp) is a client-driven Docker Container Image Builder;
+- [Packer](https://www.packer.io/) is a tool for creating machine and container images for multiple platforms from a single source configuration
+    - [hashicorp/packer](https://hub.docker.com/r/hashicorp/packer/)
+    - [Using Packer and Vagrant to Build Virtual Machines](http://blog.codeship.com/packer-vagrant-tutorial/)
+    - [Using Packer and Ansible to Build Immutable Infrastructure](https://blog.codeship.com/packer-ansible/)
+    - [Developing with Packer and Docker](https://samthursfield.wordpress.com/2014/10/20/developing-with-packer-and-docker/)
+    - [We started using Vagrant and Packer for our build process. You won't believe what happened next...](http://getcloudify.org/2015/06/24/vagrant-packer-etc.html)
+- [Ansible](https://www.ansible.com/) is a simple automation language that can perfectly describe an IT application infrastructure.
+    - [Ansible Crash Course](http://www.sixtree.com.au/articles/2016/ansible-crash-course/)

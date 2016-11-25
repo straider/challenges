@@ -31,6 +31,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## Tutorials
 
+- [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
+
 ## Articles
 
 ## Books

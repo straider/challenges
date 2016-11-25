@@ -52,7 +52,7 @@ This dojo is aimed for programmers that know Java and Maven or Gradle but have n
 
 By default, Spring Boot requires Java 7 and Spring Framework 4.3.2 or above. Explicit build support is provided for Maven (3.2+) and Gradle (1.12+).
 
-## 1.7. Architecture
+## 1.6. Architecture
 
 Spring Boot main components are:
 
@@ -61,7 +61,30 @@ Spring Boot main components are:
 
 Usually an application has 4 layers: Controller, Service, Repository and Domain Model.
 
-## 1.7. Articles
+# 2. Resources
+
+## 2.1. Tutorials
+
+- [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+- [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)
+- [Messaging with JMS](https://spring.io/guides/gs/messaging-jms/)
+- [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+- [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
+- [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+- [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/)
+- [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/)
+- [Consuming a SOAP web service](https://spring.io/guides/gs/consuming-web-service/)
+- [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
+- [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
+- [React.js and Spring Data REST](https://spring.io/guides/tutorials/react-and-spring-data-rest/)
+- [Building a Hypermedia-Driven RESTful Web Service](https://spring.io/guides/gs/rest-hateoas/)
+- [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
+- [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
+- [Integrating Data](https://spring.io/guides/gs/integration/)
+- [Spring Boot & Apache CXF – How to SOAP in 2016](https://blog.codecentric.de/en/2016/02/spring-boot-apache-cxf/)
+    - [tutorial-soap-spring-boot-cxf](https://github.com/jonashackt/tutorial-soap-spring-boot-cxf)
+
+## 2.2. Articles
 
 - [Why SpringBoot?](http://sivalabs.in/2016/03/why-springboot/)
 - [How SpringBoot AutoConfiguration magic works?](http://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/)
@@ -79,10 +102,10 @@ Usually an application has 4 layers: Controller, Service, Repository and Domain 
 
 ----
 
-# 2. Milestones
+# 3. Milestones
 
-## 2.1. CLI: Hello World
+## 3.1. CLI: Hello World
 
-## 2.2. JAX-RS: Hello World
+## 3.2. JAX-RS: Hello World
 
-## 2.3. JAX-WS: Hello World
+## 3.3. JAX-WS: Hello World
