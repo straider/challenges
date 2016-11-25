@@ -224,3 +224,6 @@ build/
 distribution/
 target/
 .gradle/
+*.iml
+.idea/
+

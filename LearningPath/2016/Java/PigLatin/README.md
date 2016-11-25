@@ -20,6 +20,9 @@ Simple project to explore TDD, Unit Testing and Integration Testing (using JUnit
     -          -> ""
     - quiet    -> ietquay
     - half-way -> alfhay-ayway
+    - 123      -> 123
+    - bAEIOU   -> AEIOUbay
+    - aEIOU    -> aEIOUWAY vs. aEIOUway (if not considering last letter case, if vowel)
 - PigLatinerSpec (borrowed from BDD, Spock, ... )
     - Mock user input and translate a phrase, word by word
     - PigLatinParser: Mock file source and translate sentences, capitalizing first letter of each sentence
@@ -50,7 +53,24 @@ Simple project to explore TDD, Unit Testing and Integration Testing (using JUnit
     - TDD
     - BDD
 
-# Miletones
+# Milestones
+
+- WordManipulator / EnglishWord
+    - isEmptyOrNull( word )
+    - startsWithVowel( word ) / startsWithConsonant( word )
+    - isTitleCase( word )
+    - isShout( word ) - all uppercase
+    - isHyphenated( word )
+    - hyphenate( word1, word2 )
+    - concatenate( prefix, word, suffix )
+    - cutConsonants( word ) - specific to PigLatin
+    - getFirstConsonants( word ): if empty then it *may* start with a vowel, not considering "y" as vowel
+    - getFirstVowel( word ): if empty then it *may* mean that is not a word ( if getFirstConsonants() is also empty )
+- PigLatinTranslator
+    - translateWord( EnglishWord )
+    - translateWords( List< EnglishWord > )
+    - translateSentence( String ) or translatePhrase( String )
+    - translateSentences( List< String > ) or translatePhrases( List< String > ) or translateParagraph( List< String > )
 
 ## Without Regular Expressions
 
