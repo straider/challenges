@@ -11,18 +11,6 @@
 - [Introduction to Groovy](https://netbeans.org/kb/docs/java/groovy-quickstart.html)
 - [NetBeans for Groovy](https://blogs.oracle.com/netbeansgroovy/)
 
-## Steps
-
-- Add Groovy and Gradle plugins;
-- Create HelloWorld ~~Java~~ ~~Maven~~ Gradle project ( no support for Groovy project );
-- Add com.github.straider.helloworld to Test Packages;
-- Add main/groovy/ and test/groovy/ sub-folders to src/;
-- Add package com.github.straider.helloworld to Groovy Source and Test Packages;
-- Add HelloWorld Groovy class to main/groovy/com.github.straider.helloworld;
-- Remove HelloWorld Java class from main/java/com.github.straider.helloworld;
-- Remove package com.github.straider.helloworld from Java Source and Test Packages;
-- Remove main/java/ and test/java/ sub-folders from src/;
-
 # Eclipse
 
 - [Groovy-Eclipse](https://github.com/groovy/groovy-eclipse)
@@ -32,15 +20,6 @@
 # IDEA
 
 - [Getting Started with Groovy](https://www.jetbrains.com/help/idea/2016.2/getting-started-with-groovy.html)
-
-## Steps
-
-- Create Groovy Project, with $HOME/opt/groovy/ "library";
-- Add main.groovy and test.groovy packages to src/ folder;
-- Mark main.groovy as source and test.groovy as test folders;
-- Add com.github.straider.helloworld package to src/main/groovy/;
-- Add HelloWorld Groovy class;
-- Generate HelloWorldTest class using Groovy JUnit, in src/test/groovy/;
 
 # Groovy/Grails Tool Suite
 
