@@ -1,4 +1,4 @@
-:: Containers and Microservices :: OpenShift ::
+﻿:: Containers and Microservices :: OpenShift ::
 ===============================================
 
 # Overview
@@ -34,6 +34,9 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
 
 ## Articles
+
+- [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
+- [Continuous Delivery with Docker, Jenkins, JBoss Fuse and OpenShift PaaS](http://blog.christianposta.com/demo/continuous-delivery-with-jenkins-gerrit-jboss-fuse-and-openshift-paas/)
 
 ## Books
 
