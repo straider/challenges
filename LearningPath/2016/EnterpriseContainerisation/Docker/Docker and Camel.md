@@ -1,4 +1,4 @@
-Docker and Camel
+﻿Docker and Camel
 ================
 
 # Overview
@@ -17,6 +17,7 @@ Docker and Camel
 - [Running Karaf+Hawtio+Camel inside Docker](https://soucianceeqdamrashti.wordpress.com/2015/12/04/running-karafhawtiocamel-inside-docker/)
 - [Apache Camel in the belly of the Docker whale](http://www.slideshare.net/hekonsek/apache-camel-in-the-belly-of-the-docker-whale)
 - [Integrating Microservices with Apache Camel](http://www.slideshare.net/ceposta/ceposta-microservices)
+- [Developing Microservices with Apache Camel](http://www.slideshare.net/davsclaus/developing-microservices-with-apache-camel)
 - [Microservices with Apache Camel, Docker and Fabric8 v2](http://www.slideshare.net/ceposta/camel-microservicesfabric8)
 - [Microservices with Apache Camel & fabric8 on Kubernetes](http://www.slideshare.net/davsclaus/riga-dev-day-2016-microservices-with-apache-camel-fabric8-on-kubernetes)
 - [DevOps with ActiveMQ, Camel, Fabric8, and HawtIO](http://www.slideshare.net/ceposta/devops-with-activemq-camel-fabric8-and-hawtio)
@@ -39,12 +40,25 @@ Docker and Camel
 
 ### Creating Image
 
-- OS:
+- [The New Minimalist Operating Systems](https://blog.docker.com/2015/02/the-new-minimalist-operating-systems/)
+- [Rise of the Container-Focused Operating Systems](http://thenewstack.io/docker-fuels-rethinking-operating-system/)
+- [Docker Base Image OS Size Comparison](https://www.brianchristner.io/docker-image-base-os-size-comparison/)
+- [Container OS Comparison](http://blog.codeship.com/container-os-comparison/)
+- [Create a base image](https://docs.docker.com/engine/userguide/eng-image/baseimages/)
+- OS
     - [Alpine Linux](https://alpinelinux.org/) is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
-    - Atomic
-    - CoreOS
-    - CentOS
-    - Ubuntu
+        - [Docker Official Images are Moving to Alpine Linux](https://www.brianchristner.io/docker-is-moving-to-alpine-linux/)
+    - [boot2docker](http://boot2docker.io/) - [Tiny Core Linux](http://tinycorelinux.net/)
+    - [RancherOS](http://rancher.com/rancher-os/)
+        - [Tiny Docker Operating Systems](https://blog.docker.com/2015/03/tiny-docker-operating-systems/)
+        - [RancherOS: A Minimal OS for Docker in Production](https://www.infoq.com/news/2015/03/rancher-os)
+    - [CoreOS](https://coreos.com/)
+        - [10 Lessons Learned Using CoreOS](http://gabrtv.github.io/10-lessons-learned-using-coreos/)
+    - [Atomic](http://www.projectatomic.io/)
+    - [baseimage-docker](http://phusion.github.io/baseimage-docker/)
+    - [Snappy Ubuntu](http://developer.ubuntu.com/en/snappy/)
+        - [Create Snappy Ubuntu as a Docker Image](http://www.arvinep.com/2015/12/create-snappy-ubuntu-as-docker-image.html)
+    - [CentOS]()
 - Java (JDK or JRE)
 - Groovy
 - Maven / Gradle
@@ -56,6 +70,11 @@ Docker and Camel
 
 - [alpine](https://hub.docker.com/_/alpine/): minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!<br ?>```docker pull alpine```
 - [totobgycs/archdev](https://hub.docker.com/r/totobgycs/archdev/): Archlinux with base, base-devel and yaourt.
+- [tatsushid/tinycore](https://hub.docker.com/r/tatsushid/tinycore/): ```docker pull tatsushid/tinycore```
+    - [docker-tinycore](https://github.com/tatsushid/docker-tinycore): Tiny Core Linux Docker image building scripts and Dockerfile
+- [docker pull phusion/baseimage](https://hub.docker.com/r/phusion/baseimage/): Ubuntu, plus modifications for Docker-friendliness, and solves the PID 1 zombie reaping problem
+- [ubuntu](https://hub.docker.com/_/ubuntu/)
+- [centos](https://hub.docker.com/_/centos/)
 
 #### Java
 
