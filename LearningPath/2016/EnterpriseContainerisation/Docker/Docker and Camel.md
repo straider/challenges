@@ -28,9 +28,11 @@
 
 - [docker-squash](https://github.com/jwilder/docker-squash) is a utility to squash multiple docker layers into one in order to create an image with fewer and smaller layers.
     - [Squashing Docker Images](http://jasonwilder.com/blog/2014/08/19/squashing-docker-images/)
-- [docker-maven-plugin](https://github.com/spotify/docker-maven-plugin)
+- [docker-maven-plugin](https://github.com/spotify/docker-maven-plugin) for building and pushing Docker images.
+- [karaf-maven-plugin](https://github.com/apache/karaf/blob/master/manual/src/main/asciidoc/developer-guide/karaf-maven-plugin.adoc)
+- [hawt-app-maven-plugin](https://github.com/fabric8io/fabric8/tree/master/hawt-app-maven-plugin) makes it easy to create and launch simple java apps that use a flat classpath and a class with a main.
 - [gradle-docker](https://github.com/Transmode/gradle-docker) is a Gradle plugin to build Docker images from the build script.
-- [dockerizor](https://github.com/eclipsesource/dockerizor): Gradle plug-in to create a Docker image that includes an Eclipse Virgo container
+- [dockerizor](https://github.com/eclipsesource/dockerizor): Gradle plug-in to create a Docker image that includes an Eclipse Virgo container.
     - [Dockerizor – Creating Docker Images for Virgo the Easy Way](http://eclipsesource.com/blogs/2014/10/09/dockerizor-creating-docker-images-for-virgo-the-easy-way/)
 
 ## Docker Hub Images
