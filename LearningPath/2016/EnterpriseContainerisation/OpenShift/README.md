@@ -37,6 +37,10 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 - [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
 - [Continuous Delivery with Docker, Jenkins, JBoss Fuse and OpenShift PaaS](http://blog.christianposta.com/demo/continuous-delivery-with-jenkins-gerrit-jboss-fuse-and-openshift-paas/)
+- [OpenShift Enterprise v3 Lab Configuration: Innovate Faster, Deliver Sooner](http://www.opensourcerers.org/openshift-enterprise-v3-lab-configuration-innovate-faster-deliver-sooner/)
+- [Importing Docker Images to Red Hat OpenShift V3](http://www.opensourcerers.org/importing-an-external-docker-image-into-red-hat-openshift-v3/)
+- [Pushing an external and not yet published Docker image into Red Hat OpenShift V3](http://www.opensourcerers.org/pushing-an-external-and-not-yet-published-docker-image-into-red-hat-openshift-v3/)
+- [Improving Build Time of Java Builds on OpenShift](https://blog.openshift.com/improving-build-time-java-builds-openshift/)
 
 ## Books
 
@@ -46,6 +50,11 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [OpenShift Cookbook](https://www.packtpub.com/virtualization-and-cloud/openshift-cookbook)
 - [Implementing OpenShift](https://www.packtpub.com/virtualization-and-cloud/implementing-openshift)
 - [OpenShift Primer](http://www.schabell.org/2016/04/available-free-online-openshift-primer-book.html)
+
+## Tools
+
+- [OpenShift Ansible](https://github.com/openshift/openshift-ansible)
+- [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
 
 # Installation Recipes
 

@@ -11,6 +11,8 @@
 
 # Installation Recipes
 
+- [How to install Red Hat Container Development Kit (CDK) in minutes](http://www.schabell.org/2016/02/howto-install-redhat-cdk-in-minutes.html)
+
 ## With CDK
 
 This option installs OpenShift Container Platform 3.2:

@@ -127,6 +127,10 @@ cd openshift-origin
 git remote add upstream git://github.com/openshift/origin
 
 export OPENSHIFT_MEMORY=4192
+# export OPENSHIFT_VM_NAME_PREFIX=
+# export OPENSHIFT_DEV_CLUSTER=true
+vagrant plugin install vagrant-hostmanager
+
 vagrant up
 
 vagrant ssh
@@ -153,6 +157,8 @@ Issue the following commands on Git for Windows terminal, from a folder that wil
 ```bash
 git clone https://github.com/openshift-evangelists/vagrant-origin.git evangelists-vagrant-origin
 cd evangelists-vagrant-origin
+
+# export ORIGIN_VM_MEM=4192
 vagrant up
 ```
 
