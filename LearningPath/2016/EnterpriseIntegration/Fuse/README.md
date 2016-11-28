@@ -16,7 +16,7 @@ https://access.redhat.com/documentation/en/red-hat-xpaas/0/red-hat-xpaas-release
 
 https://www.redhat.com/en/about/blog/welcome-to-the-world-of-xpaas
 > Red Hat announced JBoss xPaaS services for OpenShift, the industry’s first comprehensive, open and unified Platform-as-a-Service (PaaS) offering for enterprises. With the advent of xPaaS, users can move beyond the limits of simple application development of today’s PaaS offerings to the next generation of PaaS technologies and capabilities. xPaaS is a rich set of application development and integration capabilities that will enable users to build and deploy complex enterprise-scale applications.
- 
+
 https://www.redhat.com/en/about/blog/red-hat-announces-availability-containerized-middleware-capabilities-openshift
 > Red Hat announced Red Hat's xPaaS initiative to provide Red Hat JBoss Middleware on OpenShift and introduce a new way of building and deploying enterprise applications.
 
@@ -140,6 +140,18 @@ https://access.redhat.com/articles/1980803
     - [Red Hat JBoss xPaaS - When xPaaS meets DEVOPS - Part Two](http://wei-meilin.blogspot.co.uk/2015/04/red-hat-xpaas-when-xpaas-meets-devops_27.html)
     - [Red Hat JBoss xPaaS - When xPaaS meets DEVOPS - Part Three](http://wei-meilin.blogspot.co.uk/2015/04/red-hat-jboss-xpaas-when-xpaas-meets.html)
 
+## Tools & Plugins
+
+- [Fuse Archetype - Camel Workshop](https://github.com/FuseByExample/fuse-workshop-archetype) is a maven archetype allowing to generate a maven project structure to develop a POC during a workshop.
+- [Fabric8 Archetypes](https://github.com/fabric8io/ipaas-quickstarts)
+- [jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker): Creates a docker image for JBoss Fuse
+- [fuse-openshift-cartridge](https://github.com/jboss-fuse/fuse-openshift-cartridge): an openshift cartridge for running Fuse and Fuse Fabric
+- [mfojtik/origin-templates](https://hub.docker.com/r/mfojtik/origin-templates/) contains all OpenShift v3 templates and image streams needed for new installation of OpenShift.
+- [Application Templates](https://github.com/jboss-fuse/application-templates/) contains OpenShift v3 application templates which support applications based on JBoss Fuse Integration Services.
+- [Application Templates](https://github.com/jboss-openshift/application-templates) contains OpenShift v3 application templates which support applications based on JBoss Middleware products.
+    - [openshift-examples](https://github.com/jboss-openshift/openshift-examples)
+    - [openshift-quickstarts](https://github.com/jboss-openshift/openshift-quickstarts)
+
 # Challenges
 
 - [Running Karaf+Hawtio+Camel inside Docker](https://soucianceeqdamrashti.wordpress.com/2015/12/04/running-karafhawtiocamel-inside-docker/)
@@ -159,16 +171,7 @@ docker pull registry.access.redhat.com/jboss-fuse-6/fis-java-openshift
 oc import-image my-jboss-fuse-6/fis-java-openshift --from=registry.access.redhat.com/jboss-fuse-6/fis-java-openshift --confirm
 
 docker pull registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift
-oc import-image my-jboss-fuse-6/fis-karaf-openshift --from=registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift --confirm  
+oc import-image my-jboss-fuse-6/fis-karaf-openshift --from=registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift --confirm
 
 oc create -n openshift -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
 ```
-
-- [Fabric8 Archetypes](https://github.com/fabric8io/ipaas-quickstarts)
-- [jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker): Creates a docker image for JBoss Fuse
-- [fuse-openshift-cartridge](https://github.com/jboss-fuse/fuse-openshift-cartridge): an openshift cartridge for running Fuse and Fuse Fabric
-- [mfojtik/origin-templates](https://hub.docker.com/r/mfojtik/origin-templates/) contains all OpenShift v3 templates and image streams needed for new installation of OpenShift.
-- [Application Templates](https://github.com/jboss-fuse/application-templates/) contains OpenShift v3 application templates which support applications based on JBoss Fuse Integration Services.
-- [Application Templates](https://github.com/jboss-openshift/application-templates) contains OpenShift v3 application templates which support applications based on JBoss Middleware products.
-    - [openshift-examples](https://github.com/jboss-openshift/openshift-examples)
-    - [openshift-quickstarts](https://github.com/jboss-openshift/openshift-quickstarts)

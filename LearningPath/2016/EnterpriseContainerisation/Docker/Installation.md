@@ -13,7 +13,7 @@ Docker Installation
 > The Docker Toolbox setup does not run Docker natively on Windows. Instead, it uses docker-machine to create and attach to a virtual machine (VM). This machine is a Linux VM that hosts Docker for you on your Windows system. To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
 [Using Docker on Windows](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Using_Docker_Machine_On_Windows)
-> Docker is great but it is not easy to use on Windows. Indeed, Docker containers are built on Linux. As a result, Docker needs a Linux machine to run. For Windows, the way to use Docker so far was to install a specific Linux VM called Boot2Docker, then log into that VM and proceed with Docker. 
+> Docker is great but it is not easy to use on Windows. Indeed, Docker containers are built on Linux. As a result, Docker needs a Linux machine to run. For Windows, the way to use Docker so far was to install a specific Linux VM called Boot2Docker, then log into that VM and proceed with Docker.
 
 [How to use Docker on Windows](https://blog.tutum.co/2014/11/05/how-to-use-docker-on-windows/)
 > Since we aren't using Linux, it is not yet possible to use Docker natively. We are going to need some sort of lightweight VM that emulates a Docker Host. This is what Boot2docker is for. Basically, Boot2Docker will encapsulate our Docker server into a virtual machine and let us access it through the Windows Docker client.
