@@ -11,6 +11,8 @@
 
 # Installation Recipes
 
+- [How to install Red Hat Container Development Kit (CDK) in minutes](http://www.schabell.org/2016/02/howto-install-redhat-cdk-in-minutes.html)
+
 ## With CDK
 
 This option installs OpenShift Container Platform 3.2:
@@ -43,24 +45,24 @@ These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit 
 
 ```bash
 cd /cygdrive/c/[CDK_FOLDER]/components/rhel/
- 
+
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 vagrant plugin list
 vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
 vagrant box list
- 
+
 # Set CDK Memory.
 export VM_MEMORY=6000
- 
+
 # Set Red Hat Portal Subscription credentials.
 export SUB_USERNAME=[SUB_USERNAME]
 export SUB_PASSWORD=[SUB_PASSWORD]
- 
+
 # Startup RHEL 7.2 Vagrant box.
 cd rhel-ose
 vagrant up
- 
+
 # Connect to RHEL 7.2 Vagrant box.
 vagrant ssh
 ```
@@ -75,24 +77,24 @@ Where:
 
 ```bash
 cd [CDK_FOLDER]/components/rhel/
- 
+
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 vagrant plugin list
 vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
 vagrant box list
- 
+
 # Set CDK Memory.
 export VM_MEMORY=6000
- 
+
 # Set Red Hat Portal Subscription credentials.
 export SUB_USERNAME=[SUB_USERNAME]
 export SUB_PASSWORD=[SUB_PASSWORD]
- 
+
 # Startup RHEL 7.2 Vagrant box.
 cd rhel-ose
 vagrant up
- 
+
 # Connect to RHEL 7.2 Vagrant box.
 vagrant ssh
 ```
@@ -106,7 +108,7 @@ Where:
 #### Validation
 
 The following commands are to be issued inside the Vagrant box, in order to verify installation:
- 
+
 ```bash
 docker ps
 ```
@@ -117,7 +119,7 @@ Verify that the following images exist:
 - 1x of openshift3/ose-haproxy-router:v3.2.1.9
 - 2x of openshift3/ose-pod:v3.2.1.9
 - 1x of registry.access.redhat.com/openshift3/ose:v3.2.1.9
- 
+
 ```bash
 oc login --username=admin --password=admin
 ```
@@ -127,7 +129,7 @@ Verify that there's access to the following projects:
 - openshift
 - openshift-infra
 - sample-project (current)
- 
+
 ```bash
 oc login --username=openshift-dev --password=devel
 ```
@@ -159,10 +161,10 @@ docker-machine create --driver virtualbox                      \
                       --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
                       --engine-env NO_PROXY=$NO_PROXY          \
                       openshift
- 
+
 eval $(docker-machine env openshift)
 export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
- 
+
 oc cluster up --docker-machine=openshift \
               --use-existing-config      \
               --host-data-dir=[HOST_DATA_FOLDER] \
@@ -171,13 +173,13 @@ oc cluster up --docker-machine=openshift \
 ```
 
 Where [HOST_DATA_FOLDER] is to be replaced by folder on Docker host for OpenShift data. If not specified, etcd data will not be persisted on the host.
- 
+
 > The oc cluster up command starts a local OpenShift all-in-one cluster with a configured registry, router, image streams, and default templates. By default, the command requires a working Docker connection. The oc cluster up command will create a default user and project and, once it completes, will allow you to start using the command line to create and deploy apps with commands like oc new-app, oc new-build, and oc run. It will also print out a URL to access the management console for your cluster.
 
 ##### Validation
 
 Issue the following commands, inside Docker Quickstart Terminal, in order to verify installation:
- 
+
 ```bash
 oc status
 ```
@@ -187,7 +189,7 @@ The response should be
 You have no services, deployment configs, or build configs.
 Run 'oc new-app' to create an application.
 ```
- 
+
 ```
 oc login -u system:admin
 ```
@@ -198,7 +200,7 @@ Verify that there's access to the following projects:
 - openshift-infra
 - kube-system
 - myproject
- 
+
 Finally, open a browser and point it to the given address, something like https://192.168.99.101:8443, and access OpenShift Console.
 
 #### Ubuntu 14.04
