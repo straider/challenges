@@ -63,6 +63,8 @@ https://access.redhat.com/articles/1980803
 
 ## Tutorials
 
+### JBoss Fuse
+
 - [Fuse IDE 7.1 - Tutorials](https://access.redhat.com/documentation/en-US/Fuse_IDE/7.1/html/Tutorials/files/front.html)
 - [JBoss Fuse 6.0 - Getting Started](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.0/html/Getting_Started/files/front.html)
 - [JBoss Fuse Tutorial](https://www.tutorialspoint.com/jboss_fuse/index.htm) @ TutorialsPoint
@@ -81,6 +83,10 @@ https://access.redhat.com/articles/1980803
 - [JBoss Fuse 6.2 released – guide how to quickly try it](https://www.javacodegeeks.com/2015/07/jboss-fuse-6-2-released-guide-how-to-quickly-try-it.html)
 - [Introduction to JBoss Fuse – Part 1 – Creating a Fuse Application](http://blog.c2b2.co.uk/2015/09/introduction-to-jboss-fuse-part-1.html)
 - [Introduction to JBoss Fuse – Part 2 - deploying, monitoring, debugging & error handling](http://blog.c2b2.co.uk/2015/11/introduction-to-jboss-fuse-part-2.html)
+- [Integration Testing JBoss Fuse 6.x With Pax Exam, Part I](http://blog.christianposta.com/testing/integration-testing-jboss-fuse-6-x-with-pax-exam-part-i/)
+
+### Fuse Integration Services
+
 - Red Hat Developers Network:
     - [JBoss Fuse : Loan Broker Demo : on laptop](http://developers.redhat.com/video/vimeo/84674508/)
     - [JBoss Fuse : Loan Broker Demo : OpenShift](http://developers.redhat.com/video/vimeo/84689880/)
@@ -140,6 +146,7 @@ https://access.redhat.com/articles/1980803
 - [Microservices with Apache Camel - simple example](http://blog.kopis.de/2015/06/14/microservices-with-apache-camel/)
 - [microservice-camel-in-action](https://github.com/FuseByExample/microservice-camel-in-action)
 - [rider-auto-osgi](https://github.com/RedHatWorkshops/rider-auto-osgi): Getting Started with Apache ServiceMix
+- [rider-auto-osgi-itests](https://github.com/christian-posta/rider-auto-osgi-itests): Example of pax-exam integration tests for Fuse 6.x
 - [rider-auto-openshift](https://github.com/RedHatWorkshops/rider-auto-openshift)
 - [fis-hello](https://github.com/christian-posta/fis-hello): Fuse Integration Services for OpenShift hello world
 - [nferraro/fis-karaf-openshift](https://hub.docker.com/r/nferraro/fis-karaf-openshift/)
@@ -157,6 +164,7 @@ oc import-image my-jboss-fuse-6/fis-karaf-openshift --from=registry.access.redha
 oc create -n openshift -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
 ```
 
+- [Fabric8 Archetypes](https://github.com/fabric8io/ipaas-quickstarts)
 - [jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker): Creates a docker image for JBoss Fuse
 - [fuse-openshift-cartridge](https://github.com/jboss-fuse/fuse-openshift-cartridge): an openshift cartridge for running Fuse and Fuse Fabric
 - [mfojtik/origin-templates](https://hub.docker.com/r/mfojtik/origin-templates/) contains all OpenShift v3 templates and image streams needed for new installation of OpenShift.
