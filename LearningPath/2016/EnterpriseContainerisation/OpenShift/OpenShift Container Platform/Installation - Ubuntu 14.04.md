@@ -1,15 +1,7 @@
-﻿OpenShift Container Platform
-============================
+﻿:: Installation :: Ubuntu 14.04 ::
+==================================
 
-# Overview
-
-## What is OpenShift Container Platform?
-
-> Formerly known as OpenShift Enterprise, it is the container platform software for customer to deploy and manage on their own in an infrastructure of choice. OpenShift Container Platform is also available in two additional packages targeting developers and dev/test labs:
-- **OpenShift Container Local**: free download as part of the Red Hat Developer Program for developers who want to deploy OpenShift on their local laptops;
-- **OpenShift Container Lab**: for dev/test and Ops teams who want to to deploy OpenShift for extended evaluation, POC and pre-production use cases.
-
-# Installation Recipes
+# Options
 
 - [How to install Red Hat Container Development Kit (CDK) in minutes](http://www.schabell.org/2016/02/howto-install-redhat-cdk-in-minutes.html)
 
@@ -35,45 +27,7 @@ This option installs OpenShift Container Platform 3.2:
 - [VirtualBox](https://www.virtualbox.org/) 5.0.28;
 - [Vagrant](https://www.vagrantup.com/) 1.8.7;
 
-### Operating Systems
-
-#### Windows 7 64 bits
-
-Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
-
-These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
-
-```bash
-cd /cygdrive/c/[CDK_FOLDER]/components/rhel/
-
-# Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
-vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
-vagrant plugin list
-vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
-vagrant box list
-
-# Set CDK Memory.
-export VM_MEMORY=6000
-
-# Set Red Hat Portal Subscription credentials.
-export SUB_USERNAME=[SUB_USERNAME]
-export SUB_PASSWORD=[SUB_PASSWORD]
-
-# Startup RHEL 7.2 Vagrant box.
-cd rhel-ose
-vagrant up
-
-# Connect to RHEL 7.2 Vagrant box.
-vagrant ssh
-```
-
-Where:
-- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example DevKits/ContainerDevelopmentKit-2.2.0/;
-- [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
-
-**Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
-
-#### Ubuntu 14.04
+### Steps
 
 ```bash
 cd [CDK_FOLDER]/components/rhel/
@@ -105,7 +59,7 @@ Where:
 
 **Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under $HOME folder.
 
-#### Validation
+### Validation
 
 The following commands are to be issued inside the Vagrant box, in order to verify installation:
 
@@ -146,37 +100,11 @@ This option installs OpenShift Container Platform 3.3 or later.
 
 ### Requirements
 
-- [Docker Machine](https://github.com/docker/machine/) 0.8.2
+- ~~[Docker Machine](https://github.com/docker/machine/) 0.8.2~~
 
-#### Windows 7 64 bits
+### Steps
 
-##### Installation
-
-These commands are to be issued from a Docker Quickstart Terminal (based on MinGW):
-
-```bash
-docker-machine create --driver virtualbox                      \
-                      --engine-insecure-registry 172.30.0.0/16 \
-                      --engine-env HTTP_PROXY=$HTTP_PROXY      \
-                      --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
-                      --engine-env NO_PROXY=$NO_PROXY          \
-                      openshift
-
-eval $(docker-machine env openshift)
-export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
-
-oc cluster up --docker-machine=openshift \
-              --use-existing-config      \
-              --host-data-dir=[HOST_DATA_FOLDER] \
-              --version=latest           \
-              --image=registry.access.redhat.com/openshift3/ose
-```
-
-Where [HOST_DATA_FOLDER] is to be replaced by folder on Docker host for OpenShift data. If not specified, etcd data will not be persisted on the host.
-
-> The oc cluster up command starts a local OpenShift all-in-one cluster with a configured registry, router, image streams, and default templates. By default, the command requires a working Docker connection. The oc cluster up command will create a default user and project and, once it completes, will allow you to start using the command line to create and deploy apps with commands like oc new-app, oc new-build, and oc run. It will also print out a URL to access the management console for your cluster.
-
-##### Validation
+### Validation
 
 Issue the following commands, inside Docker Quickstart Terminal, in order to verify installation:
 
@@ -203,27 +131,7 @@ Verify that there's access to the following projects:
 
 Finally, open a browser and point it to the given address, something like https://192.168.99.101:8443, and access OpenShift Console.
 
-#### Ubuntu 14.04
-
-##### Installation
-
-##### Validation
-
 # Well Known Errors
-
-## Unable to execute vagrant run
-
-The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
-
-```
-A Vagrant environment or target machine is required to run this
-command. Run `vagrant init` to create a new Vagrant environment. Or,
-get an ID of a target machine from `vagrant global-status` to run
-this command on. A final option is to change to a directory with a
-Vagrantfile and to try again.
-```
-
-**Note**: an useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
 
 ## Subscription
 
@@ -232,23 +140,6 @@ If the step "Registering box with vagrant-registration" asks for an username and
 ```bash
 export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
 export SUB_PASSWORD=<your-subscription-password>
-```
-
-## Proxy
-
-The step "Registering box with vagrant-registration" failed with the following error:
-
-```
-Network error, unable to connect to server. Please see /var/log/rhsm/rhsm.log for more information.
-Registering to: subscription.rhn.redhat.com:443/subscription
-```
-
-It seems to be a PROXY problem. To configure the proxy issue the following commands before issueing ```vagrant up```:
-
-```bash
-export PROXY=[HOSTNAME:PORT]
-export PROXY_USER=[USERNAME]
-export PROXY_PASSWORD=[PASSWORD]
 ```
 
 ## sftp-server
@@ -261,12 +152,7 @@ is required for sshfs mounting to work. Please install the software and
 try again.
 ```
 
-On Windows this will require a Cygwin or MinGW environment, although technical any kind of utility named sftp-server that can act as a SFTP Server might work.
-
-Install Cygwin x64, with openssh, rsync and chere.
-It may require libusb0.
-
-On Ubuntu simply issue the following command:
+To fix then issue the following command:
 
 ```bash
 sudo apt-get install openssh-server
@@ -274,7 +160,7 @@ sudo apt-get install openssh-server
 
 ## Unable to access OpenShift Console
 
-If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
+If after booting up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
 
 > Container Development Kit 2.2 is known to not work correctly with VirtualBox 5.1.x. If you intend to use VirtualBox as your virtualization provider, and you already have VirtualBox 5.1.x installed, downgrade your installation to VirtualBox 5.0.26.
 
@@ -300,3 +186,4 @@ vagrant halt
 ```
 
 Then change back to the folder with the Vagrantfile of the 2nd CDK box and fire it up.
+
