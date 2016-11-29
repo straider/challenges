@@ -1,4 +1,4 @@
-package helloworld
+package com.github.straider.grails
 
 class GreetingController {
 

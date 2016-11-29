@@ -50,7 +50,7 @@ environments:
 grails:
     profile: web
     codegen:
-        defaultPackage: helloworld
+        defaultPackage: com.github.straider.grails
     spring:
         transactionManagement:
             proxies: false

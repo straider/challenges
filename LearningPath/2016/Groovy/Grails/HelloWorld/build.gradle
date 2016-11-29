@@ -14,7 +14,7 @@ buildscript {
 }
 
 version "0.1"
-group "helloworld"
+group "com.github.straider.grails"
 
 apply plugin:"eclipse"
 apply plugin:"idea"

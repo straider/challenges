@@ -1,4 +1,4 @@
-package helloworld
+package com.github.straider.grails
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

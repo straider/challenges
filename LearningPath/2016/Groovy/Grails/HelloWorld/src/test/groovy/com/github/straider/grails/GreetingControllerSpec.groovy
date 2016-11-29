@@ -1,4 +1,4 @@
-package helloworld
+package com.github.straider.grails
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
