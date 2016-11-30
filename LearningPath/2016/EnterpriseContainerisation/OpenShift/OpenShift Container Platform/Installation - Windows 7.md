@@ -116,15 +116,15 @@ docker-machine create --driver virtualbox                      \
                       --engine-env HTTP_PROXY=$HTTP_PROXY      \
                       --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
                       --engine-env NO_PROXY=$NO_PROXY          \
-                      openshift
+                      openshift-ose-3.3
 
 eval $(docker-machine env openshift)
 export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
 
-oc cluster up --docker-machine=openshift \
-              --use-existing-config      \
+oc cluster up --docker-machine=openshift-ose-3.3 \
+              --use-existing-config              \
               --host-data-dir=[HOST_DATA_FOLDER] \
-              --version=latest           \
+              --version=latest                   \
               --image=registry.access.redhat.com/openshift3/ose
 ```
 

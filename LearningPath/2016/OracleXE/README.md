@@ -61,9 +61,31 @@ The [APEX console](http://127.0.0.1:8081/apex/f?p=4950) is the easy way to do mo
 
 ## Docker Images
 
-- [madhead/docker-oracle-xe](https://github.com/madhead/docker-oracle-xe): CentOS 7 Docker image with Oracle XE 11.2.0 onboard
 - [wnameless/oracle-xe-11g](https://hub.docker.com/r/wnameless/oracle-xe-11g/): Oracle Express Edition 11g Release 2 on Ubuntu 16.04 LTS
+- [mcgregorandrew/oracle-xe-11g](https://hub.docker.com/r/mcgregorandrew/oracle-xe-11g/): Oracle image with password expiry time set to "never"
 - [alexeiled/docker-oracle-xe-11g](https://hub.docker.com/r/alexeiled/docker-oracle-xe-11g/): Oracle Express Edition 11g Release 2 and Ubuntu 14.04 LTS
+- [arahman/docker-oracle-xe-11g](https://hub.docker.com/r/arahman/docker-oracle-xe-11g/)
+- [martinsthiago/oraclexe-11g-fig](https://hub.docker.com/r/martinsthiago/oraclexe-11g-fig/)
+- [rafaelri/docker-oracle-xe-11g](https://hub.docker.com/r/rafaelri/docker-oracle-xe-11g/): Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
+- [sath89/oracle-xe-11g](https://hub.docker.com/r/sath89/oracle-xe-11g/): Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
+- [maketechnology/oracle-xe](https://hub.docker.com/r/maketechnology/oracle-xe/): Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
+- [ignatov/docker-oracle-xe-11g](https://hub.docker.com/r/ignatov/docker-oracle-xe-11g/): Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
+- [philipharries/oracle-xe](https://hub.docker.com/r/philipharries/oracle-xe/)
+- [ukhomeofficedigital/oracle-xe-11g](https://hub.docker.com/r/ukhomeofficedigital/oracle-xe-11g/)
+- [unicon/sakai-oraclexe](https://hub.docker.com/r/unicon/sakai-oraclexe/): Oracle XE 11g image that is ready for use with Sakai
+- [stan0304/oraclexe](https://hub.docker.com/r/stan0304/oraclexe/): Oracle Express Edition 11g Release 2 on Debian 8
+- [dkfi/docker-oracle-xe-10g](https://hub.docker.com/r/dkfi/docker-oracle-xe-10g/): Oracle Express Edition 10g R2 (10.2.0.1) 32-bit on Debian 7.0 Wheezy
+- [madhead/docker-oracle-xe](https://github.com/madhead/docker-oracle-xe): CentOS 7 Docker image with Oracle XE 11.2.0 onboard
+- [ttekun/centos5-oraclexe11g](https://hub.docker.com/r/ttekun/centos5-oraclexe11g/)
+- [fransguelinckx/oraclexe](https://hub.docker.com/r/fransguelinckx/oraclexe/)
+- [fransguelinckx/oraclexe-ocapi](https://hub.docker.com/r/fransguelinckx/oraclexe-ocapi/)
+- [joseblas/oraclexe](https://hub.docker.com/r/joseblas/oraclexe/)
+- [carlosfrias/oraclexe11g](https://hub.docker.com/r/carlosfrias/oraclexe11g/)
+- [cloudtechie/oraclexe](https://hub.docker.com/r/cloudtechie/oraclexe/)
+- [orozimbro/oraclexe](https://hub.docker.com/r/orozimbro/oraclexe/)
+- [timag/cssdk-oraclexe](https://hub.docker.com/r/timag/cssdk-oraclexe/)
+- [msufbas/oraclexe11-clean](https://hub.docker.com/r/msufbas/oraclexe11-clean/)
+- [luozengbin/oraclexe11g](https://hub.docker.com/r/luozengbin/oraclexe11g/)
 
 ## IDEs
 

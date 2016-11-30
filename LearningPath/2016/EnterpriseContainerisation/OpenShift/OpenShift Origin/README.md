@@ -33,3 +33,7 @@
     - [DIY Applications](https://github.com/openshift/origin-server/blob/master/documentation/oo_user_guide.adoc#diy-applications)
 - [OpenShift Origin Comprehensive Deployment Guide](https://github.com/openshift/origin-server/blob/master/documentation/oo_deployment_guide_comprehensive.adoc)
 
+## Installation Guides
+
+- [Windows 7](Installation - Windows 7.md)
+- [Ubuntu 14.04](Installation - Ubuntu 14.04.md)
