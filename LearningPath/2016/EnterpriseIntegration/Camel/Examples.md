@@ -25,6 +25,7 @@ Common requirements to follow all examples:
 - [Camel Hello World](CamelHelloWorld/README.md)
 - [Camel Integration Nirvana](CamelIntegrationNirvana/README.md)
 - [Camel REST](REST/README.md)
+- [Intro to Camel by Example](IntroToCamelByExample/README.md)
 - [Cafe Example](http://camel.apache.org/cafe-example.html)
 - [Loan Broker Example](http://camel.apache.org/loan-broker-example.html)
 - [Tutorial-Example-ReportIncident](http://camel.apache.org/tutorial-example-reportincident.html)
