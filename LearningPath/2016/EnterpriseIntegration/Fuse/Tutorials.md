@@ -5,6 +5,7 @@
 
 - [Fuse IDE 7.1 - Tutorials](https://access.redhat.com/documentation/en-US/Fuse_IDE/7.1/html/Tutorials/files/front.html)
 - [JBoss Fuse 6.0 - Getting Started](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.0/html/Getting_Started/files/front.html)
+- [Red Hat JBoss Fuse EIP Quickstart](https://github.com/jbossdemocentral/fuse-eip-quickstart), using JBoss Fuse 6.0.0
 - [JBoss Fuse Tutorial](https://www.tutorialspoint.com/jboss_fuse/index.htm) @ TutorialsPoint
 - [Fuse By Example](https://github.com/FuseByExample)
     - [servicemix4-example-payment-service](https://github.com/FuseByExample/servicemix4-example-payment-service)
