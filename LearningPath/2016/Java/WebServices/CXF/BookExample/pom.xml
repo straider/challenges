@@ -9,7 +9,7 @@
     <groupId>com.github.straider.java.ws.cxf</groupId>
     <artifactId>book-example</artifactId>
     <version>1.0.0</version>
-    <name>Apache CXF Sample</name>
+    <name>Apache CXF Book Sample</name>
     <description>Developing RESTful Services using Apache CXF</description>
     <url>https://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html</url>
 
@@ -40,6 +40,8 @@
         <cucumber.version>1.2.4</cucumber.version>
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.21</slf4j.version>
+
+        <cxf.version>3.1.8</cxf.version>
     </properties>
 
     <dependencies>
@@ -116,6 +118,22 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf.version}</version>
         </dependency>
 
     </dependencies>
