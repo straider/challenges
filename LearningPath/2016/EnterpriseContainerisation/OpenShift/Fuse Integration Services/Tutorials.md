@@ -13,7 +13,6 @@
     - [JBoss Fuse iPaaS on OpenShift Part V: Connecting up to a network of brokers](http://developers.redhat.com/video/vimeo/91030054/)
     - [JBoss Fuse iPaaS on OpenShift Part VI: Failover, failback](http://developers.redhat.com/video/vimeo/91030055/)
 - [First Fuse application on OpenShift V3.1](http://www.opensourcerers.org/first-fuse-application-on-openshift-v3-1/)
-- [A complete Fabric8/JBoss Fuse demo](https://github.com/christian-posta/jboss-fuse-fsi-demo/blob/master/docs/index.md)
 - Fuse, by [Cristina Lin](https://plus.google.com/100253552151011820213):
     - [FIS Healthcare DEMO](https://github.com/weimeilin79/healthcaredemo)
     - [FIS Healthcare DEMO](https://github.com/weimeilin79/healthcaredemos2i)

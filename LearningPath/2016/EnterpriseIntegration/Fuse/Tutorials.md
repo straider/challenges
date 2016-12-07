@@ -20,6 +20,7 @@
 - [JBoss Fuse 6.2 released – guide how to quickly try it](https://www.javacodegeeks.com/2015/07/jboss-fuse-6-2-released-guide-how-to-quickly-try-it.html)
 - [Introduction to JBoss Fuse – Part 1 – Creating a Fuse Application](http://blog.c2b2.co.uk/2015/09/introduction-to-jboss-fuse-part-1.html)
 - [Introduction to JBoss Fuse – Part 2 - deploying, monitoring, debugging & error handling](http://blog.c2b2.co.uk/2015/11/introduction-to-jboss-fuse-part-2.html)
+- [A complete Fabric8/JBoss Fuse demo](https://github.com/christian-posta/jboss-fuse-fsi-demo/blob/master/docs/index.md)
 - [Integration Testing JBoss Fuse 6.x With Pax Exam, Part I](http://blog.christianposta.com/testing/integration-testing-jboss-fuse-6-x-with-pax-exam-part-i/)
 - [Critical HL7 Usecases With Camel, ActiveMQ, Elasticsearch](http://blog.christianposta.com/fuse/critical-hl7-usecases-with-camel-activemq-elasticsearch/)
     - [HL7 use cases with JBoss Fuse](https://github.com/christian-posta/healthcare-poc)

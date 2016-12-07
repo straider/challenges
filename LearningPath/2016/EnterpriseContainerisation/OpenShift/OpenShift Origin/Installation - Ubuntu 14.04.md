@@ -73,8 +73,18 @@ sudo docker exec -it origin bash
 Issue the following commands, from a folder that will hold the Vagrantfile:
 
 ```bash
+vagrant plugin install landrush
+vagrant plugin install vagrant-adbinfo
+vagrant plugin install vagrant-vbguest
+
 vagrant init openshift/origin-all-in-one
 vagrant up
+
+oc login https://10.2.2.2:8443 -u admin -p admin
+
+oc project openshift
+oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
+oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/amq/amq62-basic.json
 ```
 
 To update OpenShift then issue the following commands, from the same folder:
@@ -102,10 +112,27 @@ export OPENSHIFT_MEMORY=4192
 # export OPENSHIFT_VM_NAME_PREFIX=
 # export OPENSHIFT_DEV_CLUSTER=true
 vagrant plugin install landrush
+vagrant plugin install vagrant-adbinfo
+vagrant plugin install vagrant-vbguest
 
 vagrant up
 
 vagrant ssh
+```
+
+```bash
+cd /data/src/github.com/openshift/origin
+make clean build
+
+sudo systemctl start openshift
+oadm registry
+
+oc project openshift
+oc create -f /data/src/github.com/openshift/origin/examples/image-streams/image-streams-centos7.json
+oc create -f /data/src/github.com/openshift/origin/examples/sample-app/application-template-stibuild.json
+oc create -f /data/src/github.com/openshift/origin/examples/db-templates
+oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
+oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/amq/amq62-basic.json
 ```
 
 ## Evangelists Vagrant Box

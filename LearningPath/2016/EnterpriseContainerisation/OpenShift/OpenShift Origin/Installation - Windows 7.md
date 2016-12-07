@@ -19,9 +19,25 @@ This option seems to be the latest result from the Evangelist Vagrant Box option
 Issue the following commands on a Windows Command Prompt, from a folder that will hold the Vagrantfile:
 
 ```bash
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-adbinfo
+vagrant plugin install vagrant-vbguest
+
 vagrant init openshift/origin-all-in-one
+
 vagrant up
+
+@FOR /f "tokens=*" %i IN ('vagrant adbinfo') DO @%i
+
+oc login https://10.2.2.2:8443 -u admin -p admin
+
+oc project openshift
+oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
+oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/amq/amq62-basic.json
+
+vagrant ssh
 ```
+
 
 To update OpenShift then issue the following commands on a Windows Command Prompt, from the same folder:
 
@@ -97,8 +113,12 @@ export OPENSHIFT_MEMORY=4192
 # export OPENSHIFT_VM_NAME_PREFIX=
 # export OPENSHIFT_DEV_CLUSTER=true
 vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-adbinfo
+vagrant plugin install vagrant-vbguest
 
 vagrant up
+
+@FOR /f "tokens=*" %i IN ('vagrant adbinfo') DO @%i
 
 vagrant ssh
 ```
@@ -113,6 +133,9 @@ oadm registry
 oc create -f /data/src/github.com/openshift/origin/examples/image-streams/image-streams-centos7.json -n openshift
 oc create -f /data/src/github.com/openshift/origin/examples/sample-app/application-template-stibuild.json -n openshift
 oc create -f /data/src/github.com/openshift/origin/examples/db-templates -n openshift
+
+oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json -n openshift
+oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/amq/amq62-basic.json -n openshift
 ```
 
 ## Evangelists Vagrant Box

@@ -37,7 +37,8 @@ These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit 
 cd /cygdrive/c/[CDK_FOLDER]/components/rhel/
 
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
-vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
+vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs vagrant-adbinfo
+vagrant plugin install vagrant-vbguest
 vagrant plugin list
 vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
 vagrant box list
