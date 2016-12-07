@@ -1,8 +1,6 @@
 ﻿:: Fuse :: Tutorials ::
 =======================
 
-# JBoss Fuse
-
 - [Fuse IDE 7.1 - Tutorials](https://access.redhat.com/documentation/en-US/Fuse_IDE/7.1/html/Tutorials/files/front.html)
 - [JBoss Fuse 6.0 - Getting Started](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Fuse/6.0/html/Getting_Started/files/front.html)
 - [Red Hat JBoss Fuse EIP Quickstart](https://github.com/jbossdemocentral/fuse-eip-quickstart), using JBoss Fuse 6.0.0
@@ -23,39 +21,30 @@
 - [Introduction to JBoss Fuse – Part 1 – Creating a Fuse Application](http://blog.c2b2.co.uk/2015/09/introduction-to-jboss-fuse-part-1.html)
 - [Introduction to JBoss Fuse – Part 2 - deploying, monitoring, debugging & error handling](http://blog.c2b2.co.uk/2015/11/introduction-to-jboss-fuse-part-2.html)
 - [Integration Testing JBoss Fuse 6.x With Pax Exam, Part I](http://blog.christianposta.com/testing/integration-testing-jboss-fuse-6-x-with-pax-exam-part-i/)
-
-# JBoss iPaaS
-
-- Red Hat Developers Network:
-    - [JBoss Fuse : Loan Broker Demo : on laptop](http://developers.redhat.com/video/vimeo/84674508/)
-    - [JBoss Fuse : Loan Broker Demo : OpenShift](http://developers.redhat.com/video/vimeo/84689880/)
-    - [JBoss Fuse iPaaS on OpenShift: Getting Started - Part 1](http://developers.redhat.com/video/vimeo/91029260/)
-    - [JBoss Fuse iPaaS on OpenShift: Getting Started - Part 2](http://developers.redhat.com/video/vimeo/91029441/)
-    - [JBoss Fuse iPaaS on OpenShift Part I: Intro to the Loan Broker Example](http://developers.redhat.com/video/vimeo/91029860/)
-    - [JBoss Fuse iPaaS on OpenShift Part II: Creating ActiveMQ Brokers](http://developers.redhat.com/video/vimeo/91029861/)
-    - [JBoss Fuse iPaaS on OpenShift Part III: Creating containers, Camel, and the bank demo](http://developers.redhat.com/video/vimeo/91030052/)
-    - [JBoss Fuse iPaaS on OpenShift Part IV: Creating a network of ActiveMQ brokers](http://developers.redhat.com/video/vimeo/91030053/)
-    - [JBoss Fuse iPaaS on OpenShift Part V: Connecting up to a network of brokers](http://developers.redhat.com/video/vimeo/91030054/)
-    - [JBoss Fuse iPaaS on OpenShift Part VI: Failover, failback](http://developers.redhat.com/video/vimeo/91030055/)
-- [First Fuse application on OpenShift V3.1](http://www.opensourcerers.org/first-fuse-application-on-openshift-v3-1/)
-- Fuse, by [Cristina Lin](https://plus.google.com/100253552151011820213):
-    - [Red Hat JBoss Fuse - Healthcare integration demo Part One](http://wei-meilin.blogspot.co.uk/2016/04/red-hat-jboss-fuse-healthcare.html)
-    - [Red Hat JBoss Fuse - Healthcare integration demo Part Two](http://wei-meilin.blogspot.co.uk/2016/05/red-hat-jboss-fuse-healthcare.html)
-    - [Red Hat JBoss Fuse - Healthcare integration demo Part Three](http://wei-meilin.blogspot.co.uk/2016/05/red-hat-jboss-fuse-healthcare_19.html)
+- [Critical HL7 Usecases With Camel, ActiveMQ, Elasticsearch](http://blog.christianposta.com/fuse/critical-hl7-usecases-with-camel-activemq-elasticsearch/)
+    - [HL7 use cases with JBoss Fuse](https://github.com/christian-posta/healthcare-poc)
+- [Maven pom.xml for developing a FUSE Project ](http://wei-meilin.blogspot.co.uk/2014/06/red-hat-fusea-mq-tips-maven-pomxml-for.html), by Cristina Lin
+- Fuse Workshop 101, by [Cristina Lin](https://plus.google.com/100253552151011820213):
     - [JBoss Fuse - Fuse workshop 101 - Part 1](http://wei-meilin.blogspot.co.uk/2015/03/jboss-fuse-fuse-workshop-101-part-one.html)
     - [JBoss Fuse - Fuse workshop 101 - Part 2](http://wei-meilin.blogspot.co.uk/2015/03/jboss-fuse-fuse-workshop-101-part-two.html)
     - [JBoss Fuse - Fuse workshop 101 - Part 3](http://wei-meilin.blogspot.co.uk/2015/03/jboss-fuse-fuse-workshop-101-part-three.html)
     - [JBoss Fuse - Fuse workshop 101 - Part 4](http://wei-meilin.blogspot.co.uk/2015/03/jboss-fuse-fuse-workshop-101-part-four.html)
     - [JBoss Fuse - Fuse workshop 101 - Part 5](http://wei-meilin.blogspot.co.uk/2015/03/jboss-fuse-fuse-workshop-101-part-five.html)
     - [JBoss Fuse - Fuse workshop 101 - Part 6](http://wei-meilin.blogspot.co.uk/2015/04/jboss-fuse-fuse-workshop-101-part-six.html)
-    - [Fuse Integration Service - Auto Dealership Management System](https://github.com/weimeilin79/jboss-fis-autodealer)
-- Fuse Integration Service, by [Cristina Lin](https://plus.google.com/100253552151011820213):
-    - [Fuse Integration Service - Setup JBDS and create first quickstart application](http://wei-meilin.blogspot.co.uk/2016/02/fuse-integration-service-setup-jbds-and.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part One](http://wei-meilin.blogspot.co.uk/2016/02/fuse-integration-service-auto.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part Two](http://wei-meilin.blogspot.co.uk/2016/03/fuse-integration-service-auto.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part Three](http://wei-meilin.blogspot.co.uk/2016/03/fuse-integration-service-auto_8.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part Four](http://wei-meilin.blogspot.co.uk/2016/03/fuse-integration-service-auto_15.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part Five](http://wei-meilin.blogspot.co.uk/2016/03/fuse-integration-service-auto_22.html)
-    - [Fuse Integration Service - Auto Dealership Management Demo, Part Six](http://wei-meilin.blogspot.co.uk/2016/03/fuse-integration-service-auto49.html)
-- [Cloud Native Camel riding With JBoss Fuse and OpenShift](http://blog.christianposta.com/cloud-native-camel-riding-with-jboss-fuse-and-openshift/)
-
+    - [JBoss Fuse - Updates of Fuse 101 Labs](http://wei-meilin.blogspot.co.uk/2015/07/jboss-fuse-updated-camel-101-labs.html)
+- HealthCare PoC, by [Cristina Lin](https://plus.google.com/100253552151011820213):
+    - [HL7 use cases with JBoss Fuse](https://github.com/weimeilin79/healthcare-poc)
+- Home Loan Demo Fuse 6.1, by [Cristina Lin](https://plus.google.com/100253552151011820213):
+    - [Part 1](http://wei-meilin.blogspot.com/2014/07/red-hat-jboss-fuse-getting-started-home.html)
+    - [Part 2](http://wei-meilin.blogspot.com/2014/07/red-hat-jboss-fuse-getting-started-home_14.html)
+    - [Part 3](http://wei-meilin.blogspot.com/2014/07/red-hat-jboss-fuse-getting-started-home_16.html)
+    - [Part 4](http://wei-meilin.blogspot.com/2014/07/red-hat-jboss-fuse-getting-started-home_21.html)
+    - [Part 5](http://wei-meilin.blogspot.com/2014/07/red-hat-jboss-fuse-getting-started-home_22.html)
+- Home Loan Demo Fuse 6.2, by [Cristina Lin](https://plus.google.com/100253552151011820213):
+    - [Part 1](http://wei-meilin.blogspot.com/2015/07/red-hat-jboss-fuse-getting-started-home.html)
+    - [Part 2](http://wei-meilin.blogspot.com/2015/07/red-hat-jboss-fuse-getting-started-home_29.html)
+    - [Part 3](http://wei-meilin.blogspot.com/2015/08/red-hat-jboss-fuse-getting-started-home_11.html)
+    - [Part 4](http://wei-meilin.blogspot.com/2015/08/red-hat-jboss-fuse-getting-started-home.html)
+    - [Part 5](http://wei-meilin.blogspot.com/2015/08/red-hat-jboss-fuse-getting-started-home_41.html)
+    - [Part 6](http://wei-meilin.blogspot.com/2015/08/red-hat-jboss-fuse-getting-started-home_25.html)
+    - [Part 7](http://wei-meilin.blogspot.com/2015/08/red-hat-jboss-fuse-getting-started-home_31.html)
