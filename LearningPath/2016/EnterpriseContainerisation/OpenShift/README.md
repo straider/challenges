@@ -31,11 +31,14 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## Tutorials
 
-- [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
-
 ## Articles
 
+- [Back to the future (of OpenShift)](https://sosiouxme.wordpress.com/2014/11/21/back-to-the-future-of-openshift/)
+- [OpenShift 3 from zero](https://sosiouxme.wordpress.com/2015/01/02/openshift-3-from-zero/)
 - [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
+- [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
+- [How Builds, Deployments and Services Work in OpenShift V3](https://blog.openshift.com/builds-deployments-services-v3/)
+- [Continuous Integration and Deployment with OpenShift v3](https://blog.openshift.com/continuous-integration-deployment-v3/)
 - [Continuous Delivery with Docker, Jenkins, JBoss Fuse and OpenShift PaaS](http://blog.christianposta.com/demo/continuous-delivery-with-jenkins-gerrit-jboss-fuse-and-openshift-paas/)
 - [OpenShift Enterprise v3 Lab Configuration: Innovate Faster, Deliver Sooner](http://www.opensourcerers.org/openshift-enterprise-v3-lab-configuration-innovate-faster-deliver-sooner/)
 - [Importing Docker Images to Red Hat OpenShift V3](http://www.opensourcerers.org/importing-an-external-docker-image-into-red-hat-openshift-v3/)
