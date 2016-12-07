@@ -152,7 +152,7 @@ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.4.
 export PATH=$PATH:$(pwd)
 minikube version
 minikube start
-minikube dashboard
+minikube dashboard --url
 
 kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 kubectl expose deployment hello-minikube --type=NodePort
