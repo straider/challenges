@@ -77,6 +77,7 @@ Error creating machine: Error in driver during machine creation: This computer d
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates
 sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt-get install linux-image-generic-lts-trusty
 ```
 
 ### Repository
@@ -108,3 +109,11 @@ sudo usermod -aG docker $USER
 ```bash
 docker run hello-world
 ```
+
+### Docker Compose
+
+```bash
+sudo apt-get -y install python-pip
+sudo pip install docker-compose
+```
+
