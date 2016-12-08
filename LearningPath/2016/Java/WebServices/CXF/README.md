@@ -5,6 +5,15 @@
 
 ## Goal and Objectives
 
+### What's the purpose of WEB-INF/web.xml?
+
+[http://tutorials.jenkov.com/java-servlets/web-xml.html](web.xml Servlet Configuration)
+
+https://cloud.google.com/appengine/docs/java/config/webxml:
+> Java web applications use a deployment descriptor file to determine how URLs map to servlets, which URLs require authentication, and other information. This file is named web.xml , and resides in the app's WAR under the WEB-INF/ directory. web.xml is part of the servlet standard for web applications.
+
+> [Servlet mapping](javapapers.com/servlet/what-is-servlet-mapping/) specifies the web container of which java servlet should be invoked for a url given by client. It maps url patterns to servlets. When there is a request from a client, servlet container decides to which application it should forward to. Then context path of url is matched for mapping servlets.
+
 ## Audience
 
 ## Scope
@@ -19,10 +28,19 @@
 
 ### REST
 
+- [REST Web Service Using CXF - Beginner's Tutorial](https://dzone.com/articles/rest-web-service-using-cxf)
+- [Creating JAX-RS web service using Apache CXF Example](https://examples.javacodegeeks.com/enterprise-java/rest/creating-jax-rs-web-service-using-apache-cxf/)
 - ~~[Developing RESTful Services using Apache CXF](https://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html)~~
     - Without source code, incomplete code;
     - Without tests.
-- [REST Web Service Using CXF - Beginner's Tutorial](https://dzone.com/articles/rest-web-service-using-cxf)
+- [Developing RESTful Services using Apache CXF](http://weblog4j.com/2012/03/15/developing-restful-services-using-apache-cxf/)
+- [How to Easily Build REST Web-Services With Java, Spring and Apache CXF](https://www.appdirect.com/blog/how-to-easily-build-rest-web-services-with-java-spring-and-apache-cxf)
+- [Apache CXF to create rest web service](https://sushantworld.wordpress.com/2011/01/23/apache-cxf-restful-web-service/)
+- [Create a REST API using CXF and Spring](http://fandry.blogspot.co.uk/2012/05/rest-api-with-cxf-and-spring.html)
+- [How to create a simple CXF based JAX-RS Client](http://fandry.blogspot.co.uk/2012/06/how-to-create-simple-cxf-based-jax-rs.html)
+- [CXF REST Without Spring](http://www.javatips.net/blog/cxf-rest-without-spring)
+- [CXF Restful Client Example](http://www.javatips.net/blog/cxf-restful-client)
+- [RESTful Services using Apache CXF](http://javajeedevelopment.blogspot.co.uk/2014/07/restful-services-using-apache-cxf.html)
 - Develop a simple RESTful Webservices using Apache CXF and Spring Framework:
     - [Part 1](https://idodevjobs.wordpress.com/2014/08/30/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework/)
     - [Part 2](https://idodevjobs.wordpress.com/2014/09/25/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-ii/)
@@ -36,7 +54,6 @@
 - [Restful WebService using CXF](http://www.learninjava.com/pages/restful-webservice-using-cxf.php)
     - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
 - [Apache CXF: JAX-RS Restful web service using JAXB + JSON example](http://www.benchresources.net/apache-cxf-jax-rs-restful-web-service-using-jaxb-json-example/)
-- [Helloworld web service in Eclipse using Tomcat, Apache CXF and Spring](http://sandyiit.blogspot.co.uk/2012/03/helloworld-web-service-in-eclipse-using.html)
 - [Going REST: embedding Jetty with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-jetty-with-spring.html)
 - [Going REST: embedding Tomcat with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-tomcat-with-spring.html)
 
@@ -50,6 +67,7 @@
     - [Create SOAP Webservice using Apache CXF, Spring, Maven](http://www.roytuts.com/create-soap-webservice-using-apache-cxf-spring-maven/)
     - [Consume SOAP Webservice using Apache CXF, Spring, Maven](http://www.roytuts.com/consume-soap-webservice-using-apache-cxf-spring-maven/)
 - [Develop a CXF Web Service with Maven and Spring](http://ekivanc.blogspot.co.uk/2012/01/develop-cxf-web-service-with-maven-and.html)
+- [Helloworld web service in Eclipse using Tomcat, Apache CXF and Spring](http://sandyiit.blogspot.co.uk/2012/03/helloworld-web-service-in-eclipse-using.html)
 - [Developing Web services using Apache CXF and Maven](http://www.ctrl-alt-dev.nl/Articles/CXF-Maven/CXF-Maven.html)
 - [JAX-WS SOAP WebService using CXF](http://www.learninjava.com/pages/jaxws-soap-webservice-using-cxf.php)
 - [Example of minimal Apache CXF2 web services deployment](https://tpinet.wordpress.com/2013/02/01/example-of-minimal-apache-cxf2-web-services-deployment/)
