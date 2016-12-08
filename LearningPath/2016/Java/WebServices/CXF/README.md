@@ -19,7 +19,9 @@
 
 ### REST
 
-- [Developing RESTful Services using Apache CXF](https://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html)
+- ~~[Developing RESTful Services using Apache CXF](https://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html)~~
+    - Without source code, incomplete code;
+    - Without tests.
 - [REST Web Service Using CXF - Beginner's Tutorial](https://dzone.com/articles/rest-web-service-using-cxf)
 - Develop a simple RESTful Webservices using Apache CXF and Spring Framework:
     - [Part 1](https://idodevjobs.wordpress.com/2014/08/30/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework/)
@@ -27,7 +29,16 @@
     - [Part 3](https://idodevjobs.wordpress.com/2014/10/10/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-iii-exceptionerror-handling-using-exceptionmapper/)
     - [Part 4](https://idodevjobs.wordpress.com/2015/04/04/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-iv-jax-rs-beanparam-example)
 - [Simple JAX-RS Web Service in Java with Spring and CXF](http://www.dreamsyssoft.com/blog/blog.php?/archives/7-Simple-REST-Web-Service-in-Java-with-Spring-and-CXF.html)
+    - Without tests.
+- [Restful Webservice using CXF and Maven](http://java-hub.blogspot.co.uk/2015/01/restful-webservice-using-cxf-and-maven.html)
+    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
+    - No code, good for getting started.
 - [Restful WebService using CXF](http://www.learninjava.com/pages/restful-webservice-using-cxf.php)
+    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
+- [Apache CXF: JAX-RS Restful web service using JAXB + JSON example](http://www.benchresources.net/apache-cxf-jax-rs-restful-web-service-using-jaxb-json-example/)
+- [Helloworld web service in Eclipse using Tomcat, Apache CXF and Spring](http://sandyiit.blogspot.co.uk/2012/03/helloworld-web-service-in-eclipse-using.html)
+- [Going REST: embedding Jetty with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-jetty-with-spring.html)
+- [Going REST: embedding Tomcat with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-tomcat-with-spring.html)
 
 ### SOAP
 
@@ -38,13 +49,17 @@
 - Roy Tutorials: CXF + Spring + Maven
     - [Create SOAP Webservice using Apache CXF, Spring, Maven](http://www.roytuts.com/create-soap-webservice-using-apache-cxf-spring-maven/)
     - [Consume SOAP Webservice using Apache CXF, Spring, Maven](http://www.roytuts.com/consume-soap-webservice-using-apache-cxf-spring-maven/)
+- [Develop a CXF Web Service with Maven and Spring](http://ekivanc.blogspot.co.uk/2012/01/develop-cxf-web-service-with-maven-and.html)
 - [Developing Web services using Apache CXF and Maven](http://www.ctrl-alt-dev.nl/Articles/CXF-Maven/CXF-Maven.html)
+- [JAX-WS SOAP WebService using CXF](http://www.learninjava.com/pages/jaxws-soap-webservice-using-cxf.php)
+- [Example of minimal Apache CXF2 web services deployment](https://tpinet.wordpress.com/2013/02/01/example-of-minimal-apache-cxf2-web-services-deployment/)
 - [Developing SOAP Web service using Apache CXF](https://www.javacodegeeks.com/2013/06/developing-soap-web-service-using-apache-cxf.html)
 - [Apache CXF – JAX-WS – Simple Tutorial](https://alvinjayreyes.com/2013/05/05/apache-cxf-jax-ws-simple-tutorial/)
 - [How to create a WSDL-first SOAP client in Java with CXF and Maven](http://www.logicsector.com/java/how-to-create-a-wsdl-first-soap-client-in-java-with-cxf-and-maven/)
 - [Creating a WSDL-first web service with Apache CXF or GlassFish Metro](https://web-gmazza.rhcloud.com/blog/entry/web-service-tutorial)
 - [Creating a Java-first web service using CXF or Metro](http://web-gmazza.rhcloud.com/blog/entry/java-first-web-service)
 - [Creating a SOAP client with either Apache CXF or GlassFish Metro](http://web-gmazza.rhcloud.com/blog/entry/soap-client-tutorial)
+- [Creating a Web Service from scratch using Spring + Maven + Apache CXF](https://aldavblog.wordpress.com/2015/01/22/creating-a-web-service-from-scratch-using-spring-maven-apache-cxf/)
 
 ## Articles
 
@@ -55,6 +70,13 @@
 - [Apache CXF vs. Apache AXIS vs. Spring WS](https://dzone.com/articles/apache-cxf-vs-apache-axis-vs)
 - [Difference between JAX-RS Specification Implementation tools](http://nagesh625.blogspot.co.uk/2014/01/difference-between-jax-rs-specification.html)
 
+## Books
+
+- [RESTful Web Services Cookbook](http://shop.oreilly.com/product/9780596801694.do)
+- [RESTful Java with JAX-RS](http://shop.oreilly.com/product/9780596158057.do)
+- [RESTful Web Services](http://shop.oreilly.com/product/9780596529260.do)
+- [Java Web Services: Up and Running](http://shop.oreilly.com/product/9780596521134.do)
+
 ## Tools
 
 - [Java to WS](http://cxf.apache.org/docs/java-to-ws.html)
@@ -62,6 +84,7 @@
 - [WSDL Validator](http://cxf.apache.org/docs/wsdlvalidator.html)
 - [XSD to WSDL](http://cxf.apache.org/docs/xsd-to-wsdl.html)
 - [WSDL to SOAP](http://cxf.apache.org/docs/wsdl-to-soap.html)
+- [RESTUtils](https://github.com/taimos/RESTUtils): Utility classes for JAX-RS
 
 ### Maven Plugins
 
@@ -71,12 +94,24 @@
 - [cxf-codegen-plugin](http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html)
 - [cxf-java2ws-plugin](http://cxf.apache.org/docs/maven-java2ws-plugin.html)
 - [cxf-xjc-plugin](http://cxf.apache.org/cxf-xjc-plugin.html)
+- [Apache Tomcat Maven Plugin](http://tomcat.apache.org/maven-plugin.html)
+- [Jetty Maven Plugin](https://www.eclipse.org/jetty/documentation/9.4.x/jetty-maven-plugin.html)
 
 ### Gradle Plugins
 
 # Milestones
 
 ## REST Server
+
+- [Swagger2Feature](http://cxf.apache.org/docs/swagger2feature.html)
+
+### Java First
+
+- [WADL Auto Generation at Runtime](http://cxf.apache.org/docs/jaxrs-services-description.html#JAXRSServicesDescription-WADLAutoGenerationatRuntime)
+
+### WADL First
+
+- [WADL-first Development](http://cxf.apache.org/docs/jaxrs-services-description.html#JAXRSServicesDescription-WADL-firstDevelopment)
 
 ## REST Client
 
@@ -86,3 +121,10 @@
 
 ## SOAP Client
 
+# Challenges
+
+- Use Tomcat 7 / Tomcat 8
+- Replace with Jetty
+- How to do Unit Testing?
+- How to do Integration Testing?
+- How to produce WADL?
