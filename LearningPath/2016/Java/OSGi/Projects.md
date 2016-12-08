@@ -35,6 +35,7 @@
 
 - [Karaf](http://karaf.apache.org/)
 - [A Brief History of Apache Karaf](http://icodebythesea.blogspot.co.uk/2011/01/brief-history-of-apache-karaf.html)
+- [Karaf:Step by Step Guide](https://wiki.opendaylight.org/view/Karaf:Step_by_Step_Guide)
 - [Karaf Tutorials](http://liquid-reality.de/display/liquid/Karaf+Tutorials)
 - [Creating OSGI bundles and services from the ground up using Apache Karaf](http://kevinboone.net/osgitest.html)
 - [Dynamic configuration of OSGi bundles running on Apache Karaf, from the ground up](http://kevinboone.net/osgitest2.html)

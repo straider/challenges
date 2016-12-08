@@ -41,7 +41,10 @@
 - [Developing Web services using Apache CXF and Maven](http://www.ctrl-alt-dev.nl/Articles/CXF-Maven/CXF-Maven.html)
 - [Developing SOAP Web service using Apache CXF](https://www.javacodegeeks.com/2013/06/developing-soap-web-service-using-apache-cxf.html)
 - [Apache CXF – JAX-WS – Simple Tutorial](https://alvinjayreyes.com/2013/05/05/apache-cxf-jax-ws-simple-tutorial/)
+- [How to create a WSDL-first SOAP client in Java with CXF and Maven](http://www.logicsector.com/java/how-to-create-a-wsdl-first-soap-client-in-java-with-cxf-and-maven/)
 - [Creating a WSDL-first web service with Apache CXF or GlassFish Metro](https://web-gmazza.rhcloud.com/blog/entry/web-service-tutorial)
+- [Creating a Java-first web service using CXF or Metro](http://web-gmazza.rhcloud.com/blog/entry/java-first-web-service)
+- [Creating a SOAP client with either Apache CXF or GlassFish Metro](http://web-gmazza.rhcloud.com/blog/entry/soap-client-tutorial)
 
 ## Articles
 
@@ -51,7 +54,6 @@
 - [JAX-RS Spring Integration](http://www.jroller.com/Solomon/entry/jax_rs_spring_integration)
 - [Apache CXF vs. Apache AXIS vs. Spring WS](https://dzone.com/articles/apache-cxf-vs-apache-axis-vs)
 - [Difference between JAX-RS Specification Implementation tools](http://nagesh625.blogspot.co.uk/2014/01/difference-between-jax-rs-specification.html)
-- [How to create a WSDL-first SOAP client in Java with CXF and Maven](http://www.logicsector.com/java/how-to-create-a-wsdl-first-soap-client-in-java-with-cxf-and-maven/)
 
 ## Tools
 
