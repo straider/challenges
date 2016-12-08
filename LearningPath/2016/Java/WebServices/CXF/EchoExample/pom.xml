@@ -42,12 +42,13 @@
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.21</slf4j.version>
 
+        <spring.version>3.1.4.RELEASE</spring.version>
         <cxf.version>3.1.8</cxf.version>
 
         <tomcat7.version>2.2</tomcat7.version>
         <jetty-mortbay.version>6.1.26</jetty-mortbay.version>
         <service.port>10000</service.port>
-        <service.path></service.path>
+        <service.path>ws</service.path>
 
         <main.class>${project.groupId}.EchoService</main.class>
     </properties>
@@ -126,6 +127,12 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
@@ -328,7 +335,7 @@
                 <version>${maven-war-plugin.version}</version>
                 <configuration>
                     <webXml>target/classes/WEB-INF/web.xml</webXml>
-                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                    <warSourceDirectory>${project.basedir}/target/classes</warSourceDirectory>
                 </configuration>
             </plugin>
 
@@ -358,6 +365,7 @@
                 <version>${jetty-mortbay.version}</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppSourceDirectory>${project.basedir}/target/classes</webAppSourceDirectory>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>${service.port}</port>
