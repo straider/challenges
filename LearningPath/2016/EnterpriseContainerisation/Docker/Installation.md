@@ -46,13 +46,32 @@ Follow the [Install Docker Toolbox on Windows](https://docs.docker.com/toolbox/t
 - Make sure PATH contains the entry to run msysGit binaries: ```C:\Hosting\Git\cmd;C:\Hosting\Git\bin;C:\Hosting\Git\usr\bin;```
 - Edit the Docker Quickstart Terminal shortcut to start Bash from the previously installed msysGit.
 
-**Note**: it may be necessary to configure HTTP_PROXY and HTTPS_PROXY environment variables, if behind a firewall. It's also a good idea, in that case, to set up NO_PROXY.
+**Note**: it may be necessary to configure HTTP_PROXY and HTTPS_PROXY environment variables, if behind a firewall. It's also a good idea, in that case, to set up NO_PROXY. When Docker Quickstart Terminal runs, on top of MinGW/MSYS, it updates the "no_proxy" environment variable with the default machine IP address, instead of the "NO_PROXY". If that's the case then issue the following command before running docker commands:
+
+```bash
+export NO_PROXY=$no_proxy
+```
 
 - [Common Proxy Issues & Fixes](https://github.com/docker/kitematic/wiki/Common-Proxy-Issues-&-Fixes)
 - [Docker on Windows behind a Firewall](http://toedter.com/2015/05/11/docker-on-windows-behind-a-firewall/)
 - [Windows Boot2Docker behind corporate proxy](http://stackoverflow.com/a/29303930/6309)
 - [b2d](https://github.com/VonC/b2d): Prepare the environment for running boot2docker on Windows, even behind corporate proxy.
 - [How to install Docker on Windows behind a proxy](http://www.netinstructions.com/how-to-install-docker-on-windows-behind-a-proxy/)
+
+**Note**: if the error below occurs then it's because docker command is being run outside the Quickstart Terminal and if so then it requires the environment to be set.
+
+```
+An error occurred trying to connect:
+    Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/images/json:
+        open //./pipe/docker_engine:
+            The system cannot find the file specified.
+```
+
+To set the environment variables then issue the following command on the Windows Command Prompt:
+
+```bash
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO @%i
+```
 
 ### Hello World
 

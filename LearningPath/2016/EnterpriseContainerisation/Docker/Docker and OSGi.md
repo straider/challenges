@@ -11,7 +11,6 @@
 - [Modularity, Microservices and Containers](https://jaxenter.com/modularity-microservices-and-containers-124086.html)
 - [Service Discovery](http://www.codemonkey.nl/discovery/)
 - [Osgiliath Enterprise Framework](http://osgiliathenterprise.github.io/projects.documentations/products/osgiliath-enterprise-framework/)
-- [The future is Micro Service Architectures on Apache Karaf](http://blog.eisele.net/2014/10/the-future-is-micro-service-architectures-with-apache-karaf.html)
 - [Continuous Delivery With Docker, Jenkins, JBoss Fuse and OpenShift PaaS](http://blog.christianposta.com/demo/continuous-delivery-with-jenkins-gerrit-jboss-fuse-and-openshift-paas/)
 
 ## Apache Felix

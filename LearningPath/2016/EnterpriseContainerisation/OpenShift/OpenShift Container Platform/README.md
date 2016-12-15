@@ -11,5 +11,6 @@
 
 ## Installation Guides
 
+- [All-in-One OpenShift Enterprise Vagrant VM](https://github.com/redhat-developer-tooling/openshift-vagrant)
 - [Windows 7](Installation - Windows 7.md)
 - [Ubuntu 14.04](Installation - Ubuntu 14.04.md)
