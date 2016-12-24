@@ -1,22 +1,3 @@
-﻿:: CXF :: REST :: Standalone ::
-===============================
-
-# Overview
-
-- How to run a CXF REST service in standalone mode?
-- Register the steps necessary, from scratch, to develop a REST service using CXF.
-
-# Steps
-
-## Buildfiles
-
-### Maven
-
-#### 1st version
-
-A normal and usual pom.xml.
-
-```xml
 <?xml version = "1.0" encoding = "UTF-8"?>
 <project xmlns              = "http://maven.apache.org/POM/4.0.0"
          xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
@@ -28,19 +9,9 @@ A normal and usual pom.xml.
     <groupId>com.github.straider.java.ws.cxf</groupId>
     <artifactId>rest-standalone</artifactId>
     <version>1.0.0</version>
-    <name>Apache CXF Greeting Service</name>
+    <name>Standalone CXF Greeting Service</name>
     <description>REST Greeting Service using CXF (JAX-RS implementation).</description>
     <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/Standalone</url>
 
 </project>
-```
 
-### Gradle
-
-## Components
-
-### Base / Foundation
-
-### Server
-
-### Client
