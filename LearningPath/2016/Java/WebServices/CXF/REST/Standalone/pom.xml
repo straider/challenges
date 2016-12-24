@@ -19,6 +19,7 @@
 
         <jaxrs.version>2.0.1</jaxrs.version>
         <cxf.version>3.1.9</cxf.version>
+        <slf4j.version>1.7.22</slf4j.version>
     </properties>
 
     <dependencies>
@@ -38,6 +39,13 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
             <version>${cxf.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
 
