@@ -98,6 +98,58 @@ Add **cxf-rt-frontend-jaxrs** and **cxf-rt-transports-http-jetty** dependencies,
     </dependencies>
 ```
 
+#### 4th version
+
+To avoid the following runtime error it is necessary to add a dependency for Jettison, as shown below.
+
+```
+Exception in thread "main" java.lang.NoClassDefFoundError: org/codehaus/jettison/mapped/TypeConverter
+Caused by: java.lang.ClassNotFoundException: org.codehaus.jettison.mapped.TypeConverter
+```
+
+```xml
+    <properties>
+        ...
+        <jettison.version>1.3.8</jettison.version>
+        ...
+    </properties>
+
+    <dependencies>
+
+        ...
+
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>${jettison.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        ...
+```
+
+A common alternative to Jettison is to use Jackson, by replacing the above dependency with this one:
+
+```xml
+    <properties>
+        ...
+        <jackson.version>2.8.5</jackson.version>
+        ...
+    </properties>
+
+    <dependencies>
+
+        ...
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        ...
+```
+
 ### Gradle
 
 ## Components
@@ -295,11 +347,11 @@ public class GreetingService {
 
 The standalone application follows the guidelines given by [Configuring JAX-RS endpoints programmatically without Spring](http://cxf.apache.org/docs/jaxrs-services-configuration.html#JAXRSServicesConfiguration-ConfiguringJAX-RSendpointsprogrammaticallywithoutSpring):
 
+#### 1st version
+
 ```java
 package com.github.straider.java.ws.cxf;
 
-import org.apache.cxf.binding.BindingFactoryManager;
-import org.apache.cxf.jaxrs.JAXRSBindingFactory;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
 
@@ -321,12 +373,6 @@ public class Server {
         serverFactory.setResourceProvider( Greeter.class, new SingletonResourceProvider( new GreetingService() ) );
         serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
 
-        final JAXRSBindingFactory bindingFactory = new JAXRSBindingFactory();
-        bindingFactory.setBus( serverFactory.getBus() );
-
-        final BindingFactoryManager manager = serverFactory.getBus().getExtension( BindingFactoryManager.class );
-        manager.registerBindingFactory( JAXRSBindingFactory.JAXRS_BINDING_ID, bindingFactory );
-
         serverFactory.create();
     }
 
@@ -341,5 +387,102 @@ The standalone mode works on top of Jetty, at runtime, and that's why a runtime 
 org.apache.cxf.transport.http.HTTPTransportFactory getDestination
 SEVERE: Cannot find any registered HttpDestinationFactory from the Bus.
 ```
+
+#### 2nd version
+
+JSON Provider is not automatically registered with the JAXRSServerFactoryBean and it requires the following changes to work:
+
+```java
+package com.github.straider.java.ws.cxf;
+
+...
+
+import org.apache.cxf.jaxrs.provider.AbstractConfigurableProvider;
+import org.apache.cxf.jaxrs.provider.json.JSONProvider;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Server {
+
+        ...
+
+        final JSONProvider jsonProvider = new JSONProvider();
+        final List< AbstractConfigurableProvider > providers = new ArrayList< AbstractConfigurableProvider >();
+        providers.add( jsonProvider );
+        serverFactory.setProviders( providers );
+        serverFactory.create();
+    }
+
+}
+```
+
+#### 3rd version
+
+Instead of Jettison is it usual to use Jackson JSON Provider, although the request and response body changes as shown in the following sections. Replacing Jettison with Jackson requires the following changes:
+
+```java
+package com.github.straider.java.ws.cxf;
+
+import com.fasterxml.jackson.jaxrs.base.ProviderBase;
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+...
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Server {
+
+        ...
+
+        final JacksonJaxbJsonProvider jsonProvider = new JacksonJaxbJsonProvider();
+        final List< ProviderBase > providers = new ArrayList< ProviderBase >();
+        providers.add( jsonProvider );
+        serverFactory.setProviders( providers );
+        serverFactory.create();
+    }
+
+}
+```
+
+#### Jettison Request
+
+```json
+{
+	"request": {
+	}
+}
+```
+
+#### Jackson Request
+
+```json
+{
+	"name": ""
+}
+```
+
+#### Jettison Response
+
+```json
+{
+  "ResponseModel": {
+    "message": "Hello, World!",
+    "request-on": "2016-12-26T19:01:46.883Z",
+    "response-on": "2016-12-26T19:01:46.883Z"
+  }
+}```
+
+#### Jackson Response
+
+```json
+{
+  "message": "Hello, World!",
+  "request-on": 1482778641114,
+  "response-on": 1482778641115
+}
+```
+
+**Note**: Jackson response does not handle Date instances the same way as Jettison or JAXB do.
 
 ### Client

@@ -1,9 +1,9 @@
 package com.github.straider.java.ws.cxf;
 
+import com.fasterxml.jackson.jaxrs.base.ProviderBase;
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
-import org.apache.cxf.jaxrs.provider.AbstractConfigurableProvider;
-import org.apache.cxf.jaxrs.provider.json.JSONProvider;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -26,8 +26,8 @@ public class Server {
         serverFactory.setResourceProvider( GreetingService.class, new SingletonResourceProvider( new GreetingService() ) );
         serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
 
-        final JSONProvider jsonProvider = new JSONProvider();
-        final List< AbstractConfigurableProvider > providers = new ArrayList< AbstractConfigurableProvider >();
+        final JacksonJaxbJsonProvider jsonProvider = new JacksonJaxbJsonProvider();
+        final List< ProviderBase >    providers    = new ArrayList< ProviderBase >();
         providers.add( jsonProvider );
         serverFactory.setProviders( providers );
         serverFactory.create();
