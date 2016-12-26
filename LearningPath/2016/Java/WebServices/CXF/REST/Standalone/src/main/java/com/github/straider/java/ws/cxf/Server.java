@@ -1,9 +1,12 @@
 package com.github.straider.java.ws.cxf;
 
-import org.apache.cxf.binding.BindingFactoryManager;
-import org.apache.cxf.jaxrs.JAXRSBindingFactory;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
+import org.apache.cxf.jaxrs.provider.AbstractConfigurableProvider;
+import org.apache.cxf.jaxrs.provider.json.JSONProvider;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class Server {
 
@@ -23,12 +26,10 @@ public class Server {
         serverFactory.setResourceProvider( GreetingService.class, new SingletonResourceProvider( new GreetingService() ) );
         serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
 
-        final JAXRSBindingFactory bindingFactory = new JAXRSBindingFactory();
-        bindingFactory.setBus( serverFactory.getBus() );
-
-        final BindingFactoryManager manager = serverFactory.getBus().getExtension( BindingFactoryManager.class );
-        manager.registerBindingFactory( JAXRSBindingFactory.JAXRS_BINDING_ID, bindingFactory );
-
+        final JSONProvider jsonProvider = new JSONProvider();
+        final List< AbstractConfigurableProvider > providers = new ArrayList< AbstractConfigurableProvider >();
+        providers.add( jsonProvider );
+        serverFactory.setProviders( providers );
         serverFactory.create();
     }
 
