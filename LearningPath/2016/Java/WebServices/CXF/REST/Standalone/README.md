@@ -3,8 +3,13 @@
 
 # Overview
 
-- How to run a CXF REST service in standalone mode?
-- Register the steps necessary, from scratch, to develop a REST service using CXF.
+Register the steps necessary, from scratch, to develop a simple REST service using CXF.
+
+## How to run a CXF REST service in standalone mode?
+
+> The Server class requires a JAXRSServerFactoryBean instance, to set the resource classes and resource providers as well as a JAXRSBindingFactory instance to bind with the service factory instance transport bus.
+
+## How to enable JSON suport?
 
 # Steps
 
@@ -99,7 +104,9 @@ Add **cxf-rt-frontend-jaxrs** and **cxf-rt-transports-http-jetty** dependencies,
 
 ### Base / Foundation
 
-Simple class with method _speak()_:
+#### Greeter
+
+Simple class with methods _speak()_ and _setGreeting()_:
 
 ```java
 package com.github.straider.java.ws.cxf;
@@ -133,51 +140,77 @@ public class Greeter {
 }
 ```
 
-### Server
+#### JAXB Models
 
-The standalone application follows the guidelines given by [Configuring JAX-RS endpoints programmatically without Spring](http://cxf.apache.org/docs/jaxrs-services-configuration.html#JAXRSServicesConfiguration-ConfiguringJAX-RSendpointsprogrammaticallywithoutSpring):
+To handle XML / JSON service requests and responses it's useful to work with a JAXB models. These models are handled by the service class, which takes care of the unmarshalling and marshalling.
+
+##### Request Model
 
 ```java
 package com.github.straider.java.ws.cxf;
 
-import org.apache.cxf.binding.BindingFactoryManager;
-import org.apache.cxf.jaxrs.JAXRSBindingFactory;
-import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
-import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-public class Server {
+@XmlRootElement( name = "request" )
+@XmlAccessorType( XmlAccessType.FIELD )
+@XmlType( propOrder = { "name" } )
+public class RequestModel {
 
-    private static final String  DEFAULT_HOST = "localhost";
-    private static final Integer DEFAULT_PORT = 10000;
+    @XmlElement( required = true, name ="name" ) private String name;
+    
+    public String getName() {
+        return name;
+    }
 
-    public static void main( final String[] arguments ) {
-        String  host = DEFAULT_HOST;
-        Integer port = DEFAULT_PORT;
-        if ( arguments.length == 2 ) {
-            host = arguments[ 0 ];
-            port = new Integer( arguments[ 1 ] );
-        }
+    public void setName( final String name ) {
+        this.name = name;
+    }
+    
+}```
 
-        final JAXRSServerFactoryBean serverFactory = new JAXRSServerFactoryBean();
-        serverFactory.setResourceClasses( Greeter.class );
-        serverFactory.setResourceProvider( Greeter.class, new SingletonResourceProvider( new GreetingService() ) );
-        serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
+##### Response Model
 
-        final JAXRSBindingFactory bindingFactory = new JAXRSBindingFactory();
-        bindingFactory.setBus( serverFactory.getBus() );
+```java
+package com.github.straider.java.ws.cxf;
 
-        final BindingFactoryManager manager = serverFactory.getBus().getExtension( BindingFactoryManager.class );
-        manager.registerBindingFactory( JAXRSBindingFactory.JAXRS_BINDING_ID, bindingFactory );
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import java.util.Date;
 
-        serverFactory.create();
+@XmlRootElement( name = "ResponseModel" )
+@XmlAccessorType( XmlAccessType.FIELD )
+@XmlType( propOrder = { "message", "requestOn", "responseOn" } )
+public class ResponseModel {
+
+    @XmlElement( required = true, name ="request-on"  ) private Date   requestOn;
+    @XmlElement( required = true, name ="response-on" ) private Date   responseOn;
+    @XmlElement( required = true, name ="message"     ) private String message;
+
+    public ResponseModel() {
+        requestOn = new Date();
+    }
+
+    public void setResponseOn() {
+        responseOn = new Date();
+    }
+
+    public void setMessage( final String message ) {
+        this.message = message;
     }
 
 }
 ```
 
-**Note**: the main code would benefit from using command-line options library, which allows to handle short and long options in any order.
+### Service
 
-The actual service is implemented by GreetingService class:
+#### 1st version
 
 ```java
 package com.github.straider.java.ws.cxf;
@@ -229,6 +262,78 @@ public class GreetingService {
 
 }
 ```
+
+#### 2nd version
+
+This version adds a _process()_ method that receives a request model and returns a response model:
+
+```java
+package com.github.straider.java.ws.cxf;
+
+@Path( "/" )
+public class GreetingService {
+
+    ...
+
+    @Path( "process/" )
+    @POST
+    @Consumes( { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON } )
+    @Produces( { MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON } )
+    public Response process( final RequestModel request ) {
+        final String message = ( "".equals( request.getName() ) ) ? greeter.speak() : greeter.speak( request.getName() );
+        final ResponseModel response = new ResponseModel();
+        response.setMessage( message );
+        response.setResponseOn();
+
+        return Response.status( Response.Status.OK ).entity( response ).build();
+    }
+
+}
+```
+
+### Server
+
+The standalone application follows the guidelines given by [Configuring JAX-RS endpoints programmatically without Spring](http://cxf.apache.org/docs/jaxrs-services-configuration.html#JAXRSServicesConfiguration-ConfiguringJAX-RSendpointsprogrammaticallywithoutSpring):
+
+```java
+package com.github.straider.java.ws.cxf;
+
+import org.apache.cxf.binding.BindingFactoryManager;
+import org.apache.cxf.jaxrs.JAXRSBindingFactory;
+import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
+import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
+
+public class Server {
+
+    private static final String  DEFAULT_HOST = "localhost";
+    private static final Integer DEFAULT_PORT = 10000;
+
+    public static void main( final String[] arguments ) {
+        String  host = DEFAULT_HOST;
+        Integer port = DEFAULT_PORT;
+        if ( arguments.length == 2 ) {
+            host = arguments[ 0 ];
+            port = new Integer( arguments[ 1 ] );
+        }
+
+        final JAXRSServerFactoryBean serverFactory = new JAXRSServerFactoryBean();
+        serverFactory.setResourceClasses( Greeter.class );
+        serverFactory.setResourceProvider( Greeter.class, new SingletonResourceProvider( new GreetingService() ) );
+        serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
+
+        final JAXRSBindingFactory bindingFactory = new JAXRSBindingFactory();
+        bindingFactory.setBus( serverFactory.getBus() );
+
+        final BindingFactoryManager manager = serverFactory.getBus().getExtension( BindingFactoryManager.class );
+        manager.registerBindingFactory( JAXRSBindingFactory.JAXRS_BINDING_ID, bindingFactory );
+
+        serverFactory.create();
+    }
+
+}
+```
+
+**Note**: the main code would benefit from using command-line options library, which allows to handle short and long options in any order.
 
 The standalone mode works on top of Jetty, at runtime, and that's why a runtime dependency for needs to be added. It's [configurable](http://cxf.apache.org/docs/jetty-configuration.html). If this dependency is not met then the following error message occurs:
 
