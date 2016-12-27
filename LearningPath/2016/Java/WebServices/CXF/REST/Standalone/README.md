@@ -150,6 +150,91 @@ A common alternative to Jettison is to use Jackson, by replacing the above depen
         ...
 ```
 
+#### 5th version
+
+To create an executable JAR it is necessary to include the plugins **maven-jar-plugin** and **maven-dependency-plugin**:
+
+```xml
+    ...
+    
+    <properties>
+        ...
+        
+        <main.class>com.github.straider.java.ws.cxf.Server</main.class>
+
+        <maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version>
+        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        
+        ...
+    </properties>
+
+    ...
+    
+    <build>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeScope>runtime</includeScope>
+                            <outputDirectory>${project.build.directory}/lib/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>${main.class}</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    ...
+```
+
+The maven-dependency-plugin copies the libraries to the lib/ sub-folder, under target/ folder, and the maven-jar-plugin creates the complete MANIFEST.INF file that will allow the command ```java -jar``` to work as expected.
+
 ### Gradle
 
 ## Components
