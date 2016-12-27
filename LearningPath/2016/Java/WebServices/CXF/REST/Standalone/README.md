@@ -235,6 +235,77 @@ To create an executable JAR it is necessary to include the plugins **maven-jar-p
 
 The maven-dependency-plugin copies the libraries to the lib/ sub-folder, under target/ folder, and the maven-jar-plugin creates the complete MANIFEST.INF file that will allow the command ```java -jar``` to work as expected.
 
+#### 6th version
+
+To create a standalone profile, enabled by default, it is necessary to change the pom.xml file to include a profiles section:
+
+```xml
+    ...
+    
+    <properties>
+        ...
+        
+        <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
+        
+        ...
+    </properties>
+
+    ...
+        
+    <profiles>
+
+        <profile>
+            <id>Standalone</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <host>localhost</host>
+                <port>10000</port>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>exec-maven-plugin</artifactId>
+                            <version>${exec-maven-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <configuration>
+                            <mainClass>${main.class}</mainClass>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-jar</argument>
+                                <argument>${project.build.directory}/${project.artifactId}-${project.version}.jar</argument>
+                                <argument>${host}</argument>
+                                <argument>${port}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+
+    </profiles>
+
+    ...
+```
+
+This profile uses **exec-maven-plugin** to either execute the main class with command ```java``` or the executable JAR with command ```java -jar```, both handling optional positional arguments *host* and *port*.
+
 ### Gradle
 
 ## Components
