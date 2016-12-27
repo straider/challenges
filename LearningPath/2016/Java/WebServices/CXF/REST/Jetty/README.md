@@ -50,7 +50,7 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
     <properties>
         ...
 
-        <jetty-mortbay.version>6.1.26</jetty-mortbay.version>
+        <jetty6-mortbay.version>6.1.26</jetty-mortbay.version>
 
         ...
     </properties>
@@ -87,7 +87,7 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
                         <plugin>
                             <groupId>org.mortbay.jetty</groupId>
                             <artifactId>maven-jetty-plugin</artifactId>
-                            <version>${jetty-mortbay.version}</version>
+                            <version>${jetty6-mortbay.version}</version>
                         </plugin>
                     </plugins>
                 </pluginManagement>
@@ -123,6 +123,272 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
 
 </project>
 ```
+
+##### Jetty 7.x
+
+Very similar to Jetty 6.x profile, although the plugin name is now jetty-maven-plugin instead of maven-jetty-plugin:
+
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    ...
+    <properties>
+        ...
+
+        <jetty7-mortbay.version>7.6.16.v20140903</jetty7-mortbay.version>
+
+        ...
+    </properties>
+
+    ...
+    
+    <profiles>
+
+        <profile>
+            <id>Standalone</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            ...
+        </profile>
+
+        <profile>
+            <id>Jetty 7.x</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <properties>
+                <service-stop.port>9999</service-stop.port>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.mortbay.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty7-mortbay.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.mortbay.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
+                            <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
+                            <connectors>
+                                <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                                    <port>${service.port}</port>
+                                    <maxIdleTime>60000</maxIdleTime>
+                                </connector>
+                            </connectors>
+                            <webAppConfig>
+                                <contextPath>${service.path}</contextPath>
+                            </webAppConfig>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+
+    </profiles>
+
+</project>
+```
+
+##### Jetty 8.x
+
+Very similar to Jetty 7.x profile:
+
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    ...
+    <properties>
+        ...
+
+        <jetty8-mortbay.version>8.1.16.v20140903</jetty8-mortbay.version>
+
+        ...
+    </properties>
+
+    ...
+    
+    <profiles>
+
+        <profile>
+            <id>Standalone</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            ...
+        </profile>
+
+        <profile>
+            <id>Jetty 8.x</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <properties>
+                <service-stop.port>9999</service-stop.port>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.mortbay.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty8-mortbay.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.mortbay.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
+                            <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
+                            <connectors>
+                                <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                                    <port>${service.port}</port>
+                                    <maxIdleTime>60000</maxIdleTime>
+                                </connector>
+                            </connectors>
+                            <webAppConfig>
+                                <contextPath>${service.path}</contextPath>
+                            </webAppConfig>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+
+    </profiles>
+
+</project>
+```
+
+##### Jetty 9.x
+
+Similar to Jetty 8.x profile, although the group ID is now **org.eclipse.jetty** and the connectors section has been superseeded by a simpler httpConnector section.
+
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    ...
+    <properties>
+        ...
+
+        <jetty9-eclipse.version>9.2.20.v20161216</jetty9-eclipse.version>
+
+        ...
+    </properties>
+
+    ...
+    
+    <profiles>
+
+        <profile>
+            <id>Standalone</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            ...
+        </profile>
+
+        <profile>
+            <id>Jetty 9.x</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <service-stop.port>9999</service-stop.port>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.eclipse.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty9-eclipse.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
+                            <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
+                            <httpConnector>
+                                <port>${service.port}</port>
+                            </httpConnector>
+                            <webAppConfig>
+                                <contextPath>${service.path}</contextPath>
+                            </webAppConfig>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+        
+    </profiles>
+
+</project>
+```
+
+**Note**: version 9.2.x is the latest to support Java 7. The more recent versions require Java 8.
 
 #### 3rd version
 
