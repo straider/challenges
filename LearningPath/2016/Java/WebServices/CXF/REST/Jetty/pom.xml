@@ -28,6 +28,7 @@
         <jetty6-mortbay.version>6.1.26</jetty6-mortbay.version>
         <jetty7-mortbay.version>7.6.16.v20140903</jetty7-mortbay.version>
         <jetty8-mortbay.version>8.1.16.v20140903</jetty8-mortbay.version>
+        <jetty9-eclipse.version>9.2.20.v20161216</jetty9-eclipse.version>
 
         <jaxrs.version>2.0.1</jaxrs.version>
         <cxf.version>3.1.9</cxf.version>
@@ -307,7 +308,7 @@
         <profile>
             <id>Jetty 8.x</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
 
             <properties>
@@ -344,6 +345,53 @@
                                     <maxIdleTime>60000</maxIdleTime>
                                 </connector>
                             </connectors>
+                            <webAppConfig>
+                                <contextPath>${service.path}</contextPath>
+                            </webAppConfig>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+        <profile>
+            <id>Jetty 9.x</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <service-stop.port>9999</service-stop.port>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.eclipse.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty9-eclipse.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
+                            <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
+                            <httpConnector>
+                                <port>${service.port}</port>
+                            </httpConnector>
                             <webAppConfig>
                                 <contextPath>${service.path}</contextPath>
                             </webAppConfig>
