@@ -13,6 +13,8 @@
     <description>REST Greeting Service using CXF (JAX-RS implementation).</description>
     <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/Standalone</url>
 
+    <packaging>jar</packaging>
+
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
