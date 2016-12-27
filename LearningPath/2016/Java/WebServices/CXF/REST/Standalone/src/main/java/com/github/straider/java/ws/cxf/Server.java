@@ -22,7 +22,7 @@ public class Server {
         }
 
         final JAXRSServerFactoryBean serverFactory = new JAXRSServerFactoryBean();
-        serverFactory.setResourceClasses( GreetingService.class, ChecksumService.class );
+        serverFactory.setResourceClasses( GreetingService.class );
         serverFactory.setResourceProvider( GreetingService.class, new SingletonResourceProvider( new GreetingService() ) );
         serverFactory.setAddress( String.format( "http://%s:%d", host, port ) );
 
