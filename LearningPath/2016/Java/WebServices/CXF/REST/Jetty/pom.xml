@@ -25,7 +25,8 @@
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
         <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
-        <jetty-mortbay.version>6.1.26</jetty-mortbay.version>
+        <jetty6-mortbay.version>6.1.26</jetty6-mortbay.version>
+        <jetty7-mortbay.version>7.6.16.v20140903</jetty7-mortbay.version>
 
         <jaxrs.version>2.0.1</jaxrs.version>
         <cxf.version>3.1.9</cxf.version>
@@ -205,7 +206,7 @@
         <profile>
             <id>Jetty 6.x</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
 
             <properties>
@@ -221,7 +222,7 @@
                         <plugin>
                             <groupId>org.mortbay.jetty</groupId>
                             <artifactId>maven-jetty-plugin</artifactId>
-                            <version>${jetty-mortbay.version}</version>
+                            <version>${jetty6-mortbay.version}</version>
                         </plugin>
                     </plugins>
                 </pluginManagement>
@@ -238,6 +239,56 @@
                             <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
                             <connectors>
                                 <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                                    <port>${service.port}</port>
+                                    <maxIdleTime>60000</maxIdleTime>
+                                </connector>
+                            </connectors>
+                            <webAppConfig>
+                                <contextPath>${service.path}</contextPath>
+                            </webAppConfig>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+        <profile>
+            <id>Jetty 7.x</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <service-stop.port>9999</service-stop.port>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.mortbay.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty7-mortbay.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.mortbay.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
+                            <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
+                            <connectors>
+                                <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
                                     <port>${service.port}</port>
                                     <maxIdleTime>60000</maxIdleTime>
                                 </connector>
