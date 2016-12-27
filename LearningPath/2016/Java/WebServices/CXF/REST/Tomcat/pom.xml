@@ -203,48 +203,7 @@
         </profile>
 
         <profile>
-            <id>Tomcat 6.x</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <properties>
-                <service.port>10000</service.port>
-                <service.path>/ws/rest</service.path>
-            </properties>
-
-            <build>
-
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.tomcat.maven</groupId>
-                            <artifactId>tomcat6-maven-plugin</artifactId>
-                            <version>${tomcat.version}</version>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-
-                <plugins>
-
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat6-maven-plugin</artifactId>
-                        <configuration>
-                            <port>${service.port}</port>
-                            <path>${service.path}</path>
-                            <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
-                            <warSourceDirectory>${project.build.directory}/classes</warSourceDirectory>
-                        </configuration>
-                    </plugin>
-
-                </plugins>
-
-            </build>
-        </profile>
-
-        <profile>
-            <id>Tomcat 7.x</id>
+            <id>Tomcat</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -260,25 +219,38 @@
                     <plugins>
                         <plugin>
                             <groupId>org.apache.tomcat.maven</groupId>
+                            <artifactId>tomcat6-maven-plugin</artifactId>
+                            <version>${tomcat.version}</version>
+                            <configuration>
+                                <port>${service.port}</port>
+                                <path>${service.path}</path>
+                                <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
+                                <warSourceDirectory>${project.build.directory}/classes</warSourceDirectory>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.tomcat.maven</groupId>
                             <artifactId>tomcat7-maven-plugin</artifactId>
                             <version>${tomcat.version}</version>
+                            <configuration>
+                                <port>${service.port}</port>
+                                <path>${service.path}</path>
+                                <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
+                                <warSourceDirectory>${project.build.directory}/classes</warSourceDirectory>
+                            </configuration>
                         </plugin>
                     </plugins>
                 </pluginManagement>
 
                 <plugins>
-
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat6-maven-plugin</artifactId>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.tomcat.maven</groupId>
                         <artifactId>tomcat7-maven-plugin</artifactId>
-                        <configuration>
-                            <port>${service.port}</port>
-                            <path>${service.path}</path>
-                            <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
-                            <warSourceDirectory>${project.build.directory}/classes</warSourceDirectory>
-                        </configuration>
                     </plugin>
-
                 </plugins>
 
             </build>
