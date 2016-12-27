@@ -13,7 +13,9 @@ Copy [Standalone](../Standalone/README.md) project and change the buildfiles onl
 
 ## Buildfiles
 
-### 1st version
+### Maven
+
+#### 1st version
 
 Edit the project artifact, name, description and URL and replace **Standalone** with **Jetty**. Also replace the packaging type from JAR to WAR.
 
@@ -31,11 +33,11 @@ Edit the project artifact, name, description and URL and replace **Standalone** 
     ...
 ```
 
-### 2nd version
+#### 2nd version
 
 Edit the profiles, changing Standalone profile to not be enabled by default and adding Jetty profile, enabled by default.
 
-#### Jetty 6.x
+##### Jetty 6.x
 
 ```xml
 <?xml version = "1.0" encoding = "UTF-8"?>
@@ -73,6 +75,7 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
             </activation>
 
             <properties>
+                <service-stop.port>9999</service-stop.port>
                 <service.port>10000</service.port>
                 <service.path>/ws/rest</service.path>
             </properties>
@@ -96,6 +99,8 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
                         <artifactId>maven-jetty-plugin</artifactId>
                         <configuration>
                             <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <stopKey>STOP</stopKey>
+                            <stopPort>${service-stop.port}</stopPort>
                             <webAppSourceDirectory>${project.build.directory}/classes</webAppSourceDirectory>
                             <connectors>
                                 <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
@@ -119,14 +124,17 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
 </project>
 ```
 
-#### Maven WAR Plugin
+#### 3rd version
 
 But it only works for goal ```jetty:run``` and not for goals ```jetty:run-war``` and ```jetty:run-exploded```. These depend on a WAR being packaged and without anything else the following error occurs:
 
 ```
+Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project rest-jetty: Error assembling WAR: webxml attribute is required (or pre-existing WEB-INF/web.xml if executing in update mode)
 ```
 
-To enable the packaging of a proper WAR file it is necessary to configure the **maven-war-plugin**:
+##### Maven WAR Plugin
+
+To enable the packaging of a proper WAR file it is necessary to configure the **[maven-war-plugin](https://maven.apache.org/plugins/maven-war-plugin/)**:
 
 ```xml
     ...
@@ -185,7 +193,7 @@ To enable the packaging of a proper WAR file it is necessary to configure the **
     ...
 ```
 
-#### WEB-INF/web.xml
+##### WEB-INF/web.xml
 
 This requires the **web.xml** in the src/main/resources/WEB-INF/ folder, which uses **CXFNonSpringJaxrsServlet** to avoid using Spring XML beans:
 
@@ -219,8 +227,6 @@ This requires the **web.xml** in the src/main/resources/WEB-INF/ folder, which u
 
 </web-app>
 ```
-
-### Maven
 
 ### Gradle
 
