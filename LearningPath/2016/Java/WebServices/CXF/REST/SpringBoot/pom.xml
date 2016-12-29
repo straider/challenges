@@ -18,8 +18,7 @@
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>${project.groupId}.Server</main.class>
-        <service.class>${project.groupId}.GreetingService</service.class>
+        <main.class>${project.groupId}.Application</main.class>
 
         <maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version>
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
@@ -36,10 +35,9 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -195,6 +193,7 @@
             <properties>
                 <host>localhost</host>
                 <port>10000</port>
+                <service.path>/ws/rest</service.path>
             </properties>
 
             <build>
@@ -213,9 +212,6 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
-                        <!--<configuration>-->
-                            <!--<mainClass>${main.class}</mainClass>-->
-                        <!--</configuration>-->
                     </plugin>
                 </plugins>
 
