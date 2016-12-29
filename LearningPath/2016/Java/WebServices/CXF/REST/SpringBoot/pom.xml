@@ -18,7 +18,8 @@
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>com.github.straider.java.ws.cxf.Server</main.class>
+        <main.class>${project.groupId}.Server</main.class>
+        <service.class>${project.groupId}.GreetingService</service.class>
 
         <maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version>
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
