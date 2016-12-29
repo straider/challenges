@@ -139,6 +139,126 @@ To add **spring-boot-starter-web** and **spring-boot-starter-test** dependencies
 
 **Note**: there's no need for a main.class property neither it needs to be explicitly configure in the Spring Boot Maven Plugin after the main class gets to be annotated with @SpringBootApplication.
 
+#### 4th version
+
+In order to work with different embedded Servlet Containers it's best to exclude the Tomcat default dependency from the **spring-boot-starter-web** and enable **spring-boot-starter-tomcat** or **spring-boot-starter-jetty** or **spring-boot-starter-undertow** as profiles.
+
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+    ...
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        ...
+        
+    </dependencies>
+
+    <profiles>
+
+        ...
+
+        <profile>
+            <id>Spring Boot Bare</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <service.port>10000</service.port>
+                <service.path>/ws/rest</service.path>
+            </properties>
+
+            <build>
+
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-maven-plugin</artifactId>
+                            <version>${spring-boot.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+
+            </build>
+        </profile>
+        <profile>
+            <id>Spring Boot Tomcat</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <version>${spring-boot.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>Spring Boot Jetty</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-jetty</artifactId>
+                    <version>${spring-boot.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>Spring Boot Undertow</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-undertow</artifactId>
+                    <version>${spring-boot.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
+
+</project>
+```
+
+If the following error occurs it's because no Servlet Container profile is enabled - either Tomcat or Jetty or Undertow must be enabled:
+
+```
+class file for javax.servlet.http.HttpServlet not found
+```
+
 ### Gradle
 
 ## Components
