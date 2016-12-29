@@ -168,6 +168,29 @@ Add context-param and listener sections and replace servlet-class:
     ...
 ```
 
+#### 4th version
+
+To add **spring-boot-starter** and **spring-boot-starter-test** dependencies it is necessary to add them to the pom.xml file and there should be no **slf4j-simple** dependency, because it will clash with Spring Boot's logging dependencies at runtime.
+
+```xml
+        ...
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        ...
+```
+
 ### Gradle
 
 ## Components
@@ -175,5 +198,32 @@ Add context-param and listener sections and replace servlet-class:
 ### Base / Foundation
 
 ### Server
+
+The following error occurs when there's no Spring Boot annotated main class.
+
+```
+Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:1.4.3.RELEASE:start (default-cli) on project rest-springboot: Spring application did not start before the configured timeout 
+```
+
+To fix it, after adding the missing dependencies to pom.xml (4th version), then change the **Server** class to:
+
+```java
+package com.github.straider.java.ws.cxf;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Server {
+
+    private static final String  DEFAULT_HOST = "localhost";
+    private static final Integer DEFAULT_PORT = 10000;
+
+    public static void main( final String[] arguments ) {
+        SpringApplication.run( Server.class, arguments );
+    }
+
+}
+```
 
 ### Client
