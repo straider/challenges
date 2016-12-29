@@ -13,7 +13,7 @@
     <description>REST Greeting Service running on Spring Boot using CXF (JAX-RS implementation).</description>
     <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/SpringBoot</url>
 
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <properties>
         <java.version>1.7</java.version>
@@ -224,6 +224,10 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <addResources>false</addResources>
+                            <fork>true</fork>
+                        </configuration>
                     </plugin>
                 </plugins>
 
