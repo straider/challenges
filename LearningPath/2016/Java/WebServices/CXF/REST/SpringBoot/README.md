@@ -105,6 +105,69 @@ Edit the profiles, changing Standalone profile to not be enabled by default and 
 </project>
 ```
 
+#### 3rd version
+
+Change the web.xml to use CXFServlet and configure it in beans.xml:
+
+##### beans.xml
+
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns              = "http://www.springframework.org/schema/beans"
+       xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cxf          = "http://cxf.apache.org/core"
+       xmlns:jaxrs        = "http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation = "
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://cxf.apache.org/core                  http://cxf.apache.org/schemas/core.xsd
+			http://cxf.apache.org/jaxrs                 http://cxf.apache.org/schemas/jaxrs.xsd
+       "
+>
+
+    <import resource = "classpath:META-INF/cxf/cxf.xml"         />
+    <import resource = "classpath:META-INF/cxf/cxf-servlet.xml" />
+
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging />
+        </cxf:features>
+    </cxf:bus>
+
+    <bean id = "greetingService" class = "${service.class}" />
+
+    <jaxrs:server id = "GreetingService" address = "${service.path}">
+        <jaxrs:serviceBeans>
+            <ref bean = "greetingService" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+
+</beans>
+```
+
+##### web.xml
+
+Add context-param and listener sections and replace servlet-class:
+
+```xml
+    ...
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/beans.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    ...
+```
+
 ### Gradle
 
 ## Components
