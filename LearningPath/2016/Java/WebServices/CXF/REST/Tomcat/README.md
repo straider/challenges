@@ -5,7 +5,11 @@
 
 Register the steps necessary, from scratch, to develop a simple REST service using CXF and running with Tomcat.
 
-## How to run a CXF REST service using Tomcat?
+## How to run a CXF REST service using Tomcat, without Spring?
+
+> With Maven all that is required is to include the Tomcat Maven Plugin. It also requires a proper WAR package and a CXFNonSpringJaxrsServlet configuration in web.xml, under WEB-INF/ sub-folder.
+
+## How to run a CXF REST service using Tomcat, with Spring?
 
 # Steps
 

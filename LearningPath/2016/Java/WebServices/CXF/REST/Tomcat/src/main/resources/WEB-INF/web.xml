@@ -17,6 +17,10 @@
             <param-name>jaxrs.serviceClasses</param-name>
             <param-value>${servlet.class}</param-value>
         </init-param>
+        <!--<init-param>-->
+            <!--<param-name>jaxrs.address</param-name>-->
+            <!--<param-value>${service.path}</param-value>-->
+        <!--</init-param>-->
         <load-on-startup>1</load-on-startup>
     </servlet>
 

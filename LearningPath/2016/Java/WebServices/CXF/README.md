@@ -1,4 +1,4 @@
-:: Apache CXF ::
+﻿:: Apache CXF ::
 ================
 
 # Overview
@@ -28,6 +28,13 @@ https://cloud.google.com/appengine/docs/java/config/webxml:
 
 ### REST
 
+- [Simple JAX-RS Web Service in Java with Spring and CXF](http://www.dreamsyssoft.com/blog/blog.php?/archives/7-Simple-REST-Web-Service-in-Java-with-Spring-and-CXF.html)
+    - Without tests.
+- [Restful Webservice using CXF and Maven](http://java-hub.blogspot.co.uk/2015/01/restful-webservice-using-cxf-and-maven.html)
+    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
+    - No code, good for getting started.
+- [Restful WebService using CXF](http://www.learninjava.com/pages/restful-webservice-using-cxf.php)
+    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
 - [REST Web Service Using CXF - Beginner's Tutorial](https://dzone.com/articles/rest-web-service-using-cxf)
 - [Creating JAX-RS web service using Apache CXF Example](https://examples.javacodegeeks.com/enterprise-java/rest/creating-jax-rs-web-service-using-apache-cxf/)
 - ~~[Developing RESTful Services using Apache CXF](https://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html)~~
@@ -46,16 +53,10 @@ https://cloud.google.com/appengine/docs/java/config/webxml:
     - [Part 2](https://idodevjobs.wordpress.com/2014/09/25/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-ii/)
     - [Part 3](https://idodevjobs.wordpress.com/2014/10/10/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-iii-exceptionerror-handling-using-exceptionmapper/)
     - [Part 4](https://idodevjobs.wordpress.com/2015/04/04/develop-a-simple-restful-webservices-using-apache-cxf-and-spring-framework-part-iv-jax-rs-beanparam-example)
-- [Simple JAX-RS Web Service in Java with Spring and CXF](http://www.dreamsyssoft.com/blog/blog.php?/archives/7-Simple-REST-Web-Service-in-Java-with-Spring-and-CXF.html)
-    - Without tests.
-- [Restful Webservice using CXF and Maven](http://java-hub.blogspot.co.uk/2015/01/restful-webservice-using-cxf-and-maven.html)
-    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
-    - No code, good for getting started.
-- [Restful WebService using CXF](http://www.learninjava.com/pages/restful-webservice-using-cxf.php)
-    - Using Maven archetype: org.apache.cxf.archetype:cxf-jaxrs-service
 - [Apache CXF: JAX-RS Restful web service using JAXB + JSON example](http://www.benchresources.net/apache-cxf-jax-rs-restful-web-service-using-jaxb-json-example/)
 - [Going REST: embedding Jetty with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-jetty-with-spring.html)
 - [Going REST: embedding Tomcat with Spring and JAX-RS (Apache CXF)](https://aredko.blogspot.co.uk/2013/01/going-rest-embedding-tomcat-with-spring.html)
+- [Laziness at extreme: developing JAX-RS services with Spring Boot](https://aredko.blogspot.co.uk/2016/04/laziness-at-extreme-developing-jax-rs.html)
 
 ### SOAP
 
@@ -119,9 +120,25 @@ https://cloud.google.com/appengine/docs/java/config/webxml:
 
 # Milestones
 
-## REST Server
+## Parent pom.xml
+
+Create pom.xml with project properties, dependencies and plugins used by all modules.
+
+## Greeter Module
+
+Simple object that really performs the greeting: returns a greeting message.
+
+## REST Server Module
 
 - [Swagger2Feature](http://cxf.apache.org/docs/swagger2feature.html)
+
+This module holds specific CXF REST properties and dependencies and defines profiles for each "infrastructure":
+- Standalone?
+- Tomcat
+- Jetty
+- Undertow?
+- SpringBoot
+- Karaf?
 
 ### Java First
 
@@ -131,13 +148,15 @@ https://cloud.google.com/appengine/docs/java/config/webxml:
 
 - [WADL-first Development](http://cxf.apache.org/docs/jaxrs-services-description.html#JAXRSServicesDescription-WADL-firstDevelopment)
 
-## REST Client
+## REST Client Module
 
-## SOAP Server - Java-first
+## SOAP Server Module
 
-## SOAP Server - WSDL-first
+### Java-first
 
-## SOAP Client
+### WSDL-first
+
+## SOAP Client Module
 
 # Challenges
 

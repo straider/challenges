@@ -85,14 +85,17 @@ The Sprint Application can be made of several components, which usually implemen
 - [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
 - [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
 - [Integrating Data](https://spring.io/guides/gs/integration/)
+- [Spring Boot Tutorial](http://www.journaldev.com/7969/spring-boot-tutorial)
+- [Spring Boot Complete Guide](http://javabeat.net/spring-boot/)
 - [Spring Boot & Apache CXF – How to SOAP in 2016](https://blog.codecentric.de/en/2016/02/spring-boot-apache-cxf/)
     - [tutorial-soap-spring-boot-cxf](https://github.com/jonashackt/tutorial-soap-spring-boot-cxf)
 
 ## 2.2. Articles
 
+- [Exploring Micro-frameworks: Spring Boot](https://www.infoq.com/articles/microframeworks1-spring-boot)
 - [Why SpringBoot?](http://sivalabs.in/2016/03/why-springboot/)
 - [How SpringBoot AutoConfiguration magic works?](http://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/)
-- [Exploring Micro-frameworks: Spring Boot](https://www.infoq.com/articles/microframeworks1-spring-boot)
+- [Should You Use Spring Boot in Your Next Project?](https://steveperkins.com/use-spring-boot-next-project/)
 - Building microservices with Spring Boot:
   - [Part 1](https://plainoldobjects.com/2014/04/01/building-microservices-with-spring-boot-part1/)
   - [Part 2](https://plainoldobjects.com/2014/05/05/building-microservices-with-spring-boot-part-2/)
@@ -103,6 +106,7 @@ The Sprint Application can be made of several components, which usually implemen
 - [Spring Boot Complete Guide](http://javabeat.net/spring-boot/)
 - [Complete Guide for Spring Boot Actuator](http://javabeat.net/spring-boot-actuator/)
 - [Experiences with Spring Boot](https://opencredo.com/experiences-with-spring-boot/)
+- [How to deploy Spring Boot applications to OpenShift](https://blog.codecentric.de/en/2016/03/deploy-spring-boot-applications-openshift/)
 
 ----
 

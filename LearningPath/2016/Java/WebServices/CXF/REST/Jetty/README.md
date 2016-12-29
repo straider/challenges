@@ -5,7 +5,11 @@
 
 Register the steps necessary, from scratch, to develop a simple REST service using CXF and running with Jetty.
 
-## How to run a CXF REST service using Jetty?
+## How to run a CXF REST service using Jetty, without Spring?
+
+> With Maven all that is required is to include the Jetty Maven Plugin. It also requires a proper WAR package and a CXFNonSpringJaxrsServlet configuration in web.xml, under WEB-INF/ sub-folder.
+
+## How to run a CXF REST service using Jetty, with Spring?
 
 # Steps
 
