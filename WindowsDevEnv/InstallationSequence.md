@@ -148,7 +148,7 @@ Options:
     - Explorer: Enable advanced menu;
     - Folder compare: Add shell menu to context menu.
 
-**Note**: activate filter **Exclude Source Control" or create a new one.
+**Note**: activate filter **Exclude Source Control** or create a new one.
  
 ### TortoiseSVN
 
@@ -247,7 +247,7 @@ Install to ```C:\DevKits\IDEs\Eclipse Neon\```.
 
 - Install to ```C:\DevKits\IDEs\Geany\```;
 - Enable Create Desktop shortcut: 32-bit launcher and 64-bit launcher;
-- Enable Create associations: .jaba, .groovy, .kt;
+- Enable Create associations: .java, .groovy, .kt;
 
 #### Geany
 
