@@ -88,6 +88,15 @@ https://cloud.google.com/appengine/docs/java/config/webxml:
 - [JAX-RS Spring Integration](http://www.jroller.com/Solomon/entry/jax_rs_spring_integration)
 - [Apache CXF vs. Apache AXIS vs. Spring WS](https://dzone.com/articles/apache-cxf-vs-apache-axis-vs)
 - [Difference between JAX-RS Specification Implementation tools](http://nagesh625.blogspot.co.uk/2014/01/difference-between-jax-rs-specification.html)
+- [Spring Boot & Apache CXF](https://github.com/jonashackt/tutorial-soap-spring-boot-cxf) - Tutorial how to create, test, deploy, monitor SOAP-Webservices using Spring Boot and Apache CXF:
+    - [How to SOAP in 2016](https://blog.codecentric.de/en/2016/02/spring-boot-apache-cxf/)
+    - [Testing SOAP Web Services](https://blog.codecentric.de/en/2016/06/spring-boot-apache-cxf-testing-soap-webservices/)
+    - [XML validation and custom SOAP faults](https://blog.codecentric.de/en/2016/06/spring-boot-apache-cxf-xml-validation-custom-soap-faults/)
+    - [Logging & Monitoring with Logback, Elasticsearch, Logstash & Kibana](https://blog.codecentric.de/en/2016/07/spring-boot-apache-cxf-logging-monitoring-logback-elasticsearch-logstash-kibana/)
+    - [SOAP on steroids fueled by cxf-spring-boot-starter](https://blog.codecentric.de/en/2016/10/spring-boot-apache-cxf-spring-boot-starter/)
+- [Apache CXF vs. Apache AXIS vs. Spring WS](https://dzone.com/articles/apache-cxf-vs-apache-axis-vs)
+- [Difference of Maven JAXB plugins #1](http://stackoverflow.com/a/2434603)
+- [Difference of Maven JAXB plugins #2](http://stackoverflow.com/a/9199036)
 
 ## Books
 
