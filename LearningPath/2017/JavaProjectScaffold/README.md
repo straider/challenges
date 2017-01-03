@@ -97,3 +97,24 @@ This learning path started out from the need to have a simple project layout tha
 - Compare with:
     - Maven Archetypes;
     - Lazybones.
+
+# Alternatives
+
+## Maven Archetypes
+
+- [Introduction to Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)
+- [Maven Archetypes](https://maven.apache.org/archetypes/)
+- [archetype:create-from-project](http://maven.apache.org/archetype/maven-archetype-plugin/create-from-project-mojo.html)
+- [Archetype creation](http://maven.apache.org/archetype/maven-archetype-plugin/advanced-usage.html)
+- [Create an archetype from a multi-module project](http://maven.apache.org/archetype/maven-archetype-plugin/examples/create-multi-module-project.html)
+- [HowToCreateMavenArchetypeFromProject](https://code.google.com/archive/p/jianwikis/wikis/HowToCreateMavenArchetypeFromProject.wiki)
+- [How do I create an archetype?](http://www.avajava.com/tutorials/lessons/how-do-i-create-an-archetype.html)
+- [How to create a project with Maven template](https://www.mkyong.com/maven/how-to-create-a-project-with-maven-template/)
+- [How to create a maven archetype](http://javajeedevelopment.blogspot.co.uk/2012/05/how-to-create-maven-archetype.html)
+- [Create a Maven Archetype from an existing project](https://www.luckyryan.com/2013/02/15/create-maven-archetype-from-existing-project/)
+- [Creating maven archetypes (tutorial)](http://geekofficedog.blogspot.co.uk/2013/08/creating-maven-archetypes-tutorial.html)
+- [Creating maven archetype using create-from-project](https://rsankarx.wordpress.com/2013/10/24/creating-maven-archetype-using-create-from-project/)
+
+## Lazybones Templates
+
+- [Lazybones Project Creation Tool](https://github.com/pledbrook/lazybones)
