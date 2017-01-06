@@ -57,3 +57,4 @@
 - [The Hitchhiker's Guide to Docker and Modulus](https://code.tutsplus.com/tutorials/the-hitchhikers-guide-to-docker-and-modulus--cms-24770)
 - [Dock Tales, Or: How I Learned to Stop Worrying and Love the Container](http://www.sixtree.com.au/articles/2015/dock-tales/)
 - [Test-drive Docker Healthcheck in 10 minutes](http://blog.alexellis.io/test-drive-healthcheck/)
+- [Using Eclipse Neon 4.6.1 and the Docker Tools plug-in 2.1](https://jacace.wordpress.com/2016/11/16/using-eclipse-neon-4-6-1-and-the-docker-tools-plug-in-2-0/)

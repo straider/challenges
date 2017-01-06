@@ -5,8 +5,14 @@
 
 # OSGi Containers inside Docker
 
-- [OSGi and Docker, a perfect team](http://paulbakker.io/docker/docker-osgi/)
+- [OSGi: the gateway into micro-services architecture](https://aredko.blogspot.co.uk/2014/08/osgi-gateway-into-micro-services.html)
+- [What is OSGi? Microservices for the JVM](https://sookocheff.com/post/java/what-is-osgi/)
+- [Micro Services vs OSGi services](http://paulonjava.blogspot.co.uk/2014/04/micro-services-vs-osgi-services.html)
+- [Microservices, Platforms & OSGi?](https://blogs.paremus.com/2015/03/microservices-platforms-osgi/)
+- [µServices](http://blog.osgi.org/2010/03/services.html#uds-search-results)
+- [Is Docker Eating Java's Lunch?](http://blog.osgi.org/2014/08/is-docker-eating-javas-lunch.html)
 - [the decline of Java application servers when using docker containers](https://blog.fabric8.io/the-decline-of-java-application-servers-when-using-docker-containers-edbe032e1f30#.e0izbwe3x)
+- [OSGi and Docker, a perfect team](http://paulbakker.io/docker/docker-osgi/)
 - [The future is Micro Service Architectures on Apache Karaf](http://blog.eisele.net/2014/10/the-future-is-micro-service-architectures-with-apache-karaf.html)
 - [Modularity, Microservices and Containers](https://jaxenter.com/modularity-microservices-and-containers-124086.html)
 - [Service Discovery](http://www.codemonkey.nl/discovery/)

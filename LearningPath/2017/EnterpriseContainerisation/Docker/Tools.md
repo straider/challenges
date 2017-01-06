@@ -17,3 +17,4 @@
 - [Ansible](https://www.ansible.com/) is a simple automation language that can perfectly describe an IT application infrastructure.
     - [Ansible Crash Course](http://www.sixtree.com.au/articles/2016/ansible-crash-course/)
 - [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
+- [Eclipse Docker Tooling for Neon](https://www.eclipse.org/community/eclipse_newsletter/2016/july/article2.php)

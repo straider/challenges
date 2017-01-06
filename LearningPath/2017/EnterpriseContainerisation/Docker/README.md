@@ -15,7 +15,7 @@ Docker uses the resource isolation features of the Linux kernel such as [cgroups
 
 There are several flavours of Docker, depending on the host operating system:
 - Docker on Linux;
-- Docker for Windows;
+- Docker for Windows (for Windows 10 Professional / Enterprise / Student editions);
 - Docker for Mac;
 - Docker Toolbox (for older Windows and Mac).
 
