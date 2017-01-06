@@ -1,11 +1,7 @@
-﻿:: Installation :: Ubuntu 14.04 ::
-==================================
+﻿Using Red Hat Container Development Kit
+=======================================
 
-# Options
-
-- [How to install Red Hat Container Development Kit (CDK) in minutes](http://www.schabell.org/2016/02/howto-install-redhat-cdk-in-minutes.html)
-
-## With CDK
+# Overview
 
 This option installs OpenShift Container Platform 3.2:
 - Download [Red Hat CDK 2.2.0](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip), which requires a valid Red Hat Portal account;
@@ -22,15 +18,19 @@ This option installs OpenShift Container Platform 3.2:
 
 > Red Hat Container Development Kit provides a pre-built Container Development Environment based on Red Hat Enterprise Linux to help you develop container-based (sometimes called Docker) applications quickly. The containers you build can be easily deployed on any Red Hat container host or platform, including: Red Hat Enterprise Linux, Red Hat Enterprise Linux Atomic Host, and our platform-as-a-service solution, OpenShift Enterprise 3.
 
-### Requirements
+## Requirements
 
 - [VirtualBox](https://www.virtualbox.org/) 5.0.28;
 - [Vagrant](https://www.vagrantup.com/) 1.8.7;
 
-### Steps
+# Steps
+
+Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
+
+These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
 
 ```bash
-cd [CDK_FOLDER]/components/rhel/
+cd /cygdrive/c/[CDK_FOLDER]/components/rhel/
 
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs vagrant-adbinfo
@@ -55,12 +55,12 @@ vagrant ssh
 ```
 
 Where:
-- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example $HOME/opt/Servers/openshift-cdk-2.2.0/;
+- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example DevKits/ContainerDevelopmentKit-2.2.0/;
 - [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
 
-**Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under $HOME folder.
+**Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
-### Validation
+# Validation
 
 The following commands are to be issued inside the Vagrant box, in order to verify installation:
 
@@ -95,53 +95,21 @@ Verify that there's access to the following projects:
 
 Then connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
 
-## With Docker Machine
-
-This option installs OpenShift Container Platform 3.3 or later.
-
-### Requirements
-
-- ~~[Docker Machine](https://github.com/docker/machine/) 0.8.2~~
-
-### Steps
-
-### Validation
-
-Issue the following commands, inside Docker Quickstart Terminal, in order to verify installation:
-
-```bash
-oc status
-```
-
-The response should be
-```
-You have no services, deployment configs, or build configs.
-Run 'oc new-app' to create an application.
-```
-
-```
-oc login -u system:admin
-```
-
-Verify that there's access to the following projects:
-- default
-- openshift
-- openshift-infra
-- kube-system
-- myproject
-
-Finally, open a browser and point it to the given address, something like https://192.168.99.101:8443, and access OpenShift Console.
-
 # Well Known Errors
 
-## Subscription
+## Unable to execute vagrant run
 
-If the step "Registering box with vagrant-registration" asks for an username and password it's because the environment variables SUB_USERNAME and SUB_PASSWORD have not be set up previously before running ```vagrant up```. Either exit and set them up before running the command or input the Red Hat Portal credentials.
+The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
 
-```bash
-export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
-export SUB_PASSWORD=<your-subscription-password>
 ```
+A Vagrant environment or target machine is required to run this
+command. Run `vagrant init` to create a new Vagrant environment. Or,
+get an ID of a target machine from `vagrant global-status` to run
+this command on. A final option is to change to a directory with a
+Vagrantfile and to try again.
+```
+
+**Note**: a useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
 
 ## sftp-server
 
@@ -153,15 +121,14 @@ is required for sshfs mounting to work. Please install the software and
 try again.
 ```
 
-To fix then issue the following command:
+This will require a Cygwin or MinGW environment, although technical any kind of utility named sftp-server that can act as a SFTP Server might work.
 
-```bash
-sudo apt-get install openssh-server
-```
+Install Cygwin x64, with openssh, rsync and chere.
+It may require libusb0.
 
 ## Unable to access OpenShift Console
 
-If after booting up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
+If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
 
 > Container Development Kit 2.2 is known to not work correctly with VirtualBox 5.1.x. If you intend to use VirtualBox as your virtualization provider, and you already have VirtualBox 5.1.x installed, downgrade your installation to VirtualBox 5.0.26.
 
@@ -187,4 +154,3 @@ vagrant halt
 ```
 
 Then change back to the folder with the Vagrantfile of the 2nd CDK box and fire it up.
-

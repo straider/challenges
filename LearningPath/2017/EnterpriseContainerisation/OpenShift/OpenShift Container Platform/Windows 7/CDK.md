@@ -1,11 +1,7 @@
-﻿:: Installation :: Windows 7 ::
-===============================
+﻿Using Red Hat Container Development Kit
+=======================================
 
-# Options
-
-- [How to install Red Hat Container Development Kit (CDK) in minutes](http://www.schabell.org/2016/02/howto-install-redhat-cdk-in-minutes.html)
-
-## With CDK
+# Overview
 
 This option installs OpenShift Container Platform 3.2:
 - Download [Red Hat CDK 2.2.0](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip), which requires a valid Red Hat Portal account;
@@ -22,12 +18,12 @@ This option installs OpenShift Container Platform 3.2:
 
 > Red Hat Container Development Kit provides a pre-built Container Development Environment based on Red Hat Enterprise Linux to help you develop container-based (sometimes called Docker) applications quickly. The containers you build can be easily deployed on any Red Hat container host or platform, including: Red Hat Enterprise Linux, Red Hat Enterprise Linux Atomic Host, and our platform-as-a-service solution, OpenShift Enterprise 3.
 
-### Requirements
+## Requirements
 
 - [VirtualBox](https://www.virtualbox.org/) 5.0.28;
 - [Vagrant](https://www.vagrantup.com/) 1.8.7;
 
-### Steps
+# Steps
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
 
@@ -64,7 +60,7 @@ Where:
 
 **Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
-### Validation
+# Validation
 
 The following commands are to be issued inside the Vagrant box, in order to verify installation:
 
@@ -99,67 +95,6 @@ Verify that there's access to the following projects:
 
 Then connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
 
-## With Docker Machine
-
-This option installs OpenShift Container Platform 3.3 or later.
-
-### Requirements
-
-- [Docker Machine](https://github.com/docker/machine/) 0.8.2
-
-### Steps
-
-These commands are to be issued from a Docker Quickstart Terminal (based on MinGW):
-
-```bash
-docker-machine create --driver virtualbox                      \
-                      --engine-insecure-registry 172.30.0.0/16 \
-                      --engine-env HTTP_PROXY=$HTTP_PROXY      \
-                      --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
-                      --engine-env NO_PROXY=$NO_PROXY          \
-                      openshift-ose-3.3
-
-eval $(docker-machine env openshift)
-export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
-
-oc cluster up --docker-machine=openshift-ose-3.3 \
-              --use-existing-config              \
-              --host-data-dir=[HOST_DATA_FOLDER] \
-              --version=latest                   \
-              --image=registry.access.redhat.com/openshift3/ose
-```
-
-Where [HOST_DATA_FOLDER] is to be replaced by folder on Docker host for OpenShift data. If not specified, etcd data will not be persisted on the host.
-
-> The oc cluster up command starts a local OpenShift all-in-one cluster with a configured registry, router, image streams, and default templates. By default, the command requires a working Docker connection. The oc cluster up command will create a default user and project and, once it completes, will allow you to start using the command line to create and deploy apps with commands like oc new-app, oc new-build, and oc run. It will also print out a URL to access the management console for your cluster.
-
-### Validation
-
-Issue the following commands, inside Docker Quickstart Terminal, in order to verify installation:
-
-```bash
-oc status
-```
-
-The response should be
-```
-You have no services, deployment configs, or build configs.
-Run 'oc new-app' to create an application.
-```
-
-```
-oc login -u system:admin
-```
-
-Verify that there's access to the following projects:
-- default
-- openshift
-- openshift-infra
-- kube-system
-- myproject
-
-Finally, open a browser and point it to the given address, something like https://192.168.99.101:8443, and access OpenShift Console.
-
 # Well Known Errors
 
 ## Unable to execute vagrant run
@@ -175,32 +110,6 @@ Vagrantfile and to try again.
 ```
 
 **Note**: a useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
-
-## Subscription
-
-If the step "Registering box with vagrant-registration" asks for an username and password it's because the environment variables SUB_USERNAME and SUB_PASSWORD have not be set up previously before running ```vagrant up```. Either exit and set them up before running the command or input the Red Hat Portal credentials.
-
-```bash
-export SUB_USERNAME=<your-subscription-username> #  Account at Red Hat Customer Portal - developers.redhat.com
-export SUB_PASSWORD=<your-subscription-password>
-```
-
-## Proxy
-
-The step "Registering box with vagrant-registration" failed with the following error:
-
-```
-Network error, unable to connect to server. Please see /var/log/rhsm/rhsm.log for more information.
-Registering to: subscription.rhn.redhat.com:443/subscription
-```
-
-It seems to be a PROXY problem. To configure the proxy issue the following commands before issueing ```vagrant up```:
-
-```bash
-export PROXY=[HOSTNAME:PORT]
-export PROXY_USER=[USERNAME]
-export PROXY_PASSWORD=[PASSWORD]
-```
 
 ## sftp-server
 
@@ -245,4 +154,3 @@ vagrant halt
 ```
 
 Then change back to the folder with the Vagrantfile of the 2nd CDK box and fire it up.
-
