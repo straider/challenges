@@ -1,14 +1,7 @@
-Docker Installation
-===================
+Docker Toolbox
+==============
 
-# Common Requirements
-
-- [VirtualBox](https://www.virtualbox.org/) 5.0.30;
-- [Vagrant](https://www.vagrantup.com/) 1.9.1;
-
-# Operating Systems
-
-## Windows 10 Home Edition
+# Overview
 
 > The Docker Toolbox setup does not run Docker natively on Windows. Instead, it uses docker-machine to create and attach to a virtual machine (VM). This machine is a Linux VM that hosts Docker for you on your Windows system. To run Docker, your machine must have a 64-bit operating system running Windows 7 or higher. Additionally, you must make sure that virtualization is enabled on your machine.
 
@@ -23,13 +16,7 @@ Docker Installation
 
 > Note: If you have Docker hosts running and you don't wish to do a Docker Toolbox installation, you can install the docker.exe using the unofficial Windows package manager Chocolatey. For information on how to do this, see [Docker package on Chocolatey](http://chocolatey.org/packages/docker).
 
-### Requirements
-
-- Make sure Windows is 64 bit;
-- Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592);
-- [Git for Windows](https://git-for-windows.github.io/) 2.10.2 64 bit, AKA msysGit, on C:\Hosting\Git\.
-
-### Docker Toolbox
+# Steps
 
 Follow the [Install Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/) guide:
 - Install to C:\Hosting\Containers\Docker Toolbox\;
@@ -46,16 +33,16 @@ Follow the [Install Docker Toolbox on Windows](https://docs.docker.com/toolbox/t
 - Make sure PATH contains the entry to run msysGit binaries: ```C:\Hosting\Git\cmd;C:\Hosting\Git\bin;C:\Hosting\Git\usr\bin;```
 - Edit the Docker Quickstart Terminal shortcut to start Bash from the previously installed msysGit.
 
-### Well Known Errors
+# Well Known Errors
 
-#### VT-X/AMD-v
+## VT-X/AMD-v
 
 If there's no hardware assisted virtualization then Docker Quickstart Terminal will end with the following error:
 ```
 Error creating machine: Error in driver during machine creation: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory.
 ```
 
-#### Set Environment
+## Set Environment
 
 If the following error occurs then it's because docker command is being run outside the Quickstart Terminal and if so then it requires the environment to be set.
 
@@ -72,7 +59,7 @@ To set the environment variables then issue the following command on the Windows
 @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO @%i
 ```
 
-#### Behind a Proxy / Firewall
+## Behind a Proxy / Firewall
 
 **Note**: it may be necessary to configure HTTP_PROXY and HTTPS_PROXY environment variables, if behind a firewall. It's also a good idea, in that case, to set up NO_PROXY. When Docker Quickstart Terminal runs, on top of MinGW/MSYS, it updates the "no_proxy" environment variable with the default machine IP address, instead of the "NO_PROXY". If that's the case then issue the following command before running docker commands:
 
@@ -85,20 +72,3 @@ export NO_PROXY=$no_proxy
 - [Windows Boot2Docker behind corporate proxy](http://stackoverflow.com/a/29303930/6309)
 - [b2d](https://github.com/VonC/b2d): Prepare the environment for running boot2docker on Windows, even behind corporate proxy.
 - [How to install Docker on Windows behind a proxy](http://www.netinstructions.com/how-to-install-docker-on-windows-behind-a-proxy/)
-
-# Validation
-
-## Getting Started
-
-```bash
-docker images # Lists installed images.
-docker ps     # Shows running images.
-```
-
-## Hello World
-
-Issue the following command:
-
-```bash
-docker run hello-world
-```
