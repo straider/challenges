@@ -25,10 +25,22 @@ Settings:
 
 Installation:
 - Choose Components: Allow plugins to be loaded from %APPDATA%;
-- Settings:
-    - New Document: Format: Unix;
-    - Language: Tab size 4, replaced by space.
 
+Settings:
+- New Document: Format: Unix;
+- Language: Tab size 4, replaced by space.
+
+### MdCharm
+
+Settings;
+- Environment: General: System: Uncheck Show Splash;
+- Text Editor:
+    - Font & Color: Consolas;
+    - Behavior: Enable Spellcheck;
+    - Display:
+        - Display line number;
+        - Highlight current line.
+    
 ### 7-Zip
 
 Options:
@@ -44,6 +56,11 @@ Options:
 ### Thunderbird
 
 Restore profile from latest backup.
+
+### Skype
+
+- Uncheck "Make Bing my search engine";
+- Uncheck "Make MSN my homepage".
 
 ### PuTTY
 
@@ -157,6 +174,8 @@ Install to ```C:\DevKits\VersionControl\TortoiseSVN\```, with command line clien
 ### TortoiseGit
 
 Install to ```C:\DevKits\VersionControl\TortoiseGit\```.
+
+After installation it's mandatory to configure user and email.
 
 ### Compilers
 

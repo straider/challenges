@@ -25,4 +25,8 @@ It's used by WinSCP and mRemoteNG. It's useful to be used by MinGW.
 
 ### ~~[KiTTY 0.67](http://www.9bis.net/kitty/)~~
 
-## ~~[mRemoteNG 1.74](https://mremoteng.org/)~~
+### ~~[mRemoteNG 1.74](https://mremoteng.org/)~~
+
+## Messaging
+
+### [Skype ](https://www.skype.com/en/)
