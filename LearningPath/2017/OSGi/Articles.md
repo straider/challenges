@@ -20,9 +20,11 @@
 - [Converting a Spring application to an OSGi application](http://www.ibm.com/support/knowledgecenter/SSEQTP_9.0.0/com.ibm.websphere.osgi.doc/ae/ta_mig_spring.html)
 - [A Gentle Introduction to OSGi](https://jaxenter.com/a-gentle-introduction-to-osgi-103732.html)
 - [OSGi enRoute – a new framework for OSGi applications](https://jaxenter.com/osgi-enroute-a-new-framework-for-osgi-applications-117514.html)
+- [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
 
 # Bundles and Packages
 
+- [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
 - [Understanding how OSGI bundles get resolved](http://blog.christianposta.com/osgi/understanding-how-osgi-bundles-get-resolved-part-i/)
 - [OSGi Import Package and Split Package Woes](http://eclipsesource.com/blogs/2009/07/14/why-i-cant-recommend-using-import-package/)
 - [Tip: Split Packages and Visibility](http://eclipsesource.com/blogs/2008/08/22/tip-split-packages-and-visibility/)

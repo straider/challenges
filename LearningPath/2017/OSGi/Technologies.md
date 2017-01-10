@@ -16,12 +16,6 @@
     - [PojoSR](https://github.com/lefou/pojosr) @ GitHub
     - [PojoSR brings Service Registry to Java](https://www.infoq.com/news/2011/10/pojosr)
     - [Using PojoSR for unit testing OSGi bundles](https://kgilmersden.wordpress.com/2011/12/15/using-pojosr-for-unit-testing-osgi-bundles/)
-- [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
-- [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
-- [Getting started with Spring-OSGi — part 1](http://lsd.luminis.eu/en/getting-started-with-spring-osgi/)
-- [Getting started with Spring-OSGi — part 2](http://lsd.luminis.eu/en/getting-started-with-spring-osgi-part-2/)
-- [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
-- [OSGi and Apache Felix 3.0](http://javabeat.net/osgi-and-apache-felix-3-0/)
 - [Apache Felix - OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
 - [Apache Felix - Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
 
@@ -35,19 +29,14 @@
 
 - [Equinox](http://www.eclipse.org/equinox/) is an implementation of the OSGi core framework specification, a set of bundles that implement various optional OSGi services and other infrastructure for running OSGi-based systems. The Equinox OSGi core framework implementation is used as the reference implementation and as such it implements all the required features of the latest OSGi core framework specification.
 - [Concierge](http://www.eclipse.org/proposals/rt.concierge/) is an alternative implementation to Equinox of the OSGi core framework and can serve as the sandbox for experimental work on the OSGi core which can later be adopted by Equinox.
-- [OSGi Component Programming](https://github.com/osgi/eclipsecon/tree/master/2006/tutorial)
 - [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
-- [Hello, OSGi, Part 1: Bundles for beginners](http://www.javaworld.com/article/2077837/java-se/java-se-hello-osgi-part-1-bundles-for-beginners.html)
-- [Hello, OSGi, Part 2: Introduction to Spring Dynamic Modules](http://www.javaworld.com/article/2077853/java-se/java-se-hello-osgi-part-2-introduction-to-spring-dynamic-modules.html)
-- [Hello, OSGi, Part 3: Take it to the server side](http://www.javaworld.com/article/2077868/java-se/java-se-hello-osgi-part-3-take-it-to-the-server-side.html)
-- [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
 - [Creating an OSGi bundle](http://underlap.blogspot.co.uk/2007/01/creating-osgi-bundle.html)
 
 ### Maven
 
 - [Tycho](https://eclipse.org/tycho/) is a set of Maven plugins and extensions for building Eclipse plugins and OSGi bundles with Maven.
 - [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
-- [OSGi Using Maven with Equinox](https://www.javacodegeeks.com/2011/06/osgi-using-maven-equinox.html)
+- [OSGI for Beginners Using Maven with Equinox(HowTo)](https://ashwinrayaprolu.wordpress.com/2011/06/01/osgi-for-beginners-using-maven-with-equinoxhowto/)
 
 ## Knopflerfish
 
@@ -163,7 +152,7 @@ on-the-fly inside Tests (like in Pax Exam).
     - [org.ops4j.pax.exam 2](https://github.com/tonit/exxam): Next Generation Pax Exam;
     - [org.ops4j.pax.exam 3 and 4](https://github.com/ops4j/org.ops4j.pax.exam2): In-Container Test Framework for OSGi, Java EE and CDI Applications.
     - [Learn-PaxExam](https://github.com/rebaze/Learn-PaxExam)
-- [Tinybundles](https://ops4j1.jira.com/wiki/display/ops4j/Tinybundles): is all about creating OSGi related artifacts like Bundles, Fragments and Deployment Packages with Java Api. It is very convinient to create such artifacts 
+- [Tinybundles](https://ops4j1.jira.com/wiki/display/ops4j/Tinybundles): is all about creating OSGi related artifacts like Bundles, Fragments and Deployment Packages with Java Api. It is very convinient to create such artifacts
 
 **Notes**:
 
