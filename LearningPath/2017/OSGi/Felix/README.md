@@ -88,6 +88,7 @@ Most common shell commands:
 The following examples, while following some of the above mentioned tutorials, all rely on [Felix 5.6.1](apache-felix-5.6.1) and since it has a small footprint (7MB) it's included in this challenge. Instead of including Felix with the challenge an alternative could be using Pax Runner?
 
 - [SimpleHelloWorldServicesPart1](SimpleHelloWorldServicesPart1/README.md)
+- [SimpleHelloWorldServicesPart2](SimpleHelloWorldServicesPart2/README.md)
 
 # Projects
 

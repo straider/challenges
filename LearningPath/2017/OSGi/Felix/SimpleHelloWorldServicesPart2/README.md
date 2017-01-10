@@ -76,7 +76,7 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
     ...
     <parent>
         <groupId>com.github.straider.osgi.felix</groupId>
-        <artifactId>simple-helloworld-services1</artifactId>
+        <artifactId>simple-helloworld-services2</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -110,13 +110,13 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
 - With packaging type set to **bundle**, provided by Maven Bundle Plugin;
 - Inheriting from parent pom.xml;
 - Depending on Common Module;
-- Declaring Bundle Activator Class.
+- Do not declare Bundle Activator Class.
 
 ```xml
     ...
     <parent>
         <groupId>com.github.straider.osgi.felix</groupId>
-        <artifactId>simple-helloworld-services1</artifactId>
+        <artifactId>simple-helloworld-services2</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -127,7 +127,7 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
 
         <dependency>
             <groupId>${project.parent.groupId}.common</groupId>
-            <artifactId>simple-helloworld-services-common1</artifactId>
+            <artifactId>simple-helloworld-services-common2</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -143,7 +143,6 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>${project.groupId}.ProducerActivator</Bundle-Activator>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>
@@ -160,13 +159,13 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
 - With packaging type set to **bundle**, provided by Maven Bundle Plugin;
 - Inheriting from parent pom.xml;
 - Depending on Common Module;
-- Declaring Bundle Activator Class.
+- Do not declare Bundle Activator Class.
 
 ```xml
     ...
     <parent>
         <groupId>com.github.straider.osgi.felix</groupId>
-        <artifactId>simple-helloworld-services1</artifactId>
+        <artifactId>simple-helloworld-services2</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -177,7 +176,7 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
 
         <dependency>
             <groupId>${project.parent.groupId}.common</groupId>
-            <artifactId>simple-helloworld-services-common1</artifactId>
+            <artifactId>simple-helloworld-services-common2</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -193,7 +192,6 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>${project.groupId}.ConsumerActivator</Bundle-Activator>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>
@@ -209,7 +207,7 @@ It's a simple project, with 3 modules - common, producer and consumer - that is 
 
 ### Common
 
-This module simply contains the common service interface:
+This module simply contains the common service interface, same as it was in Part 1:
 
 ```java
 package com.github.straider.osgi.felix.common;
@@ -225,7 +223,7 @@ public interface HelloWorldService {
 
 ### Producer
 
-This module contains the service implementation (producer) and its activactor:
+This module contains the service implementation (producer), same as it was in Part 1, and instead of its activactor it now holds a Spring Bean XML definition:
 
 ```java
 package com.github.straider.osgi.felix.producer;
@@ -241,37 +239,27 @@ public class HelloWorldServiceProducer implements HelloWorldService {
 }
 ```
 
-```java
-package com.github.straider.osgi.felix.producer;
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns              = "http://www.springframework.org/schema/beans"
+       xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:osgi         = "http://www.springframework.org/schema/osgi"
+       xmlns:context      = "http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://www.springframework.org/schema/osgi    http://www.springframework.org/schema/osgi/spring-osgi.xsd
+                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
 
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceRegistration;
+    <bean id = "producer" class = "com.github.straider.osgi.felix.producer.HelloWorldServiceProducer" />
 
-import static com.github.straider.osgi.felix.common.HelloWorldService.INTERFACE_NAME;
+    <osgi:service ref = "producer" interface = "com.github.straider.osgi.felix.common.HelloWorldService" />
 
-public class ProducerActivator implements BundleActivator {
-
-    private ServiceRegistration registration;
-
-    @Override
-    public void start( final BundleContext bundleContext ) throws Exception {
-        final HelloWorldServiceProducer service = new HelloWorldServiceProducer();
-
-        registration = bundleContext.registerService( INTERFACE_NAME, service, null );
-    }
-
-    @Override
-    public void stop( final BundleContext bundleContext ) throws Exception {
-        registration.unregister();
-    }
-
-}
+</beans>
 ```
 
 ### Consumer
 
-This module contains the service client (consumer) and its activator:
+This module contains the service client (consumer), same as it was in Part 1, and instead of its activactor it now holds a Spring Bean XML definition:
 
 ```java
 package com.github.straider.osgi.felix.consumer;
@@ -310,34 +298,29 @@ public class HelloWorldServiceConsumer implements ActionListener {
 }
 ```
 
-```java
-package com.github.straider.osgi.felix.consumer;
+```xml
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns              = "http://www.springframework.org/schema/beans"
+       xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:osgi         = "http://www.springframework.org/schema/osgi"
+       xmlns:context      = "http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://www.springframework.org/schema/osgi    http://www.springframework.org/schema/osgi/spring-osgi.xsd
+                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
 
-import com.github.straider.osgi.felix.common.HelloWorldService;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
+    <bean id             = "consumer"
+          class          = "com.github.straider.osgi.felix.consumer.HelloWorldServiceConsumer"
+          init-method    = "startTimer"
+          destroy-method = "stopTimer"
+          lazy-init      = "false"
+    >
+        <constructor-arg ref = "service" />
+    </bean>
 
-import static com.github.straider.osgi.felix.common.HelloWorldService.INTERFACE_NAME;
+    <osgi:reference id = "service" interface = "com.github.straider.osgi.felix.common.HelloWorldService" />
 
-public class ConsumerActivator implements BundleActivator {
-
-    private HelloWorldServiceConsumer consumer;
-
-    @Override
-    public void start( final BundleContext bundleContext ) throws Exception {
-        final ServiceReference service = bundleContext.getServiceReference( INTERFACE_NAME );
-
-        consumer = new HelloWorldServiceConsumer( ( HelloWorldService ) bundleContext.getService( service ) );
-        consumer.startTimer();
-    }
-
-    @Override
-    public void stop( final BundleContext bundleContext ) throws Exception {
-        consumer.stopTimer();
-    }
-
-}
+</beans>
 ```
 
 ## Build
@@ -353,9 +336,9 @@ mvn clean package
 To deploy on Felix issue the following commands inside its Gogo Shell, after starting it from the felix-5.6.1/ folder:
 
 ```bash
-install ../SimpleHelloWorldServicesPart1/common/target/simple-helloworld-services-common1-1.0.0.jar
-install ../SimpleHelloWorldServicesPart1/producer/target/simple-helloworld-services-producer1-1.0.0.jar
-install ../SimpleHelloWorldServicesPart1/consumer/target/simple-helloworld-services-consumer1-1.0.0.jar
+install ../SimpleHelloWorldServicesPart2/common/target/simple-helloworld-services-common2-1.0.0.jar
+install ../SimpleHelloWorldServicesPart2/producer/target/simple-helloworld-services-producer2-1.0.0.jar
+install ../SimpleHelloWorldServicesPart2/consumer/target/simple-helloworld-services-consumer2-1.0.0.jar
 ```
 
 ## Launch
@@ -363,8 +346,10 @@ install ../SimpleHelloWorldServicesPart1/consumer/target/simple-helloworld-servi
 To start the bundles issue the following command inside Felix Gogo Shell:
 
 ```bash
-start 6 7
+start 18 19
 ```
+
+**Note**: it was necessary to add Spring Dynamic Module bundles to Felix and that's why the bundle IDs no longer start at 5 and start instead at 17.
 
 The output should be:
 
@@ -383,7 +368,7 @@ Hello, World!
 ...
 ```
 
-**Note**: bare in mind that bundle simple-helloworld-services-common1-1.0.0.jar is a fragmented bundle and is not startable;
+**Note**: bare in mind that bundle simple-helloworld-services-common2-1.0.0.jar is a fragmented bundle and is not startable;
 
 # Challenges
 

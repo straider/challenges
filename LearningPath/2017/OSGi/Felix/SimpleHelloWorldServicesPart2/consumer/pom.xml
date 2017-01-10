@@ -24,7 +24,7 @@
 
         <dependency>
             <groupId>${project.parent.groupId}.common</groupId>
-            <artifactId>simple-helloworld-services-common1</artifactId>
+            <artifactId>simple-helloworld-services-common2</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -40,7 +40,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>${project.groupId}.ConsumerActivator</Bundle-Activator>
                         <Bundle-Vendor>straider</Bundle-Vendor>
                     </instructions>
                 </configuration>
