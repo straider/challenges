@@ -16,11 +16,8 @@
     - [PojoSR](https://github.com/lefou/pojosr) @ GitHub
     - [PojoSR brings Service Registry to Java](https://www.infoq.com/news/2011/10/pojosr)
     - [Using PojoSR for unit testing OSGi bundles](https://kgilmersden.wordpress.com/2011/12/15/using-pojosr-for-unit-testing-osgi-bundles/)
-- [Apache Felix OSGi Tutorial](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html)
 - [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
 - [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
-- [OSGi and Spring, Part 1: Build and deploy OSGi bundles using Apache Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring1/)
-- [OSGi and Spring: Part 2: Build and deploy OSGi as Spring bundles using Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring2/)
 - [Getting started with Spring-OSGi — part 1](http://lsd.luminis.eu/en/getting-started-with-spring-osgi/)
 - [Getting started with Spring-OSGi — part 2](http://lsd.luminis.eu/en/getting-started-with-spring-osgi-part-2/)
 - [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
@@ -30,18 +27,15 @@
 
 ### Maven
 
-- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
 - [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin) is used to run concrete Apache Felix configuration with installed OSGi bundles.
 - [Apache Felix Sigil](http://felix.apache.org/documentation/subprojects/apache-felix-sigil.html)
+- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
 
 ## Equinox
 
 - [Equinox](http://www.eclipse.org/equinox/) is an implementation of the OSGi core framework specification, a set of bundles that implement various optional OSGi services and other infrastructure for running OSGi-based systems. The Equinox OSGi core framework implementation is used as the reference implementation and as such it implements all the required features of the latest OSGi core framework specification.
 - [Concierge](http://www.eclipse.org/proposals/rt.concierge/) is an alternative implementation to Equinox of the OSGi core framework and can serve as the sandbox for experimental work on the OSGi core which can later be adopted by Equinox.
 - [OSGi Component Programming](https://github.com/osgi/eclipsecon/tree/master/2006/tutorial)
-- [OSGi Modularity - Tutorial](http://www.vogella.com/tutorials/OSGi/article.html)
-- [OSGi Services - Tutorial](http://www.vogella.com/tutorials/OSGiServices/article.html)
-- [OSGi Using Maven with Equinox](https://www.javacodegeeks.com/2011/06/osgi-using-maven-equinox.html)
 - [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
 - [Hello, OSGi, Part 1: Bundles for beginners](http://www.javaworld.com/article/2077837/java-se/java-se-hello-osgi-part-1-bundles-for-beginners.html)
 - [Hello, OSGi, Part 2: Introduction to Spring Dynamic Modules](http://www.javaworld.com/article/2077853/java-se/java-se-hello-osgi-part-2-introduction-to-spring-dynamic-modules.html)
@@ -51,20 +45,18 @@
 
 ### Maven
 
-- [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
 - [Tycho](https://eclipse.org/tycho/) is a set of Maven plugins and extensions for building Eclipse plugins and OSGi bundles with Maven.
+- [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
+- [OSGi Using Maven with Equinox](https://www.javacodegeeks.com/2011/06/osgi-using-maven-equinox.html)
 
 ## Knopflerfish
 
 - [Knopflerfish](http://www.knopflerfish.org/)
-- [OSGi Service tutorial](http://www.knopflerfish.org/osgi_service_tutorial.html)
 
 ## Karaf
 
 - [Karaf](http://karaf.apache.org/)
 - [A Brief History of Apache Karaf](http://icodebythesea.blogspot.co.uk/2011/01/brief-history-of-apache-karaf.html)
-- [Karaf:Step by Step Guide](https://wiki.opendaylight.org/view/Karaf:Step_by_Step_Guide)
-- [Karaf Tutorials](http://liquid-reality.de/display/liquid/Karaf+Tutorials)
 - [Creating OSGI bundles and services from the ground up using Apache Karaf](http://kevinboone.net/osgitest.html)
 - [Dynamic configuration of OSGi bundles running on Apache Karaf, from the ground up](http://kevinboone.net/osgitest2.html)
 - [Creating a plugin system with Karaf and OSGi µServices](https://blog.doubleslash.de/creating-a-plugin-system-with-karaf-and-osgi-%C2%B5services/)
