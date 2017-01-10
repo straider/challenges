@@ -1,0 +1,43 @@
+<project xmlns              = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.straider.osgi.felix</groupId>
+        <artifactId>simple-helloworld-services1</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <groupId>com.github.straider.osgi.felix.common</groupId>
+    <artifactId>simple-helloworld-services-common1</artifactId>
+    <version>1.0.0</version>
+    <name>Felix Simple Hello World Services - Part 1 - Common</name>
+    <description>Simple Hello World Service Common bundle running on Felix.</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/OSGi/Felix/SimpleHelloWorldServicesPart1</url>
+    
+    <packaging>bundle</packaging>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>${project.groupId}</Export-Package>
+                        <Bundle-Vendor>straider</Bundle-Vendor>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+    
+</project>

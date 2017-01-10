@@ -30,6 +30,9 @@ Most common shell commands:
 
 ## Are there any alternatives?
 
+- [Equinox](http://www.eclipse.org/equinox/), which has replaced Felix as the OSGi Framework Reference Implementation
+- [Knopflerfish](http://www.knopflerfish.org/)
+
 ## History
 
 | Version | OSGi Specification | Release date       |
@@ -65,8 +68,11 @@ Most common shell commands:
 - [OSGi and Apache Felix 3.0](http://javabeat.net/osgi-and-apache-felix-3-0/)
 - [Apache Felix - OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
 - [Apache Felix - Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
+- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
 
 ### Bundles
+
+- [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
 
 ### Testing
 
@@ -74,12 +80,14 @@ Most common shell commands:
 
 - [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin) is used to run concrete Apache Felix configuration with installed OSGi bundles.
 - [Apache Felix Sigil](http://felix.apache.org/documentation/subprojects/apache-felix-sigil.html)
-- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
-- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
 
 ## Books
 
 # Examples
+
+The following examples, while following some of the above mentioned tutorials, all rely on [Felix 5.6.1](apache-felix-5.6.1) and since it has a small footprint (7MB) it's included in this challenge. Instead of including Felix with the challenge an alternative could be using Pax Runner?
+
+- [SimpleHelloWorldServicesPart1](SimpleHelloWorldServicesPart1/README.md)
 
 # Projects
 
