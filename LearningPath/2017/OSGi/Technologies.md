@@ -1,19 +1,43 @@
-:: OSGi :: Projects ::
-======================
+:: OSGi :: Technologies ::
+==========================
+
+# Framework Implementations
+
+## Oscar
 
 - [Oscar](https://projects.ow2.org/bin/view/oscar-osgi/) is an open source implementation of the Open Services Gateway Initiative (OSGi) framework
 - [Oscar Bundle Repository](http://oscar-osgi.sourceforge.net/)
 
-# Framework Implementations
+## Felix
 
-## [Felix](Servers/Felix/README.md)
+- [Apache Felix](http://felix.apache.org/)
+- [Apache Felix](https://github.com/apache/felix) @ GitHub
+- [pojosr](https://code.google.com/archive/p/pojosr/) is service registry that enables OSGi style service registry programs without using an OSGi framework. The current implementation is based in parts on Apache Felix and is a work in progress.
+    - [PojoSR](https://github.com/lefou/pojosr) @ GitHub
+    - [PojoSR brings Service Registry to Java](https://www.infoq.com/news/2011/10/pojosr)
+    - [Using PojoSR for unit testing OSGi bundles](https://kgilmersden.wordpress.com/2011/12/15/using-pojosr-for-unit-testing-osgi-bundles/)
+- [Apache Felix OSGi Tutorial](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html)
+- [OSGi - Simple Hello World with services](http://baptiste-wicht.com/posts/2010/07/osgi-hello-world-services.html)
+- [OSGi and Spring Dynamic Modules - Simple Hello World](http://baptiste-wicht.com/posts/2010/07/osgi-spring-dynamic-modules-hello-world.html)
+- [OSGi and Spring, Part 1: Build and deploy OSGi bundles using Apache Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring1/)
+- [OSGi and Spring: Part 2: Build and deploy OSGi as Spring bundles using Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring2/)
+- [Getting started with Spring-OSGi — part 1](http://lsd.luminis.eu/en/getting-started-with-spring-osgi/)
+- [Getting started with Spring-OSGi — part 2](http://lsd.luminis.eu/en/getting-started-with-spring-osgi-part-2/)
+- [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
+- [OSGi and Apache Felix 3.0](http://javabeat.net/osgi-and-apache-felix-3-0/)
+- [Apache Felix - OSGi Service Platform](https://eureka.ykyuen.info/2010/03/11/apache-felix-osgi-service-platform/)
+- [Apache Felix - Register OSGi Service](https://eureka.ykyuen.info/2010/03/13/apache-felix-register-osgi-service/)
+
+### Maven
+
+- [Maven - Create a OSGi bundle using maven-bundle-plugin](https://eureka.ykyuen.info/2010/03/12/maven-create-a-osgi-bundle-using-maven-bundle-plugin/)
+- [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin) is used to run concrete Apache Felix configuration with installed OSGi bundles.
+- [Apache Felix Sigil](http://felix.apache.org/documentation/subprojects/apache-felix-sigil.html)
 
 ## Equinox
 
 - [Equinox](http://www.eclipse.org/equinox/) is an implementation of the OSGi core framework specification, a set of bundles that implement various optional OSGi services and other infrastructure for running OSGi-based systems. The Equinox OSGi core framework implementation is used as the reference implementation and as such it implements all the required features of the latest OSGi core framework specification.
 - [Concierge](http://www.eclipse.org/proposals/rt.concierge/) is an alternative implementation to Equinox of the OSGi core framework and can serve as the sandbox for experimental work on the OSGi core which can later be adopted by Equinox.
-- [Tutorial: Using REST and OSGi Standards for Micro Services](https://wiki.eclipse.org/Tutorial:_Using_REST_and_OSGi_Standards_for_Micro_Services)
-- [Tutorial: Exposing a Jax REST service as an OSGi Remote Service](https://wiki.eclipse.org/Tutorial:_Exposing_a_Jax_REST_service_as_an_OSGi_Remote_Service)
 - [OSGi Component Programming](https://github.com/osgi/eclipsecon/tree/master/2006/tutorial)
 - [OSGi Modularity - Tutorial](http://www.vogella.com/tutorials/OSGi/article.html)
 - [OSGi Services - Tutorial](http://www.vogella.com/tutorials/OSGiServices/article.html)
@@ -24,7 +48,11 @@
 - [Hello, OSGi, Part 3: Take it to the server side](http://www.javaworld.com/article/2077868/java-se/java-se-hello-osgi-part-3-take-it-to-the-server-side.html)
 - [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
 - [Creating an OSGi bundle](http://underlap.blogspot.co.uk/2007/01/creating-osgi-bundle.html)
+
+### Maven
+
 - [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
+- [Tycho](https://eclipse.org/tycho/) is a set of Maven plugins and extensions for building Eclipse plugins and OSGi bundles with Maven.
 
 ## Knopflerfish
 
@@ -39,28 +67,15 @@
 - [Karaf Tutorials](http://liquid-reality.de/display/liquid/Karaf+Tutorials)
 - [Creating OSGI bundles and services from the ground up using Apache Karaf](http://kevinboone.net/osgitest.html)
 - [Dynamic configuration of OSGi bundles running on Apache Karaf, from the ground up](http://kevinboone.net/osgitest2.html)
-- [Implementing an Apache Camel route in an OSGi Java bundle from the ground up](http://kevinboone.net/karafcameltest.html)
-- [Implementing an Apache Camel route in an OSGi Java bundle using Maven from the ground up](http://kevinboone.net/camelosgimaventest.html)
 - [Creating a plugin system with Karaf and OSGi µServices](https://blog.doubleslash.de/creating-a-plugin-system-with-karaf-and-osgi-%C2%B5services/)
 - [Combining Karaf Features, PAX URL, and Maven to deploy a plain JAR as an OSGi bundle](https://davidvaleri.wordpress.com/2010/08/13/combining-karaf-features-pax-url-and-maven-to-deploy-a-plain-jar-as-an-osgi-bundle/)
 - [Integration Testing OSGi Bundles in Apache Karaf/ServiceMix with Pax Exam 3](https://davidvaleri.wordpress.com/2013/09/17/integration-testing-osgi-bundles-in-apache-karafservicemix-with-pax-exam-3/)
-- [Implementing a Web Service using CXF in an OSGi bundle](http://kevinboone.net/suntimes_ws.html)
-- [RESTful web-services in OSGi container: meet Karaf and CXF](http://deemson.blogspot.co.uk/2013/09/restful-web-services-in-osgi-container.html)
-- [Building CXF REST service in OSGi for Karaf](http://rerun.me/2013/09/01/building-cxf-rest-service-in-osgi-for-karaf/)
-- [Building Camel-CXF REST Service in OSGi for Karaf – Multicasting and Aggregation](http://rerun.me/2013/10/20/building-camel-cxf-rest-service-in-osgi-for-karaf-multicasting-and-aggregation/)
 - [Understand OSGI Bundle Build And Deployment](http://ggl-consulting.blogspot.co.uk/2014/02/understand-osgi-bundle-build-and.html)
 - [OSGi Bundle Using Blueprint Dymisfied](http://ggl-consulting.blogspot.co.uk/2014/02/osgi-bundle-using-blueprint-dymisfied.html)
-- [Create Apache Camel OSGi Bundle Maven Project From Scratch](http://ggl-consulting.blogspot.co.uk/2014/02/create-apache-camel-osgi-bundle-maven.html)
-- [Develop RESTful Web Service Using Camel-CXF As OSGi bundle](http://ggl-consulting.blogspot.co.uk/2014/03/develop-restful-web-service-using-camel.html)
-- [Develop SOAP Web Service As OSGi Bundle With Camel-CXF](http://ggl-consulting.blogspot.co.uk/2014/03/develop-soap-web-service-as-osgi-bundle.html)
-- [Step by Step: How to bring JAX-RS and OSGi together](http://eclipsesource.com/blogs/2014/02/04/step-by-step-how-to-bring-jax-rs-and-osgi-together/)
-- [Developing a REST Service in Apache Karaf](http://www.modio.io/developing-a-rest-service-in-apache-karaf-part-1/)
-- [Web Applications with OSGi – Static Files](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-static-files/)
-- [Web Applications with OSGi – Working with Jersey](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-working-with-jersey/)
-- [Web Applications with OSGi – Working with Jersey and iPojo](https://vzurczak.wordpress.com/2014/09/30/web-applications-with-osgi-working-with-jersey-and-ipojo/)
-- [tutorial-osgi-camel-part1](http://camel.apache.org/tutorial-osgi-camel-part1.html)
-- [tutorial-osgi-camel-part2](http://camel.apache.org/tutorial-osgi-camel-part2.html)
-- [CXF Example OSGi](http://camel.apache.org/cxf-example-osgi.html)
+
+### Maven
+
+- [Do you know the Apache Karaf Maven plugins?](http://blog.nanthrax.net/2011/12/do-you-know-the-apache-karaf-maven-plugins/)
 
 ## Virgo
 
@@ -69,21 +84,12 @@
 - [On OSGi, Spring And Eclipse Virgo](http://www.onegeek.com.au/articles/programming/on-osgi-spring-and-eclipse-virgo)
 - [Why dm Server Is Moving To Eclipse](https://jaxenter.com/adrian-colyer-why-dm-server-is-moving-to-eclipse-100111.html)
 
-## Carbon
-
-- [WSO2 Carbon](http://wso2.com/products/carbon/)
-
 # Blueprints
 
 - [Spring and OSGi](http://dkacetl.blogspot.co.uk/2016/01/spring-and-osgi.html)
 - [Spring-DM, Aries Blueprint and custom namespaces](http://gnodet.blogspot.co.uk/2010/03/spring-dm-aries-blueprint-and-custom.html)
-- [JAX-RS applications in OSGi – whiteboard style](http://www.jeremias-maerki.ch/wordpress/2011/08/20/jaxrs-applications-in-osgi-whiteboard-style/)
-- [Deploying Apache CXF services using Whiteboard Pattern in OSGi Container](https://nadirsaghar.wordpress.com/2013/07/31/deploying-apache-cxf-services-using-whiteboard-pattern-in-osgi-container/)
 - [Building OSGi applications with the Blueprint Container specification](https://www.ibm.com/developerworks/library/os-osgiblueprint/)
 - [Blueprint and Service Dynamism in OSGi](http://javabeat.net/blueprint-and-service-dynamism-in-osgi/)
-- [Jumpstarting Camel Blueprint Testing](http://www.sixtree.com.au/articles/2016/jumpstarting-camel-blueprint-testing/)
-- [Testing (utest and itest) Apache Camel Blueprint route](http://blog.nanthrax.net/2014/08/testing-utest-and-itest-apache-camel-blueprint-route/)
-- [Camel Blueprint test support](http://ggrzybek.blogspot.co.uk/2015/12/camel-blueprint-test-support.html)
 - [What are the differences between Camel Spring and Blueprint xml configuration?](http://fuseesb.blogspot.co.uk/2014/10/what-is-differences-between-camel.html)
 
 ## Spring Dynamic Modules
@@ -115,11 +121,8 @@
 - [Blueprint No-OSGi](http://aries.apache.org/modules/blueprintnoosgi.html)
 - [Blueprint tutorial](http://aries.apache.org/documentation/tutorials/blueprinthelloworldtutorial.html)
 - [The Greeter Tutorial](http://aries.apache.org/documentation/tutorials/greetertutorial.html)
-- [Apache CXF and Aries Blueprint Everywhere](http://sberyozkin.blogspot.co.uk/2015/10/apache-cxf-and-aries-blueprint.html)
-- [Creating a CXF REST service with Camel Blueprint](https://capgemini.github.io/development/creating-a-cxf-restful-service-in-camel-blueprint/)
-- [Using OSGi blueprint with Camel](https://camel.apache.org/using-osgi-blueprint-with-camel.html)
 
-# Plugins
+# Tools
 
 ## Maven
 
@@ -129,8 +132,6 @@
 - [Bundle Maven Plugin](http://felix.apache.org/components/bundle-plugin/index.html)
     - [Secrets of The Felix Bundle Plug-in Macros Revealed](https://davidvaleri.wordpress.com/2011/04/07/secrets-of-the-felix-bundle-plug-in-macros-revealed/)
     - [Release an OSGI Bundle into an OBR with Maven](http://www.flexthinker.com/2012/06/release-an-osgi-bundle-into-an-obr-with-maven/)
-- [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin)
-- [Do you know the Apache Karaf Maven plugins?](http://blog.nanthrax.net/2011/12/do-you-know-the-apache-karaf-maven-plugins/)
 - [Maven Launchpad Plugin](http://sling.apache.org/site/maven-launchpad-plugin.html)
 - [OPS4J - Open Participation for Java](https://github.com/ops4j)
     - [Pax Construct](https://ops4j1.jira.com/wiki/display/paxconstruct/Pax+Construct)
@@ -144,8 +145,6 @@
         - [Pax Runner Profiles and Distributed OSGi](http://www.jroller.com/habuma/entry/pax_runner_profiles_and_distributed)
         - [Getting started with Pax Runner](https://thecarlhall.wordpress.com/2012/07/10/getting-started-with-pax-unner/)
     - [Pax Cursor](https://ops4j1.jira.com/wiki/display/ops4j/Pax+Cursor) is an Eclipse Plugin that adds Eclipse launch configurations for all platforms / versions supported by Pax Runner. Starting with May 28, 2009 Pax Cursor has been merged into Pax Runner as Pax Runner Plugin for Eclipse.
-- [Apache Felix Sigil](http://felix.apache.org/documentation/subprojects/apache-felix-sigil.html)
-- [Tycho](https://eclipse.org/tycho/) is a set of Maven plugins and extensions for building Eclipse plugins and OSGi bundles with Maven.
 
 ## Gradle Plugins
 
@@ -163,7 +162,7 @@ on-the-fly inside Tests (like in Pax Exam).
     - [Maven-junit4OSGi-plugin](http://felix.apache.org/documentation/subprojects/apache-felix-ipojo/apache-felix-ipojo-junit4osgi/apache-felix-ipojo-junit4osgi-maven.html)
 - [The Junit4OSGi - Pax:Exam mix](http://ipojo-dark-side.blogspot.co.uk/2009/05/junit4osgi-paxexam-mix.html)
 - [Pax Drone](https://ops4j1.jira.com/wiki/display/ops4j/Pax+Drone) (JUnit 3)
-- [Pax Exam](https://ops4j1.jira.com/wiki/display/PAXEXAM4/Pax+Exam) (JUnit 4(
+- [Pax Exam](https://ops4j1.jira.com/wiki/display/PAXEXAM4/Pax+Exam) (JUnit 4)
     - [Getting Started with OSGi Tests](https://ops4j1.jira.com/wiki/display/PAXEXAM3/Getting+Started+with+OSGi+Tests)
     - [OSGi Containers](https://ops4j1.jira.com/wiki/display/PAXEXAM3/OSGi+Containers)
     - [Pax Exam - Tutorial 1](https://ops4j1.jira.com/wiki/display/paxexam/Pax+Exam+-+Tutorial+1)
@@ -179,15 +178,3 @@ on-the-fly inside Tests (like in Pax Exam).
 - JUnit4OSGi is part of iPOJO which is a sub-project of Apache Felix, relies on JUnit 3 (although there's a JIRA issue to support JUnit 4 and TestNG) and runs the tests inside a Felix container;
 - Spring-DM (Dynamic Modules) Test is deprecated by Eclipse Gemini, relies on JUnit 3 and uses Equinox by default, although it's possible to switch to Felix or Knopflerfish;
 - Pax-Exam 3 or 4 relies on JUnit 4.
-
-## Assorted
-
-- [Is your OSGi toolset Pax'd out?](http://www.jroller.com/habuma/entry/is_your_osgi_toolset_pax)
-    - [Pax Web](https://ops4j1.jira.com/wiki/display/paxweb/Pax+Web)
-    - [Pax Logging](https://ops4j1.jira.com/wiki/display/paxlogging/Pax+Logging)
-    - [Pax URL](https://ops4j1.jira.com/wiki/display/paxurl/Pax+URL)
-        - [Provision your build directory as an OSGi bundle](https://adreghiciu.wordpress.com/2009/09/05/provision-your-build-directory-as-an-osgi-bundle/)
-        - [Install your build directory as a bundle in Apache Felix](https://adreghiciu.wordpress.com/2009/09/06/install-your-directory-as-a-bundle-in-apache-felix/)
-- [OSGi - JAX-RS Connector](https://github.com/hstaudacher/osgi-jax-rs-connector)
-- [Apache CXF Distributed OSGi](http://cxf.apache.org/distributed-osgi.html) subproject provides CXF based distribution providers for Aries Remote Service Admin (RSA).
-    - [Develop and Deploy Web Services as OSGi Bundles](https://www.ibm.com/developerworks/library/ws-OSGi/)
