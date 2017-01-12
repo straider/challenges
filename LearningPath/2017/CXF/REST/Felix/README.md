@@ -64,13 +64,69 @@ Edit the project artifact, name, description and URL and replace **Standalone** 
 
 Also clear the profiles - these will be added later on.
 
+#### 2nd version
+
+Add org.osgi.core 6.0.0 dependency and remove slf4j-simple dependency:
+
+```xml
+    ...
+
+    <properties>
+        ...
+
+        <osgi.version>6.0.0</osgi.version>
+        ...
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.version}</version>
+        </dependency>
+        
+        ...
+    </dependencies>
+
+    ...
+```
+
 ### Gradle
 
 ## Components
 
 ### Base / Foundation
 
-### Server
+### BundleActivator
+
+Replace the Server class with a GreeterActivator:
+
+```java
+package com.github.straider.java.ws.cxf;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
+
+public class GreeterActivator implements BundleActivator {
+
+    private ServiceRegistration registration;
+
+    @Override
+    public void start( final BundleContext bundleContext ) throws Exception {
+        final GreetingService service = new GreetingService();
+
+        registration = bundleContext.registerService( GreetingService.class.getName(), service, null );
+    }
+
+    @Override
+    public void stop( final BundleContext bundleContext ) throws Exception {
+        registration.unregister();
+    }
+
+}
+```
 
 ### Client
 
