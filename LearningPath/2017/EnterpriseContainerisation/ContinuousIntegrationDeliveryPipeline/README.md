@@ -5,10 +5,8 @@
 
 ## Concepts
 
-# PaaS
+# Servers
 
-## OpenShift
+## Hudson
 
-### Hudson
-
-### Jenkins
+## Jenkins
