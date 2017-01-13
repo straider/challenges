@@ -16,6 +16,7 @@
 - [Concierge](http://www.eclipse.org/proposals/rt.concierge/) is an alternative implementation to Equinox of the OSGi core framework and can serve as the sandbox for experimental work on the OSGi core which can later be adopted by Equinox.
 - [OSGi: An Introduction](https://www.javacodegeeks.com/2012/01/osgi-introduction.html)
 - [Creating an OSGi bundle](http://underlap.blogspot.co.uk/2007/01/creating-osgi-bundle.html)
+- [Step by Step: How to bring JAX-RS and OSGi together](http://eclipsesource.com/blogs/2014/02/04/step-by-step-how-to-bring-jax-rs-and-osgi-together/)
 
 ### Maven
 
@@ -46,6 +47,7 @@
 
 ## Spring Dynamic Modules
 
+- [Spring OSGi 1.1.2](https://sourceforge.net/projects/springframework/files/spring-osgi/1.1.2/)
 - [Spring Dynamic Modules reaches 1.0!](https://spring.io/blog/2008/01/25/spring-dynamic-modules-reaches-1-0)
 - [Spring Dynamic Modules 1.0 is here](https://spring.io/blog/2008/01/25/spring-dynamic-modules-1-0-is-here) (formerly known as Spring OSGi)
 - [Spring Dynamic Modules Reference Guide](http://docs.spring.io/osgi/docs/current/reference/html/)
@@ -75,6 +77,11 @@
 - [The Greeter Tutorial](http://aries.apache.org/documentation/tutorials/greetertutorial.html)
 
 # Tools
+
+## OBR Managers
+
+- [Eclipse Package Drone](https://github.com/eclipse/packagedrone)
+- [Karaf Cave](https://karaf.apache.org/projects.html#cave)
 
 ## Maven
 
