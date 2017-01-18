@@ -20,14 +20,14 @@ This option installs OpenShift Container Platform 3.3:
 
 ## Requirements
 
-- [VirtualBox](https://www.virtualbox.org/) 5.0.30;
-- [Vagrant](https://www.vagrantup.com/) 1.9.1;
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
+- [Vagrant](https://www.vagrantup.com/) 1.8.7;
 
 # Steps
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
 
-Edit the Vagrantfile and set BOX_NAME, PUBLIC_ADDRESS and IMAGE_TAG properties to oscp-3.3, 10.1.0.100 and v3.3.1.7, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
+Edit the Vagrantfile and set BOX_NAME property to oscp-3.3, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
 
 ```bash
 cd /cygdrive/c/[CDK_FOLDER]/
@@ -127,6 +127,21 @@ This will require a Cygwin or MinGW environment, although technical any kind of 
 
 Install Cygwin x64, with openssh, rsync and chere.
 It may require libusb0.
+
+## No Enabled Repos
+
+If the following error occurs it's because during ```vagrant up``` the machine was not registered at Red Hat.
+
+```
+There are no enabled repos.
+ Run "yum repolist all" to see the repos you have.
+ To enable Red Hat Subscription Management repositories:
+     subscription-manager repos --enable <repo>
+ To enable custom repositories:
+     yum-config-manager --enable <repo>
+```
+
+Either set environment variables SUB_USERNAME and SUB_PASSWORD or provide those credentials when asked.
 
 ## Unable to access OpenShift Console
 

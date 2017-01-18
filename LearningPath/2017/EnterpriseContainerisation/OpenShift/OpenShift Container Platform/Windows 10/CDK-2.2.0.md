@@ -3,17 +3,17 @@
 
 # Overview
 
-This option installs OpenShift Container Platform 3.3:
-- Download [Red Hat CDK 2.3.0](http://developers.redhat.com/download-manager/file/cdk-2.3.0.zip), which requires a valid Red Hat Portal account;
-- Download [RHEL 7.3 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.3-32.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account;
-- Unzip cdk-2.3.0.zip;
-- Put the RHEL 7.3 Vagrant Box file inside the components/rhel/ sub-folder of the CDK folder;
+This option installs OpenShift Container Platform 3.2:
+- Download [Red Hat CDK 2.2.0](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip), which requires a valid Red Hat Portal account;
+- Download [RHEL 7.2 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account;
+- Unzip cdk-2.2.0.zip;
+- Put the RHEL 7.2 Vagrant Box file inside the components/rhel/ sub-folder of the CDK folder;
 - Install required Vagrant plugins;
-- Add RHEL 7.3 box to Vagrant;
+- Add RHEL 7.2 box to Vagrant;
 - Set Environment Variables:
     - Set CDK Memory;
     - Set Red Hat Portal Subscription credentials.
-- Startup Vagrant RHEL 7.3 CDK box;
+- Startup Vagrant RHEL 7.2 CDK box;
 - Verify installation by accessing OpenShift Console.
 
 > Red Hat Container Development Kit provides a pre-built Container Development Environment based on Red Hat Enterprise Linux to help you develop container-based (sometimes called Docker) applications quickly. The containers you build can be easily deployed on any Red Hat container host or platform, including: Red Hat Enterprise Linux, Red Hat Enterprise Linux Atomic Host, and our platform-as-a-service solution, OpenShift Enterprise 3.
@@ -27,17 +27,17 @@ This option installs OpenShift Container Platform 3.3:
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
 
-Edit the Vagrantfile and set BOX_NAME, PUBLIC_ADDRESS and IMAGE_TAG properties to oscp-3.3, 10.1.0.100 and v3.3.1.7, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
+Edit the Vagrantfile and set BOX_NAME, PUBLIC_ADDRESS and IMAGE_TAG properties to oscp-3.2, 10.1.0.100 and v3.3.1.7, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
 
 ```bash
 cd /cygdrive/c/[CDK_FOLDER]/
 
-# Install Vagrant Red Hat Plugins and Create Box for RHEL 7.3.
+# Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
 cd plugins
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 vagrant plugin list
 cd ..\components\rhel
-vagrant box add --name oscp-3.3 rhel-cdk-kubernetes-7.3-32.x86_64.vagrant-virtualbox.box
+vagrant box add --name oscp-3.2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
 vagrant box list
 
 # Set CDK Memory.
@@ -47,19 +47,19 @@ export VM_MEMORY=6000
 export SUB_USERNAME=[SUB_USERNAME]
 export SUB_PASSWORD=[SUB_PASSWORD]
 
-# Startup RHEL 7.3 Vagrant box.
+# Startup RHEL 7.2 Vagrant box.
 cd rhel-ose
 vagrant up
 
-# Connect to RHEL 7.3 Vagrant box.
+# Connect to RHEL 7.2 Vagrant box.
 vagrant ssh
 ```
 
 Where:
-- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0```;
+- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.2.0```;
 - [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
 
-**Note**: The oscp-3.3 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
+**Note**: The oscp-3.2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
 # Validation
 
@@ -71,10 +71,10 @@ docker ps
 
 Verify that the following images exist:
 - 1x of prom/haproxy-exporter:latest
-- 1x of openshift3/ose-docker-registry:v3.3.1.7
-- 1x of openshift3/ose-haproxy-router:v3.3.1.7
-- 2x of openshift3/ose-pod:vv3.3.1.7
-- 1x of registry.access.redhat.com/openshift3/ose:v3.3.1.7
+- 1x of openshift3/ose-docker-registry:v3.2.1.7
+- 1x of openshift3/ose-haproxy-router:v3.2.1.7
+- 2x of openshift3/ose-pod:vv3.2.1.7
+- 1x of registry.access.redhat.com/openshift3/ose:v3.2.1.7
 
 ```bash
 oc login --username=admin --password=admin

@@ -30,6 +30,14 @@ Settings:
 - New Document: Format: Unix;
 - Language: Tab size 4, replaced by space.
 
+Update Plugin Manager and use it to install these plugins:
+- [NppFTP 0.26.3](http://ashkulz.github.io/NppFTP/);
+- [TextFX 0.2.6](http://textfx.no-ip.com/textfx/)
+- [Tidy2 0.2](http://code.google.com/p/npp-tidy2/)
+- [XML Tools 2.4.8]()
+
+**Note**: configure Plugin Manager to install plugins for all users.
+
 ### MdCharm
 
 Settings;
@@ -62,6 +70,10 @@ Restore profile from latest backup.
 - Uncheck "Make Bing my search engine";
 - Uncheck "Make MSN my homepage".
 
+After installation then go to Tools -> Options -> Advanced -> Connection and uncheck "Use port 80 and 443 for additional incoming connections".
+
+**Note**: to prevent Skype from starting with Windows then uncheck "Start Skype when I start Windows" option in the General settings tab.
+
 ### PuTTY
 
 ## Hosting
@@ -75,6 +87,21 @@ After installation, configure mintty:
     - Font: Consolas 9;
     - Locale: en_GE with UTF-8.
 - Windows: 120x45 (on 1366x768 displays).
+
+Start Cygwin as Administrator, which will gather Windows Groups and User, and issue the following command  to install chere:
+
+```bash
+chere -in -t mintty -e "Cygwin Here"
+```
+
+If the following error occurs it's because of Windows UAC (permissions) and Cygwin must be run as Administrator:
+
+```
+Error (5): Access is denied.
+
+/usr/bin/chere Error: Hive not writable
+/usr/bin/chere: Aborting.
+```
 
 ### MinGW
 
@@ -126,11 +153,29 @@ Install to ```C:\Hosting\VirtualBox\```.
 **Note**: make sure that C:\Hosting\ is not read-only and user has full control.
 
 After installation change preferences:
-- General: Default Machine Folder: ```C:\Hosting\VirtualBox VMs\```.
+- General: Default Machine Folder: ```C:\Hosting\VirtualBox VMs\```;
+- Update: "Uncheck Check for Updates".
 
 ### Vagrant
 
-Requires a restart.
+- Install to ```C:\Hosting\Vagrant\```;
+- Requires a restart:
+- Install the following plugins:
+    - ~~vagrant-vbguest 0.13.0~~
+    - vagrant-proxyconf 1.5.2
+    - vagrant-hostmanager 1.8.5
+
+Issue the following command on a Windows Command Prompt window to install Vagrant plugins:
+
+```bash
+vagrant plugin install vagrant-vbguest vagrant-proxyconf vagrant-hostmanager
+```
+
+Validate the the plugins are installed:
+
+```
+vagrant plugin list
+```
 
 ### Docker Toolbox
 
@@ -139,7 +184,35 @@ Requires a restart.
 - Uncheck Git for Windows;
 - Edit Docker Quickstart Terminal Properties:
     - Fix target to use Git for Windows bash, in ```C:\Hosting\Git\bin\```.
-    
+
+### OpenShift
+
+#### Container Developer Kit
+
+- Unzip OpenShift Client Tools 1.3.2 to ```C:\Hosting\Containers\OpenShift\ClientTools\1.3.2\```;
+- Unzip CDK 2.3.0 to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\```;
+- Copy RHEL CDK 7.3 VirtualBox / HyperV Vagrant boxes to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\cdk\components\rhel```;
+- Clone pristine rhel/rhel-ose/ sub-folder to a new sub-folder under rhel/ and edit the BOX_NAME and PUBLIC_ADDRESS properties in the Vagrantfile for each new OpenShift Container Platform 3.3 to work with;
+- Follow the [CDK Installation Guide for Windows 10](https://github.com/straider/challenges/blob/master/LearningPath/2017/EnterpriseContainerisation/OpenShift/OpenShift%20Container%20Platform/Windows%2010/CDK.md). **Note**: replace occurrences of **oscp-3.3** with edited value of BOX_NAME and make sure that Cygwin **openssh** and **rsync** packages are installed before following the steps.
+
+#### Docker Cluster
+
+#### Origin All-in-One Vagrant Box
+
+- Create folder ```C:\Hosting\Containers\OpenShift\origin-all-in-one\```;
+- Open a Windows Command Prompt and issue the following commands:
+
+```bash
+vagrant init openshift/origin-all-in-one
+vagrant up --provider=virtualbox
+```
+
+#### minikube
+
+#### minishift
+
+#### gofabric8
+
 ## Coding
 
 ### WinMerge
@@ -219,7 +292,7 @@ Add ```C:\DevKits\Java\gradle-3.2.1\bin\``` to DEVKITS environment variable.
 
 Install to ```C:\DevKits\Java\groovy-2.4.7\```.
 
-**Note**: without JAVA_HOME set the installation fails to find a proper JDK and switches to 32 bit mode.
+**Note**: without JAVA_HOME set the installation fails to find a proper JDK and switches to 32 bit mode. Configure JAVA_HOME to point to the JDK, instead of the JRE which is done by default.
 
 #### JRuby
 
@@ -279,6 +352,42 @@ Install to ```C:\DevKits\IDEs\Eclipse Neon\```.
 
 #### HOSTING
 
+Issue the following command from a Windows Command Prompt run as Administrator to set system wide environment variable HOSTING:
+
+```bash
+setx /M HOSTING "C:\Hosting\Git\cmd;C:\Hosting\Vagrant\bin;C:\Hosting\Containers\Docker Toolbox;C:\Hosting\Containers\OpenShift\ClientTools\1.3.2;"
+```
+
 #### DEVKITS
 
+Issue the following command from a Windows Command Prompt run as Administrator to set user specific environment variables, especially DEVKITS:
+
+```bash
+setx JAVA_HOME   "C:\DevKits\Java\jdk8u112"
+setx ANT_HOME    "C:\DevKits\Java\ant-1.10.0"
+setx MAVEN_HOME  "C:\DevKits\Java\maven-3.3.9"
+setx GRADLE_HOME "C:\DevKits\Java\gradle-3.2.1"
+setx GROOVY_HOME "C:\DevKits\Java\groovy-2.4.7"
+setx RUBY_HOME   "C:\DevKits\Ruby\2.3.3"
+setx JRUBY_HOME  "C:\DevKits\Java\jruby-9.1.6.0"
+setx PYTHON_HOME "C:\DevKits\Python\3.6.0"
+setx JYTHON_HOME "C:\DevKits\Java\jython-2.7.0"
+
+setx DEVKITS "%JAVA_HOME%\bin;%ANT_HOME%\bin;%MAVEN_HOME%\bin;%GRADLE_HOME%\bin;%GROOVY_HOME%\bin;%RUBY_HOME%\bin;%JRUBY_HOME%\bin;%PYTHON_HOME%\Scripts\;%PYTHON_HOME%\;%JYTHON_HOME%\bin;C:\DevKits\VersionControl\TortoiseSVN\bin;C:\DevKits\VersionControl\TortoiseGit\bin;"
+```
+
+**Note**: This also fixes JAVA_HOME, from the default JRE to the JDK, which must be done before installing Groovy.
+
 #### PATH
+
+Issue the following command from a Windows Command Prompt run as Administrator to set system wide environment variable PATH:
+
+```bash
+setx /M PATH "%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SystemRoot%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\PuTTY\;C:\Program Files (x86)\Skype\Phone\;%HOSTING%"
+```
+
+Issue the following command from a Windows Command Prompt to set user specific environment variable PATH:
+
+```bash
+setx PATH "%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%DEVKITS%"
+```

@@ -5,6 +5,28 @@
 
 # Applications
 
+## Repositories
+
+### Maven
+
+Create folder to hold local Maven repository by issuing the following command:
+
+```bash
+mkdir C:\Hosting\Repositories\Maven\
+```
+
+Configure Maven to use this local repository instead of the default one, under C:%USERPROFILE%\.m2\repository\.
+
+### Gradle
+
+Create folder to hold local Gradle repository by issuing the following command:
+
+```bash
+mkdir C:\Hosting\Repositories\Gradle\
+```
+
+Configure Gradle to use this local repository instead of the default one, under C:\Users\[user]\.gradle\, which is easily accomplished by configuring %USERPROFILE%\.m2\settings.xml for Maven since Gradle inherits this configuration.
+
 ## [Cygwin 2.6.0](https://www.cygwin.com/)
 
 ## [MinGW32](http://www.mingw.org/) / [MinGW64 5.0.0](https://mingw-w64.org/)
@@ -15,11 +37,11 @@
 
 ## [Git for Windows 2.11.0](https://git-for-windows.github.io/)
 
-## [VirtualBox 5.0.30](https://www.virtualbox.org/)
+## [VirtualBox 5.0.28](https://www.virtualbox.org/)
 
-Because of OpenShift it's not recommended to use the latest version and instead it should stick with version 5.0.x.
+Because of OpenShift it's not recommended to use the latest version and instead it should stick with version 5.0.28.
  
-## [Vagrant 1.9.1](https://www.vagrantup.com/)
+## [Vagrant 1.8.7](https://www.vagrantup.com/)
 
 It requires a restart before being used for the first time.
 
@@ -36,3 +58,11 @@ But it requires Hyper-V and Hyper-V Module for Windows Powershell, which are not
 It provides Docker Engine, Docker CLI client, Docker Compose, Docker Machine and Kitematic.
 
 It requires VirtualBox.
+
+## OpenShift
+
+### Client Tools 1.3.2
+
+### OpenShift Origin All-in-One
+
+### Container Development Kit 2.3.0

@@ -13,21 +13,11 @@ This option seems to be the latest result from the Evangelist Vagrant Box option
 Issue the following commands on a Windows Command Prompt, from a folder that will hold the Vagrantfile:
 
 ```bash
-vagrant plugin install vagrant-hostmanager
-vagrant plugin install vagrant-adbinfo
-vagrant plugin install vagrant-vbguest
-
 vagrant init openshift/origin-all-in-one
 
 vagrant up
 
-@FOR /f "tokens=*" %i IN ('vagrant adbinfo') DO @%i
-
 oc login https://10.2.2.2:8443 -u admin -p admin
-
-oc project openshift
-oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
-oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/amq/amq62-basic.json
 
 vagrant ssh
 ```

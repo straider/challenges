@@ -1,5 +1,5 @@
-﻿OpenShift on Windows 7
-======================
+﻿OpenShift on Windows 10
+=======================
 
 # Requirements
 

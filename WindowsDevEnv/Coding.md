@@ -32,9 +32,46 @@ Can be used by TortoiseSVN.
 
 ##### [Ant 1.10.0](http://ant.apache.org/)
 
-##### [Maven 3.3.9]()
+##### [Maven 3.3.9](http://maven.apache.org/)
 
-##### [Gradle 3.2.1]()
+Create a settings.xml with the following content under %USERPROFILE%\.m2\ folder:
+
+```xml
+<settings xmlns              = "http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation = "
+            http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd
+          "
+>
+
+    <localRepository>/Hosting/Repositories/Maven</localRepository>
+    
+    <interactiveMode/>
+    
+    <usePluginRegistry/>
+    
+    <offline/>
+    
+    <pluginGroups/>
+    
+    <servers/>
+    
+    <!-- http://maven.apache.org/guides/mini/guide-mirror-settings.html !-->
+    <mirrors/>
+    
+    <!-- http://maven.apache.org/guides/mini/guide-proxies.html !-->
+    <proxies/>
+    
+    <profiles/>
+    
+    <activeProfiles/>
+
+</settings>
+```
+
+##### [Gradle 3.2.1](https://gradle.org/)
+
+> Gradle looks into %USERPROFILE%\.m2\settings.xml for information where the local Maven repository is located. If no information is found, it assumes %USERPROFILE%\.m2\repository.
 
 ### Mono
 
