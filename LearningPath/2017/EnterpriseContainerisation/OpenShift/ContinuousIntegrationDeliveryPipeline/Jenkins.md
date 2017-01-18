@@ -5,22 +5,27 @@
 
 ## Concepts
 
-- [jenkinsci/pipeline-plugin Tutorial](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md)
-
 # Resources
 
 ## Articles
 
+- [Microservices CI/CD Pipelines in Openshift](https://developers.redhat.com/blog/2016/09/14/microservices-cicd-pipelines-in-openshift/)
+
 ## Demos
 
+- [jenkinsci/pipeline-plugin Tutorial](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md)
+- [Docker image for Pipeline demo](https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md)
+- [CI / CD with Red Hat OpenShift and Jenkins](http://www.opensourcerers.org/ci-cd-red-hat-openshift-jenkins/)
+- [Pipelines with Jenkins 2 on OpenShift](https://blog.openshift.com/pipelines-with-jenkins-2-on-openshift/)
+    - [Creating a Jenkins Cluster in OpenShift](http://blog.andyserver.com/2016/01/jenkins-cluster-openshift/)
+    - [Dynamic Jenkins Slave Provisioning on OpenShift](http://blog.andyserver.com/2016/01/dynamic-jenkins-slave-provisioning-on-openshift/)
+    - [Jenkins Slaves in OpenShift Using an External Jenkins Environment](http://blog.andyserver.com/2016/02/jenkins-slaves-openshift-external-jenkins-environment/)
 - [CI/CD with OpenShift](https://blog.openshift.com/cicd-with-openshift/)
     - [OpenShift 3 CI/CD Demo](https://github.com/OpenShiftDemos/openshift-cd-demo)
     - [OpenShift Tasks: JAX-RS, JPA quickstart](https://github.com/OpenShiftDemos/openshift-tasks/tree/eap-7)
 - [Create Your Own Build Pipelines with OpenShift 3.3](https://blog.openshift.com/create-build-pipelines-openshift-3-3/)
 - [OpenShift 3 Jenkins Example](https://github.com/openshift/origin/tree/master/examples/jenkins)
 - [Using Jenkins Pipelines with OpenShift](https://github.com/openshift/origin/tree/master/examples/jenkins/pipeline)
-- [Pipelines with Jenkins 2 on OpenShift](https://blog.openshift.com/pipelines-with-jenkins-2-on-openshift/)
-- [CI / CD with Red Hat OpenShift and Jenkins](http://www.opensourcerers.org/ci-cd-red-hat-openshift-jenkins/)
 - [Jenkins Master example](https://github.com/arilivigni/openshift-ci-pipeline)
 - [Create and explore Continuous Delivery Pipelines with Fabric8 and Jenkins on OpenShift](https://blog.fabric8.io/create-and-explore-continuous-delivery-pipelines-with-fabric8-and-jenkins-on-openshift-661aa82cb45a#.jmp5xdksp)
 - [Continuous Delivery With Docker, Jenkins, JBoss Fuse and OpenShift PaaS](https://dzone.com/articles/continuous-delivery-docker)
