@@ -168,7 +168,7 @@ After installation change preferences:
 Issue the following command on a Windows Command Prompt window to install Vagrant plugins:
 
 ```bash
-vagrant plugin install vagrant-vbguest vagrant-proxyconf vagrant-hostmanager
+vagrant plugin install vagrant-proxyconf vagrant-hostmanager
 ```
 
 Validate the the plugins are installed:
@@ -192,8 +192,10 @@ vagrant plugin list
 - Unzip OpenShift Client Tools 1.3.2 to ```C:\Hosting\Containers\OpenShift\ClientTools\1.3.2\```;
 - Unzip CDK 2.3.0 to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\```;
 - Copy RHEL CDK 7.3 VirtualBox / HyperV Vagrant boxes to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\cdk\components\rhel```;
-- Clone pristine rhel/rhel-ose/ sub-folder to a new sub-folder under rhel/ and edit the BOX_NAME and PUBLIC_ADDRESS properties in the Vagrantfile for each new OpenShift Container Platform 3.3 to work with;
+- Clone pristine rhel/rhel-ose/ sub-folder to a new sub-folder under rhel/ and edit the BOX_NAME property in the Vagrantfile for each new OpenShift Container Platform 3.3 to work with;
 - Follow the [CDK Installation Guide for Windows 10](https://github.com/straider/challenges/blob/master/LearningPath/2017/EnterpriseContainerisation/OpenShift/OpenShift%20Container%20Platform/Windows%2010/CDK.md). **Note**: replace occurrences of **oscp-3.3** with edited value of BOX_NAME and make sure that Cygwin **openssh** and **rsync** packages are installed before following the steps.
+
+**Note**: bare in mind that it's required to have a valid Red Hat Subscription.
 
 #### Docker Cluster
 

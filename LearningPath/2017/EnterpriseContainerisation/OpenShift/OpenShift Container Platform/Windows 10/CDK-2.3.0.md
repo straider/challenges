@@ -71,10 +71,10 @@ docker ps
 
 Verify that the following images exist:
 - 1x of prom/haproxy-exporter:latest
-- 1x of openshift3/ose-docker-registry:v3.3.1.7
-- 1x of openshift3/ose-haproxy-router:v3.3.1.7
-- 2x of openshift3/ose-pod:vv3.3.1.7
-- 1x of registry.access.redhat.com/openshift3/ose:v3.3.1.7
+- 1x of openshift3/ose-docker-registry:v3.3.1.5
+- 1x of openshift3/ose-haproxy-router:v3.3.1.5
+- 2x of openshift3/ose-pod:v3.3.1.5
+- 1x of registry.access.redhat.com/openshift3/ose:v3.3.1.5
 
 ```bash
 oc login --username=admin --password=admin
