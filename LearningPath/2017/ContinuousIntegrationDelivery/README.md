@@ -81,7 +81,7 @@
 
 ## [Hudson](http://hudson-ci.org/)
 
-## [Jenkins](https://jenkins.io/index.html)
+## [Jenkins](Jenkins/README.md)
 
 ## [Bamboo](https://www.atlassian.com/software/bamboo)
 
