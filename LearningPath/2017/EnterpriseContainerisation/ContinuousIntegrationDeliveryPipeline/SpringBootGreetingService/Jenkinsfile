@@ -1,0 +1,17 @@
+#!/usr/bin/env groovy
+
+node {
+
+    stage name: 'DEV', concurrency: 1
+        echo 'Successfully staged DEV environment'
+
+    stage name: 'TST', concurrency: 1
+        echo 'Successfully staged TST environment'
+
+    stage name: 'STG', concurrency: 1
+        echo 'Successfully staged STG environment'
+
+    stage name: 'PRD', concurrency: 1
+        echo 'Successfully staged PRD environment'
+
+}
