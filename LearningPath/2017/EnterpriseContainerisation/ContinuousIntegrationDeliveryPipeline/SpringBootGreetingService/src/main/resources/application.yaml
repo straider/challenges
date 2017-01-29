@@ -1,0 +1,3 @@
+server :
+  port        : ${service.port}
+  contextPath : ${service.path}
