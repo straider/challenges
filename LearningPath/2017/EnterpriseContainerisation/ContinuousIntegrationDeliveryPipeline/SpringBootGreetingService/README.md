@@ -15,7 +15,8 @@ This project holds a simple example of a REST service that runs on SpringBoot an
 
 ## ToDos
 
-- Improve pom.xml to create the necessary Dockerfile;
+- Add Swagger UI to pom.xml;
+- Use Docker Maven Plugin to create the necessary Dockerfile;
 - Launch it in a Docker container.
 
 ## Challenges
@@ -77,3 +78,46 @@ docker run -p 10000:10000 -d mo/springboot-on-openshift           # Runs a Docke
 ```
 
 ### OpenShift
+
+To enable the Technology Preview feature Jenkins Pipelines then issue the following commands inside the Vagrant box:
+
+```bash
+```
+
+Before issuing the commands in the next sections please login to OpenShift Origin as openshift-dev:
+
+```bash
+oc login 10.2.2.2:8443 -u openshift-dev -p devel
+```
+
+#### Create "Environment" Projects
+
+```bash
+oc new-project greeter-dev --display-name="GreetingService - DEV" --description="Development Environment for CXF Greeting Service Demo"
+oc new-project greeter-tst --display-name="GreetingService - TST" --description="Testing Environment for CXF Greeting Service Demo"
+oc new-project greeter-stg --display-name="GreetingService - STG" --description="Staging Environment for CXF Greeting Service Demo"
+oc new-project greeter-prd --display-name="GreetingService - PRD" --description="Production Environment for CXF Greeting Service Demo"
+```
+
+#### Create CI/CD Pipeline Project
+
+```bash
+oc new-project ci-cd-pipeline --display-name="CI/CD Pipeline" --description="Jenkins based CI/CD Pipeline"
+```
+
+#### Give Permissions to Service Account
+
+```bash
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-dev
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-tst
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-stg
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-prd
+```
+
+#### Install Jenkins Persistent Image
+
+```bash
+oc new-app --name=jenkins-101 --template=jenkins-persistent
+oc expose svc jenkins
+oc env dc/jenkins JENKINS_PASSWORD=admin
+```

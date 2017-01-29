@@ -246,10 +246,6 @@
                                     <source>src/test/unit/groovy</source>
                                     <source>src/test/integration/java</source>
                                     <source>src/test/integration/groovy</source>
-                                    <source>src/test/functional/java</source>
-                                    <source>src/test/functional/groovy</source>
-                                    <source>src/test/acceptance/java</source>
-                                    <source>src/test/acceptance/groovy</source>
                                 </sources>
                             </configuration>
                         </execution>
