@@ -111,7 +111,12 @@ Although there's [ActivateState Python 2.7.10](http://www.activestate.com/python
 - 7.0.14
 - 7.1.0
 
-### ~~Javascript~~
+### Javascript
+
+#### [node.js](https://nodejs.org/en/)
+
+- 7.4.0
+- ~~6.9.4 LTS~~
 
 ## IDEs
 
