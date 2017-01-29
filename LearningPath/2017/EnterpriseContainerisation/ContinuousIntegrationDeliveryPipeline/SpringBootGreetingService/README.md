@@ -1,374 +1,79 @@
-﻿:: CXF :: REST :: Spring Boot ::
-================================
+﻿:: Spring Boot on OpenShift ::
+==============================
 
 # Overview
 
-Register the steps necessary, from scratch, to develop a simple REST service using CXF and running with Spring Boot.
-
-## How to run a CXF REST service using Spring Boot?
-
-There are several Spring Boot Starters to bootstrap a CXF Standalone Spring Boot application:
-- spring-boot-starter-web, which includes Tomcat 7 by default;
-- spring-boot-starter-jersey
-- spring-boot-starter-tomcat
-- spring-boot-starter-jetty
-- spring-boot-starter-undertow
-
-Because of this it is best to have several profiles:
-- Spring Boot with Tomcat
-- Spring Boot with Jetty
-- Spring Boot with Undertow
+This project holds a simple example of a REST service that runs on SpringBoot and should be deployed into an OpenShift project.
 
 # Steps
 
-## Buildfiles
+- Cloned from [:: CXF :: REST :: Spring Boot ::](https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot) on GitHub;
+- Replace package com.github.straider.java.ws.cxf with com.github.straider.openshift.springboot;
+- Fix name, description and URL on pom.xml;
+- Create Dockerfile;
+- Include Jenkinsfile script for the pipeline.
 
-### Maven
+## ToDos
 
-#### 1st version
+- Improve pom.xml to create the necessary Dockerfile;
+- Launch it in a Docker container.
 
-Edit the project artifact, name, description and URL and replace **Standalone** with **SpringBoot**.
+## Challenges
 
-```xml
-    ...
-    
-    <artifactId>rest-springboot</artifactId>
-    <version>1.0.0</version>
-    <name>Spring Boot CXF Greeting Service</name>
-    <description>REST Greeting Service running on Spring Boot using CXF (JAX-RS implementation).</description>
-    <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/SpringBoot</url>
+### SpringBoot
 
-    <packaging>war</packaging>
+This CXF Greeting Service could run in standalone mode or deployed to a Servlet Container.
+SpringBoot allows to easily switch between Tomcat, Jetty or Undertow and as such is a good candidate to run Java REST services in OpenShift.
 
-    ...
+### Docker
+
+- Code Dockerfile by hand;
+- Choose and use one of the many Docker Maven Plugins:
+    - [alexec/docker-maven-plugin](https://github.com/alexec/docker-maven-plugin);
+    - [wouterd/docker-maven-plugin](https://github.com/wouterd/docker-maven-plugin);
+    - [spotify/docker-maven-plugin](https://github.com/spotify/docker-maven-plugin);
+    - [fabric8io/docker-maven-plugin](https://github.com/fabric8io/docker-maven-plugin).
+
+#### Environment Variables
+
+Before running it on a Docker container and if not using Docker Quickstart Terminal then it's necessary to configure the environment with some Docker variables.
+
+To configure the environment with Docker environment variables then choose one of the following ways:
+
+With Windows Command Prompt then issue this command:
+```bash
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO @%i
 ```
 
-#### 2nd version
-
-Edit the profiles, changing Standalone profile to not be enabled by default and adding Spring Boot profile, enabled by default, and using the [Spring Boot Maven Plugin](http://docs.spring.io/spring-boot/docs/1.4.3.RELEASE/maven-plugin/).
-
-```xml
-<?xml version = "1.0" encoding = "UTF-8"?>
-<project xmlns              = "http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
-
-    ...
-    <properties>
-        ...
-
-        <spring-boot.version>1.4.3.RELEASE</spring-boot.version>
-
-        ...
-    </properties>
-
-    ...
-    
-    <profiles>
-
-        <profile>
-            <id>Standalone</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            ...
-        </profile>
-
-        <profile>
-            <id>Spring Boot</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <build>
-
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-maven-plugin</artifactId>
-                            <version>${spring-boot.version}</version>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <configuration>
-                            <mainClass>${main.class}</mainClass>
-                        </configuration>
-                    </plugin>
-                </plugins>
-
-            </build>
-        </profile>
-
-    </profiles>
-
-</project>
+With MinGW mintty then issue this command:
+```bash
+eval $( docker-machine env )
 ```
 
-#### 3rd version
+#### NO_PROXY Configuration
 
-To add **spring-boot-starter-web** and **spring-boot-starter-test** dependencies it is necessary to add them to the pom.xml file and there should be no **slf4j-simple** dependency, because it will clash with Spring Boot's logging dependencies at runtime.
+The Docker Machine IP Address needs to be excluded from going through the proxy.
 
-```xml
-        ...
+To configure the NO_PROXY environment variable with the Docker Machine IP Address then choose one of the following ways:
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring-boot.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        ...
+With Windows Command Prompt then issue this command:
+```bash
+set NO_PROXY=%NO_PROXY%,'docker-machine ip'
 ```
 
-**Note**: using just **spring-boot-starter** is not enough, because Spring Boot will start and stop whhat it thinks is a simple command line application instead of a Servlet Container, which is required to run CXF.
-
-**Note**: there's no need for a main.class property neither it needs to be explicitly configure in the Spring Boot Maven Plugin after the main class gets to be annotated with @SpringBootApplication.
-
-#### 4th version
-
-In order to work with different embedded Servlet Containers it's best to exclude the Tomcat default dependency from the **spring-boot-starter-web** and enable **spring-boot-starter-tomcat** or **spring-boot-starter-jetty** or **spring-boot-starter-undertow** as profiles.
-
-```xml
-<?xml version = "1.0" encoding = "UTF-8"?>
-<project xmlns              = "http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
-    ...
-
-    <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        
-        ...
-        
-    </dependencies>
-
-    <profiles>
-
-        ...
-
-        <profile>
-            <id>Spring Boot Bare</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <properties>
-                <service.port>10000</service.port>
-                <service.path>/ws/rest</service.path>
-            </properties>
-
-            <build>
-
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-maven-plugin</artifactId>
-                            <version>${spring-boot.version}</version>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-
-            </build>
-        </profile>
-        <profile>
-            <id>Spring Boot Tomcat</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <version>${spring-boot.version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>Spring Boot Jetty</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-jetty</artifactId>
-                    <version>${spring-boot.version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>Spring Boot Undertow</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-undertow</artifactId>
-                    <version>${spring-boot.version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
-
-    </profiles>
-
-</project>
+With MinGW mintty then issue this command:
+```bash
+eval $( docker-machine env )
+export NO_PROXY=$no_proxy
 ```
 
-If the following error occurs it's because no Servlet Container profile is enabled - either Tomcat or Jetty or Undertow must be enabled:
+#### Launch Docker Container
 
-```
-class file for javax.servlet.http.HttpServlet not found
-```
-
-### Gradle
-
-## Components
-
-### Base / Foundation
-
-### Service
-
-For Spring Boot to automatically find the service class it must be annotated with @Component:
-
-```java
-package com.github.straider.java.ws.cxf;
-
-import org.springframework.stereotype.Component;
-
-...
-
-@Path( "/" )
-@Component
-public class GreetingService {
-    ...
-}
+To launch a Docker container with the SpringBoot application then issue the following commands:
+```bash
+docker rmi --force mo/springboot-on-openshift                     # Removes previous image.
+docker build --force-rm --rm=true -t mo/springboot-on-openshift . # Builds new image.
+docker run -p 10000:10000 -d mo/springboot-on-openshift           # Runs a Docker container that exposes port 10000.
 ```
 
-**Note**: it seems that the @Component annotation is not necessary when using **cxf-spring-boot-starter-jaxrs**.
-
-### Server
-
-The following error occurs when there's no Spring Boot annotated main class.
-
-```
-Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:1.4.3.RELEASE:start (default-cli) on project rest-springboot: Spring application did not start before the configured timeout 
-```
-
-To fix it, after adding the missing dependencies to pom.xml (3rd version), then change the **Server** class to an **Application** class:
-
-```java
-package com.github.straider.java.ws.cxf;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class Application {
-
-    public static void main( final String[] arguments ) {
-        SpringApplication.run( Application.class, arguments );
-    }
-
-}
-```
-
-It's also necessary to have an **ApplicationConfiguration** class, which will have the legacy Server class code, with a few changes:
-
-```java
-package com.github.straider.java.ws.cxf;
-
-import org.apache.cxf.bus.spring.SpringBus;
-import org.apache.cxf.endpoint.Server;
-import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
-import org.apache.cxf.jaxrs.provider.AbstractConfigurableProvider;
-import org.apache.cxf.jaxrs.provider.json.JSONProvider;
-import org.apache.cxf.transport.servlet.CXFServlet;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@ComponentScan
-@Configuration
-public class ApplicationConfiguration {
-
-    @Autowired
-    private GreetingService greetingService;
-
-    @Bean( destroyMethod = "shutdown" )
-    public SpringBus cxf() {
-        return new SpringBus();
-    }
-
-    @Bean( destroyMethod = "destroy" ) @DependsOn( "cxf" )
-    public Server jaxRsServer() {
-        final JAXRSServerFactoryBean serverFactory = new JAXRSServerFactoryBean();
-        serverFactory.setServiceBean( greetingService );
-        serverFactory.setBus( cxf() );
-        serverFactory.setAddress( "/" );
-
-        final JSONProvider                         jsonProvider = new JSONProvider();
-        final List< AbstractConfigurableProvider > providers    = new ArrayList< AbstractConfigurableProvider >();
-        providers.add( jsonProvider );
-        serverFactory.setProviders( providers );
-
-        return serverFactory.create();
-    }
-
-    @Bean
-    public ServletRegistrationBean cxfServlet() {
-        final ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean( new CXFServlet(), "/*" );
-
-        servletRegistrationBean.setLoadOnStartup( 1 );
-
-        return servletRegistrationBean;
-    }
-
-}
-```
-
-### Client
+### OpenShift

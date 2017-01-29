@@ -1,4 +1,4 @@
-package com.github.straider.java.ws.cxf;
+package com.github.straider.openshift.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

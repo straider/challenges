@@ -1,4 +1,4 @@
-package com.github.straider.java.ws.cxf;
+package com.github.straider.openshift.springboot;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

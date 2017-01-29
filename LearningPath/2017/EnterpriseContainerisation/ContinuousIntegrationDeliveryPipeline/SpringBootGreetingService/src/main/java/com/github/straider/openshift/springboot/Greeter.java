@@ -1,4 +1,4 @@
-package com.github.straider.java.ws.cxf;
+package com.github.straider.openshift.springboot;
 
 public class Greeter {
 
