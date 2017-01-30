@@ -46,9 +46,21 @@
 ## Articles
 
 - [How I learned to stop worrying and love Jenkins](http://specialmoves.com/research-and-development/articles/jenkins-and-continuous-integration.html)
-- [Continuous Integration, Delivery or Deployment with Jenkins, Docker and Ansible](https://technologyconversations.com/2015/02/11/continuous-integration-delivery-or-deployment-with-jenkins-docker-and-ansible/)
-- [Putting Jenkins in a Docker Container](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
-- [Get Started with Jenkins 2.0 with Docker](https://www.cloudbees.com/blog/get-started-jenkins-20-docker)
+- [Pipeline as Code with Jenkins](https://jenkins.io/solutions/pipeline/)
+- [Pipeline](https://jenkins.io/doc/book/pipeline/)
+- [Getting Started](https://jenkins.io/doc/book/pipeline/getting-started/)
+- [The Jenkinsfile](https://jenkins.io/doc/book/pipeline/jenkinsfile/)
+- [Continuous Delivery With Jenkins Workflow](https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow)
+- [Jenkins2 Pipeline jobs using Groovy code in Jenkinsfile](https://wilsonmar.github.io/jenkins2-pipeline/)
+- [Top 10 Best Practices for Jenkins Pipeline Plugin](https://www.cloudbees.com/blog/top-10-best-practices-jenkins-pipeline-plugin)
+- [Setting up a Jenkins 2.0 pipeline](https://thepracticalsysadmin.com/setting-up-a-jenkins-2-0-pipeline/)
+- [Jenkins 2 Pipeline 101](http://getmesh.io/Blog/Jenkins+2+Pipeline+101)
+- [Jenkins-as-Code: Creating Jenkins jobs with text, not clicks](https://marcesher.com/2016/06/08/jenkins-as-code-creating-jenkins-jobs-with-text-not-clicks/)
+- [Jenkins-as-code: job-dsl-plugin](https://marcesher.com/2016/06/09/jenkins-as-code-job-dsl/)
+- [Jenkins-as-code: creating reusable builders](https://marcesher.com/2016/06/13/jenkins-as-code-creating-reusable-builders/)
+- [Jenkins-as-code: registering jobs for automatic seed job creation](https://marcesher.com/2016/06/21/jenkins-as-code-registering-jobs-for-automatic-seed-job-creation/)
+- [Jenkins-as-code: creating jobs from the command line during development](https://marcesher.com/2016/07/01/jenkins-as-code-creating-jobs-from-the-command-line-during-development/)
+- [Jenkins-as-code: comparing job-dsl and Pipelines](https://marcesher.com/2016/08/04/jenkins-as-code-comparing-job-dsl-and-pipelines/)
 
 ### Reference Cards
 
@@ -60,24 +72,19 @@
 - [Pipeline as Code with Jenkins](https://jenkins.io/solutions/pipeline/)
 - [Pipeline](https://jenkins.io/doc/book/pipeline/)
 - [Pipeline Examples](https://jenkins.io/doc/pipeline/examples/)
-- [jenkinsci/pipeline-plugin Tutorial](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md)
-- [Continuous Delivery With Jenkins Workflow](https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow)
-- [Jenkins2 Pipeline jobs using Groovy code in Jenkinsfile](https://wilsonmar.github.io/jenkins2-pipeline/)
-- [Top 10 Best Practices for Jenkins Pipeline Plugin](https://www.cloudbees.com/blog/top-10-best-practices-jenkins-pipeline-plugin)
 
 # Tools
 
 ## Plugins
+
+- [Build Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin)
+- [Workflow Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin)
+- [Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin)
+- [Pipeline Plugin Tutorial](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md)
+- [Pipeline Examples](https://github.com/jenkinsci/pipeline-examples)
 
 ### Pipeline
 
 - [jenkinsci/pipeline-examples](https://github.com/jenkinsci/pipeline-examples)
 - [VeerMuchandi/pipeline-example](https://github.com/VeerMuchandi/pipeline-example)
 - [kylearctiq/pipeline-example](https://github.com/kylearctiq/pipeline-example)
-
-## Docker
-
-- [Official Jenkins Docker image](https://hub.docker.com/_/jenkins/)
-- [Jenkins Continuous Integration and Delivery server](https://hub.docker.com/r/jenkinsci/jenkins/)
-- [Demo of Jenkins Workflow feature](https://hub.docker.com/r/jenkinsci/workflow-demo/)
-- [Demonstrating use of the CloudBees Docker Workflow plugin](https://hub.docker.com/r/jenkinsci/docker-workflow-demo/)
