@@ -50,7 +50,7 @@ Edit the project artifact, name, description and URL and replace **Standalone** 
 
 ```xml
     ...
-    
+
     <artifactId>rest-felix</artifactId>
     <version>1.0.0</version>
     <name>Felix CXF Greeting Service</name>
@@ -85,12 +85,66 @@ Add org.osgi.core 6.0.0 dependency and remove slf4j-simple dependency:
             <artifactId>org.osgi.core</artifactId>
             <version>${osgi.version}</version>
         </dependency>
-        
+
         ...
     </dependencies>
 
     ...
 ```
+
+#### 3rd version
+
+To build a proper bundle JAR it's necessary to use the Maven Bundle Plugin and change the packaging to bundle:
+
+```xml
+    ....
+
+    <properties>
+        ...
+        <maven-bundle-plugin.version>3.2.0</maven-bundle-plugin.version>
+
+        ...
+    </properties>
+
+    ...
+
+    <build>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>${project.groupId}.ProducerActivator</Bundle-Activator>
+                        <Bundle-Vendor>straider</Bundle-Vendor>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+```
+
+**Note**: it's not necessary to use maven-dependency-plugin and maven-jar-plugin.
 
 ### Gradle
 

@@ -66,6 +66,10 @@ Use Maven / Gradle plugins to launch a Spring Boot instance that runs the servic
 - [Spring Boot Jersey Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-jersey)
 - [Apache CXF Spring Boot Starter JAX RS](http://cxf.apache.org/docs/springboot.html#SpringBoot-SpringBootCXFJAX-RSStarter)
 
+## Felix
+
+Use Maven / Gradle plugins to launch a Felix instance that runs the service.
+
 ## Karaf
 
 Use Maven / Gradle plugins to launch a Karaf instance that runs the service.

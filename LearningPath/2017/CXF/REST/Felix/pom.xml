@@ -13,16 +13,13 @@
     <description>REST Greeting Service running on Felix using CXF (JAX-RS implementation).</description>
     <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/Felix</url>
 
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>${project.groupId}.Server</main.class>
 
-        <maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version>
-        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-        <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
+        <maven-bundle-plugin.version>3.2.0</maven-bundle-plugin.version>
 
         <osgi.version>6.0.0</osgi.version>
         <jaxrs.version>2.0.1</jaxrs.version>
@@ -77,15 +74,9 @@
             <plugins>
 
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven-dependency-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
                 </plugin>
 
             </plugins>
@@ -95,34 +86,14 @@
         <plugins>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeScope>runtime</includeScope>
-                            <outputDirectory>${project.build.directory}/lib/</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>${main.class}</mainClass>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
+                    <instructions>
+                        <Bundle-Activator>${project.groupId}.GreeterActivator</Bundle-Activator>
+                        <Bundle-Vendor>straider</Bundle-Vendor>
+                    </instructions>
                 </configuration>
             </plugin>
 

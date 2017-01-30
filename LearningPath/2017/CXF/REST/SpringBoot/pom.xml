@@ -11,7 +11,7 @@
     <version>1.0.0</version>
     <name>Spring Boot CXF Greeting Service</name>
     <description>REST Greeting Service running on Spring Boot using CXF (JAX-RS implementation).</description>
-    <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/SpringBoot</url>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot</url>
 
     <packaging>war</packaging>
 
