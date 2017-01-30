@@ -41,6 +41,7 @@
 - [How To Set Up Jenkins for Continuous Development Integration on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-continuous-development-integration-on-centos-7)
 - [Tutorial: Building With Jenkins Inside an Ephemeral Docker Container](https://engineering.riotgames.com/news/jenkins-ephemeral-docker-tutorial)
     - [maxfields2000/dockerjenkins_tutorial](https://github.com/maxfields2000/dockerjenkins_tutorial)
+- [Jenkins Pipeline Plugin Tutorial](https://dzone.com/articles/jenkins-pipeline-plugin-tutorial)
 
 ## Articles
 
@@ -48,7 +49,21 @@
 - [Continuous Integration, Delivery or Deployment with Jenkins, Docker and Ansible](https://technologyconversations.com/2015/02/11/continuous-integration-delivery-or-deployment-with-jenkins-docker-and-ansible/)
 - [Putting Jenkins in a Docker Container](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 - [Get Started with Jenkins 2.0 with Docker](https://www.cloudbees.com/blog/get-started-jenkins-20-docker)
+
+### Reference Cards
+
+- [Continuous Delivery With Jenkins Workflow](https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow)
+- [Jenkins on PaaS](https://dzone.com/refcardz/jenkins-paas)
+
+### Workflow / Pipeline
+
 - [Pipeline as Code with Jenkins](https://jenkins.io/solutions/pipeline/)
+- [Pipeline](https://jenkins.io/doc/book/pipeline/)
+- [Pipeline Examples](https://jenkins.io/doc/pipeline/examples/)
+- [jenkinsci/pipeline-plugin Tutorial](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md)
+- [Continuous Delivery With Jenkins Workflow](https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow)
+- [Jenkins2 Pipeline jobs using Groovy code in Jenkinsfile](https://wilsonmar.github.io/jenkins2-pipeline/)
+- [Top 10 Best Practices for Jenkins Pipeline Plugin](https://www.cloudbees.com/blog/top-10-best-practices-jenkins-pipeline-plugin)
 
 # Tools
 
@@ -56,6 +71,7 @@
 
 ### Pipeline
 
+- [jenkinsci/pipeline-examples](https://github.com/jenkinsci/pipeline-examples)
 - [VeerMuchandi/pipeline-example](https://github.com/VeerMuchandi/pipeline-example)
 - [kylearctiq/pipeline-example](https://github.com/kylearctiq/pipeline-example)
 

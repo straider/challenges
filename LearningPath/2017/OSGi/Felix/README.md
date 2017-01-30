@@ -3,6 +3,8 @@
 
 # Overview
 
+This challenge is about learning what Felix is and how to use it, while following simple OSGi bundle examples.
+
 ## What is it?
 
 > [Apache Felix](http://felix.apache.org/) is a community effort to implement the OSGi Framework and Service platform and other interesting OSGi-related technologies under the Apache license. The OSGi specifications originally targeted embedded devices and home services gateways, but they are ideally suited for any project interested in the principles of modularity, component-orientation, and/or service-orientation.
@@ -61,6 +63,7 @@ Most common shell commands:
 - [OSGi and Spring: Part 2: Build and deploy OSGi as Spring bundles using Felix](http://www.ibm.com/developerworks/library/ws-osgi-spring2/)
 - [Getting started with Spring-OSGi — part 1](http://lsd.luminis.eu/en/getting-started-with-spring-osgi/)
 - [Getting started with Spring-OSGi — part 2](http://lsd.luminis.eu/en/getting-started-with-spring-osgi-part-2/)
+- [Maven + Apache Felix + CXF + DOSGi Series](http://maksim.sorokin.dk/it/2011/07/19/maven-apache-felix-cxf-dosgi-series/)
 
 ## Articles
 
@@ -73,12 +76,18 @@ Most common shell commands:
 ### Bundles
 
 - [How to build OSGi bundles using Maven Bundle Plugin - Part 1](http://wso2.com/library/tutorials/develop-osgi-bundles-using-maven-bundle-plugin/)
+- [Install your build directory as a bundle in Apache Felix](https://adreghiciu.wordpress.com/2009/09/06/install-your-directory-as-a-bundle-in-apache-felix/)
+- [How to deploy dependent bundles to OSGi containers](http://stackoverflow.com/questions/3926863/how-to-deploy-osgi-apps-and-dependencies/3928941#3928941)
 
 ### Testing
 
 ## Maven
 
-- [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin) is used to run concrete Apache Felix configuration with installed OSGi bundles.
+- [Apache Felix Maven SCR Plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-scr-plugin.html)
+- ~~[Apache Felix Maven OSGi Plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-osgi-plugin.html)~~ deprecated maven-bundle-plugin;
+- ~~[Apache Felix Maven OBR Plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-obr-plugin.html)~~ deprecated maven-bundle-plugin;
+- [Apache Felix Maven Bundle Plugin (BND)](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html)
+- [felix-maven-plugin](https://github.com/sn3d/felix-maven-plugin) is used to run concrete Apache Felix configuration with installed OSGi bundles;
 - [Apache Felix Sigil](http://felix.apache.org/documentation/subprojects/apache-felix-sigil.html)
 
 ## Books
