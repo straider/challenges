@@ -28,7 +28,9 @@ Installation:
 
 Settings:
 - New Document: Format: Unix;
-- Language: Tab size 4, replaced by space.
+- Language:
+    - Language Menu: Check "Make language menu compact"
+    - Tab Settings: Tab size 4, replaced by space.
 
 Update Plugin Manager and use it to install these plugins:
 - [NppFTP 0.26.3](http://ashkulz.github.io/NppFTP/);
@@ -319,6 +321,12 @@ Customize installation:
     - Add Ruby executables to your PATH;
     - Associate .rb and .rbw files with this Ruby installation.
 
+#### Javascript
+
+##### node.js
+
+Install to ```C:\DevKits\Javascript\nodejs\7.4.0\```.
+
 ### IDEs
 
 #### NetBeans
@@ -343,6 +351,20 @@ Install to ```C:\DevKits\IDEs\Eclipse Neon\```.
 - Enable Create Desktop shortcut: 32-bit launcher and 64-bit launcher;
 - Enable Create associations: .java, .groovy, .kt;
 
+After installation configure Settings:
+- Appearance & Behavior
+    - Appearance: UI Options: Theme: Dracula
+- Build, Execution, Deployment
+    - Build Tools:
+        - Maven: Maven home directory: C:/DevKits/Java/maven-3.3.9
+
+Install plugins:
+- Markdown support 2016.3.20161109
+- Gherkin 163.7743.44
+- Cucumber for Java 163.9693
+- Cucumber for Groovy 163.7743.44
+- Docker integration 2.4.1
+
 #### Geany
 
 - Install to ```C:\DevKits\IDEs\Geany\```;
@@ -357,7 +379,7 @@ Install to ```C:\DevKits\IDEs\Eclipse Neon\```.
 Issue the following command from a Windows Command Prompt run as Administrator to set system wide environment variable HOSTING:
 
 ```bash
-setx /M HOSTING "C:\Hosting\Git\cmd;C:\Hosting\Vagrant\bin;C:\Hosting\Containers\Docker Toolbox;C:\Hosting\Containers\OpenShift\ClientTools\1.3.2;"
+setx /M HOSTING "C:\Hosting\Git\cmd;C:\Hosting\Git\bin;C:\Hosting\Vagrant\bin;C:\Hosting\Containers\Docker Toolbox;C:\Hosting\Containers\OpenShift\ClientTools\1.3.2;"
 ```
 
 #### DEVKITS
@@ -374,8 +396,9 @@ setx RUBY_HOME   "C:\DevKits\Ruby\2.3.3"
 setx JRUBY_HOME  "C:\DevKits\Java\jruby-9.1.6.0"
 setx PYTHON_HOME "C:\DevKits\Python\3.6.0"
 setx JYTHON_HOME "C:\DevKits\Java\jython-2.7.0"
+setx NODEJS_HOME "C:\DevKits\Javascript\nodejs\7.4.0"
 
-setx DEVKITS "%JAVA_HOME%\bin;%ANT_HOME%\bin;%MAVEN_HOME%\bin;%GRADLE_HOME%\bin;%GROOVY_HOME%\bin;%RUBY_HOME%\bin;%JRUBY_HOME%\bin;%PYTHON_HOME%\Scripts\;%PYTHON_HOME%\;%JYTHON_HOME%\bin;C:\DevKits\VersionControl\TortoiseSVN\bin;C:\DevKits\VersionControl\TortoiseGit\bin;"
+setx DEVKITS "%JAVA_HOME%\bin;%ANT_HOME%\bin;%MAVEN_HOME%\bin;%GRADLE_HOME%\bin;%GROOVY_HOME%\bin;%RUBY_HOME%\bin;%NODEJS_HOME%;%JRUBY_HOME%\bin;%PYTHON_HOME%\Scripts\;%PYTHON_HOME%\;%JYTHON_HOME%\bin;C:\DevKits\VersionControl\TortoiseSVN\bin;C:\DevKits\VersionControl\TortoiseGit\bin;"
 ```
 
 **Note**: This also fixes JAVA_HOME, from the default JRE to the JDK, which must be done before installing Groovy.
