@@ -18,3 +18,6 @@
     - [Ansible Crash Course](http://www.sixtree.com.au/articles/2016/ansible-crash-course/)
 - [Docker Flow](https://technologyconversations.com/2016/04/18/docker-flow/) is a project aimed towards creating an easy to use continuous deployment flow. It depends on Docker Engine, Docker Compose, Consul, and Registrator.
 - [Eclipse Docker Tooling for Neon](https://www.eclipse.org/community/eclipse_newsletter/2016/july/article2.php)
+- [Forward2Docker](https://github.com/bsideup/forward2docker): Utility to auto forward a port from localhost into ports on Docker containers running in a boot2docker or Docker Machine VM.
+- [nsenter](https://github.com/jpetazzo/nsenter)
+    - [If you run SSHD in your Docker containers, you're doing it wrong!](http://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/)
