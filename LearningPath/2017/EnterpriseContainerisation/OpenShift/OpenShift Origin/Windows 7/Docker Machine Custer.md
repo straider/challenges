@@ -7,7 +7,7 @@ This option creates a Docker Machine, named **openshift** by default, by using O
 
 This document shows how to create a Docker Machine named openshift-origin-1.3.2, since it's the version of the OpenShift Client Tools being used, with proxy settings.
 
-**Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.3.3](https://github.com/openshift/origin/releases/tag/v1.3.3) or [1.4.1](https://github.com/openshift/origin/releases/tag/v1.4.1).
+**Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.5.0](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#using-a-proxy).
 
 ## Requirements
 
@@ -70,7 +70,7 @@ The above command will configure DOCKER_TLS_VERIFY, DOCKER_HOST, DOCKER_CERT_PAT
 The Docker Machine IP Address needs to be added to the NO_PROXY environment variable and that can be done by issue the following command:
 
 ```bash
-@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.3.2' ) DO set NO_PROXY=%NO_PROXY%,%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.3.2' ) DO set NO_PROXY=%NO_PROXY%,%i,172.17.0.0/16,172.30.0.0/16
 ```
 
 Where [IP_ADDRESS] is to be replaced by the IP Address for the Docker Machine, such as 192.168.99.100.
