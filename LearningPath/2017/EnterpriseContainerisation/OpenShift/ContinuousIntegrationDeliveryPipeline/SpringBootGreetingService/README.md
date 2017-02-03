@@ -16,7 +16,7 @@ This project holds a simple example of a REST service that runs on SpringBoot an
 ## ToDos
 
 - Add Swagger UI to pom.xml;
-- Use Docker Maven Plugin to create the necessary Dockerfile;
+- Use Docker Maven Plugin to create the Docker Image using the Dockerfile;
 - Launch it in a Docker container.
 
 ## Challenges
