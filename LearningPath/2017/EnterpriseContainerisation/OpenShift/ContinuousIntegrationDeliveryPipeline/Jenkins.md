@@ -56,4 +56,32 @@
 
 # Steps
 
+## Install Jenkins Ephemeral image
+
+```bash
+oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] jenkins-ephemeral
+```
+
+## Install Jenkins Persistent image
+
+```bash
+oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] jenkins-persistent
+```
+
+## Install Jenkins 1.x image
+
+```bash
+oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] openshift/jenkins-1-centos7
+```
+
+## Install Jenkins 2.x image
+
+```bash
+oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] openshift/jenkins-2-centos7
+```
+
+## Install Plugins
+
 # Challenges
+
+## Customise official OpenShift Jenkins image

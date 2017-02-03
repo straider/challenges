@@ -41,6 +41,8 @@ It also means that one can take the image to another platform and still have the
 - [lionelve/pipeline-demo](https://hub.docker.com/r/lionelve/pipeline-demo/): Jenkins Pipeline Demo.
 - [Jotschi/maven-release-workflow-test](https://github.com/Jotschi/maven-release-workflow-test): Dummy Jenkins Pipeline/Workflow Example.
 - [evarga/jenkins-slave](https://hub.docker.com/r/evarga/jenkins-slave/): basic container to be used as a Jenkins slave build node.
+- [jenkinsci/jnlp-slave](https://hub.docker.com/r/jenkinsci/jnlp-slave/): a Jenkins slave using JNLP to establish connection.
+- [jenkinsci/blueocean](https://hub.docker.com/r/jenkinsci/blueocean/)
 
 ## Plugins
 
@@ -58,10 +60,42 @@ The version to use should be 2.0, since it one of its highlights is the ["built 
 ## Pull Latest Image
 
 ```bash
+docker pull jenkins:2.32.1-alpine
+docker pull jenkinsci/jenkins:2.43
+docker pull jenkinsci/jenkins:1.658
+docker pull jenkinsci/blueocean:1.0.0-b20
+
+docker pull jenkinsci/workflow-demo:2.4
+docker pull jenkinsci/docker-workflow-demo:1.9
+docker pull jenkinsci/pipeline-as-code-github-demo:1.10
+
+docker pull jenkinsci/jnlp-slave
+
+docker pull fabric8/jenkins-docker
 ```
+
+## Run Docker Image
+
+```bash
+docker run -p 8080:8080 -p 50000:50000 jenkins
+docker run -p 8080:8080 -p 50000:50000 -v [LOCAL_JENKINS_HOME]:/var/jenkins_home jenkins
+
+docker run jenkinsci/jnlp-slave -url http://jenkins-server:port <secret> <slave name>
+
+docker run -it -p 8080:8080 --name jenkins -e SEED_GIT_URL=https://github.com/fabric8io/default-jenkins-dsl.git -e NEXUS_SERVICE_HOST=dockerhost -e NEXUS_SERVICE_PORT=8081 fabric8/jenkins
+```
+
+Where [LOCAL_JENKINS_HOME] is to be replaced by the local folder to hold Jenkins data (configuration and plugins).
 
 ## Configure Jenkins Master
 
 ## Configure Jenkins Slaves
 
 ## Configure Jenkins Pipeline
+
+## Proxy
+
+- [JenkinsBehindProxy](https://wiki.jenkins-ci.org/display/JENKINS/JenkinsBehindProxy)
+- [Jenkins: Configuring a Proxy](http://blogs.wandisco.com/2012/08/15/jenkins-configuring-proxy/)
+- [How do you configure Jenkins to work with a proxy server?](https://jazz.net/forum/questions/214230/how-do-you-configure-jenkins-to-work-with-a-proxy-server)
+- [Jenkins meets the corporate proxy](http://blog.alexellis.io/jenkins-meets-the-proxy/)
