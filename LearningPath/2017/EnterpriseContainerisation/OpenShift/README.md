@@ -57,6 +57,10 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 ## Tools
 
 - [OpenShift Ansible](https://github.com/openshift/openshift-ansible)
+- [OpenShift and Atomic Platform Ansible Contrib](https://github.com/openshift/openshift-ansible-contrib)
+- [OpenShift Java REST Client](https://github.com/openshift/openshift-restclient-java)
+- [Docker / OCI Image Builder](https://github.com/openshift/imagebuilder)
+- [Source-To-Image (S2I)](https://github.com/openshift/source-to-image)
 - [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
 
 # Installation Recipes
