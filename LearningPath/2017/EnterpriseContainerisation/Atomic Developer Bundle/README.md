@@ -55,16 +55,21 @@ Atomic Developer Bundle
 
 # Tools
 
-- [Cockpit](http://cockpit-project.org/) makes it easy to administer your GNU/Linux servers via a web browser.
-- [adb-utils](https://github.com/projectatomic/adb-utils/blob/master/README.adoc)
+- [projectatomic/atomic](https://github.com/projectatomic/atomic): Atomic Run Tool for installing/running/managing container images.
+- [projectatomic/adb-utils](https://github.com/projectatomic/adb-utils): Utility and Service scripts for the Atomic-Developer-Bundle (ADB).
+- [projectatomic/adb-vagrant-registration](https://github.com/projectatomic/adb-vagrant-registration) is a plugin for Vagrant that allows developers to easily register their guests for updates on systems with a subscription model (like Red Hat Enterprise Linux).
+- ~~[projectatomic/vagrant-adbinfo](https://github.com/projectatomic/vagrant-adbinfo) is renamed to vagrant-service-manager.~~
+- [projectatomic/vagrant-service-manager](https://github.com/projectatomic/vagrant-service-manager) provides the user with a CLI to configure the ADB/CDK for different use cases and to provide glue between ADB/CDK and the user's developer environment.
+- [projectatomic/atomic-enterprise](https://github.com/projectatomic/atomic-enterprise): Atomic Enterprise adds operational centric tools on top of Kubernetes to enable easy deployment and scaling and long-term lifecycle maintenance for small and large teams and applications.
 - [Atomic App](https://github.com/projectatomic/atomicapp) is a reference implementation of the Nulecule specification.
 - [Nulecule](https://github.com/projectatomic/nulecule): Composite Container-based Application Specification.
 - [OpenShift2Nulecule](https://github.com/projectatomic/openshift2nulecule/)
+- [Cockpit](http://cockpit-project.org/) makes it easy to administer your GNU/Linux servers via a web browser.
 
 # Working with Atomic Developer Bundle
 
 ## Installation Guides
 
+- [Ubuntu 14.04](Ubuntu 14.04/Installation.md)
 - [Windows 7](Windows 7/Installation.md)
 - [Windows 10](Windows 10/Installation.md)
-- [Ubuntu 14.04](Ubuntu 14.04/Installation.md)
