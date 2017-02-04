@@ -35,9 +35,9 @@
 
 ## Installation Guides
 
+- [Ubuntu 14.04](Ubuntu 14.04/Installation.md)
 - [Windows 7](Windows 7/Installation.md)
 - [Windows 10](Windows 10/Installation.md)
-- [Ubuntu 14.04](Ubuntu 14.04/Installation.md)
 
 ## Tools
 
