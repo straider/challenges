@@ -64,8 +64,8 @@ response.values.each {
     links     = it.links.self.href
     reference = links.find() { it.startsWith( 'http' ) }
 
-    println "Browse Repository: ${reference}"
-    println "Clone Repository: ${safeReference}"
+    println "\tBrowse Repository: ${reference}"
+    println "\tClone Repository: ${safeReference}"
 
 }
 

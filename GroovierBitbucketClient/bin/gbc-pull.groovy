@@ -86,7 +86,7 @@ response.values.each {
             local.checkout().setName( branchName ).setStartPoint( "origin/${branchName}" ).call()
 
             BranchTrackingStatus trackingStatus = BranchTrackingStatus.of( repository, "${repository.getFullBranch()}" )
-            if ( trackingStatus.getBehindCount() > 0 ) {
+            if ( trackingStatus != null && trackingStatus.getBehindCount() > 0 ) {
                 // println "Ahead: ${trackingStatus.getAheadCount()}; Behind: ${trackingStatus.getBehindCount()}"
 
                 PullCommand command =  new Git( repository )
