@@ -47,17 +47,15 @@ response.values.each {
     File   repository     = new File( reference )
     String repositoryName = repository.name.take( repository.name.lastIndexOf( '.' ) )
 
-    // Calculate wider repositoryName, to format it when outputting pom-based values
-
     address = "http://${hostname}:${port}/rest/api/1.0/projects/${project}/repos/${repositoryName}/files?limit=10000"
 
     try {
         connection = address.toURL().openConnection()
         connection.setRequestProperty( "Authorization", basicAuthentication )
         responseStream = connection.getInputStream()
-        
+
         List poms = []
-        
+
         Map subResponse = slurper.parseText( responseStream.text )
         subResponse.values.each {
             if ( it.endsWith( 'pom.xml' ) ) {
@@ -65,11 +63,11 @@ response.values.each {
                 poms << it.replace( '${repositoryName}/', '' )
             }
         }
-        
+
         if ( poms.size() > 1 ) {
             println 'Project with multiple modules'
         }
-        
+
         poms.each {
             // println "${it}"
             address = "http://${hostname}:${port}/rest/api/1.0/projects/${project}/repos/${repositoryName}/browse/${it}?limit=1000"
@@ -78,7 +76,7 @@ response.values.each {
                 connection = address.toURL().openConnection()
                 connection.setRequestProperty( "Authorization", basicAuthentication )
                 responseStream = connection.getInputStream()
-                
+
                 String lines = slurper.parseText( responseStream.text ).lines.text.join()
 
                 GPathResult pom = new XmlSlurper().parseText( lines )
@@ -88,8 +86,8 @@ response.values.each {
                 // println "Feature Repository: ${pom.parent.groupId}/${pom.artifactId}/"
                 String bundleName = ( pom.name == '' ) ? pom.artifactId : pom.name
                 println "Bundle Name: ${bundleName}"
-            // } catch (FileNotFoundException) {
-            //     println "No pom.xml found!"
+                // } catch (FileNotFoundException) {
+                //     println "No pom.xml found!"
             } finally {
                 responseStream.close()
             }

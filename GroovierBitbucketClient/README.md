@@ -1,9 +1,21 @@
-GroovierBitbucketClient
-=======================
+Groovy BitBucker Server REST Client
+===================================
 
 # Overview
 
+This personal project provides simple and configurable Groovy scripts that interact with an Git Repository server based on BitBucket Server (formerly known as Stash ).
+
+This project was born from the need to quickly and easily clone, pull and list all available repositories in a project.
+
+The BitBucket Server provides a rich and consistent REST API, easy to understand and use, and thus to start it was just a matter of picking the suitable technology. At the time the choice would have to be between using Git commands from a Bash command line or coding a tool using Java or Groovy.
+
 ## Goals & Objectives
+
+- List all available repositories under a BitBucket Server project;
+- Clone all available repositories under a BitBucket Server project to a local folder;
+- Pull from all available repositories under a BitBucket Server project to keep their local folder up to date;
+- Parse the pom.xml files of all available repositories under a BitBucket Server project and extract specific values;
+- Keep the configuration on JSON files.
 
 ## Audience
 
