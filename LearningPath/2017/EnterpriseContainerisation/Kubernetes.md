@@ -28,6 +28,7 @@
 - [Introducing Kubernetes version 1.0!](https://insights.ubuntu.com/2015/07/21/introducing-kubernetes-version-1-0/)
 - [An Intro to Google's Kubernetes and How to Use It](https://www.ctl.io/developers/blog/post/what-is-kubernetes-and-how-to-use-it/)
 - [Scaling Docker with Kubernetes](https://www.infoq.com/articles/scaling-docker-with-kubernetes)
+- [Using Kubernetes for Deployments](https://blog.codeship.com/using-kubernetes-for-deployments/)
 - [Recipes for Deploying Java EE Apps with Docker and Kubernetes](https://www.infoq.com/news/2015/03/gupta-javaee-docker-kubernetes)
 - [Kubernetes for developers](https://blog.fabric8.io/kubernetes-for-developers-2a9c7202fcd3#.suyx13vfd)
 - [Google Create Kubernetes-based VM/Docker Image Building Framework](https://www.infoq.com/news/2015/06/gce-image-builder)

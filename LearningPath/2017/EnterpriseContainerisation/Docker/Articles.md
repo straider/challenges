@@ -1,6 +1,14 @@
 ﻿:: Docker :: Articles ::
 ========================
 
+# Docker for Developers
+
+- [Docker for Devs: Containerizing Your Application](https://lockmedown.com/docker-4-devs-containerizing-app/)
+- [Docker for Devs: Creating a Developer Image](https://lockmedown.com/docker-for-developers-create-dev-image/)
+- [Docker for Devs: Hot Module Reloading and Live Editing in Containers](https://lockmedown.com/docker-tutorial-development-image/)
+- [Docker for Devs: Composing Multi-container Networks with Docker Compose](https://lockmedown.com/docker-devs-multiple-containers-docker-compose/)
+- [Docker for Devs: Sharing Images with Your Team Using Docker Hub](https://lockmedown.com/docker-devs-sharing-images-using-docker-hub/)
+
 # Software Containers vs. Virtual Machines
 
 - [Docker: Using Linux Containers to Support Portable Application Deployment](https://www.infoq.com/articles/docker-containers)
@@ -44,6 +52,10 @@
 - [LinuxContainers.org](https://linuxcontainers.org/) - Infrastructure for container projects and is the umbrella project behind LXC, LXD, LXCFS and CGManager;
 - [Open Container Initiative](https://www.opencontainers.org/) - The OCI currently contains two specifications: the Runtime Specification (runtime-spec) and the Image Specification (image-spec). The Runtime Specification outlines how to run a “filesystem bundle” that is unpacked on disk. At a high-level an OCI implementation would download an OCI Image then unpack that image into an OCI Runtime filesystem bundle. At this point the OCI Runtime Bundle would be run by an OCI Runtime;
 - [Red Hat’s OCID is a Docker Alternative, But Not a Fork](http://containerjournal.com/2016/10/04/red-hats-ocid-docker-alternative-not-fork/)
+
+# Microservices
+
+- [Using Docker for Microservices](https://dzone.com/articles/using-docker-for-microservices)
 
 # Assorted
 
