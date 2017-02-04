@@ -30,9 +30,9 @@ end
 
 Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?( 'vagrant-proxyconf' )
-    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if defined?( ENV[ 'HTTP_PROXY'  ] )
-    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if defined?( ENV[ 'HTTPS_PROXY' ] )
-    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if defined?( ENV[ 'NO_PROXY'    ] )
+    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
+    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
+    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if ENV.key?( 'NO_PROXY'    )
   end
 
   config.vm.box = BOX_NAME
