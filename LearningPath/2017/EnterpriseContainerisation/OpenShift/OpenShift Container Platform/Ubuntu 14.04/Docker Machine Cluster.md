@@ -23,17 +23,21 @@ To create a Docker Machine then issue the following command:
 
 ```bash
 # Docker Machine Cluster for OpenShift Container Platform 3.3
-oc cluster up --create-machine                  \
-              --docker-machine=cluster-oscp-3.3 \
-              --version=v3.3.1.11               \
+oc cluster up --create-machine                   \
+              --docker-machine=cluster-oscp-3.3  \
+              --version=v3.3.1.11                \
+              --host-data-dir=[HOST_DATA_FOLDER] \
               --image=registry.access.redhat.com/openshift3/ose
 
 # Docker Machine Cluster for OpenShift Container Platform 3.3
-oc cluster up --create-machine                  \
-              --docker-machine=cluster-oscp-3.4 \
-              --version=v3.4.1.2                \
+oc cluster up --create-machine                   \
+              --docker-machine=cluster-oscp-3.4  \
+              --version=v3.4.1.2                 \
+              --host-data-dir=[HOST_DATA_FOLDER] \
               --image=registry.access.redhat.com/openshift3/ose
 ```
+
+Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
 
 ## Configure Environment Variables
 
@@ -47,10 +51,12 @@ eval $( docker-machine env cluster-oscp-3.4 )
 
 ## Cluster Up
 
-```bash
-oc cluster up --docker-machine=cluster-oscp-3.3
+When issuing the command ```oc cluster up``` always specify the Docker Machine name, the version of OpenShift Image and to keep existing configuration (configured when Docker Machine was created):
 
-oc cluster up --docker-machine=cluster-oscp-3.4
+```bash
+oc cluster up --use-existing-config --version=v3.3.1.11 --docker-machine=cluster-oscp-3.3
+
+oc cluster up --use-existing-config --version=v3.4.1.2 --docker-machine=cluster-oscp-3.4
 ```
 
 ## Cluster Down
@@ -157,4 +163,3 @@ Use a browser to go to the [OpenShift Console](https://192.168.99.101:8443/conso
 ## Enable Metrics
 
 ## Enable Logging
-

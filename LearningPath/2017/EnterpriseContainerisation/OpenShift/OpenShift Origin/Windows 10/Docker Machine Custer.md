@@ -27,14 +27,20 @@ To create a Docker Machine then issue the following command:
 # Docker Machine Cluster for OpenShift Origin 1.3.3
 oc cluster up --create-machine                      ^
               --docker-machine=cluster-origin-1.3.3 ^
-              --version=v1.3.3
+              --version=v1.3.3                      ^
+              --host-data-dir=[HOST_DATA_FOLDER]
 
 # Docker Machine Cluster for OpenShift Origin 1.4.1
 oc cluster up --create-machine                      ^
               --docker-machine=cluster-origin-1.4.1 ^
-              --version=v1.4.1
+              --version=v1.4.1                      ^
+              --host-data-dir=[HOST_DATA_FOLDER]
 
 ```
+
+Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
+
+**Note**: The [HOST_DATA_FOLDER] path uses forward-slash ```/```, as in Unix, instead of backslash ```\```, as it is normal in Windows. It also does not accept driver letters, such as ```C:```.
 
 ## Configure Environment Variables
 
@@ -48,10 +54,12 @@ Creating the Docker Machine is only required once, unless removed. Subsequent cl
 
 ## Cluster Up
 
-```bash
-oc cluster up --docker-machine=cluster-origin-1.3.3
+When issuing the command ```oc cluster up``` always specify the Docker Machine name, the version of OpenShift Image and to keep existing configuration (configured when Docker Machine was created):
 
-oc cluster up --docker-machine=cluster-origin-1.4.1
+```bash
+oc cluster up --use-existing-config --version=v1.3.3 --docker-machine=cluster-origin-1.3.3
+
+oc cluster up --use-existing-config --version=v1.4.1 --docker-machine=cluster-origin-1.4.1
 ```
 
 ## Cluster Down
