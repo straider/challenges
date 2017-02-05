@@ -5,7 +5,7 @@
 
 This option creates a Docker Machine, named **openshift** by default, by using OpenShift Client Tools.
 
-This document shows how to create a Docker Machines named cluster-origin-1.3.3 and cluster-origin-1.4.1.
+This document shows how to create a Docker Machines named cluster-oscp-3.4 and cluster-oscp-3.4.
 
 **Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.5.0](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#using-a-proxy).
 
@@ -24,16 +24,17 @@ These Docker Machines, by default, don't have persistent volumes for OpenShift t
 To create a Docker Machine then issue the following command:
 
 ```bash
-# Docker Machine Cluster for OpenShift Origin 1.3.3
-oc cluster up --create-machine                      ^
-              --docker-machine=cluster-origin-1.3.3 ^
-              --version=v1.3.3
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+oc cluster up --create-machine                  ^
+              --docker-machine=cluster-oscp-3.3 ^
+              --version=v3.3.1.11               ^
+              --image=registry.access.redhat.com/openshift3/ose
 
-# Docker Machine Cluster for OpenShift Origin 1.4.1
-oc cluster up --create-machine                      ^
-              --docker-machine=cluster-origin-1.4.1 ^
-              --version=v1.4.1
-
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+oc cluster up --create-machine                  ^
+              --docker-machine=cluster-oscp-3.4 ^
+              --version=v3.4.1.2                ^
+              --image=registry.access.redhat.com/openshift3/ose
 ```
 
 ## Configure Environment Variables
@@ -41,41 +42,41 @@ oc cluster up --create-machine                      ^
 Creating the Docker Machine is only required once, unless removed. Subsequent cluster commands, like up or down, can then be issued later on, as long as the environment is configured with Docker environment variables. To configure the environment with these environment variables for OpenShift then issue the following command:
 
 ```bash
-@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.3.3' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-oscp-3.3' ) DO @%i
 
-@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.4.1' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-oscp-3.4' ) DO @%i
 ```
 
 ## Cluster Up
 
 ```bash
-oc cluster up --docker-machine=cluster-origin-1.3.3
+oc cluster up --docker-machine=cluster-oscp-3.3
 
-oc cluster up --docker-machine=cluster-origin-1.4.1
+oc cluster up --docker-machine=cluster-oscp-3.4
 ```
 
 ## Cluster Down
 
 ```bash
-oc cluster down --docker-machine=cluster-origin-1.3.3
+oc cluster down --docker-machine=cluster-oscp-3.3
 
-oc cluster down --docker-machine=cluster-origin-1.4.1
+oc cluster down --docker-machine=cluster-oscp-3.4
 ```
 
 ## Stop Docker Machine
 
 ```bash
-docker-machine stop cluster-origin-1.3.3
+docker-machine stop cluster-oscp-3.3
 
-docker-machine stop cluster-origin-1.4.1
+docker-machine stop cluster-oscp-3.4
 ```
 
 ## Remove Docker Machine
 
 ```bash
-docker-machine rm cluster-origin-1.3.3
+docker-machine rm cluster-oscp-3.3
 
-docker-machine rm cluster-origin-1.4.1
+docker-machine rm cluster-oscp-3.4
 ```
 
 # Validation
@@ -87,16 +88,16 @@ The output for the ```oc cluster create-machine``` command should be similar to:
 ```
 -- Checking OpenShift client ... OK
 -- Create Docker machine ...
-   Creating docker-machine cluster-origin-1.3.3
+   Creating docker-machine cluster-oscp-3.3
 -- Checking Docker client ... OK
 -- Checking Docker version ... OK
 -- Checking for existing OpenShift container ... OK
--- Checking for openshift/origin:v1.3.3 image ...
-   Pulling image openshift/origin:v1.3.3
-   Pulled 0/3 layers, 5% complete
-   Pulled 1/3 layers, 62% complete
-   Pulled 2/3 layers, 94% complete
-   Pulled 3/3 layers, 100% complete
+-- Checking for registry.access.redhat.com/openshift3/ose:v3.3.1.11 image ...
+   Pulling image registry.access.redhat.com/openshift3/ose:v3.3.1.11
+   Pulled 1/4 layers, 25% complete
+   Pulled 2/4 layers, 50% complete
+   Pulled 3/4 layers, 75% complete
+   Pulled 4/4 layers, 100% complete
    Extracting
    Image pull complete
 -- Checking Docker daemon configuration ... OK

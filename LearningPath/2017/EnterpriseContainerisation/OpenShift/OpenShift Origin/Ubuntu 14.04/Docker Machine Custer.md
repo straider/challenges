@@ -17,21 +17,19 @@ These Docker Machines, by default, don't have persistent volumes for OpenShift t
 
 # Installation
 
-**Note**: All these steps are to be run on a normal Windows Command Prompt.
-
 ## Create Docker Machine
 
 To create a Docker Machine then issue the following command:
 
 ```bash
 # Docker Machine Cluster for OpenShift Origin 1.3.3
-oc cluster up --create-machine                      ^
-              --docker-machine=cluster-origin-1.3.3 ^
+oc cluster up --create-machine                      \
+              --docker-machine=cluster-origin-1.3.3 \
               --version=v1.3.3
 
 # Docker Machine Cluster for OpenShift Origin 1.4.1
-oc cluster up --create-machine                      ^
-              --docker-machine=cluster-origin-1.4.1 ^
+oc cluster up --create-machine                      \
+              --docker-machine=cluster-origin-1.4.1 \
               --version=v1.4.1
 
 ```
@@ -41,9 +39,9 @@ oc cluster up --create-machine                      ^
 Creating the Docker Machine is only required once, unless removed. Subsequent cluster commands, like up or down, can then be issued later on, as long as the environment is configured with Docker environment variables. To configure the environment with these environment variables for OpenShift then issue the following command:
 
 ```bash
-@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.3.3' ) DO @%i
+eval $( docker-machine env cluster-origin-1.3.3 )
 
-@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.4.1' ) DO @%i
+eval $( docker-machine env cluster-origin-1.4.1 )
 ```
 
 ## Cluster Up
