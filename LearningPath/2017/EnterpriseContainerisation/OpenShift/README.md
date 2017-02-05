@@ -56,6 +56,7 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [Importing Docker Images to Red Hat OpenShift V3](http://www.opensourcerers.org/importing-an-external-docker-image-into-red-hat-openshift-v3/)
 - [Pushing an external and not yet published Docker image into Red Hat OpenShift V3](http://www.opensourcerers.org/pushing-an-external-and-not-yet-published-docker-image-into-red-hat-openshift-v3/)
 - [Improving Build Time of Java Builds on OpenShift](https://blog.openshift.com/improving-build-time-java-builds-openshift/)
+- [Four different approaches to run WildFly Swarm in OpenShift](https://developers.redhat.com/blog/2016/06/29/four-different-approaches-to-run-wildfly-swarm-in-openshift/)
 
 ## Books
 
@@ -71,6 +72,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [OpenShift Ansible](https://github.com/openshift/openshift-ansible)
 - [OpenShift and Atomic Platform Ansible Contrib](https://github.com/openshift/openshift-ansible-contrib)
 - [OpenShift Java REST Client](https://github.com/openshift/openshift-restclient-java)
+- [Running Ant Builds on OpenShift](https://blog.openshift.com/running-ant-builds-on-openshift/)
+- [Run Gradle Builds on OpenShift](https://blog.openshift.com/run-gradle-builds-on-openshift/)
 - [Docker / OCI Image Builder](https://github.com/openshift/imagebuilder)
 - [Source-To-Image (S2I)](https://github.com/openshift/source-to-image)
 - [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
