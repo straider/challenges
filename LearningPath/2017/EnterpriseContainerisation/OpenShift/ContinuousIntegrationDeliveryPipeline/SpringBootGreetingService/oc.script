@@ -1,0 +1,35 @@
+oc login 10.1.2.2:8443 -u openshift-dev -p devel
+oc login 10.2.2.2:8443 -u openshift-dev -p devel
+oc login openshift.adb:8443 -u openshift-dev -p devel
+oc login 192.168.99.101:8443 -u developer -p developer
+oc login https://api.preview.openshift.com --token=[OPENSHIFT_ONLINE_TOKEN] # https://console.preview.openshift.com/console/command-line
+
+oc new-project greeter-dev --display-name="GreetingService - DEV" --description="Development Environment for CXF Greeting Service Demo"
+oc new-project greeter-tst --display-name="GreetingService - TST" --description="Testing Environment for CXF Greeting Service Demo"
+oc new-project greeter-stg --display-name="GreetingService - STG" --description="Staging Environment for CXF Greeting Service Demo"
+oc new-project greeter-prd --display-name="GreetingService - PRD" --description="Production Environment for CXF Greeting Service Demo"
+
+oc new-project ci-cd-pipeline --display-name="CI/CD Pipeline" --description="Jenkins based CI/CD Pipeline"
+
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-dev
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-tst
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-stg
+oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-prd
+
+----
+
+# Jenkins 1.x Persistent Template
+oc new-app --name=jenkins --template=jenkins-persistent --param=JENKINS_PASSWORD=admin
+
+# Jenkins 2.x Image
+# oc new-app library/jenkins:2.0
+# oc new-app jenkins:2.32.1-alpine
+# oc new-app jenkinsci/jenkins:2.44
+oc expose svc jenkins
+
+oc get pods --no-headers | cut -d ' ' -f 1 | grep -v deploy
+oc env pod/$( oc get pods --no-headers | cut -d ' ' -f 1 | grep -v deploy ) JENKINS_PASSWORD=admin
+oc env dc/jenkins JENKINS_PASSWORD=admin
+
+oc get pods -n ci-cd-pipeline | grep jenkins | cut -d ' ' -f 1
+oc exec $( oc get pods -n ci-cd-pipeline | grep jenkins | cut -d ' ' -f 1 ) -- sh -c 'cat /var/jenkins_home/secrets/initialAdminPassword'
