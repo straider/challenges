@@ -20,8 +20,6 @@ This option installs OpenShift Container Platform 3.2:
 
 # Steps
 
-Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
-
 These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
 
 ```bash

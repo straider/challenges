@@ -8,6 +8,13 @@
 
 This option seems to be the latest result from the Evangelist Vagrant Box option and installs OpenShift v3 on top of CentOS on a VirtualBox named as "openshift-origin".
 
+## Requirements
+
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
+- [Vagrant](https://www.vagrantup.com/) 1.8.7;
+
+Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592).
+
 # Installation
 
 - Optionally, download the Vagrant box [openshift/origin](https://atlas.hashicorp.com/openshift/boxes/origin-all-in-one/versions/1.3.0/providers/virtualbox.box) for VirtualBox provider;
