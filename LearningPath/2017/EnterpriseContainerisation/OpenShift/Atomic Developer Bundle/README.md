@@ -92,6 +92,22 @@ oc login openshift.adb:8443 -u admin -p admin
 oc version
 ```
 
+The output for the login command above should be:
+
+```
+Login successful.
+
+You have access to the following projects and can switch between them with 'oc project <projectname>':
+
+  * default
+    kube-system
+    openshift
+    openshift-infra
+    sample-project
+
+Using project "default".
+```
+
 ## Login to OpenShift Console
 
 Use a browser to access the [OpenShift Console](https://openshift.adb:8443/console), which URL is given near the end of the output of when the Vagrant box starts up.

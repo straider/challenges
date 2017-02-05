@@ -9,17 +9,11 @@ This document shows how to create a Docker Machine named openshift-origin-1.3.2,
 
 **Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.5.0](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#using-a-proxy).
 
-## Requirements
-
-- [VirtualBox 5.0.28](https://www.virtualbox.org/wiki/Download_Old_Builds_5_0);
-- [Docker Toolbox 1.13.0](https://www.docker.com/products/docker-toolbox), with [Docker Machine](https://docs.docker.com/machine/overview/);
-- [OpenShift Client Tools 1.3.2](https://github.com/openshift/origin/releases/tag/v1.3.2).
-
 ## Options
 
 # Steps
 
-- Download Boot2Docker 1.10.3 ISO, which works with OpenShift Origin 1.3.2;
+- Download [Boot2Docker 1.10.3 ISO](https://github.com/boot2docker/boot2docker/releases/download/v1.10.3/boot2docker.iso), which works with OpenShift Origin 1.3.2;
 - Configure VIRTUALBOX_BOOT2DOCKER_URL environment variable;
 - Create Docker Machine, openshift-origin-1.3.2, with proxy configuration;
 - Configure the environment with Docker Machine environment variables;
@@ -87,7 +81,7 @@ oc cluster up --docker-machine=openshift-origin-1.3.2
 
 ## Installation Output
 
-The output for the oc cluster up command should be similar to:
+The output for the ```oc cluster up``` command should be similar to:
 
 ```
 First Time OpenShift Cluster goes Up

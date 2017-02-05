@@ -29,12 +29,24 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 > Otherwise, you can see the security documentation for descriptions on how to relax these restrictions.
 
+## Alternatives
+
+- [Dokku](http://dokku.viewdocs.io/dokku/): The smallest PaaS implementation you've ever seen.
+- [Deis](http://deis.io/): Deis builds powerful, open source tools that make it easy for teams to create and manage applications on Kubernetes.
+- [Tsuru](https://tsuru.io/) is an extensible and open source Platform as a Service software.
+- [Flynn](https://flynn.io/)
+- [Apache Stratos](http://stratos.apache.org/) is a highly-extensible Platform-as-a-Service (PaaS) framework that helps run Apache Tomcat, PHP, and MySQL applications and can be extended to support many more environments on all major cloud infrastructures.
+- [Cloud Foundry](https://www.cloudfoundry.org/) is the industry standard open source cloud application platform for developing and deploying enterprise cloud applications.
+
+# Resources
+
 ## Tutorials
 
 ## Articles
 
 - [Back to the future (of OpenShift)](https://sosiouxme.wordpress.com/2014/11/21/back-to-the-future-of-openshift/)
 - [OpenShift 3 from zero](https://sosiouxme.wordpress.com/2015/01/02/openshift-3-from-zero/)
+- [Dive into Openshift v3](https://tobrunet.ch/articles/dive-into-openshift-v3/)
 - [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
 - [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
 - [How Builds, Deployments and Services Work in OpenShift V3](https://blog.openshift.com/builds-deployments-services-v3/)
@@ -62,6 +74,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [Docker / OCI Image Builder](https://github.com/openshift/imagebuilder)
 - [Source-To-Image (S2I)](https://github.com/openshift/source-to-image)
 - [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
+- [vbehar/openshift-git](https://github.com/vbehar/openshift-git): Import/Export OpenShift resources from/to a Git repository.
+- [puzzle/puppet-openshift3](https://github.com/puzzle/puppet-openshift3): Puppet Module to install and manage OpenShift Enterprise 3 and OpenShift Origin.
 
 # Installation Recipes
 
