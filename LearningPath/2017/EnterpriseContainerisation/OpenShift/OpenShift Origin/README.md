@@ -25,6 +25,22 @@
 
 >> Origin is designed to run any existing Docker images. However, the real magic of Origin is Source-to-Image (S2I) builds, which allow developers to simply provide an application source repository containing code to build and run. It works by combining an existing S2I-enabled Docker image with application source to produce a new runnable image for your application.
 
+## Why use OpenShift Origin?
+
+There are two possibilities for running OpenShift locally: OpenShift Container Platform or OpenShift Origin.
+
+### Advantages
+
+The main advantages of using Origin are:
+- No Red Hat Portal subscription is required;
+- One can choose to run the latest version (instead of being stuck with the version that CDK works with);
+- There are options to run it a lighter way than using Vagrant boxes (such as Docker Machine Cluster);
+- It comes with Hawkular metrics already installed and enabled.
+
+### Disadvantages
+
+The main disadvantage is that is not setup with an enterprise registry and as such then some customisation is required to install and enable xPaaS middleware images, such as Fuse Integration Services.
+
 # Working with OpenShift Origin
 
 - [OpenShift Origin User’s Guide](https://github.com/openshift/origin-server/blob/master/documentation/oo_user_guide.adoc)
