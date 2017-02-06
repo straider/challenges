@@ -7,7 +7,7 @@ node {
             branch: 'master',
             credentialsId: 'github-straider'
             
-        sh "cd challenges/LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/"
+        sh "cd /var/lib/jenkins/jobs/SpringBoot CXF Greeting Service/workspace/challenges/LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/"
             
         echo 'Successfully staged DEV environment'
 
