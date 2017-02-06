@@ -6,9 +6,15 @@ node {
         git url: 'https://github.com/straider/challenges.git',
             branch: 'master',
             credentialsId: 'github-straider'
-            
+
+        // From workspace folder: /var/lib/jenkins/jobs/SpringBoot CXF Greeting Service/workspace/challenges/
         sh "cd 'LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/'"
-            
+
+        sh "mvn clean"
+        sh "mvn compile"
+        sh "mvn test"
+        sh "mvn verify"
+
         echo 'Successfully staged DEV environment'
 
     stage name: 'TST', concurrency: 1

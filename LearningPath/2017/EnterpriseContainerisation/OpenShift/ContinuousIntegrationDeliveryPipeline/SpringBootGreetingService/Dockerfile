@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER jctmonteiro@gmail.com
+MAINTAINER Jose Carlos Monteiro <jctmonteiro@gmail.com>
 
 EXPOSE 10000
 
