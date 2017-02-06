@@ -86,10 +86,7 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## Common Requirements
 
-- Account at [Red Hat Customer Portal](https://access.redhat.com/);
 - Hardware Virtualization enabled;
-- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
-- [Vagrant](https://www.vagrantup.com/) 1.8.7;
 - [OpenShift Client Tools 1.3.3](https://github.com/openshift/origin/releases/tag/v1.3.3).
 
 The installation of OpenShift Client Tools is simply the step to uncompress the file and add the folder where is it to the PATH. To validate installation just issue the following command:
