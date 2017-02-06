@@ -101,20 +101,6 @@ Then connect to the OpenShift Console pointing your browser to the address given
 
 # Well Known Errors
 
-## Unable to execute vagrant run
-
-The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
-
-```
-A Vagrant environment or target machine is required to run this
-command. Run `vagrant init` to create a new Vagrant environment. Or,
-get an ID of a target machine from `vagrant global-status` to run
-this command on. A final option is to change to a directory with a
-Vagrantfile and to try again.
-```
-
-**Note**: a useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
-
 ## sftp-server
 
 The step "Configuring and enabling network interfaces" failed with the following error:

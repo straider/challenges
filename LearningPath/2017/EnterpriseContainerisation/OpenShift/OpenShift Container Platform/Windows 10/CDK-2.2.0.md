@@ -138,6 +138,33 @@ If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but 
 
 > Container Development Kit 2.2 is known to not work correctly with VirtualBox 5.1.x. If you intend to use VirtualBox as your virtualization provider, and you already have VirtualBox 5.1.x installed, downgrade your installation to VirtualBox 5.0.26.
 
+## Proxy Configuration
+
+If the Windows host is behind a corporate proxy then it's necessary to configure several environment variables before issuing the command ```vagrant up```:
+
+```bash
+export PROXY=[PROXY_HOST]:[PROXY_PORT]
+export PROXY_USER=[PROXY_USERNAME]
+export PROXY_PASSWORD=[PROXY_PASSWORD]
+export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASSWORD@$PROXY/
+export HTTPS_PROXY=$HTTP_PROXY
+export NO_PROXY=$NO_PROXY,10.0.2.15,10.1.2.2,172.17.0.0/16,172.30.0.0/16
+```
+
+Where [PROXY_HOST] and [PROXY_PORT] are to be replaced by the corporate proxy hostname and port and [PROXY_USERNAME] and [PROXY_PASSWORD] are to be replaced by the domain credentials.
+
+An useful plugin, vagrant-proxyconf, should be used to set proxy configuration for yum, git, docker and more. To use it then add the following lines to the Vagrantfile:
+
+```ruby
+  ...
+  if Vagrant.has_plugin?( 'vagrant-proxyconf' )
+    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
+    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
+    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if ENV.key?( 'NO_PROXY'    )
+  end
+  ...
+```
+
 ## Unable to start 2nd CDK box
 
 If the step "Configuring and enabling network interfaces" fails with the following error:

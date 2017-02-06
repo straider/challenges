@@ -5,7 +5,7 @@
 
 This option installs OpenShift Container Platform 3.2:
 - Download [Red Hat CDK 2.2.0](http://developers.redhat.com/download-manager/file/cdk-2.2.0.zip), which requires a valid Red Hat Portal account;
-- Download [RHEL 7.2 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account and its size is 914 MB;
+- Download [RHEL 7.2 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account;
 - Unzip cdk-2.2.0.zip;
 - Put the RHEL 7.2 Vagrant Box file inside the components/rhel/ sub-folder of the CDK folder;
 - Install required Vagrant plugins;
@@ -26,18 +26,22 @@ This option installs OpenShift Container Platform 3.2:
 - [Cygwin](https://www.cygwin.com/) 64 bits, with openssh and rsync.
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW) with openssh.
+
 # Steps
 
-These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
+Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW).
+
+Edit the Vagrantfile and set BOX_NAME to oscp-3.2, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
 
 ```bash
-cd /cygdrive/c/[CDK_FOLDER]/components/rhel/
+cd /cygdrive/c/[CDK_FOLDER]/
 
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.2.
-vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs vagrant-adbinfo
-vagrant plugin install vagrant-vbguest
+cd plugins
+vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 vagrant plugin list
-vagrant box add --name cdkv2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
+cd ..\components\rhel
+vagrant box add --name oscp-3.2 rhel-cdk-kubernetes-7.2-29.x86_64.vagrant-virtualbox.box
 vagrant box list
 
 # Set CDK Memory.
@@ -56,10 +60,10 @@ vagrant ssh
 ```
 
 Where:
-- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example DevKits/ContainerDevelopmentKit-2.2.0/;
+- [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.2.0```;
 - [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
 
-**Note**: The cdkv2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
+**Note**: The oscp-3.2 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
 
 # Validation
 
@@ -71,10 +75,10 @@ docker ps
 
 Verify that the following images exist:
 - 1x of prom/haproxy-exporter:latest
-- 1x of openshift3/ose-docker-registry:v3.2.1.9
-- 1x of openshift3/ose-haproxy-router:v3.2.1.9
-- 2x of openshift3/ose-pod:v3.2.1.9
-- 1x of registry.access.redhat.com/openshift3/ose:v3.2.1.9
+- 1x of openshift3/ose-docker-registry:v3.2.1.7
+- 1x of openshift3/ose-haproxy-router:v3.2.1.7
+- 2x of openshift3/ose-pod:vv3.2.1.7
+- 1x of registry.access.redhat.com/openshift3/ose:v3.2.1.7
 
 ```bash
 oc login --username=admin --password=admin
@@ -82,6 +86,7 @@ oc login --username=admin --password=admin
 
 Verify that there's access to the following projects:
 - default
+- kube-system
 - openshift
 - openshift-infra
 - sample-project (current)
@@ -97,20 +102,6 @@ Verify that there's access to the following projects:
 Then connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
 
 # Well Known Errors
-
-## Unable to execute vagrant run
-
-The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
-
-```
-A Vagrant environment or target machine is required to run this
-command. Run `vagrant init` to create a new Vagrant environment. Or,
-get an ID of a target machine from `vagrant global-status` to run
-this command on. A final option is to change to a directory with a
-Vagrantfile and to try again.
-```
-
-**Note**: a useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
 
 ## sftp-server
 
@@ -132,6 +123,33 @@ It may require libusb0.
 If after using Cygwin Terminal to boot up the cdkv2 and everything seems Ok but can't connect from the Host to the OpenShift console then it may be because of networking issues caused by running a more recent version of VirtualBox.
 
 > Container Development Kit 2.2 is known to not work correctly with VirtualBox 5.1.x. If you intend to use VirtualBox as your virtualization provider, and you already have VirtualBox 5.1.x installed, downgrade your installation to VirtualBox 5.0.26.
+
+## Proxy Configuration
+
+If the Windows host is behind a corporate proxy then it's necessary to configure several environment variables before issuing the command ```vagrant up```:
+
+```bash
+export PROXY=[PROXY_HOST]:[PROXY_PORT]
+export PROXY_USER=[PROXY_USERNAME]
+export PROXY_PASSWORD=[PROXY_PASSWORD]
+export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASSWORD@$PROXY/
+export HTTPS_PROXY=$HTTP_PROXY
+export NO_PROXY=$NO_PROXY,10.0.2.15,10.1.2.2,172.17.0.0/16,172.30.0.0/16
+```
+
+Where [PROXY_HOST] and [PROXY_PORT] are to be replaced by the corporate proxy hostname and port and [PROXY_USERNAME] and [PROXY_PASSWORD] are to be replaced by the domain credentials.
+
+An useful plugin, vagrant-proxyconf, should be used to set proxy configuration for yum, git, docker and more. To use it then add the following lines to the Vagrantfile:
+
+```ruby
+  ...
+  if Vagrant.has_plugin?( 'vagrant-proxyconf' )
+    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
+    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
+    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if ENV.key?( 'NO_PROXY'    )
+  end
+  ...
+```
 
 ## Unable to start 2nd CDK box
 
