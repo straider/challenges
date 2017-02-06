@@ -8,8 +8,7 @@ BOX_NAME = 'oscp-3.3'
 PUBLIC_ADDRESS="10.1.2.2"
 
 # Modify IMAGE_TAG if you need a new OCP version e.g. IMAGE_TAG="v3.3.1.3"
-IMAGE_TAG=""
-# Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
+IMAGE_TAG="" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
 
 # Number of virtualized CPUs
 VM_CPU = ENV['VM_CPU'] || 2

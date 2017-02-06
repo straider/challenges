@@ -101,6 +101,6 @@ oc version
 ## Options
 
 - OpenShift Online
-- [OpenShift Origin](OpenShift Origin\README.md)
-- [OpenShift Container Platform](OpenShift Container Platform\README.md)
-- [Atomic Developer Bundle](Atomic Developer Bundle\README.md)
+- [OpenShift Origin](OpenShift Origin/README.md)
+- [OpenShift Container Platform](OpenShift Container Platform/README.md)
+- [Atomic Developer Bundle](Atomic Developer Bundle/README.md)
