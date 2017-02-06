@@ -9,6 +9,11 @@ This guide focus on installing ADB with OpenShift.
 
 ## Why use ADB with OpenShift?
 
+## Requirements
+
+- Account at [Red Hat Customer Portal](https://access.redhat.com/);
+- Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592).
+
 # Installation
 
 - Download the [Vagrantfile for OpenShift](https://raw.githubusercontent.com/projectatomic/adb-atomic-developer-bundle/master/components/centos/centos-openshift-setup/Vagrantfile);
