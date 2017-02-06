@@ -17,12 +17,3 @@
 - [Windows 10](Windows 10/Installation.md)
 
 **Note**: To get the available OpenShift image version to use on IMAGE_TAG variable then access [Red Hat OpenShift Registry](https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags).
-
-## Requirements
-
-- Account at [Red Hat Customer Portal](https://access.redhat.com/);
-- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
-- [Vagrant](https://www.vagrantup.com/) 1.8.7;
-- [Cygwin](https://www.cygwin.com/) 64 bits, with openssh and rsync.
-
-Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW) with openssh.

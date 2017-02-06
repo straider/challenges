@@ -18,6 +18,14 @@ This option installs OpenShift Container Platform 3.2:
 
 > Red Hat Container Development Kit provides a pre-built Container Development Environment based on Red Hat Enterprise Linux to help you develop container-based (sometimes called Docker) applications quickly. The containers you build can be easily deployed on any Red Hat container host or platform, including: Red Hat Enterprise Linux, Red Hat Enterprise Linux Atomic Host, and our platform-as-a-service solution, OpenShift Enterprise 3.
 
+## Requirements
+
+- Account at [Red Hat Customer Portal](https://access.redhat.com/);
+- [VirtualBox](https://www.virtualbox.org/) 5.0.28;
+- [Vagrant](https://www.vagrantup.com/) 1.8.7;
+- [Cygwin](https://www.cygwin.com/) 64 bits, with openssh and rsync.
+
+Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW) with openssh.
 # Steps
 
 These commands are to be issued from a [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty):
