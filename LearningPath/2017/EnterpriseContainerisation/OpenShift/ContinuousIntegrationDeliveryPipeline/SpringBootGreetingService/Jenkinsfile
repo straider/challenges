@@ -10,11 +10,13 @@ node {
         // From workspace folder: /var/lib/jenkins/jobs/SpringBoot CXF Greeting Service/workspace/challenges/
         sh "cd 'LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/'"
 
-        withEnv( [ "PATH+MAVEN=${ tool 'maven-3.3.9' }/bin" ] ) {
-            sh "mvn clean"
-            sh "mvn compile"
-            sh "mvn test"
-            sh "mvn verify"
+        withEnv( [ "PATH+JAVA=${ tool 'jdk-8u121' }/bin" ] ) {
+            withEnv( [ "PATH+MAVEN=${ tool 'maven-3.3.9' }/bin" ] ) {
+                sh "mvn clean"
+                sh "mvn compile"
+                sh "mvn test"
+                sh "mvn verify"
+            }
         }
 
         echo 'Successfully staged DEV environment'
