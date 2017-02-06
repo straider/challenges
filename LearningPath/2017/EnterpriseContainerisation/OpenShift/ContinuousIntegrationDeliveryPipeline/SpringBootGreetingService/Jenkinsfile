@@ -3,6 +3,12 @@
 node {
 
     stage name: 'DEV', concurrency: 1
+        git url: 'https://github.com/straider/challenges.git',
+            branch: 'master',
+            credentialsId: 'github-straider'
+            
+        sh "cd challenges/LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/"
+            
         echo 'Successfully staged DEV environment'
 
     stage name: 'TST', concurrency: 1
