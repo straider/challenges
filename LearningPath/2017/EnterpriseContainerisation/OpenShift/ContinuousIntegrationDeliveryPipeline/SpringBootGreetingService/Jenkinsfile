@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-node {
+node( 'maven' ) {
 
     stage( name: 'DEV' ) {
         // sh "oc project greeter-dev"
@@ -25,19 +25,19 @@ node {
     }
 
     stage( name: 'TST' ) {
-        // sh "oc project greeter-tst"
+        sh "oc project greeter-tst"
 
         echo 'Successfully staged TST environment'
     }
 
     stage( name: 'STG' ) {
-        // sh "oc project greeter-stg"
+        sh "oc project greeter-stg"
 
         echo 'Successfully staged STG environment'
     }
 
     stage( name: 'PRD' ) {
-        // sh "oc project greeter-prd"
+        sh "oc project greeter-prd"
 
         echo 'Successfully staged PRD environment'
     }
