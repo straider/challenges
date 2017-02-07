@@ -2,14 +2,14 @@
 
 node {
 
-    stage name: 'DEV', concurrency: 1
+    stage name: 'DEV', concurrency: 1 {
         sh "oc project greeter-dev"
 
         git url: 'https://github.com/straider/challenges.git',
             branch: 'master',
             credentialsId: 'github-straider'
 
-        // From workspace folder: /var/lib/jenkins/jobs/SpringBoot CXF Greeting Service/workspace/challenges/
+        // From workspace folder: /var/lib/jenkins/jobs/SpringBoot CXF Greeting Service/workspace/
         dir( 'LearningPath/2017/EnterpriseContainerisation/OpenShift/ContinuousIntegrationDeliveryPipeline/SpringBootGreetingService/' ) {
             withEnv( [ "PATH+JAVA=${ tool 'jdk-8u121' }/bin" ] ) {
                 withEnv( [ "PATH+MAVEN=${ tool 'maven-3.3.9' }/bin" ] ) {
@@ -22,20 +22,24 @@ node {
         }
 
         echo 'Successfully staged DEV environment'
+    }
 
-    stage name: 'TST', concurrency: 1
+    stage name: 'TST', concurrency: 1 {
         sh "oc project greeter-tst"
 
         echo 'Successfully staged TST environment'
+    }
 
-    stage name: 'STG', concurrency: 1
+    stage name: 'STG', concurrency: 1 {
         sh "oc project greeter-stg"
 
         echo 'Successfully staged STG environment'
+    }
 
-    stage name: 'PRD', concurrency: 1
+    stage name: 'PRD', concurrency: 1 {
         sh "oc project greeter-prd"
 
         echo 'Successfully staged PRD environment'
+    }
 
 }
