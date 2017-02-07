@@ -2,7 +2,7 @@
 
 node {
 
-    stage( name: 'DEV', concurrency: 1 ) {
+    stage( name: 'DEV' ) {
         sh "oc project greeter-dev"
 
         git url: 'https://github.com/straider/challenges.git',
@@ -24,19 +24,19 @@ node {
         echo 'Successfully staged DEV environment'
     }
 
-    stage( name: 'TST', concurrency: 1 ) {
+    stage( name: 'TST' ) {
         sh "oc project greeter-tst"
 
         echo 'Successfully staged TST environment'
     }
 
-    stage( name: 'STG', concurrency: 1 ) {
+    stage( name: 'STG' ) {
         sh "oc project greeter-stg"
 
         echo 'Successfully staged STG environment'
     }
 
-    stage( name: 'PRD', concurrency: 1 ) {
+    stage( name: 'PRD' ) {
         sh "oc project greeter-prd"
 
         echo 'Successfully staged PRD environment'
