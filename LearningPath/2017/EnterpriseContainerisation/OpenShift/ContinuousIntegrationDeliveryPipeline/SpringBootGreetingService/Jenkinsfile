@@ -3,6 +3,8 @@
 node {
 
     stage( name: 'DEV' ) {
+        sh "oc whoami"
+        sh "oc projects"
         sh "oc project greeter-dev"
 
         git url: 'https://github.com/straider/challenges.git',
