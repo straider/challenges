@@ -3,7 +3,7 @@
 node( 'master' ) {
 
     stage( name: 'DEV' ) {
-        sh "oc project greeter-dev"
+        // sh "oc project greeter-dev"
 
         git url: 'https://github.com/straider/challenges.git',
             branch: 'master',

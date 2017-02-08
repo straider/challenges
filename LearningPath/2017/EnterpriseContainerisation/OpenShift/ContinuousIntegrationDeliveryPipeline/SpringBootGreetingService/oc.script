@@ -11,6 +11,10 @@ oc new-project greeter-prd --display-name="GreetingService - PRD" --description=
 
 oc new-project ci-cd-pipeline --display-name="CI/CD Pipeline" --description="Jenkins based CI/CD Pipeline"
 
+oc login 10.1.2.2:8443 -u admin -p admin
+oc login 10.2.2.2:8443 -u admin -p admin
+oc login openshift.adb:8443 -u admin -p admin
+
 oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-dev
 oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-tst
 oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-stg
@@ -19,7 +23,8 @@ oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n 
 ----
 
 # Jenkins 1.x Persistent Template
-oc new-app --name=jenkins --template=jenkins-persistent --param=JENKINS_PASSWORD=admin
+oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi
+oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
 
 # Jenkins 2.x Image
 # oc new-app library/jenkins:2.0
@@ -33,3 +38,30 @@ oc env dc/jenkins JENKINS_PASSWORD=admin
 
 oc get pods -n ci-cd-pipeline | grep jenkins | cut -d ' ' -f 1
 oc exec $( oc get pods -n ci-cd-pipeline | grep jenkins | cut -d ' ' -f 1 ) -- sh -c 'cat /var/jenkins_home/secrets/initialAdminPassword'
+
+----
+
+- Configure Proxy;
+- Update Plugins (Check Restart after downloading);
+- Install required Plugins:
+    - Gradle Plugin;
+    - OpenShift Deployer Plugin;
+    - OpenShift Login Plugin;
+    - OpenShift Client Jenkins Plugin.
+- Install optional Plugins:
+    - Checkstyle Plug-in;
+    - PMD Plug-in;
+    - FindBugs Plug-in;
+    - SonarQube Plugin;
+    - Sonar Gerrit Plugin.
+- Configure Jenkins:
+    - Add JDK, as jdk-8u121;
+    - Set JAVA_HOME to /var/lib/jenkins/tools/hudson.model.JDK/jdk-8u121;
+    - Add Maven, as maven-3.3.9;
+    - Add Gradle, as gradle-3.3.
+
+----
+
+ERROR: Failed to create docker container with error: Error response from daemon: Minimum memory limit allowed is 4MB
+> Use 2Gi or 2048Mi instead of just 2048
+oc delete all -l app=jenkins-101
