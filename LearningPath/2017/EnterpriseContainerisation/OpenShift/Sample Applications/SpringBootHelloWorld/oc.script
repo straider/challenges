@@ -1,0 +1,16 @@
+oc login 10.1.2.2:8443 -u openshift-dev -p devel
+oc login 10.2.2.2:8443 -u openshift-dev -p devel
+oc login openshift.adb:8443 -u openshift-dev -p devel
+oc login 192.168.99.101:8443 -u developer -p developer
+oc login https://api.preview.openshift.com --token=[OPENSHIFT_ONLINE_TOKEN] # https://console.preview.openshift.com/console/command-line
+
+----
+
+mvn verify
+
+oc new-project springboot-helloworld --display-name="SpringBoot CXF HelloWorld on OpenShift" --description="Learning project about building and deploying using OpenShift Client Tool."
+oc new-build --binary --name=springboot-helloworld --labels=app=springboot-helloworld -n springboot-helloworld
+oc start-build springboot-helloworld --from-dir=. --follow -n springboot-helloworld
+oc new-app springboot-helloworld --labels=app=springboot-helloworld -n springboot-helloworld
+oc deploy springboot-helloworld -n springboot-helloworld
+oc expose svc/springboot-helloworld -n springboot-helloworld
