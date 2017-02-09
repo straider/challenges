@@ -37,6 +37,14 @@ oc cluster up --create-machine                      \
 
 Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
 
+## Start Docker Machine
+
+```bash
+docker-machine start cluster-origin-1.3.3
+
+docker-machine start cluster-origin-1.4.1
+```
+
 ## Configure Environment Variables
 
 Creating the Docker Machine is only required once, unless removed. Subsequent cluster commands, like up or down, can then be issued later on, as long as the environment is configured with Docker environment variables. To configure the environment with these environment variables for OpenShift then issue the following command:

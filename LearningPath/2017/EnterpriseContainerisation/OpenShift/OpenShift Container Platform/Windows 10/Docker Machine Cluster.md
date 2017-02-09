@@ -43,6 +43,14 @@ Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that wil
 
 **Note**: The [HOST_DATA_FOLDER] path uses forward-slash ```/```, as in Unix, instead of backslash ```\```, as it is normal in Windows. It also does not accept driver letters, such as ```C:```.
 
+## Start Docker Machine
+
+```bash
+docker-machine start cluster-oscp-3.3
+
+docker-machine start cluster-oscp-3.4
+```
+
 ## Configure Environment Variables
 
 Creating the Docker Machine is only required once, unless removed. Subsequent cluster commands, like up or down, can then be issued later on, as long as the environment is configured with Docker environment variables. To configure the environment with these environment variables for OpenShift then issue the following command:

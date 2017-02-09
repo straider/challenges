@@ -1,65 +1,177 @@
-﻿Using Docker Machine
-====================
+﻿Docker Machine Cluster
+======================
 
 # Overview
 
-This option installs OpenShift Container Platform 3.3 or later.
+This option creates a Docker Machine, named **openshift** by default, by using OpenShift Client Tools.
+
+This document shows how to create a Docker Machines named cluster-oscp-3.4 and cluster-oscp-3.4.
+
+**Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.5.0](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#using-a-proxy).
+
+These Docker Machines, by default, don't have persistent volumes for OpenShift to keep its configuration and data. As such these option can be useufl to quickly start a clean OpenShift and perform integration tests on an application.
 
 ## Requirements
 
 - [Docker Machine](https://github.com/docker/machine/) 0.8.2
 
-# Steps
+# Installation
 
-These commands are to be issued from a Docker Quickstart Terminal (based on MinGW):
+**Note**: All these steps are to be run on a normal Windows Command Prompt.
+
+## Create Docker Machine
+
+To create a Docker Machine then issue the following command:
 
 ```bash
-docker-machine create --driver virtualbox                      \
-                      --engine-insecure-registry 172.30.0.0/16 \
-                      --engine-env HTTP_PROXY=$HTTP_PROXY      \
-                      --engine-env HTTPS_PROXY=$HTTPS_PROXY    \
-                      --engine-env NO_PROXY=$NO_PROXY          \
-                      openshift-ose-3.3
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+oc cluster up --create-machine                   ^
+              --docker-machine=cluster-oscp-3.3  ^
+              --version=v3.3.1.11                ^
+              --host-data-dir=[HOST_DATA_FOLDER] ^
+              --image=registry.access.redhat.com/openshift3/ose
 
-eval $(docker-machine env openshift)
-export NO_PROXY=$NO_PROXY,$(docker-machine ip openshift)
-
-oc cluster up --docker-machine=openshift-ose-3.3 \
-              --use-existing-config              \
-              --host-data-dir=[HOST_DATA_FOLDER] \
-              --version=latest                   \
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+oc cluster up --create-machine                   ^
+              --docker-machine=cluster-oscp-3.4  ^
+              --version=v3.4.1.2                 ^
+              --host-data-dir=[HOST_DATA_FOLDER] ^
               --image=registry.access.redhat.com/openshift3/ose
 ```
 
-Where [HOST_DATA_FOLDER] is to be replaced by folder on Docker host for OpenShift data. If not specified, etcd data will not be persisted on the host.
+Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
 
-> The oc cluster up command starts a local OpenShift all-in-one cluster with a configured registry, router, image streams, and default templates. By default, the command requires a working Docker connection. The oc cluster up command will create a default user and project and, once it completes, will allow you to start using the command line to create and deploy apps with commands like oc new-app, oc new-build, and oc run. It will also print out a URL to access the management console for your cluster.
+**Note**: The [HOST_DATA_FOLDER] path uses forward-slash ```/```, as in Unix, instead of backslash ```\```, as it is normal in Windows. It also does not accept driver letters, such as ```C:```.
+
+## Start Docker Machine
+
+```bash
+docker-machine start cluster-oscp-3.3
+
+docker-machine start cluster-oscp-3.4
+```
+
+## Configure Environment Variables
+
+Creating the Docker Machine is only required once, unless removed. Subsequent cluster commands, like up or down, can then be issued later on, as long as the environment is configured with Docker environment variables. To configure the environment with these environment variables for OpenShift then issue the following command:
+
+```bash
+@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-oscp-3.3' ) DO @%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-oscp-3.4' ) DO @%i
+```
+
+## Cluster Up
+
+When issuing the command ```oc cluster up``` always specify the Docker Machine name, the version of OpenShift Image and to keep existing configuration (configured when Docker Machine was created):
+
+```bash
+oc cluster up --use-existing-config --version=v3.3.1.11 --docker-machine=cluster-oscp-3.3
+
+oc cluster up --use-existing-config --version=v3.4.1.2 --docker-machine=cluster-oscp-3.4
+```
+
+## Cluster Down
+
+```bash
+oc cluster down --docker-machine=cluster-oscp-3.3
+
+oc cluster down --docker-machine=cluster-oscp-3.4
+```
+
+## Stop Docker Machine
+
+```bash
+docker-machine stop cluster-oscp-3.3
+
+docker-machine stop cluster-oscp-3.4
+```
+
+## Remove Docker Machine
+
+```bash
+docker-machine rm cluster-oscp-3.3
+
+docker-machine rm cluster-oscp-3.4
+```
 
 # Validation
 
-Issue the following commands, inside Docker Quickstart Terminal, in order to verify installation:
+## Installation Output
+
+The output for the ```oc cluster create-machine``` command should be similar to:
+
+```
+-- Checking OpenShift client ... OK
+-- Create Docker machine ...
+   Creating docker-machine cluster-oscp-3.3
+-- Checking Docker client ... OK
+-- Checking Docker version ... OK
+-- Checking for existing OpenShift container ... OK
+-- Checking for registry.access.redhat.com/openshift3/ose:v3.3.1.11 image ...
+   Pulling image registry.access.redhat.com/openshift3/ose:v3.3.1.11
+   Pulled 1/4 layers, 25% complete
+   Pulled 2/4 layers, 50% complete
+   Pulled 3/4 layers, 75% complete
+   Pulled 4/4 layers, 100% complete
+   Extracting
+   Image pull complete
+-- Checking Docker daemon configuration ... OK
+-- Checking for available ports ... OK
+-- Checking type of volume mount ...
+   Using Docker shared volumes for OpenShift volumes
+-- Creating host directories ... OK
+-- Finding server IP ...
+   Using docker-machine IP 192.168.99.101 as the host IP
+   Using 192.168.99.101 as the server IP
+-- Starting OpenShift container ...
+   Creating initial OpenShift configuration
+   Starting OpenShift using container 'origin'
+   Waiting for API server to start listening
+   OpenShift server started
+-- Installing registry ... OK
+-- Installing router ... OK
+-- Importing image streams ... OK
+-- Importing templates ... OK
+-- Login to server ... OK
+-- Creating initial project "myproject" ... OK
+-- Server Information ...
+   OpenShift server started.
+   The server is accessible via web console at:
+       https://192.168.99.101:8443
+
+   You are logged in as:
+       User:     developer
+       Password: developer
+
+   To login as administrator:
+       oc login -u system:admin
+```
+
+## Login using OpenShift Client Tools
+
+A simple validation is to use the following command to login into OpenShift as user developer:
 
 ```bash
-oc status
+oc login [IP_ADDRESS]:8443 -u developer -p developer
 ```
 
-The response should be
-```
-You have no services, deployment configs, or build configs.
-Run 'oc new-app' to create an application.
-```
+Where [IP_ADDRESS] is to be replaced by the IP Address for the Docker Machine, such as 192.168.99.101.
 
-```
-oc login -u system:admin
-```
+## Login to OpenShift Console
 
-Verify that there's access to the following projects:
-- default
-- openshift
-- openshift-infra
-- kube-system
-- myproject
-
-Finally, open a browser and point it to the given address, something like https://192.168.99.101:8443, and access OpenShift Console.
+Use a browser to go to the [OpenShift Console](https://192.168.99.101:8443/console), which URL is given at the near end of the output.
 
 # Well Known Errors
+
+## Insecure Registry
+
+## Proxy
+
+## Persistent Volumes
+
+## Vagrant Box Memory
+
+## Enable Metrics
+
+## Enable Logging
