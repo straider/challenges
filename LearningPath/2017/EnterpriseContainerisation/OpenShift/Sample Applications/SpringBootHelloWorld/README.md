@@ -14,10 +14,12 @@ This project holds a simple example of a REST service that runs on SpringBoot an
 
 ## ToDos
 
+- Add "environment" configuration properties, to be used before executing a deployment;
 - Add Gradle build files;
 - Add Swagger UI;
 - Use Docker Plugins to create the Docker Image using the Dockerfile;
-- Launch it in a Docker container.
+- Launch it in a Docker container;
+- Add OpenShift health checks?
 
 ## Challenges
 
@@ -102,19 +104,23 @@ oc new-build --binary --name=springboot-helloworld --labels=app=springboot-hello
 oc start-build springboot-helloworld --from-dir=. --follow -n springboot-helloworld
 ```
 
+**Note**: this will spin up a build POD that will create the Docker image and push it into the internal Docker registry.
+
 #### Create Application
 
 ```bash
 oc new-app springboot-helloworld --labels=app=springboot-helloworld -n springboot-helloworld
 ```
 
-**Note**: this only needs to be done once, for the first time, since an application is created only once (if not deleted).
+**Note**: this only needs to be done once, for the first time, since an application is created only once (if not deleted). It will create a deployment configuration and a service.
 
 #### Deploy Application
 
 ```bash
 oc deploy springboot-helloworld -n springboot-helloworld
 ```
+
+**Note**: this is to done after the first time, when the application is created together with a deployment configuration and a service.
 
 #### Expose Service with a Route
 
