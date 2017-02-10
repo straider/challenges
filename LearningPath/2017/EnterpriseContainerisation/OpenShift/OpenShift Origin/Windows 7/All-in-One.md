@@ -72,7 +72,8 @@ An useful plugin, vagrant-proxyconf, should be used to set proxy configuration f
 After configuring the environment variables and after bringing the Vagrant box up then, inside the Vagrant box (by issuing the command ```vagrant ssh```), the following steps are required to configure OpenShift as well:
 
 - Create or edit the Master Proxy Configuration File;
-- Edit the Main Service Configuration.
+- Edit the Main Service Configuration;
+- Restart OpenShift Processes.
 
 ### Master Proxy Configuration File
 
@@ -104,4 +105,14 @@ Add the following line to the [Service] section:
 
 ```
 EnvironmentFile=/etc/sysconfig/origin
+```
+
+### Restart OpenShift Processes
+
+To restart OpenShift processes then issue the following commands:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart origin
+systemctl status origin
 ```

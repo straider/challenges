@@ -59,7 +59,7 @@ To configure the NO_PROXY environment variable with the Docker Machine IP Addres
 
 With Windows Command Prompt then issue this command:
 ```bash
-set NO_PROXY=%NO_PROXY%,'docker-machine ip'
+@FOR /f "tokens=*" %i IN ('docker-machine ip --shell cmd default') DO set NO_PROXY=%NO_PROXY%,@%i
 ```
 
 With MinGW mintty then issue this command:
@@ -117,7 +117,6 @@ oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n 
 #### Install Jenkins Persistent Image
 
 ```bash
-oc new-app --name=jenkins-101 --template=jenkins-persistent
-oc expose svc jenkins
-oc env dc/jenkins JENKINS_PASSWORD=admin
+oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
+# oc env dc/jenkins JENKINS_PASSWORD=admin
 ```

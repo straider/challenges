@@ -44,6 +44,7 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## Articles
 
+- [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
 - [Back to the future (of OpenShift)](https://sosiouxme.wordpress.com/2014/11/21/back-to-the-future-of-openshift/)
 - [OpenShift 3 from zero](https://sosiouxme.wordpress.com/2015/01/02/openshift-3-from-zero/)
 - [Dive into Openshift v3](https://tobrunet.ch/articles/dive-into-openshift-v3/)
@@ -79,6 +80,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
 - [vbehar/openshift-git](https://github.com/vbehar/openshift-git): Import/Export OpenShift resources from/to a Git repository.
 - [puzzle/puppet-openshift3](https://github.com/puzzle/puppet-openshift3): Puppet Module to install and manage OpenShift Enterprise 3 and OpenShift Origin.
+- [getwarped/powershift-cli](https://github.com/getwarped/powershift-cli): provides a plugin which wraps the oc cluster up command, used for starting up a local OpenShift cluster using your local Docker service. This plugin builds on top of oc cluster up, to provide profiles, additional security, application persistence and provisioning for persistent volumes.
+- [getwarped/powershift-cluster](https://github.com/getwarped/powershift-cluster): provides a plugin for the powershift command line client for managing a local OpenShift cluster. The commands provide a layer around the oc cluster up command, adding the ability to easily maintain persistent profiles for multiple local instances of OpenShift running on a Docker service.
 
 # Installation Recipes
 

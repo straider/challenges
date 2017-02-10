@@ -5,7 +5,7 @@
 
 This option creates a Docker Machine, named **openshift** by default, by using OpenShift Client Tools.
 
-This document shows how to create a Docker Machines named cluster-origin-1.3.3 and cluster-origin-1.4.1.
+This document shows how to create a Docker Machines for OpenShift Origin (1.3.3 and 1.4.1) or OpenShift Container Platform (3.3 and 3.4).
 
 **Note**: it seems that latest versions of OpenShift Client Tools can actually configure the proxy settings, so it may be even easier when using version [1.5.0](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md#using-a-proxy).
 
@@ -36,6 +36,19 @@ oc cluster up --create-machine                      ^
               --version=v1.4.1                      ^
               --host-data-dir=[HOST_DATA_FOLDER]
 
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+oc cluster up --create-machine                                  ^
+              --docker-machine=openshift-oscp-3.3               ^
+              --version=v3.3.1.7                                ^
+              --image=registry.access.redhat.com/openshift3/ose ^
+              --host-data-dir=[HOST_DATA_FOLDER]
+
+# Docker Machine Cluster for OpenShift Container Platform 3.4
+oc cluster up --create-machine                                  ^
+              --docker-machine=openshift-oscp-3.4               ^
+              --version=v3.4.1.2                                ^
+              --image=registry.access.redhat.com/openshift3/ose ^
+              --host-data-dir=[HOST_DATA_FOLDER]
 ```
 
 Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
@@ -48,6 +61,10 @@ Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that wil
 docker-machine start cluster-origin-1.3.3
 
 docker-machine start cluster-origin-1.4.1
+
+docker-machine start openshift-oscp-3.3
+
+docker-machine start openshift-oscp-3.4
 ```
 
 ## Configure Environment Variables
@@ -58,6 +75,10 @@ Creating the Docker Machine is only required once, unless removed. Subsequent cl
 @FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.3.3' ) DO @%i
 
 @FOR /f "tokens=*" %i IN ( 'docker-machine env cluster-origin-1.4.1' ) DO @%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-oscp-3.3' ) DO @%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-oscp-3.4' ) DO @%i
 ```
 
 ## Cluster Up
@@ -68,6 +89,10 @@ When issuing the command ```oc cluster up``` always specify the Docker Machine n
 oc cluster up --use-existing-config --version=v1.3.3 --docker-machine=cluster-origin-1.3.3
 
 oc cluster up --use-existing-config --version=v1.4.1 --docker-machine=cluster-origin-1.4.1
+
+oc cluster up --use-existing-config --version=v3.3.1.7 --docker-machine=cluster-oscp-3.3
+
+oc cluster up --use-existing-config --version=v3.4.1.2 --docker-machine=cluster-oscp-3.4
 ```
 
 ## Cluster Down
@@ -76,6 +101,10 @@ oc cluster up --use-existing-config --version=v1.4.1 --docker-machine=cluster-or
 oc cluster down --docker-machine=cluster-origin-1.3.3
 
 oc cluster down --docker-machine=cluster-origin-1.4.1
+
+oc cluster down --docker-machine=cluster-oscp-3.3
+
+oc cluster down --docker-machine=cluster-oscp-3.4
 ```
 
 ## Stop Docker Machine
@@ -84,6 +113,10 @@ oc cluster down --docker-machine=cluster-origin-1.4.1
 docker-machine stop cluster-origin-1.3.3
 
 docker-machine stop cluster-origin-1.4.1
+
+docker-machine stop cluster-oscp-3.3
+
+docker-machine stop cluster-oscp-3.4
 ```
 
 ## Remove Docker Machine
@@ -92,6 +125,10 @@ docker-machine stop cluster-origin-1.4.1
 docker-machine rm cluster-origin-1.3.3
 
 docker-machine rm cluster-origin-1.4.1
+
+docker-machine rm cluster-oscp-3.3
+
+docker-machine rm cluster-oscp-3.4
 ```
 
 # Validation
@@ -166,6 +203,109 @@ Use a browser to go to the [OpenShift Console](https://192.168.99.101:8443/conso
 ## Insecure Registry
 
 ## Proxy
+
+When working with machines behind a corporate proxy then instead of just one step, using ```oc cluster up --create-machine```, it's necessary to:
+
+- Create the Docker Machine, passing proxy settings to environment variables and setting an insecure docker registry;
+- Setting Docker environment variables;
+- Bring the Docker Machine Cluster up.
+
+This workaround assumes that the host has the following environment variables configured correctly:
+- HTTP_PROXY
+- HTTPS_PROXY
+- NO_PROXY
+
+### Create Docker Machine with Proxy Settings
+
+```bash
+# Docker Machine Cluster for OpenShift Origin 1.3.3
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-origin-1.3.3
+
+# Docker Machine Cluster for OpenShift Origin 1.4.1
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-origin-1.4.1
+
+# Docker Machine Cluster for OpenShift Container Platform 3.3
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-oscp-3.3
+
+# Docker Machine Cluster for OpenShift Container Platform 3.4
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-oscp-3.4
+```
+
+Where [HTTP_PROXY], [HTTPS_PROXY] and [NO_PROXY] are to be replaced by the values of the environment variables %HTTP_PROXY%, %HTTPS_PROXY% and %NO_PROXY%.
+
+**Note**: although the Docker Machine can be used to install OpenShift it seems that just this is not enough to have OpenShift fully working behind a corporate proxy. It may be necessary to edit configuration files and restart the cluster.
+
+### Setting Docker Environment Variables
+
+```bash
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-origin-1.3.3' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.3.3' ) DO set NO_PROXY=%NO_PROXY%,%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-origin-1.4.1' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.4.1' ) DO set NO_PROXY=%NO_PROXY%,%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-oscp-3.3' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-oscp-3.3' ) DO set NO_PROXY=%NO_PROXY%,%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-oscp-3.4' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-oscp-3.4' ) DO set NO_PROXY=%NO_PROXY%,%i
+```
+
+### Bring Docker Machine Cluster Up
+
+```bash
+oc cluster up                               ^
+    --docker-machine=openshift-origin-1.3.3 ^
+    --version=v1.3.3                        ^
+    --use-existing-config                   ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+
+oc cluster up                               ^
+    --docker-machine=openshift-origin-1.4.1 ^
+    --version=v1.4.1                        ^
+    --use-existing-config                   ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+
+oc cluster up                                         ^
+    --metrics                                         ^
+    --docker-machine=openshift-oscp-3.3               ^
+    --version=v3.3.1.7                                ^
+    --image=registry.access.redhat.com/openshift3/ose ^
+    --use-existing-config                             ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+
+oc cluster up                                         ^
+    --metrics                                         ^
+    --docker-machine=openshift-oscp-3.4               ^
+    --version=v3.4.1.2                                ^
+    --image=registry.access.redhat.com/openshift3/ose ^
+    --use-existing-config                             ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+```
 
 ## Persistent Volumes
 

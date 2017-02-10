@@ -46,7 +46,7 @@ To configure the environment with Docker environment variables then choose one o
 
 With Windows Command Prompt then issue this command:
 ```bash
-@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine env' ) DO @%i
 ```
 
 With MinGW mintty then issue this command:
@@ -62,7 +62,7 @@ To configure the NO_PROXY environment variable with the Docker Machine IP Addres
 
 With Windows Command Prompt then issue this command:
 ```bash
-set NO_PROXY=%NO_PROXY%,'docker-machine ip'
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip' ) DO @SET NO_PROXY=%NO_PROXY%,%i
 ```
 
 With MinGW mintty then issue this command:
