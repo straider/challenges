@@ -50,14 +50,37 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [Dive into Openshift v3](https://tobrunet.ch/articles/dive-into-openshift-v3/)
 - [OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More](https://blog.openshift.com/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more/)
 - [OpenShift V3 Deep Dive Tutorial | The Next Generation of PaaS](https://blog.openshift.com/openshift-v3-deep-dive-docker-kubernetes/)
-- [How Builds, Deployments and Services Work in OpenShift V3](https://blog.openshift.com/builds-deployments-services-v3/)
-- [Continuous Integration and Deployment with OpenShift v3](https://blog.openshift.com/continuous-integration-deployment-v3/)
-- [Continuous Delivery with Docker, Jenkins, JBoss Fuse and OpenShift PaaS](http://blog.christianposta.com/demo/continuous-delivery-with-jenkins-gerrit-jboss-fuse-and-openshift-paas/)
+
+### Lab / DevEnv
+
 - [OpenShift Enterprise v3 Lab Configuration: Innovate Faster, Deliver Sooner](http://www.opensourcerers.org/openshift-enterprise-v3-lab-configuration-innovate-faster-deliver-sooner/)
+- [OpenShift Enterprise 3.1 Lab Setup](https://keithtenzer.com/2016/04/11/openshift-enterprise-3-1-lab-setup/)
+- [Four different approaches to run WildFly Swarm in OpenShift](https://developers.redhat.com/blog/2016/06/29/four-different-approaches-to-run-wildfly-swarm-in-openshift/)
+- [Goodbye OpenShift All-In-One VM, Hello MiniShift](https://blog.openshift.com/goodbye-openshift-all-in-one-vm-hello-minishift/)
+
+### Build & Deploy
+
+- [How Builds, Deployments and Services Work in OpenShift V3](https://blog.openshift.com/builds-deployments-services-v3/)
+- [Maven Multi-Module Projects and OpenShift](https://blog.openshift.com/maven-multi-module-projects-and-openshift/)
+- [Improving Build Time of Java Builds on OpenShift](https://blog.openshift.com/improving-build-time-java-builds-openshift/)
+- [Improve your build speed: Run a proxy in OpenShift](http://akrambenaissi.com/2016/02/23/improve-your-build-speed-run-a-proxy-in-openshift/)
+
+### Container Images
+
 - [Importing Docker Images to Red Hat OpenShift V3](http://www.opensourcerers.org/importing-an-external-docker-image-into-red-hat-openshift-v3/)
 - [Pushing an external and not yet published Docker image into Red Hat OpenShift V3](http://www.opensourcerers.org/pushing-an-external-and-not-yet-published-docker-image-into-red-hat-openshift-v3/)
-- [Improving Build Time of Java Builds on OpenShift](https://blog.openshift.com/improving-build-time-java-builds-openshift/)
-- [Four different approaches to run WildFly Swarm in OpenShift](https://developers.redhat.com/blog/2016/06/29/four-different-approaches-to-run-wildfly-swarm-in-openshift/)
+- [Remotely Push and Pull Container Images to OpenShift](https://blog.openshift.com/remotely-push-pull-container-images-openshift/)
+- [Cross-Cluster Image Promotion Techniques](https://blog.openshift.com/cross-cluster-image-promotion-techniques/)
+
+### Networking
+
+- OpenShift 3.1 Networking from a Container/Workload Point of View:
+    - [Part 1: Container Networking on a Plain Docker Host](http://www.opensourcerers.org/openshift-3-1-networking-from-a-containerworkload-point-of-view-part-1-container-networking-on-a-plain-docker-host/)
+    - [Part 2: Container Networking on an OpenShift Node](http://www.opensourcerers.org/openshift-networking-from-a-containerworkload-point-of-view-part-2-container-networking-on-an-openshift-node/)
+    - [Part 3: Container Networking across OpenShift Nodes](http://www.opensourcerers.org/openshift-networking-from-a-containerworkload-point-of-view-part-3-container-networking-across-openshift-nodes/)
+    - [Part 4: Container Networking using OpenShift/Kubernetes Services](http://www.opensourcerers.org/openshift-networking-from-a-containerworkload-point-of-view-part-3-container-networking-using-openshiftkubernetes-services/)
+    - [Part 5: OpenShift Router](http://www.opensourcerers.org/openshift-networking-from-a-containerworkload-point-of-view-part-5-openshift-router/)
+    - [Part 6: Controlling Egress Traffic](http://www.opensourcerers.org/openshift-networking-from-a-containerworkload-point-of-view-part-6-controlling-egress-traffic/)
 
 ## Books
 
@@ -77,7 +100,12 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 - [Run Gradle Builds on OpenShift](https://blog.openshift.com/run-gradle-builds-on-openshift/)
 - [Docker / OCI Image Builder](https://github.com/openshift/imagebuilder)
 - [Source-To-Image (S2I)](https://github.com/openshift/source-to-image)
-- [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java): this builder/runtime s2i image can be used with SpringBoot, Vert.X, Wildfly Swarm, DropWizard and many other microservices frameworks.
+- [S2I Java builder image](https://github.com/redhat-cop/containers-quickstarts/tree/master/s2i-java)
+- [RHEL S2I Java builder image with OpenJDK 8](https://github.com/fabric8io-images/s2i/tree/master/java/images/rhel)
+- [OpenShift S2I Builder for Java](https://github.com/jorgemoralespou/s2i-java), using OpenJDK 8 and Maven or Gradle.
+- [OpenShift S2I Builder for Spring Boot](https://github.com/jorgemoralespou/osev3-examples/tree/master/spring-boot/springboot-sti)
+- [OpenShift S2I Builder for Java Docker images](https://github.com/luiscoms/s2i-java), using OpenJDK 8 and Maven or Gradle.
+- [OpenShift Gradle Wrapper](https://bitbucket.org/double16/openshift-gradle_wrapper): OpenShift S2I builder image for projects using the Gradle wrapper.
 - [vbehar/openshift-git](https://github.com/vbehar/openshift-git): Import/Export OpenShift resources from/to a Git repository.
 - [puzzle/puppet-openshift3](https://github.com/puzzle/puppet-openshift3): Puppet Module to install and manage OpenShift Enterprise 3 and OpenShift Origin.
 - [getwarped/powershift-cli](https://github.com/getwarped/powershift-cli): provides a plugin which wraps the oc cluster up command, used for starting up a local OpenShift cluster using your local Docker service. This plugin builds on top of oc cluster up, to provide profiles, additional security, application persistence and provisioning for persistent volumes.

@@ -10,6 +10,7 @@
 ## Articles
 
 - [Microservices CI/CD Pipelines in Openshift](https://developers.redhat.com/blog/2016/09/14/microservices-cicd-pipelines-in-openshift/)
+- [OpenShift 3.3 Pipelines – Deep Dive](https://blog.openshift.com/openshift-3-3-pipelines-deep-dive/)
 
 ## Demos
 
@@ -27,6 +28,7 @@
 - [OpenShift 3 Jenkins Example](https://github.com/openshift/origin/tree/master/examples/jenkins)
 - [Using Jenkins Pipelines with OpenShift](https://github.com/openshift/origin/tree/master/examples/jenkins/pipeline)
 - [Jenkins Master example](https://github.com/arilivigni/openshift-ci-pipeline)
+- [OpenShift Enterprise 3.3: all-in-one Lab Environment with Jenkins Build Pipeline](https://keithtenzer.com/2016/11/21/openshift-enterprise-3-3-all-in-one-lab-environment-with-jenkins-build-pipeline/)
 - [Create and explore Continuous Delivery Pipelines with Fabric8 and Jenkins on OpenShift](https://blog.fabric8.io/create-and-explore-continuous-delivery-pipelines-with-fabric8-and-jenkins-on-openshift-661aa82cb45a#.jmp5xdksp)
 - [Continuous Delivery With Docker, Jenkins, JBoss Fuse and OpenShift PaaS](https://dzone.com/articles/continuous-delivery-docker)
 

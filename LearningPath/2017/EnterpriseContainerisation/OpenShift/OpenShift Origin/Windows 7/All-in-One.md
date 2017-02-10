@@ -71,9 +71,36 @@ An useful plugin, vagrant-proxyconf, should be used to set proxy configuration f
 
 After configuring the environment variables and after bringing the Vagrant box up then, inside the Vagrant box (by issuing the command ```vagrant ssh```), the following steps are required to configure OpenShift as well:
 
-- Create or edit the Master Proxy Configuration File;
-- Edit the Main Service Configuration;
+- Edit the Docker configuration file, to exclude the IP Address of the internal Docker registry;
+- Create or edit the Master Proxy Configuration File, to have a full proxy settings configured;
+- Edit the Main Service Configuration, to read the master proxy configuration file;
 - Restart OpenShift Processes.
+
+### Docker Configuration File
+
+To edit the file then issue the command:
+
+```bash
+sudo vi /etc/sysconfig/docker
+```
+
+The content for /etc/sysconfig/docker file must include:
+
+```
+HTTP_PROXY=[HTTP_PROXY]
+HTTPS_PROXY=[HTTP_PROXY]
+NO_PROXY=[NO_PROXY],origin,[DOCKER_INTERNAL_REGISTRY_IP],10.2.2.2,172.17.0.0/16,172.30.0.0/16
+http_proxy=[HTTP_PROXY]
+https_proxy=[HTTP_PROXY]
+no_proxy=[NO_PROXY],origin,[DOCKER_INTERNAL_REGISTRY_IP],10.2.2.2,172.17.0.0/16,172.30.0.0/16
+```
+
+Where [DOCKER_INTERNAL_REGISTRY_IP] is to be replaced by the IP addres that one can find by using the oc command:
+
+```bash
+oc login localhost:8443 -u admin -p admin
+oc get svc/docker-registry -n default
+```
 
 ### Master Proxy Configuration File
 
