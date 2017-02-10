@@ -164,6 +164,37 @@ An useful plugin, vagrant-proxyconf, should be used to set proxy configuration f
   ...
 ```
 
+After configuring the environment variables and after bringing the Vagrant box up then, inside the Vagrant box (by issuing the command ```vagrant ssh```), the following steps are required to configure OpenShift as well:
+
+- Edit the OpenShift Options Configuration File;
+- Restart OpenShift Processes.
+
+### OpenShift Options Configuration File
+
+To edit the file then issue the command:
+
+```bash
+sudo vi /etc/sysconfig/openshift_options
+```
+
+The content for /etc/sysconfig/openshift_options file should have almost everything right, except the NO_PROXY variable:
+
+```
+NO_PROXY=[NO_PROXY],10.0.2.15,10.1.2.2,172.17.0.0/16,172.30.0.0/16
+```
+
+Where [NO_PROXY] is to be replaced by the contents of the NO_PROXY environment variable.
+
+### Restart OpenShift Processes
+
+To restart OpenShift processes then issue the following commands:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart openshift
+systemctl status openshift
+```
+
 ## Unable to start 2nd CDK box
 
 If the step "Configuring and enabling network interfaces" fails with the following error:
