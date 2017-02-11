@@ -1,14 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'oscp-3.3'
+BOX_NAME = 'oscp-3.4'
 
 # The private network IP of the VM. You will use this IP to connect to OpenShift.
 # This variable is ignored for Hyper-V provider.
 PUBLIC_ADDRESS="10.1.2.2"
 
 # Modify IMAGE_TAG if you need a new OCP version e.g. IMAGE_TAG="v3.3.1.3"
-IMAGE_TAG = "" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
+IMAGE_TAG = "v3.4.1.2" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
 
 # Number of virtualized CPUs
 VM_CPU = ENV['VM_CPU'] || 2
@@ -91,9 +91,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo setsebool -P virt_sandbox_use_fusefs 1
-    grep -v net.ipv4.ip_forward /etc/sysctl.conf | sudo tee /etc/sysctl.conf
-    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
-    # sudo sysctl -w net.ipv4.ip_forward=1
   SHELL
 
   # prevent the automatic start of openshift via service-manager by just enabling Docker

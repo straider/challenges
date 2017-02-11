@@ -8,7 +8,11 @@ This option installs OpenShift Container Platform 3.3:
 - Download [RHEL 7.3 Vagrant Box for VirtualBox](https://developers.redhat.com/download-manager/file/rhel-cdk-kubernetes-7.3-32.x86_64.vagrant-virtualbox.box), which also requires a valid Red Hat Portal account;
 - Unzip cdk-2.3.0.zip;
 - Put the RHEL 7.3 Vagrant Box file inside the components/rhel/ sub-folder of the CDK folder;
-- Install required Vagrant plugins;
+- Edit the Vagrantfile, to set BOX_NAME and enable IPv4 Forwarding;
+- Install required Vagrant plugins:
+    - vagrant-service-manager;
+    - vagrant-registration;
+    - vagrant-sshfs.
 - Add RHEL 7.3 box to Vagrant;
 - Set Environment Variables:
     - Set CDK Memory;
@@ -27,20 +31,69 @@ This option installs OpenShift Container Platform 3.3:
 
 Make sure virtualization is enabled, using [Microsoft Hardware-Assisted Virtualization Detection Tool](https://www.microsoft.com/en-us/download/details.aspx?id=592) and that there's a GNU Environment ready (Cygwin, MSYS2, MinGW) with openssh.
 
-# Steps
+# Installation
 
-Edit the Vagrantfile and set BOX_NAME property to oscp-3.3, before using [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
+## Edit Vagrantfile
+
+Edit the Vagrantfile and set BOX_NAME property to oscp-3.3:
+
+```ruby
+  config.vm.provider "virtualbox" do |v, override|
+    v.name   = BOX_NAME
+    ...
+  end
+```
+
+To enable IPv4 forwarding then the following changes must also be applied to the Vagrantfile:
+
+```ruby
+...
+  config.vm.provider 'virtualbox' do | vb |
+    ...
+    vb.customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]
+  end
+...
+  config.vm.provision 'shell', inline: <<-SHELL
+    grep -v net.ipv4.ip_forward /etc/sysctl.conf | sudo tee /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -w net.ipv4.ip_forward=1
+  SHELL
+...
+```
+
+**Note**: if IPv4 forwarding is not enable then the PODs will not be able to access the Internet since their sub-network is on the Host-Only NIC.
+
+## Vagrant Plugins
 
 ```bash
-cd /cygdrive/c/[CDK_FOLDER]/
+cd /cygdrive/c/[CDK_FOLDER]/plugins/
 
 # Install Vagrant Red Hat Plugins and Create Box for RHEL 7.3.
-cd plugins
 vagrant plugin install vagrant-service-manager vagrant-registration vagrant-sshfs
 vagrant plugin list
-cd ..\components\rhel
+```
+
+Where [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0```.
+
+## Add Vagrant Box
+
+```bash
+cd /cygdrive/c/[CDK_FOLDER]/components/rhel
+
 vagrant box add --name oscp-3.3 rhel-cdk-kubernetes-7.3-32.x86_64.vagrant-virtualbox.box
 vagrant box list
+```
+
+Where [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0```.
+
+**Note**: The oscp-3.3 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
+
+## Configure Environment Variables
+
+Must use [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
+
+```bash
+cd /cygdrive/c/[CDK_FOLDER]/components/rhel/rhel-ose/
 
 # Set CDK Memory.
 export VM_MEMORY=6000
@@ -48,24 +101,29 @@ export VM_MEMORY=6000
 # Set Red Hat Portal Subscription credentials.
 export SUB_USERNAME=[SUB_USERNAME]
 export SUB_PASSWORD=[SUB_PASSWORD]
-
-# Startup RHEL 7.3 Vagrant box.
-cd rhel-ose
-vagrant up
-
-# Connect to RHEL 7.3 Vagrant box.
-vagrant ssh
 ```
 
 Where:
 - [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0```;
 - [SUB_USERNAME] and [SUB_PASSWORD] are to be replaced by the Red Hat Portal account credentials;
 
-**Note**: The oscp-3.3 Vagrant Box will be installed in the .vagrant.d\boxes\ sub-folder under %USERPROFILE% folder.
+## Bring Vagrant Box Up
+
+Must use [Cygwin](https://www.cygwin.com/) 64 bit Terminal (mintty) - with openssh and rsync packages - to issue these commands:
+
+```bash
+cd /cygdrive/c/[CDK_FOLDER]/components/rhel/rhel-ose/
+
+vagrant up
+```
+
+Where [CDK_FOLDER] is to be replaced the by path to the uncompressed CDK, for example ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0```.
 
 # Validation
 
-The following commands are to be issued inside the Vagrant box, in order to verify installation:
+## Inside the Vagrant Box
+
+The following commands are to be issued inside the Vagrant box, by issuing command ```vagrant ssh```, in order to verify installation:
 
 ```bash
 docker ps
@@ -97,9 +155,33 @@ Verify that there's access to the following projects:
 
 - sample-project (current)
 
-Then connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
+## Outside the Vagrant Box
+
+Issue the following commands to login as either admin or openshift-dev user:
+
+```bash
+oc login 10.1.2.2:8443 --username=admin --password=admin
+
+oc login 10.1.2.2:8443 --username=openshift-dev --password=devel
+```
+
+Connect to the OpenShift Console pointing your browser to the address given at the end of the output of the vagrant up command. Usually it's https://10.1.2.2:8443/console.
 
 # Well Known Errors
+
+## Unable to execute vagrant run
+
+The command ```vagrant up``` must be issued on a Cygwin terminal from the folder where the vagrantfile of CDK is located. If not then the following error message will be displayed:
+
+```
+A Vagrant environment or target machine is required to run this
+command. Run `vagrant init` to create a new Vagrant environment. Or,
+get an ID of a target machine from `vagrant global-status` to run
+this command on. A final option is to change to a directory with a
+Vagrantfile and to try again.
+```
+
+**Note**: a useful tool is **chere** which can be used to create a Windows Explorer option to start mintty from a specific folder instead of starting from $HOME and having to change directory using ```/cygdrive/c/...```.
 
 ## sftp-server
 
