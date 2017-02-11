@@ -44,12 +44,31 @@ The following code configures the Vagrant box on VirtualBox with 3 GB and with t
 
 ```ruby
 ...
-  config.vm.provider "virtualbox" do |vb|
+  config.vm.provider 'virtualbox' do | vb |
     vb.name   = BOX_NAME
-    vb.memory = "3072"
+    vb.memory = '3072'
   end
-...  
+...
 ```
+
+To enable NAT DNS Host Resolver and to enable IPv4 forwarding then the following changes must also be applied to the Vagrantfile:
+
+```ruby
+...
+  config.vm.provider 'virtualbox' do | vb |
+    ...
+    vb.customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]
+  end
+...
+  config.vm.provision 'shell', inline: <<-SHELL
+    grep -v net.ipv4.ip_forward /etc/sysctl.conf | sudo tee /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -w net.ipv4.ip_forward=1
+  SHELL  
+...
+```
+
+**Note**: if IPv4 forwarding is not enable then the PODs will not be able to access the Internet since their sub-network is on the Host-Only NIC.
 
 ## Start Vagrant Box
 

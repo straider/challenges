@@ -58,9 +58,10 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
   # end
-  config.vm.provider "virtualbox" do |vb|
+  config.vm.provider 'virtualbox' do | vb |
     vb.name   = BOX_NAME
-    vb.memory = "3072"
+    vb.memory = '3072'
+    vb.customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]
   end
 
   #
@@ -81,4 +82,7 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  config.vm.provision 'shell', inline: <<-SHELL
+    sudo sysctl -w net.ipv4.ip_forward=1
+  SHELL  
 end
