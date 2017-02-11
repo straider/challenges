@@ -35,7 +35,6 @@ oc cluster up --create-machine                      ^
               --docker-machine=cluster-origin-1.4.1 ^
               --version=v1.4.1                      ^
               --host-data-dir=[HOST_DATA_FOLDER]
-
 ```
 
 Where [HOST_DATA_FOLDER] is the absolute path to the folder on the host that will be mounted as a persistent volume.
@@ -163,9 +162,105 @@ Use a browser to go to the [OpenShift Console](https://192.168.99.101:8443/conso
 
 # Well Known Errors
 
+## I/O Timeout
+
+If the following error occurs when running ``oc cluster up``` then just re-issue the same command:
+
+```
+Error checking TLS connection:
+    Error checking and/or regenerating the certs:
+        There was an error validating certificates for host "192.168.99.105:2376": dial tcp 192.168.99.105:2376: i/o timeout
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which will stop running containers.
+```
+
+## x509 Certificate
+
+The following errors occurs when running ```oc cluster up``` because the IP address is no longer the same:
+
+```
+Error checking TLS connection
+    Error checking and/or regenerating the certs:
+        There was an error validating certificates for host "192.168.99.100:2376":
+            x509: certificate is valid for 192.168.99.105, not 192.168.99.100
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which will stop running containers.
+```
+
+From time to time the Docker Machine will get a different IP Address and because of this then the certificate must be regenerated. To regenerate the certificates then issue the following command before re-issuing the ``oc cluster up``` command again:
+
+```bash
+docker-machine regenerate-certs [DOCKER_MACHINE_NAME]
+```
+
+Where [DOCKER_MACHINE_NAME] is to be replaced by the name of the Docker Machine, such as cluster-origin-1.3.3 and cluster-origin-1.4.1.
+
 ## Insecure Registry
 
 ## Proxy
+
+When working with machines behind a corporate proxy then instead of just one step, using ```oc cluster up --create-machine```, it's necessary to:
+
+- Create the Docker Machine, passing proxy settings to environment variables and setting an insecure docker registry;
+- Setting Docker environment variables;
+- Bring the Docker Machine Cluster up.
+
+This workaround assumes that the host has the following environment variables configured correctly:
+- HTTP_PROXY
+- HTTPS_PROXY
+- NO_PROXY
+
+### Create Docker Machine with Proxy Settings
+
+```bash
+# Docker Machine Cluster for OpenShift Origin 1.3.3
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-origin-1.3.3
+
+# Docker Machine Cluster for OpenShift Origin 1.4.1
+docker-machine create                                                                                                ^
+    --driver virtualbox                                                                                              ^
+    --engine-insecure-registry 172.30.0.0/16                                                                         ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
+    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+    openshift-origin-1.4.1
+```
+
+Where [HTTP_PROXY], [HTTPS_PROXY] and [NO_PROXY] are to be replaced by the values of the environment variables %HTTP_PROXY%, %HTTPS_PROXY% and %NO_PROXY%.
+
+**Note**: although the Docker Machine can be used to install OpenShift it seems that just this is not enough to have OpenShift fully working behind a corporate proxy. It may be necessary to edit configuration files and restart the cluster.
+
+### Setting Docker Environment Variables
+
+```bash
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-origin-1.3.3' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.3.3' ) DO set NO_PROXY=%NO_PROXY%,%i
+
+@FOR /f "tokens=*" %i IN ( 'docker-machine env openshift-origin-1.4.1' ) DO @%i
+@FOR /f "tokens=*" %i IN ( 'docker-machine ip openshift-origin-1.4.1' ) DO set NO_PROXY=%NO_PROXY%,%i
+```
+
+### Bring Docker Machine Cluster Up
+
+```bash
+oc cluster up                               ^
+    --docker-machine=openshift-origin-1.3.3 ^
+    --version=v1.3.3                        ^
+    --use-existing-config                   ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+
+oc cluster up                               ^
+    --docker-machine=openshift-origin-1.4.1 ^
+    --version=v1.4.1                        ^
+    --use-existing-config                   ^
+    --host-data-dir=[HOST_DATA_FOLDER]
+```
 
 ## Persistent Volumes
 
