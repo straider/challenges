@@ -18,14 +18,17 @@ It pulls a Docker Image from docker.io and after exposing its service then an ac
 ## Login using OpenShift Client Tools
 
 ```bash
+# Using ADB
+oc login openshift.adb:8443 -u admin -p admin
+
 # Using CDK
 oc login 10.1.2.2:8443 -u admin -p admin
 
 # Using Origin All-in-One
 oc login 10.2.2.2:8443 -u admin -p admin
 
-# Using ADB
-oc login openshift.adb:8443 -u admin -p admin
+# Using Docker Machine Cluster
+oc login 192.168.99.100:8443 -u system:admin
 
 # Using Online
 oc login https://api.preview.openshift.com --token=[TOKEN] # Replace [TOKEN] with token from [About](https://console.preview.openshift.com/console/command-line).
@@ -56,14 +59,17 @@ oc expose svc hello-openshift
 Either point a browser to the exposed route URL or issue the following command on a terminal with cURL:
 
 ```bash
+# Using ADB
+curl http://hello-openshift-openshift.adb/
+
 # Using CDK
 curl http://hello-openshift-openshift.rhel-cdk.10.1.2.2.xip.io/
 
 # Using Origin All-in-One
 curl http://hello-openshift-openshift.apps.10.2.2.2.xip.io/
 
-# Using ADB
-curl http://hello-openshift-openshift.adb/
+# Using Docker Machine Cluster
+curl http://hello-openshift-openshift.192.168.99.100.xip.io/
 ```
 
 ## Get IP Address

@@ -1,7 +1,7 @@
 oc login 10.1.2.2:8443 -u openshift-dev -p devel
 oc login 10.2.2.2:8443 -u openshift-dev -p devel
 oc login openshift.adb:8443 -u openshift-dev -p devel
-oc login 192.168.99.101:8443 -u developer -p developer
+oc login 192.168.99.10n:8443 -u developer -p developer # Where n is to be replaced by a digit, 1st Docker Machine is at 192.168.99.100
 oc login https://api.preview.openshift.com --token=[OPENSHIFT_ONLINE_TOKEN] # https://console.preview.openshift.com/console/command-line
 
 ----

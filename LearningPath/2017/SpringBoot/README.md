@@ -15,6 +15,7 @@ This challenge is open to learn about SpringBoot applications.
 
 ## Articles
 
+- [How to build a Spring Boot Application using IntelliJ IDEA](https://patrickgrimard.io/2014/08/14/how-to-build-a-spring-boot-application-using-intellij-idea/)
 - [Building microservices with Spring Boot – part 1](https://plainoldobjects.com/2014/04/01/building-microservices-with-spring-boot-part1/)
 - [Building microservices with Spring Boot – part 2](https://plainoldobjects.com/2014/05/05/building-microservices-with-spring-boot-part-2/)
 - [Deploying Spring Boot-based microservices with Docker – part 3](https://plainoldobjects.com/2014/11/16/deploying-spring-boot-based-microservices-with-docker/)

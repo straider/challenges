@@ -35,14 +35,14 @@ As a secondary challenge, the SpringBoot applications should be based on Spring 
 
 ## Examples
 
+- [jirkapinkas/spring-boot-openshift](https://github.com/jirkapinkas/spring-boot-openshift)
+- [marcelmaatkamp/openshift-spring-boot-example](https://github.com/marcelmaatkamp/openshift-spring-boot-example)
 - [kolorobot/openshift-diy-spring-boot-sample](https://github.com/kolorobot/openshift-diy-spring-boot-sample)
 - [kolorobot/openshift-diy-spring-boot-gradle](https://github.com/kolorobot/openshift-diy-spring-boot-gradle)
 - [kolorobot/openshift-wildfly-spring-boot](https://github.com/kolorobot/openshift-wildfly-spring-boot)
 - [gshipley/bootwildfly](https://github.com/gshipley/bootwildfly): starter Spring Boot application for deploying to WildFly.
-- [jirkapinkas/spring-boot-openshift](https://github.com/jirkapinkas/spring-boot-openshift)
-- [jorgemoralespou/springmlb-openshift3](https://github.com/jorgemoralespou/springmlb-openshift3): The Spring + MongoDB OpenShift 3 application
-- [marcelmaatkamp/openshift-spring-boot-example](https://github.com/marcelmaatkamp/openshift-spring-boot-example)
 - [lbroudoux/spring-boot-hello](https://github.com/lbroudoux/spring-boot-hello)
+- [jorgemoralespou/springmlb-openshift3](https://github.com/jorgemoralespou/springmlb-openshift3): The Spring + MongoDB OpenShift 3 application
 - [Starpark User Service](https://github.com/davgordo/starpark-users): Simple CRUD with Spring Boot and Mongo
 
 # Milestones

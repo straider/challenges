@@ -60,6 +60,7 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ### Build & Deploy
 
+- [Run Gradle Builds on OpenShift](https://blog.openshift.com/run-gradle-builds-on-openshift/)
 - [How Builds, Deployments and Services Work in OpenShift V3](https://blog.openshift.com/builds-deployments-services-v3/)
 - [Maven Multi-Module Projects and OpenShift](https://blog.openshift.com/maven-multi-module-projects-and-openshift/)
 - [Improving Build Time of Java Builds on OpenShift](https://blog.openshift.com/improving-build-time-java-builds-openshift/)
