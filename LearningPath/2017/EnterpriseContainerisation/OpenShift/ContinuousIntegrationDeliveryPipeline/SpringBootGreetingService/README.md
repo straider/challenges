@@ -1,5 +1,5 @@
-﻿:: Spring Boot on OpenShift ::
-==============================
+﻿:: Spring Boot on OpenShift Pipelines ::
+========================================
 
 # Overview
 
@@ -7,17 +7,13 @@ This project holds a simple example of a REST service that runs on SpringBoot an
 
 # Steps
 
-- Cloned from [:: CXF :: REST :: Spring Boot ::](https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot) on GitHub;
-- Replace package com.github.straider.java.ws.cxf with com.github.straider.openshift.springboot;
+- Cloned from [:: OpenShift :: Spring Boot ::](https://github.com/straider/challenges/tree/master/LearningPath/2017/EnterpriseContainerisation/Sample Applications/SpringBootHelloWorld) on GitHub;
 - Fix name, description and URL on pom.xml;
-- Create Dockerfile;
 - Include Jenkinsfile script for the pipeline.
 
 ## ToDos
 
-- Add Swagger UI to pom.xml;
-- Use Docker Maven Plugin to create the Docker Image using the Dockerfile;
-- Launch it in a Docker container.
+- Add pipeline JSON / YAML to link OpenShift Pipelines with Jenkins.
 
 ## Challenges
 
@@ -106,6 +102,8 @@ oc new-project ci-cd-pipeline --display-name="CI/CD Pipeline" --description="Jen
 ```
 
 #### Give Permissions to Service Account
+
+Before running the commands in this section it's necessary to login with a user with enough rights to add roles to users, such as admin.
 
 ```bash
 oc policy add-role-to-user edit system:serviceaccount:ci-cd-pipeline:default -n greeter-dev
