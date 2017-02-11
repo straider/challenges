@@ -13,7 +13,6 @@
 - [Evangelists Vagrant Box](Evangelists Vagrant Box.md)
 - [Official Vagrant Box](Official Vagrant Box.md)
 - [Fabric8 Installer](Fabric8 Installer.md)
-- [MiniKube](MiniKube.md)
 - [MiniShift](MiniShift.md)
 
 # Validation

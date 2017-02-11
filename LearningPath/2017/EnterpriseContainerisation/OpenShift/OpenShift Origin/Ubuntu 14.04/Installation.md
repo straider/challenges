@@ -3,7 +3,6 @@
 
 # Requirements
 
-- ~~[Docker Machine](https://github.com/docker/machine/) 0.8.2~~
 - [Vagrant](https://www.vagrantup.com/) 1.8.7
 - OpenShift Client Tools 1.3.1
 
@@ -20,7 +19,6 @@ sudo dpkg -i vagrant_1.8.7_x86_64.deb
 - [Evangelists Vagrant Box](Evangelists Vagrant Box.md)
 - [All-In-One Virtual Machine](All-in-One.md)
 - [Fabric8 Installer](Fabric8 Installer.md)
-- [MiniKube](MiniKube.md)
 - [MiniShift](MiniShift.md)
 
 # Validation
