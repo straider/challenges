@@ -1,5 +1,5 @@
-:: MongoDB :: Windows 7 ::
-==========================
+:: MongoDB :: Windows ::
+========================
 
 # Overview
 
