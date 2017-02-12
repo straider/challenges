@@ -227,21 +227,21 @@ This workaround assumes that the host has the following environment variables co
 
 ```bash
 # Docker Machine Cluster for OpenShift Origin 1.3.3
-docker-machine create                                                                                                ^
-    --driver virtualbox                                                                                              ^
-    --engine-insecure-registry 172.30.0.0/16                                                                         ^
-    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
-    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
-    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+docker-machine create                        ^
+    --driver virtualbox                      ^
+    --engine-insecure-registry 172.30.0.0/16 ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]     ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]   ^
+    --engine-env NO_PROXY=[NO_PROXY]         ^
     openshift-origin-1.3.3
 
 # Docker Machine Cluster for OpenShift Origin 1.4.1
-docker-machine create                                                                                                ^
-    --driver virtualbox                                                                                              ^
-    --engine-insecure-registry 172.30.0.0/16                                                                         ^
-    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
-    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
-    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+docker-machine create                        ^
+    --driver virtualbox                      ^
+    --engine-insecure-registry 172.30.0.0/16 ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]     ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]   ^
+    --engine-env NO_PROXY=[NO_PROXY]         ^
     openshift-origin-1.4.1
 ```
 

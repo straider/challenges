@@ -93,6 +93,19 @@ docker-machine rm cluster-origin-1.3.3
 docker-machine rm cluster-origin-1.4.1
 ```
 
+# Post-Installation
+
+## Admin Cluster Role
+
+To give administration permissions to user admin for all projects in the cluster it is necessary to issue the following commands:
+
+```bash
+oc login [IP_ADDRESS]:8443 -u system:admin
+oc adm policy add-cluster-role-to-user admin admin
+```
+
+Where [IP_ADDRESS] is to be replaced by the IP Address for the Docker Machine, such as 192.168.99.101.
+
 # Validation
 
 ## Installation Output
@@ -214,21 +227,21 @@ This workaround assumes that the host has the following environment variables co
 
 ```bash
 # Docker Machine Cluster for OpenShift Origin 1.3.3
-docker-machine create                                                                                                ^
-    --driver virtualbox                                                                                              ^
-    --engine-insecure-registry 172.30.0.0/16                                                                         ^
-    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
-    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
-    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+docker-machine create                        ^
+    --driver virtualbox                      ^
+    --engine-insecure-registry 172.30.0.0/16 ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]     ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]   ^
+    --engine-env NO_PROXY=[NO_PROXY]         ^
     openshift-origin-1.3.3
 
 # Docker Machine Cluster for OpenShift Origin 1.4.1
-docker-machine create                                                                                                ^
-    --driver virtualbox                                                                                              ^
-    --engine-insecure-registry 172.30.0.0/16                                                                         ^
-    --engine-env HTTP_PROXY=[HTTP_PROXY]                                                                             ^
-    --engine-env HTTPS_PROXY=[HTTPS_PROXY]                                                                           ^
-    --engine-env NO_PROXY=[NO_PROXY]                                                                                 ^
+docker-machine create                        ^
+    --driver virtualbox                      ^
+    --engine-insecure-registry 172.30.0.0/16 ^
+    --engine-env HTTP_PROXY=[HTTP_PROXY]     ^
+    --engine-env HTTPS_PROXY=[HTTPS_PROXY]   ^
+    --engine-env NO_PROXY=[NO_PROXY]         ^
     openshift-origin-1.4.1
 ```
 
