@@ -61,8 +61,12 @@ It requires VirtualBox.
 
 ## OpenShift
 
-### Client Tools 1.3.2
+### Client Tools 1.4.1
 
-### OpenShift Origin All-in-One
+### ~~OpenShift Origin All-in-One~~
+
+### Atomic Developer Bundle
 
 ### Container Development Kit 2.3.0
+
+## [MongoDB 3.4.2](https://www.mongodb.com/)

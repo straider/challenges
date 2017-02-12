@@ -189,17 +189,7 @@ vagrant plugin list
 
 ### OpenShift
 
-#### Container Developer Kit
-
-- Unzip OpenShift Client Tools 1.3.2 to ```C:\Hosting\Containers\OpenShift\ClientTools\1.3.2\```;
-- Unzip CDK 2.3.0 to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\```;
-- Copy RHEL CDK 7.3 VirtualBox / HyperV Vagrant boxes to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\cdk\components\rhel```;
-- Clone pristine rhel/rhel-ose/ sub-folder to a new sub-folder under rhel/ and edit the BOX_NAME property in the Vagrantfile for each new OpenShift Container Platform 3.3 to work with;
-- Follow the [CDK Installation Guide for Windows 10](https://github.com/straider/challenges/blob/master/LearningPath/2017/EnterpriseContainerisation/OpenShift/OpenShift%20Container%20Platform/Windows%2010/CDK.md). **Note**: replace occurrences of **oscp-3.3** with edited value of BOX_NAME and make sure that Cygwin **openssh** and **rsync** packages are installed before following the steps.
-
-**Note**: bare in mind that it's required to have a valid Red Hat Subscription.
-
-#### Docker Cluster
+#### Docker Machine Cluster
 
 #### Origin All-in-One Vagrant Box
 
@@ -211,12 +201,38 @@ vagrant init openshift/origin-all-in-one
 vagrant up --provider=virtualbox
 ```
 
-#### minikube
+#### Atomic Developer Bundle
 
-#### minishift
+#### Container Developer Kit
 
-#### gofabric8
+- Unzip OpenShift Client Tools 1.3.3 to ```C:\Hosting\Containers\OpenShift\ClientTools\1.3.3\```;
+- Unzip CDK 2.3.0 to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\```;
+- Copy RHEL CDK 7.3 VirtualBox / HyperV Vagrant boxes to ```C:\Hosting\Containers\OpenShift\ContainerDeveloperKit\2.3.0\cdk\components\rhel```;
+- Clone pristine rhel/rhel-ose/ sub-folder to a new sub-folder under rhel/ and edit the BOX_NAME property in the Vagrantfile for each new OpenShift Container Platform 3.3 to work with;
+- Follow the [CDK Installation Guide for Windows 10](https://github.com/straider/challenges/blob/master/LearningPath/2017/EnterpriseContainerisation/OpenShift/OpenShift%20Container%20Platform/Windows%2010/CDK.md). **Note**: replace occurrences of **oscp-3.3** with edited value of BOX_NAME and make sure that Cygwin **openssh** and **rsync** packages are installed before following the steps.
 
+**Note**: bare in mind that it's required to have a valid Red Hat Subscription.
+
+#### MiniShift
+
+### MongoDB
+
+- Install to ```C:\Hosting\MongoDB\3.4.2\```;
+- Create data folder in ```C:\Hosting\MongoDB\```;
+- Create mongod.cfg in ```C:\Hosting\MongoDB\```:
+
+```yaml
+systemLog :
+    destination : file
+    path        : C:\Hosting\MongoDB\logs\mongod.log
+storage   :
+    dbPath : C:\Hosting\MongoDB\data
+net       :
+   bindIp : 127.0.0.1
+   port   : 27017
+```
+
+Make sure that MONGODB_HOME environment variable points to C:\Hosting\MongoDB\3.4.2\ and that Hosting environment variable includes ```%MONGODB_HOME%\bin\```.
 ## Coding
 
 ### WinMerge
@@ -379,7 +395,7 @@ Install plugins:
 Issue the following command from a Windows Command Prompt run as Administrator to set system wide environment variable HOSTING:
 
 ```bash
-setx /M HOSTING "C:\Hosting\Git\cmd;C:\Hosting\Git\bin;C:\Hosting\Vagrant\bin;C:\Hosting\Containers\Docker Toolbox;C:\Hosting\Containers\OpenShift\ClientTools\1.3.2;"
+setx /M HOSTING "C:\Hosting\Git\cmd;C:\Hosting\Git\bin;C:\Hosting\Vagrant\bin;C:\Hosting\Containers\Docker Toolbox;C:\Hosting\Containers\OpenShift\ClientTools\1.3.3;C:\Hosting\MongoDB\3.4.2\bin"
 ```
 
 #### DEVKITS
