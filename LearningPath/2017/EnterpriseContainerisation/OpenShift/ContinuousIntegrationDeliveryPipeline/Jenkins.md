@@ -58,31 +58,63 @@
 
 # Steps
 
-## Install Jenkins Ephemeral image
+Must set the memory limit to 2 GB and instead of a randomly generated password must set 'admin' as the password for admin user.
+
+## Using OpenShift Origin Templates
+
+### Install Jenkins Ephemeral image
 
 ```bash
-oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] jenkins-ephemeral
+oc new-app --name=jenkins --template=jenkins-ephemeral --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
 ```
 
-## Install Jenkins Persistent image
+### Install Jenkins Persistent image
 
 ```bash
-oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] jenkins-persistent
+oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
 ```
 
-## Install Jenkins 1.x image
+## Using Docker Images
+
+### Install Jenkins 1.x image
 
 ```bash
 oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] openshift/jenkins-1-centos7
 ```
 
-## Install Jenkins 2.x image
+### Install Jenkins 2.x image
 
 ```bash
 oc new-app -e JENKINS_PASSWORD=[JENKINS_PASSWORD] openshift/jenkins-2-centos7
 ```
 
+## Configure Proxy
+
+## Update Plugins
+
 ## Install Plugins
+
+### Required Plugins
+
+- Gradle Plugin;
+- OpenShift Client Jenkins Plugin;
+- OpenShift Deployer Plugin;
+- OpenShift Login Plugin.
+
+### Optional Plugins
+
+- Checkstyle Plug-in;
+- PMD Plug-in;
+- FindBugs Plug-in;
+- SonarQube Plugin;
+- Sonar Gerrit Plugin.
+
+## Add Tools
+
+- Add JDK, as jdk-8u121;
+- Add Maven, as maven-3.3.9;
+- Add Gradle, as gradle-3.3;
+- Set JAVA_HOME to /var/lib/jenkins/tools/hudson.model.JDK/jdk-8u121.
 
 # Challenges
 

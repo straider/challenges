@@ -18,46 +18,6 @@ This challenge is open to learn about OpenShift Pipelines feature and Jenkins Pi
 
 # How-Tos
 
-## Create Jenkins Application
-
-### Use Persistent Template
-
-To create a Jenkins Persistent application from the official template then issue the following command:
-
-```bash
-oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
-```
-
-This sets the memory limit to 2 GB and instead of a randomly generated password it uses 'admin' as the password for admin user.
-
-### Configure Proxy
-
-### Update Plugins
-
-### Install Plugins
-
-#### Required Plugins
-
-- Gradle Plugin;
-- OpenShift Client Jenkins Plugin;
-- OpenShift Deployer Plugin;
-- OpenShift Login Plugin.
-
-#### Optional Plugins
-
-- Checkstyle Plug-in;
-- PMD Plug-in;
-- FindBugs Plug-in;
-- SonarQube Plugin;
-- Sonar Gerrit Plugin.
-
-### Add Tools
-
-- Add JDK, as jdk-8u121;
-- Add Maven, as maven-3.3.9;
-- Add Gradle, as gradle-3.3;
-- Set JAVA_HOME to /var/lib/jenkins/tools/hudson.model.JDK/jdk-8u121.
-
 ## Enable Technology Preview feature: Pipelines
 
 On OpenShift Origin 1.3 or OpenShift Container Platform 3.3 the Pipelines feature is still a Technology Preview feature.
