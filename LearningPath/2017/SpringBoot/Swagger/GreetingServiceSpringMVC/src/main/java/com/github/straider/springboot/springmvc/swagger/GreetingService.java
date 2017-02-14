@@ -14,7 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 
 @Controller
-@RequestMapping( "/" )
+@RequestMapping( "/ws/rest/" )
 public class GreetingService {
 
     private final Greeter greeter;
@@ -24,8 +24,8 @@ public class GreetingService {
     }
 
     @RequestMapping(
-              value  = "speak"
-            , method = RequestMethod.GET
+              value    = "speak"
+            , method   = RequestMethod.GET
             , consumes = { ALL_VALUE, TEXT_PLAIN_VALUE }
             , produces = TEXT_PLAIN_VALUE
     )
@@ -38,8 +38,8 @@ public class GreetingService {
     }
 
     @RequestMapping(
-              value  = "greeting/{greeting}"
-            , method = RequestMethod.PUT
+              value    = "greeting/{greeting}"
+            , method   = RequestMethod.PUT
             , consumes = { ALL_VALUE, TEXT_PLAIN_VALUE }
             , produces = TEXT_PLAIN_VALUE
     )
@@ -49,8 +49,8 @@ public class GreetingService {
     }
 
     @RequestMapping(
-              value  = "process"
-            , method = RequestMethod.POST
+              value    = "process"
+            , method   = RequestMethod.POST
             , consumes = { APPLICATION_XML_VALUE, APPLICATION_JSON_VALUE }
             , produces = { APPLICATION_XML_VALUE, APPLICATION_JSON_VALUE }
     )
