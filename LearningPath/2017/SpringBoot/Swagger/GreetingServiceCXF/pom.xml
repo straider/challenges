@@ -6,12 +6,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.straider.springboot.swagger</groupId>
-    <artifactId>greeting-service</artifactId>
+    <groupId>com.github.straider.springboot.cxf.swagger</groupId>
+    <artifactId>greeting-service-cxf</artifactId>
     <version>1.0.0</version>
     <name>SpringBoot Swagger CXF Greeting Service</name>
     <description>SpringBoot REST Greeting Service documented by Swagger.</description>
-    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/SpringBoot/Swagger/GreetingService</url>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/SpringBoot/Swagger/GreetingServiceCXF</url>
 
     <packaging>jar</packaging>
 

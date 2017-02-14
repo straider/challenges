@@ -8,7 +8,7 @@ This project holds a simple example of a CXF REST service that runs on SpringBoo
 # Steps
 
 - Cloned from [:: CXF :: REST :: Spring Boot ::](https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot) on GitHub;
-- Replace package com.github.straider.java.ws.cxf with com.github.straider.springboot.swagger;
+- Replace package com.github.straider.java.ws.cxf with com.github.straider.springboot.cxf.swagger;
 - Fix name, description and URL on pom.xml;
 - Add Swagger dependencies;
 - Enable Swagger by selection of the following options:
