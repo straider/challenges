@@ -1,4 +1,4 @@
-package com.github.straider.openshift.springboot;
+package com.github.straider.springboot.swagger;
 
 import org.junit.Before;
 import org.junit.Test;

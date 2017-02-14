@@ -1,4 +1,4 @@
-package com.github.straider.openshift.springboot
+package com.github.straider.springboot.swagger
 
 import cucumber.api.CucumberOptions
 import cucumber.api.junit.Cucumber

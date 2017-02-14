@@ -1,4 +1,4 @@
-package com.github.straider.openshift.springboot
+package com.github.straider.springboot.swagger
 
 import static cucumber.api.groovy.EN.Given
 import static cucumber.api.groovy.EN.Then

@@ -11,13 +11,17 @@ This project holds a simple example of a REST service that runs on SpringBoot an
 - Replace package com.github.straider.java.ws.cxf with com.github.straider.springboot.swagger;
 - Fix name, description and URL on pom.xml;
 - Add Swagger dependencies;
-- Enable Swagger with SwaggerConfig class (or add Docket api() and apiInfo() methods to main Application);
-- Improve API documentation with Api annotations.
+- Enable Swagger by selection of the following options:
+    - Create SwaggerConfig class;
+    - Add Docket api() and apiInfo() methods to main Application.
 
 ## ToDos
 
-## Challenges
+- Improve API documentation with @Api annotations;
+- Add static index file, with links for:
+    - CXF Services;
+    - Swagger API documentation.
 
-### SpringBoot with CXF
+## Challenges
 
 ### Swagger / Swagger UI

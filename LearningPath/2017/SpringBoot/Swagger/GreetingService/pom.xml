@@ -6,12 +6,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.straider.openshift.springboot</groupId>
-    <artifactId>rest-springboot</artifactId>
+    <groupId>com.github.straider.springboot.swagger</groupId>
+    <artifactId>greeting-service</artifactId>
     <version>1.0.0</version>
-    <name>SpringBoot CXF Greeting Service</name>
-    <description>SpringBoot REST Greeting Service running on OpenShift.</description>
-    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/EnterpriseContainerisation/Sample Applications/SpringBootHelloWorld</url>
+    <name>SpringBoot Swagger CXF Greeting Service</name>
+    <description>SpringBoot REST Greeting Service documented by Swagger.</description>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/SpringBoot/Swagger/GreetingService</url>
 
     <packaging>jar</packaging>
 
