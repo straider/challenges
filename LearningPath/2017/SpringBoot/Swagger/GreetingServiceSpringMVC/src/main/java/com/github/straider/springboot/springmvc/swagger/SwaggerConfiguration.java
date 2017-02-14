@@ -1,5 +1,7 @@
 package com.github.straider.springboot.springmvc.swagger;
 
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -21,7 +23,7 @@ public class SwaggerConfiguration {
                 .apiInfo( apiInfo() )
                 .select()
                 .apis( RequestHandlerSelectors.any() )
-                .paths( PathSelectors.regex( "/ws/rest/.*" ) )
+                .paths( selectedPaths() )
                 .build()
                 ;
     }
@@ -33,6 +35,11 @@ public class SwaggerConfiguration {
                 .contact( "Jose Carlos Monteiro" )
                 .version( "2.0" )
                 .build();
+    }
+
+    @SuppressWarnings( "unchecked" )
+    private Predicate< String > selectedPaths() {
+        return Predicates.or( PathSelectors.regex( "/ws/rest/.*" ) );
     }
 
 }
