@@ -17,6 +17,8 @@ This project holds a simple example of a CXF REST service that runs on SpringBoo
 
 ## ToDos
 
+- Implement proper Integration Tests;
+- Add Gradle buildfiles;
 - Improve API documentation with @Api annotations;
 - Add static index file, with links for:
     - CXF Services;
