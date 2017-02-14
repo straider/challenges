@@ -5,6 +5,7 @@ import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.provider.AbstractConfigurableProvider;
 import org.apache.cxf.jaxrs.provider.json.JSONProvider;
+import org.apache.cxf.jaxrs.swagger.Swagger2Feature;
 import org.apache.cxf.transport.servlet.CXFServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -39,6 +40,9 @@ public class ApplicationConfiguration {
         final List< AbstractConfigurableProvider > providers    = new ArrayList< AbstractConfigurableProvider >();
         providers.add( jsonProvider );
         serverFactory.setProviders( providers );
+
+        final Swagger2Feature swaggerFeature = new Swagger2Feature();
+        serverFactory.getFeatures().add( swaggerFeature );
 
         return serverFactory.create();
     }
