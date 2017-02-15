@@ -27,8 +27,8 @@
 
 # Steps
 
-- Download [MongoDB Community Edition 3.4.1](http://www.mongodb.org/downloads), with SSL;
-- Install MongoDB, using the downloaded msi, to ```C:\Hosting\MongoDB\3.4.1\```;
+- Download [MongoDB Community Edition 3.4.2](http://www.mongodb.org/downloads), with SSL;
+- Install MongoDB, using the downloaded msi, to ```C:\Hosting\MongoDB\3.4.2\```;
 - Run MongoDB server ```mongod```.
 
 ## Automated Installation
@@ -36,8 +36,8 @@
 To do an automated (unattended) installation then issue the following command on a Windows Command Prompt, opened on the folder that contains the downloaded MongoDB installation file:
 
 ```bash
-msiexec.exe /q /i mongodb-win32-x86_64-2008plus-ssl-3.4.1-signed.msi ^
-            INSTALLLOCATION="C:\Hosting\MongoDB\3.4.1\" ^
+msiexec.exe /q /i mongodb-win32-x86_64-2008plus-ssl-3.4.2-signed.msi ^
+            INSTALLLOCATION="C:\Hosting\MongoDB\3.4.2\" ^
             ADDLOCAL="all"
 ```
 
@@ -56,7 +56,7 @@ By default it runs on port 27017.
 
 To start MongoDB server as a Windows service then follow these steps:
 
-- Create a configuration file, named mongod.cfg, on the MongoDB top folder, such as ```C:\Hosting\MongoDB\3.4.1\```;
+- Create a configuration file, named mongod.cfg, on the MongoDB top folder, such as ```C:\Hosting\MongoDB\```;
 - Create a folder to hold the logs, such as ```C:\Hosting\MongoDB\logs```;
 - Install the MongoDB service;
 - Start the MongoDB service.
@@ -81,9 +81,9 @@ net:
 To install the MongoDB server as a Windows service then issue one of the following commands:
 
 ```bash
-mongod --config "C:\Hosting\MongoDB\3.4.1\mongod.cfg" --install
+mongod --config "C:\Hosting\MongoDB\mongod.cfg" --install
 
-sc create MongoDB binPath= "\"C:\Hosting\MongoDB\3.4.1\bin\mongod.exe\" --service --config=\"C:\Hosting\MongoDB\3.4.1\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
+sc create MongoDB binPath= "\"C:\Hosting\MongoDB\bin\mongod.exe\" --service --config=\"C:\Hosting\MongoDB\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
 ```
 
 **Note**: by default the service name is MongoDB. Also bare in mind that ```sc``` command requires a whitespace between the equal sign "=" and the value.

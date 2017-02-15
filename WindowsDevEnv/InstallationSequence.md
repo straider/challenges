@@ -218,7 +218,8 @@ vagrant up --provider=virtualbox
 ### MongoDB
 
 - Install to ```C:\Hosting\MongoDB\3.4.2\```;
-- Create data folder in ```C:\Hosting\MongoDB\```;
+- Create data folder in ```C:\Hosting\MongoDB\data\```;
+- Create logs folder in ```C:\Hosting\MongoDB\logs\```;
 - Create mongod.cfg in ```C:\Hosting\MongoDB\```:
 
 ```yaml
@@ -233,6 +234,7 @@ net       :
 ```
 
 Make sure that MONGODB_HOME environment variable points to C:\Hosting\MongoDB\3.4.2\ and that Hosting environment variable includes ```%MONGODB_HOME%\bin\```.
+
 ## Coding
 
 ### WinMerge
