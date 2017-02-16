@@ -50,7 +50,7 @@ Settings;
     - Display:
         - Display line number;
         - Highlight current line.
-    
+
 ### 7-Zip
 
 Options:
@@ -187,6 +187,12 @@ vagrant plugin list
 - Edit Docker Quickstart Terminal Properties:
     - Fix target to use Git for Windows bash, in ```C:\Hosting\Git\bin\```.
 
+After installation, launch Docker Quickstart Terminal and edit the window properties:
+- Font: Consolas 12
+- Layout:
+    - Window Size Width: 120; Height: 55
+    - Window Position: Left: 0; Top: 0
+
 ### OpenShift
 
 #### Docker Machine Cluster
@@ -229,11 +235,13 @@ systemLog :
 storage   :
     dbPath : C:\Hosting\MongoDB\data
 net       :
-   bindIp : 127.0.0.1
+   bindIp : 127.0.0.1,192.168.99.1
    port   : 27017
 ```
 
 Make sure that MONGODB_HOME environment variable points to C:\Hosting\MongoDB\3.4.2\ and that Hosting environment variable includes ```%MONGODB_HOME%\bin\```.
+
+**Note**: in local environment, for development purposes, the value of net.bindIp property can be set to 0.0.0.0 to allow remote connections from any address. As it is it only accepts connections from localhost or from the Docker Machine host-only sub-network.
 
 ## Coding
 
@@ -247,7 +255,7 @@ Options:
     - Automatically scroll to first difference;
     - Disable Splash Screen;
     - Enable multiple compare windows for Folder compare.
-- Compare: 
+- Compare:
     - General: Enable moved block detection.
 - Editor: Insert spaces;
 - System: External editor: C:\Program Files (x86)\metapad.exe;
@@ -261,7 +269,7 @@ Options:
     - Folder compare: Add shell menu to context menu.
 
 **Note**: activate filter **Exclude Source Control** or create a new one.
- 
+
 ### TortoiseSVN
 
 Install to ```C:\DevKits\VersionControl\TortoiseSVN\```, with command line client tools.

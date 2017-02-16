@@ -40,7 +40,7 @@ Configure Gradle to use this local repository instead of the default one, under 
 ## [VirtualBox 5.0.28](https://www.virtualbox.org/)
 
 Because of OpenShift it's not recommended to use the latest version and instead it should stick with version 5.0.28.
- 
+
 ## [Vagrant 1.8.7](https://www.vagrantup.com/)
 
 It requires a restart before being used for the first time.
