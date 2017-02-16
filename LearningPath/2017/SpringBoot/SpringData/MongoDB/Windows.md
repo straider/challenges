@@ -76,6 +76,43 @@ net:
    port: 27017
 ```
 
+#### Accept Remote Connections
+
+To allow remote connection then either comment out the bindIp property, set it to 0.0.0.0 or add to it the local network interfaces to listen on.
+
+#### Secure Connections
+
+To allow secure connections then first enter into MongoDB using the client command ```mongo`` and issue the following commands:
+
+```c
+use admin
+db.createUser( {
+    user  : "admin",
+    pwd   : "admin",
+    roles : [ "root" ]
+} )
+```
+
+**Note**: the example above creates a user with credentials admin:admin with root role.
+Then exit from MongoDB, stop the MongoDB daemon, and either edit the default configuration file or create a new one with the following content:
+
+```yaml
+systemLog:
+    destination: file
+    path: C:\Hosting\MongoDB\logs\mongod.log
+storage:
+    dbPath: C:\Hosting\MongoDB\data
+net:
+   bindIp: 0.0.0.0
+   port: 27017
+security  :
+    authorization : enabled
+```
+
+Starting the MongoDB with this new configuration will force connections to be secured with username and password.
+
+To connect using the MongoDB client then issue the command ```mongo -u admin -p admin admin```, since user only has login rights to admin database instance.#
+
 ### Install MongoDB service
 
 To install the MongoDB server as a Windows service then issue one of the following commands:
