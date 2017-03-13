@@ -33,16 +33,18 @@ Vagrant.configure(2) do |config|
     config.proxy.enabled = { docker: false }
     config.proxy.http  = "http://#{ ENV[ 'PROXY' ] }"
     config.proxy.https = "http://#{ ENV[ 'PROXY' ] }"
+
+    config.proxy.no_proxy = 'rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24,192.168.99.0/24'
   end
 
   config.vm.box = BOX_NAME
 
-  config.vm.provider "virtualbox" do |v, override|
+  config.vm.provider 'virtualbox' do | v, override |
     v.name   = BOX_NAME
     v.memory = VM_MEMORY
     v.cpus   = VM_CPU
-    v.customize ["modifyvm", :id, "--ioapic", "on"]
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize [ 'modifyvm', :id, '--ioapic'             , 'on' ]
+    v.customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]
   end
 
   config.vm.provider "libvirt" do |v, override|
@@ -84,6 +86,23 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     PROXY=#{PROXY} PROXY_USER=#{PROXY_USER} PROXY_PASSWORD=#{PROXY_PASSWORD} /usr/bin/sccli openshift
   SHELL
+
+  if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
+      config.vm.provision "shell", run: "always", inline: <<-SHELL
+        oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+        docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
+        oc logout
+
+        sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
+        grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
+        echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
+        echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
+        echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
+
+        sudo systemctl daemon-reload
+        sudo systemctl restart docker
+      SHELL
+  end
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     #Get the routable IP address of OpenShift
