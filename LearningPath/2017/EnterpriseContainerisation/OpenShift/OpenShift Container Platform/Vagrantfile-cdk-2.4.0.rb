@@ -1,11 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'oscp-3.2'
+BOX_NAME = 'cdk-2.4'
 
 # The private network IP of the VM. You will use this IP to connect to OpenShift.
 # This variable is ignored for Hyper-V provider.
 PUBLIC_ADDRESS="10.1.2.2"
+
+# Modify IMAGE_TAG if you need a new OCP version e.g. IMAGE_TAG="v3.3.1.3"
+IMAGE_TAG = '' # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
 
 # Number of virtualized CPUs
 VM_CPU = ENV['VM_CPU'] || 2
@@ -17,6 +20,9 @@ VM_MEMORY = ENV['VM_MEMORY'] || 3072
 REQUIRED_PLUGINS = %w(vagrant-service-manager vagrant-registration vagrant-sshfs)
 errors = []
 
+# Initialize proxy variables
+proxy = proxy_user = proxy_password = ''
+
 def message(name)
   "#{name} plugin is not installed, run `vagrant plugin install #{name}` to install it."
 end
@@ -27,7 +33,6 @@ unless errors.empty?
   fail Vagrant::Errors::VagrantError.new, msg
 end
 
-
 Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
     config.proxy.enabled = { docker: false }
@@ -35,14 +40,18 @@ Vagrant.configure(2) do |config|
     config.proxy.https = "http://#{ ENV[ 'PROXY' ] }"
   end
 
-  config.vm.box = BOX_NAME
+  config.vm.box = if ENV.key?('BOX')
+                    ENV['BOX'].empty? ? BOX_NAME : ENV['BOX']
+                  else
+                    BOX_NAME
+                  end
 
-  config.vm.provider "virtualbox" do |v, override|
+  config.vm.provider 'virtualbox' do | v, override |
     v.name   = BOX_NAME
     v.memory = VM_MEMORY
     v.cpus   = VM_CPU
-    v.customize ["modifyvm", :id, "--ioapic", "on"]
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize [ 'modifyvm', :id, '--ioapic'             , 'on' ]
+    v.customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]
   end
 
   config.vm.provider "libvirt" do |v, override|
@@ -50,6 +59,11 @@ Vagrant.configure(2) do |config|
     v.cpus   = VM_CPU
     v.driver = "kvm"
     v.suspend_mode = "managedsave"
+  end
+
+  config.vm.provider "hyperv" do |v, override|
+    v.memory = VM_MEMORY
+    v.cpus   = VM_CPU
   end
 
   config.vm.network "private_network", ip: "#{PUBLIC_ADDRESS}"
@@ -61,9 +75,11 @@ Vagrant.configure(2) do |config|
   end
 
   # Proxy Information from environment
-  config.registration.proxy = PROXY = (ENV['PROXY'] || '')
-  config.registration.proxyUser = PROXY_USER = (ENV['PROXY_USER'] || '')
-  config.registration.proxyPassword = PROXY_PASSWORD = (ENV['PROXY_PASSWORD'] || '')
+  if ENV.key?('PROXY')
+    config.registration.proxy = proxy = ENV['PROXY']
+    config.registration.proxyUser = proxy_user = ENV['PROXY_USER'] if ENV.key?('PROXY_USER')
+    config.registration.proxyPassword = proxy_password = ENV['PROXY_PASSWORD'] if ENV.key?('PROXY_PASSWORD')
+  end
 
   # vagrant-sshfs
   config.vm.synced_folder '.', '/vagrant', disabled: true
@@ -73,6 +89,7 @@ Vagrant.configure(2) do |config|
   else
     config.vm.synced_folder ENV['HOME'], ENV['HOME'], type: 'sshfs', sshfs_opts_append: '-o umask=000 -o uid=1000 -o gid=1000'
   end
+
   config.vm.provision "shell", inline: <<-SHELL
     sudo setsebool -P virt_sandbox_use_fusefs 1
   SHELL
@@ -82,22 +99,24 @@ Vagrant.configure(2) do |config|
 
   # explicitly enable and start OpenShift
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-    PROXY=#{PROXY} PROXY_USER=#{PROXY_USER} PROXY_PASSWORD=#{PROXY_PASSWORD} /usr/bin/sccli openshift
+    PROXY=#{proxy} PROXY_USER=#{proxy_user} PROXY_PASSWORD=#{proxy_password} IMAGE_TAG=#{IMAGE_TAG} /usr/bin/sccli openshift
   SHELL
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     #Get the routable IP address of OpenShift
-    OSIP=`/opt/adb/openshift/get_ip_address`
+    OS_IP=`/opt/adb/openshift/get_ip_address`
     echo
     echo "Successfully started and provisioned VM with #{VM_CPU} cores and #{VM_MEMORY} MB of memory."
     echo "To modify the number of cores and/or available memory set the environment variables"
-    echo "VM_CPU respectively VM_MEMORY."
+    echo "VM_CPU and/or VM_MEMORY respectively."
     echo
-    echo "You can now access the OpenShift console on: https://${OSIP}:8443/console"
+    echo "You can now access the OpenShift console on: https://${OS_IP}:8443/console"
+    echo
+    echo "To download and install OC binary, run:"
+    echo "vagrant service-manager install-cli openshift"
     echo
     echo "To use OpenShift CLI, run:"
-    echo "$ vagrant ssh"
-    echo "$ oc login"
+    echo "$ oc login ${OS_IP}:8443"
     echo
     echo "Configured users are (<username>/<password>):"
     echo "openshift-dev/devel"

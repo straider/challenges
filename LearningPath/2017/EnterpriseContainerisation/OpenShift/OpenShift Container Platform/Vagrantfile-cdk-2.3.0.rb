@@ -31,10 +31,10 @@ unless errors.empty?
 end
 
 Vagrant.configure(2) do |config|
-  if Vagrant.has_plugin?( 'vagrant-proxyconf' )
-    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
-    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
-    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if ENV.key?( 'NO_PROXY'    )
+  if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
+    config.proxy.enabled = { docker: false }
+    config.proxy.http  = "http://#{ ENV[ 'PROXY' ] }"
+    config.proxy.https = "http://#{ ENV[ 'PROXY' ] }"
   end
 
   config.vm.box = if ENV.key?('BOX')
