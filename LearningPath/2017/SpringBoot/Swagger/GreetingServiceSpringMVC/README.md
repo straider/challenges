@@ -7,7 +7,7 @@ This project holds a simple example of a Spring MVC REST service that runs on Sp
 
 # Steps
 
-- Cloned from [:: CXF :: REST :: Spring Boot ::](https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot) on GitHub;
+- Cloned from [CXF :: REST :: Spring Boot](https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/SpringBoot) on GitHub;
 - Replace package com.github.straider.java.ws.cxf with com.github.straider.springboot.springmvc.swagger;
 - Fix name, description and URL on pom.xml;
 - Add Swagger dependencies;
@@ -44,6 +44,6 @@ To enable Swagger then just add the missing dependencies for springfox-swagger2 
 
 ### Spring MVC and Swagger
 
-The URL to Swagger UI is http://localhost:10000/ws/rest/swagger-ui.html and the API documentation in JSON format is available at localhost:10000/v2/api-docs?group=GreetingService, and provides basic / default documentation of Greeting Service methods as well as SpringBoot Actuator methods. To prevent other APIs to be documented then restrict the path selection done by Docket with ```paths( PathSelectors.regex( "/ws/rest/.*" ) )```.
+The URL to Swagger UI is http://localhost:10000/swagger-ui.html and the API documentation in JSON format is available at localhost:10000/v2/api-docs?group=GreetingService, and provides basic / default documentation of Greeting Service methods as well as SpringBoot Actuator methods. To prevent other APIs to be documented then restrict the path selection done by Docket with ```paths( PathSelectors.regex( "/ws/rest/.*" ) )```.
 
 **Note**: SpringBoot offers SpringBooot Actuator, which besides health reports it also reports on existing mappings.
