@@ -39,8 +39,10 @@
 
 ## Plugins
 
-- [OpenShift V3 Plugin for Jenkins](https://github.com/openshift/jenkins-plugin)
-- [OpenShift Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/OpenShift+Pipeline+Plugin)
+- [openshift-jenkins-sync](https://github.com/jenkinsci/openshift-sync-plugin) keeps OpenShift BuildConfig and Build objects in sync With Jenkins Jobs and Builds.
+- [OpenShift V3 Plugin for Jenkins](https://github.com/jenkinsci/openshift-pipeline-plugin)
+- [OpenShift Jenkins Pipeline (DSL) Plugin](https://github.com/jenkinsci/openshift-client-plugin) - Experimental
+- [openshift-login](https://github.com/jenkinsci/openshift-login-plugin): The primary scenario is using this plugin when Jenkins is running in a OpenShift pod and the jobs with Jenkins operate against the same OpenShift cluster that Jenkins is running in. In this scenario, no additional configuration is required, but you must be running agaist v1.4 of OpenShift/Origin.
 - [Kubernetes Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin)
 - [Kubernetes Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Pipeline+Plugin)
 - [Docker Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Pipeline+Plugin)
@@ -65,13 +67,23 @@ Must set the memory limit to 2 GB and instead of a randomly generated password m
 ### Install Jenkins Ephemeral image
 
 ```bash
+# OpenShift Origin
 oc new-app --name=jenkins --template=jenkins-ephemeral --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
+
+# OpenShift Container Platform
+oc new-app --name=jenkins --template=jenkins-ephemeral --param=MEMORY_LIMIT=2Gi
+oc env dc/jenkins JENKINS_PASSWORD=admin
 ```
 
 ### Install Jenkins Persistent image
 
 ```bash
+# OpenShift Origin
 oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi,JENKINS_PASSWORD=admin
+
+# OpenShift Container Platform
+oc new-app --name=jenkins --template=jenkins-persistent --param=MEMORY_LIMIT=2Gi
+oc env dc/jenkins JENKINS_PASSWORD=admin
 ```
 
 ## Using Docker Images

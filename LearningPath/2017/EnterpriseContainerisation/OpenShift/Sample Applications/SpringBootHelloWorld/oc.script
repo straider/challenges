@@ -1,16 +1,19 @@
 oc login 10.1.2.2:8443 -u openshift-dev -p devel
 oc login 10.2.2.2:8443 -u openshift-dev -p devel
 oc login openshift.adb:8443 -u openshift-dev -p devel
-oc login 192.168.99.10n:8443 -u developer -p developer # Where n is to be replaced by a digit, 1st Docker Machine is at 192.168.99.100
+oc login 192.168.99.100:8443 -u developer -p developer
 oc login https://api.preview.openshift.com --token=[OPENSHIFT_ONLINE_TOKEN] # https://console.preview.openshift.com/console/command-line
 
 ----
 
-mvn verify
+mvn package -DskipTests=true
 
-oc new-project springboot-helloworld --display-name="SpringBoot CXF HelloWorld on OpenShift" --description="Learning project about building and deploying using OpenShift Client Tool."
-oc new-build --binary --name=springboot-helloworld --labels=app=springboot-helloworld -n springboot-helloworld
-oc start-build springboot-helloworld --from-dir=. --follow -n springboot-helloworld
-oc new-app springboot-helloworld --labels=app=springboot-helloworld -n springboot-helloworld
-oc deploy springboot-helloworld -n springboot-helloworld
-oc expose svc/springboot-helloworld -n springboot-helloworld
+oc new-project hello-world --display-name="Hello World Greeting Service on OpenShift" --description="Learning project about building and deploying SpringBoot applications using OpenShift Client Tool."
+
+oc new-build --binary --name=hello-world --labels=app=hello-world
+oc start-build hello-world --from-dir=. --follow
+oc new-app hello-world --labels=app=hello-world
+oc set probe dc/hello-world --readiness --get-url=http://:10000/ws/rest/services
+oc set probe dc/hello-world --liveness  --get-url=http://:10000/ws/rest/services
+oc logs --follow dc/hello-world
+oc expose svc/hello-world --path=/ws/rest/services
