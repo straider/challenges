@@ -1,5 +1,5 @@
 SonarQube on Docker
-===============
+===================
 
 # Overview
 
@@ -18,7 +18,7 @@ The default credentials are admin:admin.
 To run SonarQube with H2 inside a Docker container then issue the following command:
 
 ```bash
-docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:6.2-alpine
+docker run --detach --publish 9000:9000 --publish 9092:9092 --name sonarqube sonarqube:6.2-alpine
 ```
 
 ## Configuration

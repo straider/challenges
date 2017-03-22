@@ -5,6 +5,14 @@ Build Tools on Docker
 
 # Procedures
 
+Before running any Docker commands please make sure that Docker Machine **default** is up and the environment is set up properly. If not then please issue the following commands:
+
+```bash
+docker-machine start default
+eval $( docker-machine env default )
+export NO_PROXY=$( docker-machine ip default ),$NO_PROXY
+```
+
 ## Remove Non Running Containers
 
 ```bash
