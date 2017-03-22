@@ -78,7 +78,7 @@ export NO_PROXY=$no_proxy
 - [b2d](https://github.com/VonC/b2d): Prepare the environment for running boot2docker on Windows, even behind corporate proxy.
 - [How to install Docker on Windows behind a proxy](http://www.netinstructions.com/how-to-install-docker-on-windows-behind-a-proxy/)
 
-## 
+## x509 valid for previous IP address
 
 If the following error occurs it's because the SSH certificate is not valid for the current IP address of the Docker Machine (it was, probably, created for another IP when machine was created ):
 
