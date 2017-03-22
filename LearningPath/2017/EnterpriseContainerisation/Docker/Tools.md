@@ -1,4 +1,4 @@
-﻿:: Docker :: Tools ::
+:: Docker :: Tools ::
 =====================
 
 - [InfraKit](https://github.com/docker/infrakit/)

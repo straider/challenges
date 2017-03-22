@@ -1,4 +1,4 @@
-﻿:: Containers and Microservices :: Docker ::
+:: Containers and Microservices :: Docker ::
 ============================================
 
 # Overview

@@ -1,4 +1,4 @@
-﻿Docker and OSGi
+Docker and OSGi
 ===============
 
 # Overview

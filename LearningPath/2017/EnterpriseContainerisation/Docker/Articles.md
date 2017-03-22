@@ -1,4 +1,4 @@
-﻿:: Docker :: Articles ::
+:: Docker :: Articles ::
 ========================
 
 # Software Containers vs. Virtual Machines
