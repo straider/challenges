@@ -1,11 +1,11 @@
-﻿Docker and Proxy
+Docker and Proxy
 ================
 
 # Overview
 
 This document describes the recovery steps to take when Docker needs to be re-configured with proxy configuration.
 
-It assumes that host is Windows and Docker Toolbox is installed with Docker Machine.
+It assumes that host is Windows and Docker Toolbox is installed with Docker Machine on top of VirtualBox.
 
 # Resources
 
@@ -92,7 +92,7 @@ docker-machine rm default
 ### Recreate default Machine
 
 ```bash
-docker-machine create
+docker-machine create                                                                            \
     --driver virtualbox                                                                          \
     --engine-env HTTP_PROXY=http://[PROXY_USERNAME]:[PROXY_PASSWORD]@[PROXY_HOST]:[PROXY_PORT]/  \
     --engine-env HTTPS_PROXY=http://[PROXY_USERNAME]:[PROXY_PASSWORD]@[PROXY_HOST]:[PROXY_PORT]/ \
