@@ -18,6 +18,7 @@ This document assumes that Docker is installed by using Docker Toolbox since it'
 - [Docker in real life, the tricky parts](http://blog.kaliop.com/en/blog/2015/05/27/docker-in-real-life-the-tricky-parts/)
 - [Avoid Proxy Headaches in Docker with redsocks](http://www.bloggure.info/redsocks-avoid-docker-proxy-headaches/)
 - [How to Run docker-machine from Behind a Corporate Proxy](http://mflo.io/2015/08/13/docker-machine-behind-proxy/)
+- [How to install Docker on Windows behind a proxy](http://www.netinstructions.com/how-to-install-docker-on-windows-behind-a-proxy/)
 
 #### Reverse Proxies
 
@@ -48,6 +49,40 @@ This document assumes that Docker is installed by using Docker Toolbox since it'
 # Scenarios
 
 ## Behind Proxy
+
+To simply configure Docker to go through a proxy then either:
+
+- Edit the **default** Docker Machine Boot2Docker profile;
+- Re-create the **default** Docker Machine.
+
+To edit the Boot2Docker profile then:
+
+- Get into default VirtualBox VM, through SSH: ```docker-machine ssh default```
+- Enter sudo mode: ```sudo -s```
+- Edit **/var/lib/boot2docker/profile** and configure the environment variables for HTTP_PROXY, HTTPS_PROXY and NO_PROXY. The environment variables should be set in a way similar to the following, if using cntlm:
+```
+export "HTTP_PROXY=http://192.168.99.1:3128/"
+export "HTTPS_PROXY=http://192.168.99.1:3128/"
+```
+- Option 1: Restart docker process: ```/etc/init.d/docker restart```
+- Exit sudo mode;
+- Exit SSH session;
+- Option 2: Restart Docker Machine: ```docker-machine restart default```
+
+To create a proxy-aware Docker Machine then issue the following command:
+
+```bash
+docker-machine rm default
+
+docker-machine create                                  \
+    --driver virtualbox                                \
+    --engine-env HTTP_PROXY=http://192.168.99.1:3128/  \
+    --engine-env HTTPS_PROXY=http://192.168.99.1:3128/ \
+    --virtualbox-host-dns-resolver                     \
+    default
+```
+
+Although it's quite simple to configure Docker to go through a proxy this is not system-wide, meaning that the Docker containers may not inherit that configuration.
 
 ### Problems
 
