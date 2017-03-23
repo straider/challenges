@@ -37,8 +37,8 @@ To set the number of CPUs and the memory then issue the start command with the f
 
 ```bash
 minishift start --vm-driver virtualbox
-minishift start --vm-driver virtualbox --deploy-router --openshift-version v1.3.3
-minishift start --vm-driver virtualbox --deploy-router --openshift-version v1.4.1
+minishift start --vm-driver virtualbox --openshift-version v1.3.3 --deploy-router
+minishift start --vm-driver virtualbox --openshift-version v1.4.1 --deploy-router
 ```
 
 **Note**: by default there's no router POD and as such inbound traffic to OpenShift application routes is not possible. To fix this then execute the start command with the following option:
@@ -50,8 +50,8 @@ The routing suffix is set to the IP Address concatenated with ```.xip.io```.
 
 ```bash
 minishift start --vm-driver virtualbox
-minishift start --vm-driver virtualbox --openshift-version v1.3.3 
-minishift start --vm-driver virtualbox --openshift-version v1.4.1 
+minishift start --vm-driver virtualbox --openshift-version v1.3.3
+minishift start --vm-driver virtualbox --openshift-version v1.4.1
 ```
 
 **Note**: the user admin needs to be given administration cluster permissions, to have access to all projects. To fix that then issue the following commands:

@@ -42,6 +42,13 @@ end
 # <https://docs.openshift.org/latest/welcome/index.html>`_.
 
 Vagrant.configure(2) do |config|
+  if Vagrant.has_plugin?( 'vagrant-proxyconf' )
+    config.proxy.http  = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
+    config.proxy.https = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
+
+    config.proxy.no_proxy = "#{ ENV[ 'NO_PROXY' ] },rhel-cdk,10.0.2.15,10.3.2.2,10.3.2.0/24,172.17.0.0/16,172.30.0.0/16" if ENV.key?( 'NO_PROXY' )
+  end
+
   # Use environment variable BOX or default 'projectatomic/adb'
   config.vm.box = (ENV.key?('BOX') ? (ENV['BOX'].empty? ? BOX_NAME : ENV['BOX']) : BOX_NAME)
 

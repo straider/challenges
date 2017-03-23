@@ -183,7 +183,7 @@ export PROXY_USER=[PROXY_USERNAME]
 export PROXY_PASSWORD=[PROXY_PASSWORD]
 export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASSWORD@$PROXY/
 export HTTPS_PROXY=$HTTP_PROXY
-export NO_PROXY=$NO_PROXY,10.0.2.15,10.2.2.2,172.17.0.0/16,172.30.0.0/16
+export NO_PROXY=$NO_PROXY,origin,10.0.2.15,10.2.2.2,10.2.2.0/24,172.17.0.0/16,172.30.0.0/16
 ```
 
 Where [PROXY_HOST] and [PROXY_PORT] are to be replaced by the corporate proxy hostname and port and [PROXY_USERNAME] and [PROXY_PASSWORD] are to be replaced by the domain credentials.
@@ -209,29 +209,15 @@ After configuring the environment variables and after bringing the Vagrant box u
 
 ### Docker Configuration File
 
-To edit the file then issue the command:
+To change the Docker configuration file then issue the following commands inside the Vagrant box:
 
 ```bash
-sudo vi /etc/sysconfig/docker
+oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+DOCKER_REGISTRY_IP_ADDRESS=$( oc get svc docker-registry --no-headers -o yaml -n default | grep clusterIP | grep -oP "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" )
+sudo sed -i.orig -e "s:origin:origin,${DOCKER_REGISTRY_IP_ADDRESS}:g" /etc/sysconfig/docker
 ```
 
-The content for /etc/sysconfig/docker file must include:
-
-```
-HTTP_PROXY=[HTTP_PROXY]
-HTTPS_PROXY=[HTTP_PROXY]
-NO_PROXY=[NO_PROXY],origin,[DOCKER_INTERNAL_REGISTRY_IP],10.2.2.2,172.17.0.0/16,172.30.0.0/16
-http_proxy=[HTTP_PROXY]
-https_proxy=[HTTP_PROXY]
-no_proxy=[NO_PROXY],origin,[DOCKER_INTERNAL_REGISTRY_IP],10.2.2.2,172.17.0.0/16,172.30.0.0/16
-```
-
-Where [DOCKER_INTERNAL_REGISTRY_IP] is to be replaced by the IP addres that one can find by using the oc command:
-
-```bash
-oc login localhost:8443 -u admin -p admin
-oc get svc/docker-registry -n default
-```
+The above commands will add the internal Docker Registry IP Address to the NO_PROXY variable, after the "origin" entry (which, of course, needs to exist).
 
 ### Master Proxy Configuration File
 
@@ -246,7 +232,7 @@ The content for /etc/sysconfig/origin file must include:
 ```
 HTTP_PROXY=[HTTP_PROXY]
 HTTPS_PROXY=[HTTP_PROXY]
-NO_PROXY=[NO_PROXY],10.0.2.15,10.2.2.2,172.17.0.0/16,172.30.0.0/16
+NO_PROXY=[NO_PROXY],origin,10.0.2.15,10.2.2.2,10.2.2.0/24,172.17.0.0/16,172.30.0.0/16
 ```
 
 Where [HTTP_PROXY] and [NO_PROXY] are to be replaced by the contents of the HTTP_PROXY and NO_PROXY environment variables.

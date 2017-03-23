@@ -57,22 +57,83 @@ This document assumes that Docker is installed by using Docker Toolbox since it'
 
 **Note**: When working behind a corporate proxy, which usually requires username and password, instead of having to change configuration in many places it's better to centralized changing those credentials in one place, such as cntlm.
 
-### Solution
+### Solutions
+
+Before running any of the possible solutions given below, please, issue the following commands on Git for Windows or Cygwin:
 
 ```bash
 export PROXY_HOST=192.168.99.1
 export PROXY_PORT=3128
+```
 
-docker run --restart=always --privileged=true --net=host --detach ncarlier/redsocks $PROXY_HOST $PROXY_PORT
+**Note**: these solution assumes that the main proxy is behind cntlm, which by default runs on port 3128 of the Windows host machine.
 
+#### silarsis/docker-proxy
+
+Issue the following command to use this Docker image:
+
+```bash
+```
+
+##### Pros
+
+##### Cons
+
+#### jrandall/docker-proxify
+
+Issue the following command to use this Docker image:
+
+```bash
 docker run -ti --privileged -e http_proxy=http://${PROXY_HOST}:${PROXY_PORT} -e https_proxy=http://${PROXY_HOST}:${PROXY_PORT} jrandall/docker-proxify
+```
 
+##### Pros
+
+##### Cons
+
+Runs in interactive mode and as such it also allocates a pseudo-TTY.
+
+#### munkyboy/redsocks
+
+Issue the following command to use this Docker image:
+
+```bash
 docker run --net=host -e http_proxy=http://${PROXY_HOST}:${PROXY_PORT} -e https_proxy=http://${PROXY_HOST}:${PROXY_PORT} munkyboy/redsocks
+```
 
+##### Pros
+
+##### Cons
+
+Runs in interactive mode and as such it also allocates a pseudo-TTY.
+
+#### klabs/forgetproxy
+
+Issue the following command to use this Docker image:
+
+```bash
 docker run -ti --privileged --net=host -e http_proxy=http://${PROXY_HOST}:${PROXY_PORT} -e http_proxy=http://${PROXY_HOST}:${PROXY_PORT} klabs/forgetproxy
 ```
 
-**Note**: this solution assumes that the main proxy is behind cntlm, which by default runs on port 3128 of the Windows host machine.
+##### Pros
+
+##### Cons
+
+Runs in interactive mode and as such it also allocates a pseudo-TTY.
+
+#### ncarlier/redsocks
+
+Issue the following command to use this Docker image:
+
+```bash
+docker run --restart=always --privileged=true --net=host --detach ncarlier/redsocks $PROXY_HOST $PROXY_PORT
+```
+
+##### Pros
+
+Does not run in interactive mode (and as such it also does not require to allocate a pseudo-TTY).
+
+##### Cons
 
 ## Reverse Proxy
 

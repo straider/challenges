@@ -1,8 +1,10 @@
 oc login 10.1.2.2:8443 -u openshift-dev -p devel
 oc login 10.2.2.2:8443 -u openshift-dev -p devel
+oc login 10.3.2.2:8443 -u openshift-dev -p devel
 oc login openshift.adb:8443 -u openshift-dev -p devel
-oc login 192.168.99.101:8443 -u developer -p developer
-oc login https://api.preview.openshift.com --token=[OPENSHIFT_ONLINE_TOKEN] # https://console.preview.openshift.com/console/command-line
+oc login 192.168.99.100:8443 -u developer -p developer
+
+----
 
 oc new-project greeter-dev --display-name="GreetingService - DEV" --description="Development Environment for CXF Greeting Service Demo"
 oc new-project greeter-tst --display-name="GreetingService - TST" --description="Testing Environment for CXF Greeting Service Demo"

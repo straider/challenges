@@ -1,16 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'adb-origin-1.4.1'
+BOX_NAME = 'adb-oscp-3.3'
 PUBLIC_ADDRESS = '10.3.2.2'
 
 # The Docker registry from where we pull the OpenShift Docker image
-DOCKER_REGISTRY = "docker.io"
+DOCKER_REGISTRY = "registry.access.redhat.com"
 
 # The name of the OpenShift image available on dockerhub.
-IMAGE_NAME = "openshift/origin"
+IMAGE_NAME = "openshift3/ose"
 # Tag of the OpenShift image available on dockerhub.
-IMAGE_TAG = "v1.4.1"
+IMAGE_TAG = "v3.3.1.11"
 
 # The top level domain for your VM and the created application routes
 TLD = 'adb'
@@ -56,7 +56,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v, override|
     v.name   = BOX_NAME
-    v.memory = 3072
+    v.memory = 2048
     v.cpus   = 2
     v.customize ["modifyvm", :id, "--cpus", "2"]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

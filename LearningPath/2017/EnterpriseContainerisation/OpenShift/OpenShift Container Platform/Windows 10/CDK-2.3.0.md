@@ -229,7 +229,7 @@ export PROXY_USER=[PROXY_USERNAME]
 export PROXY_PASSWORD=[PROXY_PASSWORD]
 export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASSWORD@$PROXY/
 export HTTPS_PROXY=$HTTP_PROXY
-export NO_PROXY=$NO_PROXY,10.0.2.15,10.1.2.2,172.17.0.0/16,172.30.0.0/16
+export NO_PROXY=$NO_PROXY,rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24
 ```
 
 Where [PROXY_HOST] and [PROXY_PORT] are to be replaced by the corporate proxy hostname and port and [PROXY_USERNAME] and [PROXY_PASSWORD] are to be replaced by the domain credentials.
@@ -248,33 +248,28 @@ An useful plugin, vagrant-proxyconf, should be used to set proxy configuration f
 
 After configuring the environment variables and after bringing the Vagrant box up then, inside the Vagrant box (by issuing the command ```vagrant ssh```), the following steps are required to configure OpenShift as well:
 
-- Edit the OpenShift Options Configuration File;
-- Restart OpenShift Processes.
+- Edit the Docker configuration file, to exclude the IP Address of the internal Docker registry;
+- Restart Docker.
 
-### OpenShift Options Configuration File
+### Docker Configuration File
 
-To edit the file then issue the command:
+To change the Docker configuration file then issue the following commands inside the Vagrant box:
 
 ```bash
-sudo vi /etc/sysconfig/openshift_options
+oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+DOCKER_REGISTRY_IP_ADDRESS=$( oc get svc docker-registry --no-headers -o yaml -n default | grep clusterIP | grep -oP "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" )
+sudo sed -i.orig -e "s:rhel-cdk:rhel-cdk,${DOCKER_REGISTRY_IP_ADDRESS}:g" /etc/sysconfig/docker
 ```
 
-The content for /etc/sysconfig/openshift_options file should have almost everything right, except the NO_PROXY variable:
+The above commands will add the internal Docker Registry IP Address to the NO_PROXY variable, after the "rhel-cdk" entry (which, of course, needs to exist).
 
-```
-NO_PROXY=[NO_PROXY],10.0.2.15,10.1.2.2,172.17.0.0/16,172.30.0.0/16
-```
+### Restart Docker
 
-Where [NO_PROXY] is to be replaced by the contents of the NO_PROXY environment variable.
-
-### Restart OpenShift Processes
-
-To restart OpenShift processes then issue the following commands:
+To restart Docker then issue the following commands:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl restart openshift
-systemctl status openshift
+sudo systemctl restart docker
 ```
 
 ## Unable to start 2nd CDK box

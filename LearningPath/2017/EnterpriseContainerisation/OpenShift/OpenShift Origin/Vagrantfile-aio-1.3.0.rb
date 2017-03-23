@@ -9,9 +9,10 @@ BOX_NAME = 'aio-origin-1.3.0' # All-in-One OpenShift Origin
 # you're doing.
 Vagrant.configure("2") do |config|
   if Vagrant.has_plugin?( 'vagrant-proxyconf' )
-    config.proxy.http     = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
-    config.proxy.https    = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
-    config.proxy.no_proxy = ENV[ 'NO_PROXY'    ] if ENV.key?( 'NO_PROXY'    )
+    config.proxy.http  = ENV[ 'HTTP_PROXY'  ] if ENV.key?( 'HTTP_PROXY'  )
+    config.proxy.https = ENV[ 'HTTPS_PROXY' ] if ENV.key?( 'HTTPS_PROXY' )
+
+    config.proxy.no_proxy = "#{ ENV[ 'NO_PROXY' ] },origin,10.0.2.15,10.2.2.2,10.2.2.0/24,172.17.0.0/16,172.30.0.0/16" if ENV.key?( 'NO_PROXY' )
   end
 
   # The most common configuration options are documented and commented below.
@@ -83,6 +84,9 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
   config.vm.provision 'shell', inline: <<-SHELL
-    sudo sysctl -w net.ipv4.ip_forward=1
-  SHELL  
+    sudo mv /etc/sysctl.conf /etc/sysctl.conf.orig
+    grep -v net.ipv4.ip_forward /etc/sysctl.conf.orig | sudo tee /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -w net.ipv4.ip_forward=1
+  SHELL
 end
