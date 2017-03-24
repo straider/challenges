@@ -38,25 +38,25 @@ docker rmi $( docker images --quiet --filter "dangling=true" --no-trunc )
 
 To expose the port on the Windows host, since it's running on a Virtual Machine (provided by VirtualBox on Windows 7, instead of running with libvirt on Linux or HyperV on Windows 10), then choose one of the solutions below and issue its commands:
 
-### Using netsh
+### Using VBoxManage
 
 ```bash
-netsh interface portproxy add v4tov4 listenaddress=127.0.0.1 listenport=${EXPOSE_PORT} connectaddress=$( docker-machine ip default ) connectport=${EXPOSE_PORT}
-netsh interface portproxy show v4tov4
+/c/Hosting/VirtualBox/VBoxManage controlvm default natpf1 "${RULE_NAME},tcp,,1${EXPOSE_PORT},,${EXPOSE_PORT}"
 
-# netsh interface portproxy delete v4tov4 listenaddress=127.0.0.1 listenport=${EXPOSE_PORT}
+# /c/Hosting/VirtualBox/VBoxManage controlvm default natpf1 delete "${RULE_NAME}"
 ```
 
 ### Using ssh
 
 ```bash
-docker-machine ssh default -f -N -L ${EXPOSE_PORT}:localhost:${EXPOSE_PORT}
+docker-machine ssh default -f -N -L 1${EXPOSE_PORT}:localhost:${EXPOSE_PORT}
 ```
 
-### Using VBoxManage
+### Using netsh
 
 ```bash
-/c/Hosting/VirtualBox/VBoxManage controlvm default natpf1 "${RULE_NAME},tcp,,${EXPOSE_PORT},$ ( docker-machine ip default ),${EXPOSE_PORT}"
+netsh interface portproxy add v4tov4 listenaddress=localhost listenport=1${EXPOSE_PORT} connectaddress=$( docker-machine ip default ) connectport=${EXPOSE_PORT}
+netsh interface portproxy show v4tov4
 
-# /c/Hosting/VirtualBox/VBoxManage controlvm default natpf1 delete "${RULE_NAME}"
+# netsh interface portproxy delete v4tov4 listenaddress=localhost listenport=1${EXPOSE_PORT}
 ```

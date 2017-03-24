@@ -25,7 +25,7 @@ To run Nexus 3 in ephemeral mode inside a Docker container then issue the follow
 docker run --detach --publish 8081:8081 --name nexus sonatype/nexus3:3.2.1
 ```
 
-To run Nexus 3 in persisten mode inside a Docker container then issue the following commands:
+To run Nexus 3 in persistent mode inside a Docker container then issue the following commands:
 
 ```bash
 docker run --detach --publish 8081:8081 --volume nexus-data:/nexus-data --name nexus sonatype/nexus3:3.2.1

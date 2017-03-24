@@ -15,10 +15,16 @@ There are official Docker images of [Jenkins](https://hub.docker.com/_/jenkins/)
 
 ## Installation
 
-To run Jenkins with H2 inside a Docker container then issue the following command:
+To run Jenkins in ephemeral mode inside a Docker container then issue the following command:
 
 ```bash
 docker run --detach --publish 8080:8080 --publish 50000:50000 --name jenkins jenkins:2.32.3-alpine
+```
+
+To run Jenkins in persistent mode inside a Docker container then issue the following command:
+
+```bash
+docker run --detach --publish 8080:8080 --publish 50000:50000 --volume /var/jenkins_home --name jenkins jenkins:2.32.3-alpine
 
 # docker volume create --name jenkins-data
 # docker run --detach --publish 8080:8080 --publish 50000:50000 --name jenkins jenkins:2.32.3-alpine --volume jenkins-data:/var/jenkins_home
