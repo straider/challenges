@@ -1,4 +1,4 @@
-package com.github.straider.springboot.springmvc.swagger;
+package com.github.straider.springboot.swagger.springmvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.github.straider.springboot.springmvc.swagger;
+package com.github.straider.springboot.swagger.springmvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.straider.springboot.swagger</groupId>
+    <groupId>com.github.straider.springboot.swagger.springmvc</groupId>
     <artifactId>greeting-service-springmvc</artifactId>
     <version>1.0.0</version>
     <name>SpringBoot Swagger Spring MVC Greeting Service</name>

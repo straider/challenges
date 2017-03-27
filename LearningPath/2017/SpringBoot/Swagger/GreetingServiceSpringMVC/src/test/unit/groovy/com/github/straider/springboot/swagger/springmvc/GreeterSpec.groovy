@@ -1,4 +1,4 @@
-package com.github.straider.springboot.springmvc.swagger
+package com.github.straider.springboot.swagger.springmvc
 
 import spock.lang.Specification
 import spock.lang.Unroll
