@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset = "utf-8">
+        <title>React HelloWorld</title>
+        <link rel         = "stylesheet"
+              href        = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+              integrity   = "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+              crossorigin = "anonymous"
+        >
+    </head>
+
+    <body>
+        <div class = "container">
+            <h1>React HelloWorld</h1>
+        <div/>
+        <div id = "react-target">
+            <p>React should start working in a few milli seconds</p>
+            <p>If you can see this, React is not working right.</p>
+        </div>
+
+        <script src = "https://fb.me/react-0.14.6.js"></script>
+        <script src = "https://fb.me/react-dom-0.14.6.js"></script>
+        <script>
+            ReactDOM.render( React.createElement( 'div', null, 'Hello, World!' ), document.getElementById( 'react-target' ) );
+        </script>
+    </body>
+    
+</html>
