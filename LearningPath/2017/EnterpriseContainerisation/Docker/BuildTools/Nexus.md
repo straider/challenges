@@ -61,7 +61,7 @@ By default, Nexus 3 start with the following repositories already configured:
 
 Add the following repositories / registries:
 
-- [npm-registry-proxy](http://localhost:8081/repository/npm-registry-proxy/), proxy to [NPM Public Registry](https://registry.npmjs.org) or follow [Proxying npm Registries](https://books.sonatype.com/nexus-book/3.0/reference/npm.html#npm-proxying-registries);
+- [npm-registry-proxy](http://localhost:8081/repository/npm-registry-proxy/), proxy to [NPM Public Registry](http://registry.npmjs.org/) or follow [Proxying npm Registries](https://books.sonatype.com/nexus-book/3.0/reference/npm.html#npm-proxying-registries);
 - [docker-registry-proxy](http://localhost:8081/repository/docker-registry-proxy/), proxy to [Docker Hub](https://registry-1.docker.io/) or follow [Proxy Repository for Docker](https://books.sonatype.com/nexus-book/3.0/reference/docker.html#docker-proxy);
 
 #### NPM Registry
