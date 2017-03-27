@@ -5,26 +5,28 @@
         <meta charset = "utf-8">
         <title>React HelloWorld</title>
         <link rel         = "stylesheet"
-              href        = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-              integrity   = "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+              href        = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity   = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
               crossorigin = "anonymous"
         >
     </head>
 
     <body>
         <div class = "container">
-            <h1>React HelloWorld</h1>
+            <div class = "page-header" id = "header">
+                <h1>React HelloWorld</h1>
+            </div>
+            <div class = "jumbotron" id = "react-target">
+                <p>Downloading React...</p>
+                <p>This content <strong>must not</strong> remain visible once the library is downloaded!</p>
+            </div>
         <div/>
-        <div id = "react-target">
-            <p>React should start working in a few milli seconds</p>
-            <p>If you can see this, React is not working right.</p>
-        </div>
 
-        <script src = "https://fb.me/react-0.14.6.js"></script>
-        <script src = "https://fb.me/react-dom-0.14.6.js"></script>
+        <script src = "https://github.com/facebook/react/releases/download/v15.4.2/react.min.js"></script>
+        <script src = "https://github.com/facebook/react/releases/download/v15.4.2/react-dom.min.js"></script>
         <script>
             ReactDOM.render( React.createElement( 'div', null, 'Hello, World!' ), document.getElementById( 'react-target' ) );
         </script>
     </body>
-    
+
 </html>
