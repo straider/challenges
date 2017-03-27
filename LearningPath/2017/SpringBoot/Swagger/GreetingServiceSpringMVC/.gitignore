@@ -62,3 +62,5 @@ crashlytics-build.properties
 fabric.properties
 
 *.iml
+/settings.xml
+/gradle.properties
