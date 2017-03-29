@@ -79,6 +79,7 @@ There are other options, although not so widely used or with such big companies 
 - [Microservices testing](http://testdetective.com/microservices-testing/)
 - [Rest API tooling review](https://opencredo.com/rest-api-tooling-review/)
 - [Ultimate Guide to 30+ API Documentation Solutions](http://nordicapis.com/ultimate-guide-to-30-api-documentation-solutions/)
+- [Hello World Product API With Blueprint, RAML And Swagger](http://apievangelist.com/2014/03/08/hello-world-product-api-with-blueprint-raml-and-swagger/)
 
 ### Swagger
 
@@ -170,13 +171,16 @@ There are other options, although not so widely used or with such big companies 
 
 ### API Blueprint
 
+- [Swagger to API Blueprint Converter](https://github.com/apiaryio/swagger2blueprint)
+- [Aconex/grunt-blueprint-validator](https://github.com/Aconex/grunt-blueprint-validator): Validates Blueprint files
+
 ### Testing
 
 - [Behaviour driven REST API development with Spring](http://www.talangsoft.org/2015/03/02/bdd-spring-restapi/)
 - [Chakram](http://dareid.github.io/chakram/) is a REST API testing framework offering a BDD testing style and fully exploiting promises.
 - [Consumer Contracts](https://bbc.github.io/consumer-contracts/) lets you write executable contracts in JavaScript.
 - [dev-contract-tester](https://github.com/gurpreet-hanjra/dev-contract-tester)
-- [Dredd](https://github.com/apiaryio/dredd): Language-agnostic HTTP API Testing Framework. Dredd reads your API description and step by step validates whether your API implementation replies with responses as they are described in the documentation (Swagger or API Blueprint formats).
+- [Dredd](https://github.com/apiaryio/dredd): Dredd is a language-agnostic command-line tool for validating API description document (either Swagger or API Blueprint format) against backend implementation of the API.
 - [Abao](https://github.com/cybertk/abao) is a command-line tool for testing API documentation written in RAML format against its back-end implementation.
 - [Vigia](https://github.com/nogates/vigia): Adaptable API integration test suite that supports API blueprint and RAML files.
 - [Spring Cloud Contract](https://github.com/spring-cloud/spring-cloud-contract)
