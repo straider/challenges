@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
     config.proxy.http  = "http://#{ ENV[ 'PROXY' ] }"
     config.proxy.https = "http://#{ ENV[ 'PROXY' ] }"
 
-    config.proxy.no_proxy = 'rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24,192.168.99.0/24'
+    config.proxy.no_proxy = 'localhost,127.0.0.1,rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24'
   end
 
   config.vm.box = if ENV.key?('BOX')
@@ -105,19 +105,10 @@ Vagrant.configure(2) do |config|
   SHELL
 
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
-    config.vm.provision "shell", run: "always", inline: <<-SHELL
-      oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
-      docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
-      oc logout
-
-      sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
-      grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
-      echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
-      echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
-      echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
-
-      sudo systemctl daemon-reload
-      sudo systemctl restart docker
+    config.vm.provision 'shell', path: 'fix-docker-registry.sh'
+      
+    config.vm.provision 'shell', inline: <<-SHELL
+      docker run --name redsocks --restart=always --privileged=true --net=host --detach ncarlier/redsocks 10.1.2.1 3128
     SHELL
   end
 
@@ -144,4 +135,8 @@ Vagrant.configure(2) do |config|
     echo "If you have the oc client library on your host, you can also login from your host."
     echo
   SHELL
+
+  # Create 512Mi, 1Gi, 2Gi, 5Gi Persistent Volumes.
+  config.vm.provision 'shell', path: 'fix-persistent-volumes.sh'
+
 end
