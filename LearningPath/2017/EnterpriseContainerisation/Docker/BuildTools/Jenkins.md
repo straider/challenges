@@ -26,9 +26,9 @@ To run Jenkins in persistent mode inside a Docker container then issue the follo
 ```bash
 docker run --detach --publish 8080:8080 --publish 50000:50000 --volume /var/jenkins_home --name jenkins jenkins:2.32.3-alpine
 
-# docker volume create --name jenkins-data
-# docker run --detach --publish 8080:8080 --publish 50000:50000 --name jenkins jenkins:2.32.3-alpine --volume jenkins-data:/var/jenkins_home
-# docker run --detach --publish 8080:8080 --publish 50000:50000 --name jenkins jenkins:2.32.3-alpine --volumes-from jenkins-data
+docker volume create --name jenkins-data
+docker run --detach --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home --name jenkins jenkins:2.32.3-alpine
+# docker run --detach --publish 8080:8080 --publish 50000:50000 --volumes-from jenkins-data --name jenkins jenkins:2.32.3-alpine
 ```
 
 The initial password for the **admin** user can be retrieved by issuing the following command:

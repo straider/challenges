@@ -3,6 +3,12 @@ Build Tools on Docker
 
 # Overview
 
+This challenge is about running services as Docker containers, inside a Docker Machine with a Windows host, that are often used when building applications. These services are provided by:
+
+- Countinuous Integration Server: [Jenkins](Jenkins.md)
+- Artifacts / Binary Packages Manager: [Nexus](Nexus.md)
+- Static Code Analysis and Metrics: [SonarQube](SonarQube/README.md)
+
 # Procedures
 
 Before running any Docker commands please make sure that Docker Machine **default** is up and the environment is set up properly. If not then please issue the following commands:
