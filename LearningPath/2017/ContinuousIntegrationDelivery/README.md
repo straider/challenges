@@ -51,7 +51,10 @@
 
 ## Articles
 
-- [Continuous Delivery vs Continuous Deployment vs Continuous Integration - Wait huh?](https://blog.assembla.com/assemblablog/tabid/12618/bid/92411/continuous-delivery-vs-continuous-deployment-vs-continuous-integration-wait-huh.aspx)
+- [Continuous Delivery vs Continuous Deployment vs Continuous Integration: Key Definitions](https://blog.assembla.com/assemblablog/tabid/12618/bid/92411/continuous-delivery-vs-continuous-deployment-vs-continuous-integration-wait-huh.aspx)
+- [Continuous Delivery Vs. Continuous Deployment: What's the Diff?](https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff)
+- [Continuous Integration Vs Continuous Delivery Vs Continuous Deployment](http://www.saviantconsulting.com/blog/difference-between-continuous-integration-continuous-delivery-and-continuous-deployment.aspx)
+- [Continuous Integration vs. Continuous Delivery vs. Continuous Deployment](http://stackoverflow.com/a/28628086/5086987)
 
 ### CI / CD
 
