@@ -1,14 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'oscp-3.3'
+BOX_NAME = 'cdk-2.2'
 
 # The private network IP of the VM. You will use this IP to connect to OpenShift.
 # This variable is ignored for Hyper-V provider.
 PUBLIC_ADDRESS="10.1.2.2"
-
-# Modify IMAGE_TAG if you need a new OCP version e.g. IMAGE_TAG="v3.3.1.3"
-IMAGE_TAG = "v3.3.1.11" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
 
 # Number of virtualized CPUs
 VM_CPU = ENV['VM_CPU'] || 2
@@ -30,6 +27,7 @@ unless errors.empty?
   fail Vagrant::Errors::VagrantError.new, msg
 end
 
+
 Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
     config.proxy.enabled = { docker: false }
@@ -39,11 +37,7 @@ Vagrant.configure(2) do |config|
     config.proxy.no_proxy = 'rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24,192.168.99.0/24'
   end
 
-  config.vm.box = if ENV.key?('BOX')
-                    ENV['BOX'].empty? ? BOX_NAME : ENV['BOX']
-                  else
-                    BOX_NAME
-                  end
+  config.vm.box = BOX_NAME
 
   config.vm.provider 'virtualbox' do | v, override |
     v.name   = BOX_NAME
@@ -60,11 +54,6 @@ Vagrant.configure(2) do |config|
     v.suspend_mode = "managedsave"
   end
 
-  config.vm.provider "hyperv" do |v, override|
-    v.memory = VM_MEMORY
-    v.cpus   = VM_CPU
-  end
-
   config.vm.network "private_network", ip: "#{PUBLIC_ADDRESS}"
 
   # vagrant-registration
@@ -74,13 +63,9 @@ Vagrant.configure(2) do |config|
   end
 
   # Proxy Information from environment
-  if ENV.key?('PROXY')
-    config.registration.proxy = PROXY = ENV['PROXY']
-    config.registration.proxyUser = PROXY_USER = ENV['PROXY_USER'] if ENV.key?('PROXY_USER')
-    config.registration.proxyPassword = PROXY_PASSWORD = ENV['PROXY_PASSWORD'] if ENV.key?('PROXY_PASSWORD')
-  else
-    PROXY = PROXY_USER = PROXY_PASSWORD = ''
-  end
+  config.registration.proxy = PROXY = (ENV['PROXY'] || '')
+  config.registration.proxyUser = PROXY_USER = (ENV['PROXY_USER'] || '')
+  config.registration.proxyPassword = PROXY_PASSWORD = (ENV['PROXY_PASSWORD'] || '')
 
   # vagrant-sshfs
   config.vm.synced_folder '.', '/vagrant', disabled: true
@@ -90,12 +75,8 @@ Vagrant.configure(2) do |config|
   else
     config.vm.synced_folder ENV['HOME'], ENV['HOME'], type: 'sshfs', sshfs_opts_append: '-o umask=000 -o uid=1000 -o gid=1000'
   end
-
   config.vm.provision "shell", inline: <<-SHELL
     sudo setsebool -P virt_sandbox_use_fusefs 1
-    grep -v net.ipv4.ip_forward /etc/sysctl.conf | sudo tee /etc/sysctl.conf
-    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
-    # sudo sysctl -w net.ipv4.ip_forward=1
   SHELL
 
   # prevent the automatic start of openshift via service-manager by just enabling Docker
@@ -103,41 +84,39 @@ Vagrant.configure(2) do |config|
 
   # explicitly enable and start OpenShift
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-    PROXY=#{PROXY} PROXY_USER=#{PROXY_USER} PROXY_PASSWORD=#{PROXY_PASSWORD} IMAGE_TAG=#{IMAGE_TAG} /usr/bin/sccli openshift
+    PROXY=#{PROXY} PROXY_USER=#{PROXY_USER} PROXY_PASSWORD=#{PROXY_PASSWORD} /usr/bin/sccli openshift
   SHELL
 
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
-      config.vm.provision "shell", run: "always", inline: <<-SHELL
-        oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
-        docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
-        oc logout
+    config.vm.provision "shell", run: "always", inline: <<-SHELL
+      oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+      docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
+      oc logout
 
-        sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
-        grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
-        echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
-        echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
-        echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
+      sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
+      grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
+      echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
+      echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
+      echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
 
-        sudo systemctl daemon-reload
-        sudo systemctl restart docker
-      SHELL
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
+    SHELL
   end
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     #Get the routable IP address of OpenShift
-    OS_IP=`/opt/adb/openshift/get_ip_address`
+    OSIP=`/opt/adb/openshift/get_ip_address`
     echo
     echo "Successfully started and provisioned VM with #{VM_CPU} cores and #{VM_MEMORY} MB of memory."
     echo "To modify the number of cores and/or available memory set the environment variables"
-    echo "VM_CPU and/or VM_MEMORY respectively."
+    echo "VM_CPU respectively VM_MEMORY."
     echo
-    echo "You can now access the OpenShift console on: https://${OS_IP}:8443/console"
-    echo
-    echo "To download and install OC binary, run:"
-    echo "vagrant service-manager install-cli openshift"
+    echo "You can now access the OpenShift console on: https://${OSIP}:8443/console"
     echo
     echo "To use OpenShift CLI, run:"
-    echo "$ oc login ${OS_IP}:8443"
+    echo "$ vagrant ssh"
+    echo "$ oc login"
     echo
     echo "Configured users are (<username>/<password>):"
     echo "openshift-dev/devel"

@@ -1,14 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'oscp-3.4'
+BOX_NAME = 'cdk-oscp-3.3'
 
 # The private network IP of the VM. You will use this IP to connect to OpenShift.
 # This variable is ignored for Hyper-V provider.
 PUBLIC_ADDRESS="10.1.2.2"
 
 # Modify IMAGE_TAG if you need a new OCP version e.g. IMAGE_TAG="v3.3.1.3"
-IMAGE_TAG = "v3.4.1.2" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
+IMAGE_TAG = "v3.3.1.11" # Find available image tags at https://registry.access.redhat.com/v1/repositories/openshift3/ose/tags
 
 # Number of virtualized CPUs
 VM_CPU = ENV['VM_CPU'] || 2
@@ -93,6 +93,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo setsebool -P virt_sandbox_use_fusefs 1
+    grep -v net.ipv4.ip_forward /etc/sysctl.conf | sudo tee /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -w net.ipv4.ip_forward=1
   SHELL
 
   # prevent the automatic start of openshift via service-manager by just enabling Docker
@@ -104,20 +107,20 @@ Vagrant.configure(2) do |config|
   SHELL
 
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
-      config.vm.provision "shell", run: "always", inline: <<-SHELL
-        oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
-        docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
-        oc logout
+    config.vm.provision "shell", run: "always", inline: <<-SHELL
+      oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+      docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
+      oc logout
 
-        sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
-        grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
-        echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
-        echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
-        echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
+      sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
+      grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
+      echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
+      echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
+      echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
 
-        sudo systemctl daemon-reload
-        sudo systemctl restart docker
-      SHELL
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
+    SHELL
   end
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL

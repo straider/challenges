@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = 'oscp-3.3'
+BOX_NAME = 'cdk-2.3'
 
 # The private network IP of the VM. You will use this IP to connect to OpenShift.
 # This variable is ignored for Hyper-V provider.
@@ -107,20 +107,20 @@ Vagrant.configure(2) do |config|
   SHELL
 
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
-      config.vm.provision "shell", run: "always", inline: <<-SHELL
-        oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
-        docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
-        oc logout
+    config.vm.provision "shell", run: "always", inline: <<-SHELL
+      oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify
+      docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
+      oc logout
 
-        sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
-        grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
-        echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
-        echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
-        echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
+      sudo mv /etc/sysconfig/docker /etc/sysconfig/docker.orig
+      grep -vi proxy /etc/sysconfig/docker.orig | sudo tee /etc/sysconfig/docker > /dev/null
+      echo "HTTP_PROXY=http://#{ ENV[ 'PROXY' ] }"  | sudo tee -a /etc/sysconfig/docker
+      echo "HTTPS_PROXY=http://#{ ENV[ 'PROXY' ] }" | sudo tee -a /etc/sysconfig/docker
+      echo "NO_PROXY=${docker_registry_ip_address}" | sudo tee -a /etc/sysconfig/docker
 
-        sudo systemctl daemon-reload
-        sudo systemctl restart docker
-      SHELL
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
+    SHELL
   end
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
