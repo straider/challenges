@@ -36,8 +36,8 @@ end
 Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?( 'vagrant-proxyconf' ) and ENV.key?( 'PROXY' )
     config.proxy.enabled = { docker: false }
-    config.proxy.http  = "http://#{ ENV[ 'PROXY' ] }"
-    config.proxy.https = "http://#{ ENV[ 'PROXY' ] }"
+    config.proxy.http  = 'http://10.1.2.1:3128'
+    config.proxy.https = 'http://10.1.2.1:3128'
 
     config.proxy.no_proxy = 'localhost,127.0.0.1,rhel-cdk,10.0.2.15,10.1.2.2,10.0.2.0/24,10.1.2.0/24,172.17.0.0/16,172.30.0.0/24'
   end
@@ -78,7 +78,7 @@ Vagrant.configure(2) do |config|
 
   # Proxy Information from environment
   if ENV.key?('PROXY')
-    config.registration.proxy = proxy = ENV['PROXY']
+    config.registration.proxy = proxy = '10.1.2.1:3128'
     config.registration.proxyUser = proxy_user = ENV['PROXY_USER'] if ENV.key?('PROXY_USER')
     config.registration.proxyPassword = proxy_password = ENV['PROXY_PASSWORD'] if ENV.key?('PROXY_PASSWORD')
   end

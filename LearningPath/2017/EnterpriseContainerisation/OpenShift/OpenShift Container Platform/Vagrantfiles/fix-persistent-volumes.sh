@@ -4,7 +4,7 @@ set -e
 
 oc login 10.1.2.2:8443 -u admin -p admin --insecure-skip-tls-verify > /dev/null
 
-for pv in $( find . -type d -name "/nfsvolumes/pv0?" ); do
+for pv in $( find /nfsvolumes/ -type d -name "pv0?" | sed s:/nfsvolumes/::g ); do
     oc delete pv $pv
     sudo rm -Rf /nfsvolumes/$pv
 done
@@ -75,4 +75,4 @@ oc logout
 
 sudo chown nfsnobody:nfsnobody -R /nfsvolumes
 echo '/nfsvolumes/ *(rw,root_squash)' | sudo tee /etc/exports > /dev/null
-exportfs -r
+sudo exportfs -r
