@@ -19,7 +19,7 @@
 
 There are [3 well known REST API Specification formats](http://nordicapis.com/top-specification-formats-for-rest-apis/):
 
-- [Swagger](http://swagger.io/), also known now as OpenAPI Specification, is designed as a bottom-up specification (in JSON or YAML);
+- [Swagger](http://swagger.io/), also known now as [OpenAPI Specification](https://www.openapis.org/), is designed as a bottom-up specification (in JSON or YAML);
 - [RAML](http://raml.org/) is a top-down specification, in YAML, meaning that it breaks down the system and explains the behavior of the various sub-components.
 - [API Blueprint](https://apiblueprint.org/) is a top-down specification, in Markdown.
 
@@ -131,6 +131,7 @@ There are other options, although not so widely used or with such big companies 
     - [LucyBot-Inc/api-spec-converter](https://github.com/LucyBot-Inc/api-spec-converter): Convert API descriptions between popular formats such as OpenAPI(fka Swagger), RAML, API Blueprint, WADL, etc.
 - [API Spec Transformer](https://github.com/stoplightio/api-spec-converter) helps to convert between different API specifications (Postman, Swagger, RAML, StopLight).
 - [test2doc.js](https://github.com/stackia/test2doc.js): Build API docs from your tests, using API Blueprint generator or Swagger generator.
+- [Imposter](https://github.com/outofcoffee/imposter): A scriptable, multipurpose mock server.
 
 ### Swagger
 
@@ -143,6 +144,7 @@ There are other options, although not so widely used or with such big companies 
 - [Swagger2Markup](https://github.com/Swagger2Markup/swagger2markup): A Swagger to AsciiDoc or Markdown converter
     - [swagger2markup-maven-plugin](https://github.com/Swagger2Markup/swagger2markup-maven-plugin)
     - [swagger2markup-gradle-plugin](https://github.com/Swagger2Markup/swagger2markup-gradle-plugin)
+- [ReDoc](https://github.com/Rebilly/ReDoc): OpenAPI/Swagger-generated API Reference Documentation
 - [Swagger Confluence](https://cloud.slkdev.net/swagger-confluence/)
 
 #### Java
@@ -169,9 +171,13 @@ There are other options, although not so widely used or with such big companies 
 
 ### RAML
 
+- [RAML Client Generator](https://github.com/mulesoft-labs/raml-client-generator)
+
 ### API Blueprint
 
 - [Swagger to API Blueprint Converter](https://github.com/apiaryio/swagger2blueprint)
+- [Drakov API Blueprint Mock Server](https://github.com/Aconex/drakov)
+- ~~[API Blueprint Mock Server](https://bitbucket.org/outofcoffee/api-blueprint-mockserver)~~
 - [Aconex/grunt-blueprint-validator](https://github.com/Aconex/grunt-blueprint-validator): Validates Blueprint files
 
 ### Testing
