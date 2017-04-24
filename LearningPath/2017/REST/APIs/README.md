@@ -171,6 +171,7 @@ There are other options, although not so widely used or with such big companies 
 
 ### RAML
 
+- [API Designer]()https://github.com/mulesoft/api-designer
 - [RAML Client Generator](https://github.com/mulesoft-labs/raml-client-generator)
 
 ### API Blueprint
@@ -191,19 +192,7 @@ There are other options, although not so widely used or with such big companies 
 - [Vigia](https://github.com/nogates/vigia): Adaptable API integration test suite that supports API blueprint and RAML files.
 - [Spring Cloud Contract](https://github.com/spring-cloud/spring-cloud-contract)
 - ~~[Pacto](http://thoughtworks.github.io/pacto/)~~
-- [Pact](https://docs.pact.io/)
-    - [pact-foundation/pact-specification](https://github.com/pact-foundation/pact-specification)
-    - [Pact](https://github.com/realestate-com-au/pact): Define a pact between service consumers and providers, enabling "consumer driven contract" testing.
-    - [Pact::Provider::Proxy](https://github.com/bethesque/pact-provider-proxy)
-    - [Pact Broker](https://github.com/bethesque/pact_broker)
-        - [Dockerised Pact Broker](https://github.com/DiUS/pact_broker-docker)
-        - [Pact Broker Client](https://github.com/bethesque/pact_broker-client)
-    - [pact-jvm](https://github.com/DiUS/pact-jvm)
-    - [Spring Boot Microservices + Pact-JVM](https://github.com/mstine/microservices-pact)
-    - ~~[Pact Consumer Javascript DSL](https://github.com/DiUS/pact-consumer-js-dsl)~~
-    - [Pact JS](https://github.com/pact-foundation/pact-js)
-    - ~~[Pact Provider Javascript DSL](https://github.com/DiUS/pact-provider-js-dsl)~~
-    - [Shokkenki](https://github.com/brentsnook/shokkenki) records consumer-driven contracts from real examples and uses them to test both ends of a RESTful consumer-provider relationship.
+- [Pact](Consumer-Driven Contracts/Pact/README.md)
 
 # Challenges
 
