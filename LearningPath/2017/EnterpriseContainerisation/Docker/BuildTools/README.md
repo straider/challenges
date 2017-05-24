@@ -5,8 +5,8 @@ Build Tools on Docker
 
 This challenge is about running services as Docker containers, inside a Docker Machine with a Windows host, that are often used when building applications. These services are provided by:
 
-- Countinuous Integration Server: [Jenkins](Jenkins.md)
-- Artifacts / Binary Packages Manager: [Nexus](Nexus.md)
+- Continuous Integration Server: [Jenkins](Jenkins/README.md)
+- Artifacts / Binary Packages Manager: [Nexus](Nexus/README.md)
 - Static Code Analysis and Metrics: [SonarQube](SonarQube/README.md)
 
 # Procedures
