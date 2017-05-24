@@ -25,6 +25,7 @@ There are [3 well known REST API Specification formats](http://nordicapis.com/to
 
 There are other options, although not so widely used or with such big companies / communities, such as:
 
+- [JSON API](http://jsonapi.org/)
 - [Spring REST Docs](http://projects.spring.io/spring-restdocs/)
 - [APIDoc](http://www.apidoc.me/doc/)
 - [Miredot](http://www.miredot.com/)
