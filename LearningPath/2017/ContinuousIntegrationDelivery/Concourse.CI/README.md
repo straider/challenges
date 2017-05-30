@@ -10,11 +10,20 @@ One possible alternative, which has come across Thoughtworks Technology Radar, i
 
 ## Features
 
-> [https://concourse.ci/](officially):
+> [Official](https://concourse.ci/):
 - **Simple and Scalable**: Rather than a myriad of checkboxes, pipelines are defined as a single declarative config file, composing together just three core concepts;
 - **Streamlined UI**;
 - **Dependable Results**: Rather than sharing state, every task runs in its own container, controlling its own dependencies and local changes can be tested with the Fly CLI;
 - **Integrations**: Interacting with the world is a crucial part of any pipeline. Concourse expresses these interactions as Resources and works out-of-the-box with Git repositories, S3 buckets, and other common external services.
+
+> [Why Concourse CI is different](https://blog.altoros.com/concourse-ci-architecture-features-and-usage.html)
+- **Pipelines are first-class citizens**.<br />Concourse CI is the first open source tool built around pipelines, like Atlassian Bamboo. Unlike it, Concourse has no proprietary license and does not lock you on any technologies.
+- **Containers and microservices**.<br />Everything runs in ephemeral, reproducible containers. Horizontal scaling is a wheeze. Each part of the pipeline can be scaled independently.
+- **Everything-as-Code**.<br />Deployments, builds, and anything can be automated, scripted, and then re-created without wizards or manual configuration.
+- **Infrastructure agnostic**.<br />Concourse CI is deployed with BOSH and can run on any cloud with BOSH support (AWS, GCE, vSphere, etc.), as well as on bare metal.
+- **Written in Golang**.<br />It is possible to test software on various platforms, running workers on Linux, Windows, or MacOS (like it is done for Fly CLI).
+- **Built for Cloud Foundry with love**.<br />Concourse CI was created to streamline development of the Cloud Foundry PaaS and can be readily integrated with BOSH.
+- **Other perks**.<br />Concourse is packed with features that facilitate building and debugging CD pipelines (e.g., pipeline visualization, user-friendly text formatting, etc.).
 
 ## History
 
