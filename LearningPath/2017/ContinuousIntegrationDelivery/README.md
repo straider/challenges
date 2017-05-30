@@ -94,6 +94,12 @@
 
 ## [GoCD](https://www.gocd.io/)
 
+- [Gomatic](https://github.com/SpringerSBM/gomatic): a Python API for configuring ThoughtWorks GoCD.
+
+## [LambdaCD](http://www.lambda.cd/)
+
+## [Drone](https://github.com/drone/drone)
+
 # Tools
 
 ## [Puppet](https://puppet.com/product)
