@@ -30,13 +30,15 @@
 - [Gogs](https://gogs.io/)
 - [gogits/gogs](https://github.com/gogits/gogs)
 - [gogs/gogs](https://hub.docker.com/r/gogs/gogs/)
+- [openshiftdemos/gogs](https://hub.docker.com/r/openshiftdemos/gogs/): Gogs git server optimized for use on OpenShift
+- [Gogs for OpenShift](https://github.com/OpenShiftDemos/gogs-openshift-docker)
 - [jalammas/gogs](https://hub.docker.com/r/jalammas/gogs/): Gogs for OpenShift 3.2
 - [jarielpa/gogs-openshift-docker](https://github.com/jarielpa/gogs-openshift-docker)
 - [Deploy your own git server on OpenShift v3 with Gogs container!](http://alezzandro.com/deploy-your-own-git-server-on-openshift-v3-with-gogs-container/)
 - [alezzandro/openshift-gogs-template](https://github.com/alezzandro/openshift-gogs-template)
 - [Deploy your own git server with Gogs container!](http://gogs.inmyopenshift.cloud/)
 - [alezzandro/gogs-inmyopenshift-cloud](https://github.com/alezzandro/gogs-inmyopenshift-cloud)
-- [Gogs for OpenShift](https://github.com/OpenShiftDemos/gogs-openshift-docker)
+- [Dockerized Gogs git server and alpine postgres in 20 minutes or less](https://garthwaite.org/docker-gogs.html)
 
 ### Gitea
 
