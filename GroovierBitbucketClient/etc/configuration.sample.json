@@ -2,8 +2,10 @@
     "folder"   : "[WORKING_FOLDER]",
     "project"  : "[PROJECTNAME]"   ,
     "branch"   : "[BRANCH_NAME]"   ,
+    "protocol" : "[PROTOCOL]"      ,
     "hostname" : "[HOSTNAME]"      ,
     "port"     : "[PORT_NUMBER]"   ,
+    "path"     : "[PATH]"          ,
     "username" : "[USERNAME]"      ,
     "password" : "[PASSWORD]"
 }

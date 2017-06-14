@@ -24,11 +24,13 @@ println "Working Folder: ${folder}"
 
 String project  = configuration.project
 String branch   = configuration.branch
+String protocol = configuration.protocol
 String hostname = configuration.hostname
 String port     = configuration.port
+String path     = configuration.path
 String username = configuration.username
 String password = configuration.password
-String address  = "http://${hostname}:${port}/rest/api/1.0/projects/${project}/repos?limit=100"
+String address  = "${protocol}://${hostname}:${port}/${path}/${project}/repos?limit=100"
 println "Project URL: ${address}"
 
 String basicAuthentication = "Basic " + DatatypeConverter.printBase64Binary( "${username}:${password}".getBytes() )
@@ -53,8 +55,8 @@ response.values.each {
     reference = links.find() { it.startsWith( 'http' ) }
     repositories << reference
 
-    String safeReference = reference.replaceAll( /http:\\/\\/(.+)[@](.+)/ ) { all, name, path ->
-        "http://${path}"
+    String safeReference = reference.replaceAll( /http:\\/\\/(.+)[@](.+)/ ) { all, name, repositoryPath ->
+        "http://${repositoryPath}"
     }
 
     File   repositoryFolder = new File( reference )
