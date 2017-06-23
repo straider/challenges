@@ -1,0 +1,19 @@
+---
+platform: linux
+image: docker:///java#8
+inputs:
+- name: microservices-pact
+- name: foo-consumer-version
+outputs:
+- name: pacts
+- name: libs
+params:
+    TERM: dumb
+    VERSION_FILE_PATH: foo-consumer-version
+run:
+  path: microservices-pact/gradlew
+  args:
+  - -b
+  - microservices-pact/build.gradle
+  - :microservices-pact-consumer:test
+  - :microservices-pact-consumer:assemble
