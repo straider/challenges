@@ -1,0 +1,5 @@
+include 'consumer'
+include 'providers:dropwizard-provider'
+include 'providers:springboot-provider'
+
+rootProject.name = 'pact-workshop-jvm'

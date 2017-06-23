@@ -1,0 +1,50 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.4.RELEASE")
+  }
+}
+
+plugins {
+  id "au.com.dius.pact" version "3.4.0"
+  id "com.wiredforcode.spawn" version "0.8.2"
+}
+
+import com.wiredforcode.gradle.spawn.*
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+  compile("org.springframework.boot:spring-boot-starter-web") {
+    exclude module: "spring-boot-starter-tomcat"
+  }
+  compile("org.springframework.boot:spring-boot-starter-jetty")
+  compile("org.springframework.boot:spring-boot-starter-actuator")
+}
+
+task startProvider(type: SpawnProcessTask, dependsOn: 'assemble') {
+  command "java -Dspring.profiles.active=test -jar ${jar.archivePath}"
+  ready 'Started MainApplication'
+}
+
+task stopProvider(type: KillProcessTask) {
+
+}
+
+pact {
+  serviceProviders {
+    'Our Provider' {
+      port = 8080
+
+      startProviderTask = startProvider
+      terminateProviderTask = stopProvider
+      stateChangeUrl = url('http://localhost:8080/pactStateChange')
+
+      if (project.hasProperty('pactBrokerUser') && pactBrokerUser != '<YOUR USER>') {
+        hasPactsFromPactBroker("https://test.pact.dius.com.au", authentication: ['Basic', pactBrokerUser, pactBrokerPassword])
+      }
+    }
+  }
+}

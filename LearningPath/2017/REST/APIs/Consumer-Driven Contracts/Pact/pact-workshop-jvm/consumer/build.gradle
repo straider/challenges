@@ -1,0 +1,20 @@
+plugins {
+  id "au.com.dius.pact" version "3.4.0"
+}
+
+apply plugin: 'application'
+
+mainClassName = 'au.com.dius.pactworkshop.consumer.Consumer'
+version = 0
+
+dependencies {
+  compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+}
+
+pact {
+  publish {
+    pactBrokerUrl = 'https://test.pact.dius.com.au'
+    pactBrokerUsername = project.pactBrokerUser
+    pactBrokerPassword = project.pactBrokerPassword
+  }
+}
