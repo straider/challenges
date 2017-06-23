@@ -41,7 +41,7 @@ To add static content to a SpringBoot application is just as easy as adding HTML
 
 The resources one can find online are for Swagger 1.x or Swagger 2.x, and they're different from one another.
 
-To enable Swagger then just add the missing dependencies for springfox-swagger2 and springfox-swagger-ui and add the @EnableSwagger2 annotation to the class than contains the Docket API method.
+To enable Swagger then just add the missing dependencies for springfox-swagger2 and springfox-swagger-ui and add the @EnableSwagger2 annotation to the bootstrap class and to the class than contains the Docket API method.
 
 ### Spring MVC and Swagger
 
