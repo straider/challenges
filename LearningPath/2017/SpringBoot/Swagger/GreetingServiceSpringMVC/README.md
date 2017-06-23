@@ -11,6 +11,7 @@ This project holds a simple example of a Spring MVC REST service that runs on Sp
 - Replace package com.github.straider.java.ws.cxf with com.github.straider.springboot.springmvc.swagger;
 - Fix name, description and URL on pom.xml;
 - Add Swagger dependencies;
+- Add @EnableSwagger2 annotation to bootstrap class, usually Application;
 - Enable Swagger by selection of the following options:
     - Create SwaggerConfig class;
     - Add Docket api() and apiInfo() methods to main Application.
