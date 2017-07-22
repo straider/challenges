@@ -63,6 +63,7 @@ The configuration file, in JSON format, of what to build and how to build is cal
 
 - [Creating Vagrant Boxes with Packer](https://atlas.hashicorp.com/help/packer/artifacts/creating-vagrant-boxes)
 - [Using Packer to Create Vagrant Boxes](https://ariya.io/2013/11/using-packer-to-create-vagrant-boxes)
+- [Building images for Vagrant with Packer](http://wepoca.net/building-images-for-vagrant-with-packer/)
 - [We started using Vagrant and Packer for our build process. You won't believe what happened next...](http://cloudify.co/2015/06/24/vagrant-packer-etc.html)
 - [Building a Devbox with Packer, Vagrant and Ansible](http://blog.traintracks.io/building-a-devbox-with-packer-vagrant-and-ansible-2/)
 - [Building VM images with Ansible and Packer](https://www.jeffgeerling.com/blog/server-vm-images-ansible-and-packer)
@@ -119,13 +120,14 @@ choco install packer
 
 ## Windows
 
-- [Building Windows Images with Packer](https://www.slideshare.net/mwrockx/building-windows-images-with-packer)
 - [Packer templates for Windows](https://github.com/boxcutter/windows)
 - [mwrock/packer-templates](https://github.com/mwrock/packer-templates): simplifies the creation of minimally-sized, fully patched Windows Vagrant boxes.
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [Packer-Windows10](https://github.com/luciusbono/Packer-Windows10)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
 - [Windows Templates for Packer](https://github.com/joefitzgerald/packer-windows)
 - [Inductor](https://github.com/joefitzgerald/inductor)
+- [Building Windows Images with Packer](https://www.slideshare.net/mwrockx/building-windows-images-with-packer)
 - [Creating windows base images using Packer and Boxstarter](http://www.hurryupandwait.io/blog/creating-windows-base-images-for-virtualbox-and-hyper-v-using-packer-boxstarter-and-vagrant)
 - [Best Practices with Packer and Windows](https://hodgkins.io/best-practices-with-packer-and-windows)
 - [Using Packer, Vagrant and Boxstarter to create Windows environments](http://blog.ruilopes.com/using-packer-vagrant-and-boxstarter-to-create-windows-environments.html)
@@ -135,6 +137,7 @@ choco install packer
 
 - [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
 - [Packer templates for CentOS](https://github.com/boxcutter/centos)
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
 - [mejackreed/packer-templates](https://github.com/mejackreed/packer-templates)
 - [sotayamashita/packer-example](https://github.com/sotayamashita/packer-example)
@@ -145,16 +148,18 @@ choco install packer
 
 - [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
 - [Packer templates for Ubuntu](https://github.com/boxcutter/ubuntu)
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
 - [mejackreed/packer-templates](https://github.com/mejackreed/packer-templates)
-- [Packer: In 10 minutes, from zero to bootable VirtualBox Ubuntu 12.04](http://kappataumu.com/articles/creating-an-Ubuntu-VM-with-packer.html)
-- [ChiperSoft/Packer-Vagrant-Example](https://github.com/ChiperSoft/Packer-Vagrant-Example)
 - [Packer Example - Ubuntu 16.04 minimal Vagrant Box](https://github.com/geerlingguy/packer-ubuntu-1604)
 - [ffuenf/vagrant-boxes](https://github.com/ffuenf/vagrant-boxes)
+- [Packer: In 10 minutes, from zero to bootable VirtualBox Ubuntu 12.04](http://kappataumu.com/articles/creating-an-Ubuntu-VM-with-packer.html)
+- [ChiperSoft/Packer-Vagrant-Example](https://github.com/ChiperSoft/Packer-Vagrant-Example)
 
 ## Manjaro
 
 - [mloskot/vagrant-boxes](https://github.com/mloskot/vagrant-boxes)
+- [rjweyers/manjaro-i3-chromium](https://app.vagrantup.com/rjweyers/boxes/manjaro-i3-chromium)
 - [How-To create minimal Vagrant base box for Arch Linux](https://github.com/mloskot/vagrant-boxes/blob/master/docs/HowToCreateBox.md)
 - [Developing Ansible Playbooks for Arch Linux with Vagrant](http://elasticdog.com/2013/08/developing-ansible-playbooks-for-arch-linux-with-vagrant/)
 - [Packer Arch](https://github.com/elasticdog/packer-arch)
