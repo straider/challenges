@@ -152,6 +152,8 @@ choco install packer
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
 - [mejackreed/packer-templates](https://github.com/mejackreed/packer-templates)
 - [Packer Example - Ubuntu 16.04 minimal Vagrant Box](https://github.com/geerlingguy/packer-ubuntu-1604)
+- [Ubuntu LTS Virtual Machines for Vagrant](https://github.com/cbednarski/packer-ubuntu)
+- [Packer Automated VM Image and Vagrant Box Builds](https://github.com/tylert/packer-build)
 - [ffuenf/vagrant-boxes](https://github.com/ffuenf/vagrant-boxes)
 - [Packer: In 10 minutes, from zero to bootable VirtualBox Ubuntu 12.04](http://kappataumu.com/articles/creating-an-Ubuntu-VM-with-packer.html)
 - [ChiperSoft/Packer-Vagrant-Example](https://github.com/ChiperSoft/Packer-Vagrant-Example)
