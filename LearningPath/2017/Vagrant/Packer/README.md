@@ -38,7 +38,7 @@ The configuration file, in JSON format, of what to build and how to build is cal
 
 > Artifacts are the results of a single build, and are usually a set of IDs or files to represent a machine image. Every builder produces a single artifact.
 
-> Builds are a single task that eventually produces an image for a single platform. Multiple builds run in parallel. 
+> Builds are a single task that eventually produces an image for a single platform. Multiple builds run in parallel.
 
 ### [Provisioners](https://www.packer.io/docs/templates/provisioners.html)
 
@@ -65,6 +65,7 @@ The configuration file, in JSON format, of what to build and how to build is cal
 - [Using Packer to Create Vagrant Boxes](https://ariya.io/2013/11/using-packer-to-create-vagrant-boxes)
 - [Building images for Vagrant with Packer](http://wepoca.net/building-images-for-vagrant-with-packer/)
 - [We started using Vagrant and Packer for our build process. You won't believe what happened next...](http://cloudify.co/2015/06/24/vagrant-packer-etc.html)
+- [Creating a Reproducible and Portable Development Environment](http://www.developer.com/design/creating-a-reproducible-and-portable-development-environment.html)
 - [Building a Devbox with Packer, Vagrant and Ansible](http://blog.traintracks.io/building-a-devbox-with-packer-vagrant-and-ansible-2/)
 - [Building VM images with Ansible and Packer](https://www.jeffgeerling.com/blog/server-vm-images-ansible-and-packer)
 - [Advanced Provisioning With Packer For Docker And Vagrant](https://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/)
@@ -75,7 +76,10 @@ The configuration file, in JSON format, of what to build and how to build is cal
 - [About Immutable Infrastructure](https://blog.codeship.com/immutable-deployments/)
 - [Virtual Panel on Immutable Infrastructure](https://www.infoq.com/articles/virtual-panel-immutable-infrastructure)
 
-## Plugins
+## Tools
+
+- [Racker](https://github.com/aspring/racker) is an opinionated Ruby DSL for generating Packer templates.
+- [packer-config](https://github.com/ianchesal/packer-config) lets you build Packer configurations in Ruby.
 
 # Installation Guides
 
@@ -116,15 +120,16 @@ choco install packer
 
 # Development Boxes
 
-- [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
-
 ## Windows
 
 - [Packer templates for Windows](https://github.com/boxcutter/windows)
-- [mwrock/packer-templates](https://github.com/mwrock/packer-templates): simplifies the creation of minimally-sized, fully patched Windows Vagrant boxes.
-- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
-- [Packer-Windows10](https://github.com/luciusbono/Packer-Windows10)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
+- [Bento](https://github.com/chef/bento)
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
+- [taliesins/packer-baseboxes](https://github.com/taliesins/packer-baseboxes)
+- [mwrock/packer-templates](https://github.com/mwrock/packer-templates): simplifies the creation of minimally-sized, fully patched Windows Vagrant boxes.
+- [Packer-Windows10](https://github.com/luciusbono/Packer-Windows10)
+- [Windows Packer Templates](https://github.com/MattHodge/PackerTemplates/)
 - [Windows Templates for Packer](https://github.com/joefitzgerald/packer-windows)
 - [Inductor](https://github.com/joefitzgerald/inductor)
 - [Building Windows Images with Packer](https://www.slideshare.net/mwrockx/building-windows-images-with-packer)
@@ -135,22 +140,28 @@ choco install packer
 
 ## CentOS
 
-- [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
 - [Packer templates for CentOS](https://github.com/boxcutter/centos)
-- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
+- [Bento](https://github.com/chef/bento)
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [mejackreed/packer-templates](https://github.com/mejackreed/packer-templates)
+- [kaorimatz/packer-templates](https://github.com/kaorimatz/packer-templates)
+- [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
+- [tmclaugh/suitcase](https://github.com/tmclaugh/suitcase)
 - [sotayamashita/packer-example](https://github.com/sotayamashita/packer-example)
 - [Create simple CentOS 7 Virtualbox with Packer](http://softwaretester.info/create-simple-centos-7-virtualbox-with-packer/)
 - [Packer Built CentOS Vagrant Base Box – Automated Build](http://digitalsandwich.com/packer-built-centos-vagrant-base-box-automated-build/)
 
 ## Ubuntu
 
-- [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
 - [Packer templates for Ubuntu](https://github.com/boxcutter/ubuntu)
-- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [jedi4ever/veewee](https://github.com/jedi4ever/veewee/tree/master/templates)
+- [Bento](https://github.com/chef/bento)
+- [Vagrant Box Templates](https://github.com/mrlesmithjr/vagrant-box-templates)
 - [mejackreed/packer-templates](https://github.com/mejackreed/packer-templates)
+- [kaorimatz/packer-templates](https://github.com/kaorimatz/packer-templates)
+- [taliesins/packer-baseboxes](https://github.com/taliesins/packer-baseboxes)
+- [packer-vagrant-linux](https://gitlab.com/ariya/packer-vagrant-linux): Create Ubuntu and CentOS Vagrant boxes using Packer
 - [Packer Example - Ubuntu 16.04 minimal Vagrant Box](https://github.com/geerlingguy/packer-ubuntu-1604)
 - [Ubuntu LTS Virtual Machines for Vagrant](https://github.com/cbednarski/packer-ubuntu)
 - [Packer Automated VM Image and Vagrant Box Builds](https://github.com/tylert/packer-build)
