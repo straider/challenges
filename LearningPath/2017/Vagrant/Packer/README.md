@@ -58,6 +58,8 @@ The configuration file, in JSON format, of what to build and how to build is cal
 - [Packer configuration for the Atlas Packer Vagrant Tutorial](https://github.com/hashicorp/atlas-packer-vagrant-tutorial)
 - [Building a Vagrant Box from Start to Finish](https://blog.engineyard.com/2014/building-a-vagrant-box)
 - [Packer – automating virtual machine image creation](http://alexconst.net/2016/01/11/packer/)
+- [Building (localized) Vagrant boxes with Packer](https://www.slideshare.net/CristovaoGVerstraete/building-localized-vagrant-boxes-with-packer)
+    - [Building (localized) Vagrant boxes with Packer](https://github.com/cristovaov/packer-vagrant-talk)
 
 ## Articles
 
