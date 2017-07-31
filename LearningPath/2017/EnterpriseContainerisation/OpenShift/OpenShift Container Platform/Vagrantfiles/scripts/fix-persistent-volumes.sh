@@ -2,7 +2,7 @@
 
 set -e
 
-oc login 10.1.2.2:8443 -u admin -p admin --insecure-skip-tls-verify > /dev/null
+oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify > /dev/null
 
 for pv in $( find /nfsvolumes/ -type d -name "pv0?" | sed s:/nfsvolumes/::g ); do
     oc delete pv $pv
@@ -71,7 +71,7 @@ EOF!
     done
 done
 
-oc logout
+oc logout > /dev/null
 
 sudo chown nfsnobody:nfsnobody -R /nfsvolumes
 echo '/nfsvolumes/ *(rw,root_squash)' | sudo tee /etc/exports > /dev/null

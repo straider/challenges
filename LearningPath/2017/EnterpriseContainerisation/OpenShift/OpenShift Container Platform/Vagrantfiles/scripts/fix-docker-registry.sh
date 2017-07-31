@@ -2,7 +2,7 @@
 
 set -e
 
-oc login 10.1.2.2:8443 -u admin -p admin --insecure-skip-tls-verify > /dev/null
+oc login localhost:8443 -u admin -p admin --insecure-skip-tls-verify > /dev/null
 docker_registry_ip_address=$( oc get svc docker-registry --namespace default --output jsonpath='{.spec.clusterIP}' )
 oc logout
 
