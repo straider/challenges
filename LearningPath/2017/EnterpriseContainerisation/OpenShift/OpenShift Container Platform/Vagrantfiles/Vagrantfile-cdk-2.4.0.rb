@@ -112,17 +112,7 @@ Vagrant.configure(2) do |config|
     SHELL
 
     config.vm.provision 'file', source: 'corkscrew-2.0-20.fc26.x86_64.rpm', destination: '/home/vagrant/corkscrew-2.0-20.fc26.x86_64.rpm'
-    config.vm.provision 'shell', inline: <<-SHELL
-        echo Installing corkscrew...
-        sudo rpm -v --install --hash /home/vagrant/corkscrew-2.0-20.fc26.x86_64.rpm
-
-        echo Configuring corkscrew...
-        echo | sudo tee --append /etc/ssh/ssh_config << END_OF_SCRIPT
-        Host *
-            ProxyCommand corkscrew 10.1.2.1 3128 %h %p
-        END_OF_SCRIPT
-        echo Configured corkscrew.
-    SHELL
+    config.vm.provision 'shell', path: 'scripts/enable-corkscrew.sh'
   end
 
   config.vm.provision 'shell', run: 'always', inline: <<-SHELL
