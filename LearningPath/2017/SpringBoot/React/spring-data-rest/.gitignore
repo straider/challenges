@@ -1,0 +1,24 @@
+# Build Tools
+#============
+target/
+build/
+
+# IDEs
+#=====
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+# Eclipse
+.metadata
+.settings
+.project
+.classpath
+RemoteSystemsTempFiles
+# IDEA
+.idea/
+*.iml
+
+!.mvn/wrapper/maven-wrapper.jar
