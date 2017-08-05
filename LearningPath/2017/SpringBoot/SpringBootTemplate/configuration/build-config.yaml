@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: [APPLICATION_NAME]
+    build: [SERVICE_ARTIFACT_ID]
+  name: [SERVICE_ARTIFACT_ID]
+spec:
+  source:
+    type: Binary
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: [SERVICE_ARTIFACT_ID]:latest
+  runPolicy: Serial
+  resources: {}
+  postCommit: {}
+  nodeSelector: null

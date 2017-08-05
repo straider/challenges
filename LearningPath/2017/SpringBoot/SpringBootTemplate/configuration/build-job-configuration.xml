@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<org.jenkinsci.plugins.workflow.job.WorkflowJob plugin = "workflow-job@2.11.1">
+    <actions>
+        <io.jenkins.blueocean.service.embedded.BlueOceanUrlAction plugin = "blueocean-rest-impl@1.1.4">
+            <blueOceanUrlObject class = "io.jenkins.blueocean.service.embedded.BlueOceanUrlObjectImpl">
+                <mappedUrl>blue/organizations/jenkins/[SERVICE_ARTIFACT_ID]</mappedUrl>
+            </blueOceanUrlObject>
+        </io.jenkins.blueocean.service.embedded.BlueOceanUrlAction>
+    </actions>
+    <description/>
+    <displayName>[SERVICE_ARTIFACT_ID]</displayName>
+    <keepDependencies>false</keepDependencies>
+    <properties>
+        <jenkins.model.BuildDiscarderProperty>
+            <strategy class = "hudson.tasks.LogRotator">
+                <daysToKeep>-1</daysToKeep>
+                <numToKeep>20</numToKeep>
+                <artifactDaysToKeep>-1</artifactDaysToKeep>
+                <artifactNumToKeep>-1</artifactNumToKeep>
+            </strategy>
+        </jenkins.model.BuildDiscarderProperty>
+        <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
+        <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+            <triggers/>
+        </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+    </properties>
+    <definition class = "org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin = "workflow-cps@2.36">
+        <scm class = "hudson.plugins.git.GitSCM" plugin = "git@3.3.1">
+            <configVersion>2</configVersion>
+            <userRemoteConfigs class = "singleton-list">
+                <hudson.plugins.git.UserRemoteConfig>
+                    <url>[GIT_REPOSITORY_URL]/[SERVICE_ARTIFACT_ID].git</url>
+                    <credentialsId>[CREDENTIALS_ID]</credentialsId>
+                </hudson.plugins.git.UserRemoteConfig>
+            </userRemoteConfigs>
+            <branches class = "singleton-list">
+                <hudson.plugins.git.BranchSpec>
+                    <name>master</name>
+                </hudson.plugins.git.BranchSpec>
+            </branches>
+            <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+            <submoduleCfg class = "empty-list"/>
+            <extensions/>
+        </scm>
+        <scriptPath>configuration/pipeline.groovy</scriptPath>
+        <lightweight>false</lightweight>
+    </definition>
+    <triggers/>
+    <disabled>false</disabled>
+</org.jenkinsci.plugins.workflow.job.WorkflowJob>
