@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class EmployeeComponent extends React.Component {
+export default class Employee extends React.Component {
 
 	render() {
 		return (

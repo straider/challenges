@@ -1,12 +1,12 @@
 import React from 'react';
 
-import EmployeeComponent from './EmployeeComponent';
+import Employee from './Employee';
 
-export default class EmployeeListComponent extends React.Component {
+export default class Employees extends React.Component {
 
 	render() {
 		var employees = this.props.employees.map( employee =>
-			<EmployeeComponent key = {employee._links.self.href} employee = {employee} />
+			<Employee key = {employee._links.self.href} employee = {employee} />
 		);
 		return (
 			<table>

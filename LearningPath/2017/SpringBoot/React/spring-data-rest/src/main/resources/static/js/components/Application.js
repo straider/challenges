@@ -1,9 +1,9 @@
 import React  from 'react';
-import client from './client';
+import client from '../client';
 
-import EmployeeListComponent from './EmployeeListComponent';
+import Employees from './Employees';
 
-export default class ApplicationComponent extends React.Component {
+export default class Application extends React.Component {
 
 	constructor( properties ) {
 		super( properties );
@@ -18,7 +18,7 @@ export default class ApplicationComponent extends React.Component {
 
 	render() {
 		return (
-			<EmployeeListComponent employees = {this.state.employees} />
+			<Employees employees = {this.state.employees} />
 		)
 	}
 
