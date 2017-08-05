@@ -1,0 +1,9 @@
+spring:
+  application:
+      name: [SERVICE_ARTIFACT_ID]
+      jackson:
+        serialization:
+          indent_output: true
+
+server:
+  port: ${SERVICE_PORT:@[CONSUMER_SERVICE].port@}
