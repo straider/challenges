@@ -24,3 +24,4 @@ RemoteSystemsTempFiles
 !.mvn/wrapper/maven-wrapper.jar
 
 node_modules/
+src/main/resources/static/built/

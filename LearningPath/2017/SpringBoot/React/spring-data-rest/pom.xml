@@ -98,6 +98,13 @@
             <version>${spring-boot.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -479,6 +486,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+                <configuration>
+                    <addResources>true</addResources>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -494,6 +504,7 @@
                 <version>${frontend-maven-plugin.version}</version>
                 <configuration>
                     <installDirectory>target</installDirectory>
+                    <installDirectory>.mvn</installDirectory>
                 </configuration>
                 <executions>
                     <execution>
