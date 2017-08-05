@@ -16,3 +16,9 @@ It's useful as a Notepad replacement and should be the editor for 7-Zip and File
 ## [MdCharm 1.1.6](http://www.mdcharm.com/)
 
 ## [7-Zip 16.04](http://www.7-zip.org/)
+
+## [ConEmu 16.12.06](http://conemu.github.io/en/)
+
+### ~~[Clink 0.4.8](http://mridgers.github.io/clink/)~~
+
+### ~~[cmder 1.3.2](http://cmder.net/)~~

@@ -31,6 +31,10 @@ Settings:
 - Language:
     - Language Menu: Check "Make language menu compact"
     - Tab Settings: Tab size 4, replaced by space.
+- MISC.:
+    - Clickable Link Settings:
+        - Enable
+        - No underline
 
 Update Plugin Manager and use it to install these plugins:
 - [NppFTP 0.26.3](http://ashkulz.github.io/NppFTP/);
@@ -58,6 +62,8 @@ Options:
     - Associate 7-Zip with all.
 - Editor:
     - Editor: C:\Program Files (x86)\metapad.exe.
+
+### ConEmu
 
 ## Networking
 
@@ -386,10 +392,14 @@ After installation configure Settings:
 
 Install plugins:
 - Markdown support 2016.3.20161109
+- Eclipse Groovy Compiler Plugin v1.0
+- GMavenPlus IntelliJ Plugin v2.0
+- Spock Framework Enhancements v0.11
 - Gherkin 163.7743.44
 - Cucumber for Java 163.9693
 - Cucumber for Groovy 163.7743.44
 - Docker integration 2.4.1
+- Kubernetes and OpenShift Resource Support v0.7
 
 #### Geany
 
