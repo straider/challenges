@@ -1,7 +1,7 @@
-const React  = require( 'react'    );
-const client = require( './client' );
+import React  from 'react';
+import client from './client';
 
-const EmployeeListComponent = require( './EmployeeListComponent' );
+import EmployeeListComponent from './EmployeeListComponent';
 
 export default class ApplicationComponent extends React.Component {
 

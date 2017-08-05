@@ -1,6 +1,6 @@
-const React = require( 'react' );
+import React from 'react';
 
-const EmployeeComponent = require( './EmployeeComponent' );
+import EmployeeComponent from './EmployeeComponent';
 
 export default class EmployeeListComponent extends React.Component {
 

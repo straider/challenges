@@ -1,7 +1,7 @@
-const React    = require( 'react'     );
-const ReactDOM = require( 'react-dom' );
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
-const ApplicationComponent = require( './ApplicationComponent' );
+import ApplicationComponent from './ApplicationComponent';
 
 ReactDOM.render(
 	<ApplicationComponent />,
