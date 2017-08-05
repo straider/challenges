@@ -1,0 +1,12 @@
+spring:
+  application:
+      name: spring-data-rest
+      jackson:
+        serialization:
+          indent_output: true
+  data:
+    rest:
+      basePath: /api
+
+server:
+  port: 10000

@@ -1,0 +1,9 @@
+spring:
+  application:
+      name: spring-data-rest
+      jackson:
+        serialization:
+          indent_output: true
+
+server:
+  port: 10080
