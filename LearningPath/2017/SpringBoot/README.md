@@ -29,3 +29,8 @@ This challenge is open to learn about SpringBoot applications.
 # Milestones
 
 # Challenges
+
+- [Spring Data](SpringData/README.md)
+- [Swagger](Swagger/README.md)
+- [REST Clients]()
+- [React](React/README.md)
