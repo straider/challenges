@@ -1,9 +1,0 @@
-*.ipr
-*.iws
-*.iml
-.gradle
-out
-target
-build
-foo-consumer-version
-

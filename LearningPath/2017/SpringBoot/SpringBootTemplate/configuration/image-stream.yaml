@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ImageStream
-metadata:
-  labels:
-    app: [APPLICATION_NAME]
-  name: [SERVICE_ARTIFACT_ID]
-
