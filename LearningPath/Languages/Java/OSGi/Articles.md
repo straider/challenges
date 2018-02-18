@@ -8,6 +8,7 @@
 - [Introduction to OSGi - Java Modular](https://cnapagoda.blogspot.co.uk/2011/09/introduction-to-osgijava-modular.html)
 - [Introduction to OSGi - OSGi Services](https://cnapagoda.blogspot.co.uk/2012/01/introduction-to-osgi-2-osgi-services.html)
 - [Learn by Errors : Java + OSGi](https://chamibuddhika.wordpress.com/2012/05/15/learn-by-errors-java-osgi/)
+- [Making Plain Old Java OSGi Compatible](http://www.stoyanr.com/2012/09/making-plain-old-java-osgi-compatible.html)
 - [Java 9, OSGi and the Future of Modularity (Part 1)](https://www.infoq.com/articles/java9-osgi-future-modularity)
 - [Java 9, OSGi and the Future of Modularity (Part 2)](https://www.infoq.com/articles/java9-osgi-future-modularity-part-2)
 - [OSGi leads application development into the future](http://www.theserverside.com/news/1280100062/OSGi-leads-application-development-into-the-future)
@@ -15,14 +16,18 @@
 - [Getting Started With OSGI](http://naveenbalani.com/index.php/articles/getting-started-with-osgi/)
 - [Getting Started With OSGI And Spring DM](http://naveenbalani.com/index.php/articles/getting-started-with-osgi-and-spring-dm/)
 - [Looking At Enterprise OSGI And Apache Aries](http://naveenbalani.com/index.php/featured/looking-at-eneteprise-osgi-apache-aries/)
-- [Making Plain Old Java OSGi Compatible](http://www.stoyanr.com/2012/09/making-plain-old-java-osgi-compatible.html)
 - [Converting an enterprise application to an OSGi application](http://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.0/com.ibm.websphere.osgi.doc/ae/ra_convert_ear_to_osgi.html)
 - [Converting a Spring application to an OSGi application](http://www.ibm.com/support/knowledgecenter/SSEQTP_9.0.0/com.ibm.websphere.osgi.doc/ae/ta_mig_spring.html)
 - [A Gentle Introduction to OSGi](https://jaxenter.com/a-gentle-introduction-to-osgi-103732.html)
 - [OSGi enRoute – a new framework for OSGi applications](https://jaxenter.com/osgi-enroute-a-new-framework-for-osgi-applications-117514.html)
+- [How To Embed OSGi](http://njbartlett.name/2011/07/03/embedding-osgi.html)
 
 # Bundles and Packages
 
+- [Creating OSGi bundles](https://spring.io/blog/2008/02/18/creating-osgi-bundles/)
+- [OSGi Tutorial: 4 ways to activate code in OSGi bundle](http://blog.knowhowlab.org/2010/10/osgi-tutorial-4-ways-to-activate-code.html)
+- [OSGi Tutorial: From project structure to release](http://blog.knowhowlab.org/2010/06/osgi-tutorial-from-project-structure-to.html)
+- [OSGi for Beginners](http://www.theserverside.com/news/1363825/OSGi-for-Beginners)
 - [Understanding how OSGI bundles get resolved](http://blog.christianposta.com/osgi/understanding-how-osgi-bundles-get-resolved-part-i/)
 - [OSGi Import Package and Split Package Woes](http://eclipsesource.com/blogs/2009/07/14/why-i-cant-recommend-using-import-package/)
 - [Tip: Split Packages and Visibility](http://eclipsesource.com/blogs/2008/08/22/tip-split-packages-and-visibility/)
@@ -41,7 +46,6 @@
 
 # Assorted
 
-- [An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/)
 - [A Dozen OSGi Myths and Misconceptions](http://www.jroller.com/habuma/entry/a_dozen_osgi_myths_and)
 - [Me, OSGi and Maven](https://codepitbull.wordpress.com/2010/01/19/me-osgi-and-maven/)
 - [OSGi is Irrelevant](https://rossmason.blogspot.co.uk/2008/04/osgi-is-irrelevant.html)

@@ -1,7 +1,9 @@
-﻿:: OSGi ::
+:: OSGi ::
 ==========
 
 # Overview
+
+## What is OSGi?
 
 > The [OSGi Alliance](https://www.osgi.org/) is a worldwide consortium of technology innovators that advances a proven and mature process to create open specifications that enable the modular assembly of software built with Java technology. Modularity reduces software complexity; OSGi is the best model to modularize Java.
 
@@ -17,16 +19,12 @@
 [An introduction to OSGi](http://www.developerfusion.com/article/84923/an-introduction-to-osgi/):
 > The OSGi framework maintains a Service Registry. Service providers can register with the framework and service consumers can then look up the service from the registry. The interaction between services, including a detailed description the service registry, can be found in the Service Layer section of the OSGi specification. Deployable services exist in the OSGi world as bundles. Physically, a bundle is a JAR file containing an OSGi-specific manifest.
 
-## Questions
-
-### What is it?
-
 - It's a module system for Java;
 - Includes visibility rules, dependency management and versioning of OSGi "bundles" (modules);
 - It's fully dynamic: Installing, starting, stopping, updating, uninstalling bundles, all done dynamically at runtime;
 - It's service oriented (always has been ...): all services are registered in a service registry, available in the well-understood publish, find and bind pattern, again all done dynamically at runtime.
 
-### Why use it?
+## What are its benefits?
 
 - Reduced Footprint;
 - Improved Extensibility;
@@ -57,9 +55,7 @@
 [Benefits of Using OSGi](https://www.osgi.org/developer/benefits-of-using-osgi/)
 > The OSGi modular and dynamic model reduces operational costs and integrates multiple devices in a networked environment, tackling costly application development, maintenance and remote service management.
 
-### How to use it?
-
-## Scope
+## How to use it?
 
 ## History
 

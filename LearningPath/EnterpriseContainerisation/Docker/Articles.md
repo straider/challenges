@@ -1,4 +1,4 @@
-﻿:: Docker :: Articles ::
+:: Docker :: Articles ::
 ========================
 
 # Software Containers vs. Virtual Machines
@@ -10,6 +10,22 @@
 - [So, When Do You Use A Container Or VM?](https://blog.docker.com/2016/05/vm-or-containers/)
 - [Containers 101: Linux containers and Docker explained](http://www.infoworld.com/article/3072929/linux/containers-101-linux-containers-and-docker-explained.html)
 - [Operating System Containers vs. Application Containers](https://blog.risingstack.com/operating-system-containers-vs-application-containers/)
+
+# Microservices
+
+- [Using Docker for Microservices](https://dzone.com/articles/using-docker-for-microservices)
+
+# Docker for Developers
+
+- [Docker for Devs: Containerizing Your Application](https://lockmedown.com/docker-4-devs-containerizing-app/)
+- [Docker for Devs: Creating a Developer Image](https://lockmedown.com/docker-for-developers-create-dev-image/)
+- [Docker for Devs: Hot Module Reloading and Live Editing in Containers](https://lockmedown.com/docker-tutorial-development-image/)
+- [Docker for Devs: Composing Multi-container Networks with Docker Compose](https://lockmedown.com/docker-devs-multiple-containers-docker-compose/)
+- [Docker for Devs: Sharing Images with Your Team Using Docker Hub](https://lockmedown.com/docker-devs-sharing-images-using-docker-hub/)
+
+# Docker Storage
+
+- [Docker Storage: An Introduction](https://blog.codeship.com/docker-storage-introduction/)
 
 # Docker Swarm
 
@@ -57,3 +73,4 @@
 - [The Hitchhiker's Guide to Docker and Modulus](https://code.tutsplus.com/tutorials/the-hitchhikers-guide-to-docker-and-modulus--cms-24770)
 - [Dock Tales, Or: How I Learned to Stop Worrying and Love the Container](http://www.sixtree.com.au/articles/2015/dock-tales/)
 - [Test-drive Docker Healthcheck in 10 minutes](http://blog.alexellis.io/test-drive-healthcheck/)
+- [Using Eclipse Neon 4.6.1 and the Docker Tools plug-in 2.1](https://jacace.wordpress.com/2016/11/16/using-eclipse-neon-4-6-1-and-the-docker-tools-plug-in-2-0/)

@@ -21,6 +21,8 @@ Because of this it is best to have several profiles:
 
 # Steps
 
+Copy [Standalone](../Standalone/README.md) project and change the buildfiles only.
+
 ## Buildfiles
 
 ### Maven

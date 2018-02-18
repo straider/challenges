@@ -63,12 +63,12 @@ Use Maven / Gradle plugins to launch a Spring Boot instance that runs the servic
 - [Spring Boot Jetty Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-jetty)
 - [Spring Boot Undertow Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-undertow)
 - [Spring Boot Web Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-web)
-- [Spring Boot Web Services Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-web-services)
 - [Spring Boot Jersey Starter](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-jersey)
-- []()
-- []()
 - [Apache CXF Spring Boot Starter JAX RS](http://cxf.apache.org/docs/springboot.html#SpringBoot-SpringBootCXFJAX-RSStarter)
-- [Apache CXF Spring Boot Starter JAX WS](http://cxf.apache.org/docs/springboot.html#SpringBoot-SpringBootCXFJAX-WSStarter)
+
+## Felix
+
+Use Maven / Gradle plugins to launch a Felix instance that runs the service.
 
 ## Karaf
 

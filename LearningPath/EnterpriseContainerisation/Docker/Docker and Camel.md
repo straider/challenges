@@ -1,4 +1,4 @@
-﻿Docker and Camel
+Docker and Camel
 ================
 
 # Overview

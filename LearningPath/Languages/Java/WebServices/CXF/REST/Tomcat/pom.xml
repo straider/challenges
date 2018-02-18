@@ -11,7 +11,7 @@
     <version>1.0.0</version>
     <name>Tomcat CXF Greeting Service</name>
     <description>REST Greeting Service running on Tomcat using CXF (JAX-RS implementation).</description>
-    <url>https://github.com/straider/coding-dojo/tree/Java/WebServices/CXF/REST/Tomcat</url>
+    <url>https://github.com/straider/challenges/tree/master/LearningPath/2017/CXF/REST/Tomcat</url>
 
     <packaging>war</packaging>
 

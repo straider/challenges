@@ -1,11 +1,12 @@
-﻿:: Containers and Microservices :: Docker ::
+:: Containers and Microservices :: Docker ::
 ============================================
 
 # Overview
 
 - [Docker](https://www.docker.com/) containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries - anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
 - [docker](https://github.com/docker/docker) @ GitHub
-- [Docker Toolbox](https://www.docker.com/products/docker-toolbox) is an installer for quick setup and launch of a Docker environment on older Mac and Windows systems that do not meet the requirements of the new Docker for Mac and Docker for Windows apps
+- [Docker Toolbox](https://www.docker.com/products/docker-toolbox) is an installer for quick setup and launch of a Docker environment on older Mac and Windows systems that do not meet the requirements of the new Docker for Mac and Docker for Windows apps.
+    - [docker/toolbox](https://github.com/docker/toolbox)
 - [Get started with Docker](https://docs.docker.com/engine/getstarted/)
 - [Self-Paced Training](https://training.docker.com/self-paced-training)
 - [Docker Hub](https://hub.docker.com/)
@@ -15,7 +16,7 @@ Docker uses the resource isolation features of the Linux kernel such as [cgroups
 
 There are several flavours of Docker, depending on the host operating system:
 - Docker on Linux;
-- Docker for Windows;
+- Docker for Windows (for Windows 10 Professional / Enterprise / Student editions);
 - Docker for Mac;
 - Docker Toolbox (for older Windows and Mac).
 
