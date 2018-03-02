@@ -392,14 +392,15 @@ After installation configure Settings:
 
 Install plugins:
 - Markdown support 2016.3.20161109
-- Eclipse Groovy Compiler Plugin v1.0
-- GMavenPlus IntelliJ Plugin v2.0
-- Spock Framework Enhancements v0.11
+- [Lombok Plugin v0.15.16](https://github.com/mplushnikov/lombok-intellij-plugin)
+- [Eclipse Groovy Compiler Plugin v1.0](https://github.com/rvowles/eclipsemavengroovy-idea)
+- [GMavenPlus IntelliJ Plugin v2.0](https://github.com/mycila/gmavenplus-intellij-plugin)
+- [Spock Framework Enhancements v0.11](https://github.com/cholick/idea-spock-enhancements)
 - Gherkin 163.7743.44
 - Cucumber for Java 163.9693
 - Cucumber for Groovy 163.7743.44
 - Docker integration 2.4.1
-- Kubernetes and OpenShift Resource Support v0.7
+- [Kubernetes and OpenShift Resource Support v0.7](https://github.com/mycila/gmavenplus-intellij-plugin)
 
 #### Geany
 
