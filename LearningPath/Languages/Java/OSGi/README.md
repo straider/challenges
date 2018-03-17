@@ -3,6 +3,8 @@
 
 # Challenges
 
+What is [OSGi](OSGi.md)?
+
 ## [Camel](Camel/README.md)
 
 ## Servers
