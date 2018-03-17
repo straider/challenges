@@ -1,4 +1,4 @@
-﻿:: Languages :: Java :: OSGi :: Articles ::
+:: Languages :: Java :: OSGi :: Articles ::
 ===========================================
 
 - [OSGi (Open Service Gateway Initiative)](http://searchnetworking.techtarget.com/definition/OSGi)
