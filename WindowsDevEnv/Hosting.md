@@ -61,12 +61,14 @@ It requires VirtualBox.
 
 ## OpenShift
 
-### Client Tools 1.4.1
+### [Client Tools 3.7.2](https://github.com/openshift/origin)
 
-### ~~OpenShift Origin All-in-One~~
+### ~~[Atomic Developer Bundle 2.3.1](https://github.com/projectatomic/adb-atomic-developer-bundle)~~
 
-### Atomic Developer Bundle
+### [Container Development Kit 2.4.0](https://developers.redhat.com/products/cdk/overview/)
 
-### Container Development Kit 2.3.0
+### [MiniShift 1.14.0](https://github.com/minishift/minishift)
+
+## [PostgreSQL 10.3](https://www.postgresql.org/)
 
 ## [MongoDB 3.4.2](https://www.mongodb.com/)

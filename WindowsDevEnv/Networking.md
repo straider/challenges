@@ -29,4 +29,13 @@ It's used by WinSCP and mRemoteNG. It's useful to be used by MinGW.
 
 ## Messaging
 
-### [Skype ](https://www.skype.com/en/)
+### [Slack 3.1.0](https://slack.com)
+
+### [Skype](https://www.skype.com/en/)
+
+### [Bluejeans](https://www.bluejeans.com)
+
+### [Zoom](https://www.zoom.us)
+
+- [Zoom Client for Meetings](https://www.zoom.us/download#client_4meeting)
+- [Zoom Extension for Browsers](https://www.zoom.us/download#chrome_ext)

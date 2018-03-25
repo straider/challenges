@@ -73,7 +73,9 @@ Create a settings.xml with the following content under %USERPROFILE%\.m2\ folder
 
 > Gradle looks into %USERPROFILE%\.m2\settings.xml for information where the local Maven repository is located. If no information is found, it assumes %USERPROFILE%\.m2\repository.
 
-### Mono
+### [Mono 5.10.0.160](https://www.mono-project.com/)
+
+### [Go 1.10](https://golang.org/)
 
 ## Interpreters
 
@@ -113,7 +115,7 @@ Although there's [ActivateState Python 2.7.10](http://www.activestate.com/python
 
 ### Javascript
 
-#### [node.js](https://nodejs.org/en/)
+#### [Node.js](https://nodejs.org/en/)
 
 - 7.4.0
 - ~~6.9.4 LTS~~
