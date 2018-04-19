@@ -1,22 +1,6 @@
 ﻿Challenges
 ==========
 
-# Linux Development Environment
-
-- Build Tools
-- Compilers
-- Interpreters
-- IDEs
-  - NetBeans
-  - Eclipse
-  - IDEA
-- Servers
-  - Apache
-  - Tomcat
-  - Jetty
-  - GlassFish
-  - JBossAS
-
 # Learning Paths
 
 - [Codility](https://codility.com/)
