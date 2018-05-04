@@ -25,8 +25,149 @@
 
 # Challenges
 
-- Installation / Configuration
-    - Windows 7, with VirtualBox
-    - Windows 10, with Hyper-v
-    - Linux
-    - MacOS
+## Installation / Configuration
+
+### Windows 7, with VirtualBox
+
+```bash
+set MINISHIFT_USERNAME <RED_HAT_USERNAME>
+set MINISHIFT_PASSWORD <RED_HAT_PASSWORD>
+minishift setup-cdk
+
+minishift config set vm-driver virtualbox
+
+@FOR /f "tokens=*" %i IN ('minishift oc-env') DO @call %i
+```
+
+### Windows 10, with Hyper-v
+
+```bash
+set MINISHIFT_USERNAME <RED_HAT_USERNAME>
+set MINISHIFT_PASSWORD <RED_HAT_PASSWORD>
+minishift setup-cdk
+
+set HYPERV_VIRTUAL_SWITCH=External (Wireless)
+setx HYPERV_VIRTUAL_SWITCH "External (Wireless)"
+
+minishift config set vm-driver hyperv
+
+@FOR /f "tokens=*" %i IN ('minishift oc-env') DO @call %i
+```
+
+### Linux
+
+```bash
+minishift completion bash > ~/.minishift-completion
+source ~/.minishift-completion
+
+export MINISHIFT_USERNAME='<RED_HAT_USERNAME>'
+export MINISHIFT_PASSWORD='<RED_HAT_PASSWORD>'
+echo export MINISHIFT_USERNAME=$MINISHIFT_USERNAME >> ~/.bash_profile
+echo export MINISHIFT_PASSWORD=$MINISHIFT_PASSWORD >> ~/.bash_profile
+minishift setup-cdk
+
+minishift config set vm-driver kvm
+
+eval $(minishift oc-env)
+```
+
+### macOS
+
+```bash
+minishift completion bash > ~/.minishift-completion
+source ~/.minishift-completion
+
+export MINISHIFT_USERNAME='<RED_HAT_USERNAME>'
+export MINISHIFT_PASSWORD='<RED_HAT_PASSWORD>'
+echo export MINISHIFT_USERNAME=$MINISHIFT_USERNAME >> ~/.bash_profile
+echo export MINISHIFT_PASSWORD=$MINISHIFT_PASSWORD >> ~/.bash_profile
+minishift setup-cdk
+
+minishift config set vm-driver xhyve
+
+eval $(minishift oc-env)
+```
+
+## Getting Started
+
+### Validate Installation
+
+```bash
+minishift version
+minishift openshift version list
+```
+
+### Create Profile
+
+```bash
+minishift profile set demo
+minishift profile list
+
+minishift config set cpus 4
+minishift config set memory 16GB
+# minishift config set public-hostname ...
+# minishift config set routing-suffix ...
+minishift config set vm-driver ...
+# minishift config set http-proxy  ${HTTP_PROXY}
+# minishift config set https-proxy ${HTTP_PROXY}
+# minishift config set no-proxy ...
+```
+
+### Start Cluster
+
+```bash
+minishift start
+minishift openshift version
+oc version
+
+minishift config view
+minishift image list
+minishift hostfolder list
+
+minishift ip
+eval $( minishift oc-env )
+eval $( minishift docker-env )
+
+minishift openshift registry
+```
+
+### AddOns and Dashboard
+
+```bash
+minishift addons list
+
+minishift console --machine-readable
+minishift console --url
+minishift console
+```
+
+### Hello Minishift
+
+```bash
+oc new-app https://github.com/openshift/nodejs-ex -l name=myapp
+oc expose svc/nodejs-ex
+minishift openshift service nodejs-ex --in-browser
+```
+
+### Shutdown Cluster
+
+```bash
+minishift stop
+minishift delete
+```
+
+## Troubleshooting
+
+### Behind Proxy
+
+```bash
+HTTP_PROXY=http://localhost:3128
+
+minishift config set http-proxy  ${HTTP_PROXY}
+minishift config set https-proxy ${HTTP_PROXY}
+# minishift config set no-proxy ...
+
+minishift start
+# minishift start http_proxy ${HTTP_PROXY} https_proxy ${HTTP_PROXY}
+# export no_proxy=${no_proxy},$( minishift ip )
+```
