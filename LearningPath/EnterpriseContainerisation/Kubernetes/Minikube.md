@@ -33,7 +33,7 @@
 
 ### Linux
 
-### MacOS
+### macOS
 
 ## Getting Started
 
@@ -92,10 +92,10 @@ minikube delete
 ```bash
 http_proxy=http://localhost:3128
 
-minikube start 
+minikube start                            \
     --docker-env http_proxy=${http_proxy} \
     --docker-env https_proxy=${http_proxy}
-export no_proxy=${no_proxy},$( minikube ip )                 
+export no_proxy=${no_proxy},$( minikube ip )
 ```
 
 # WIP
