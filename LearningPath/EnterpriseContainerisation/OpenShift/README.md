@@ -52,6 +52,8 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## [Minishift](Minishift.md)
 
+## [Frequently Used Commands (FUC)](FrequentlyUsedCommands.md)
+
 ## Monitoring
 
 ## Image Scanning
