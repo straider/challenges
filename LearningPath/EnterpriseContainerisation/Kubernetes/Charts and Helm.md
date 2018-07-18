@@ -61,9 +61,16 @@
 - [GitLab, Consumer Driven Contracts, Helm and Kubernetes](https://articles.microservices.com/gitlab-consumer-driven-contracts-helm-and-kubernetes-b7235a60a1cb)
 - [Releasing backward-incompatible changes: Kubernetes, Jenkins, Prometheus Operator, Helm and Traefik](https://medium.com/capgemini-engineering/releasing-backward-incompatible-changes-kubernetes-jenkins-plugin-prometheus-operator-helm-self-6263ca61a1b1)
 
-## OpenShift
+## Alternatives
 
 - [Kubernetes State of Application Templating](https://blog.openshift.com/kubernetes-state-app-templating/)
+- [Draft vs Gitkube vs Helm vs Ksonnet vs Metaparticle vs Skaffold](https://blog.hasura.io/draft-vs-gitkube-vs-helm-vs-ksonnet-vs-metaparticle-vs-skaffold-f5aa9561f948)
+- [Helm vs Kapitan vs Kustomize](https://medium.com/@splisson/helm-vs-kapitan-vs-kustomize-1c14018faecc)
+    - [Kapitan](https://github.com/deepmind/kapitan)
+    - [Kustomize](https://github.com/kubernetes-sigs/kustomize)
+
+## OpenShift
+
 - [Getting started with Helm on OpenShift](https://blog.openshift.com/getting-started-helm-openshift/)
 - [Deploy Helm Charts on Minishift’s OpenShift for Local Development](https://blog.openshift.com/deploy-helm-charts-minishifts-openshift-local-development/)
 - [Deploy Monocular on OpenShift](https://blog.openshift.com/deploy-monocular-openshift/)
