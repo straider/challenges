@@ -48,6 +48,14 @@ OpenShift is RedHat's cloud development Platform as a Service (PaaS). The free a
 
 ## [Tools](Tools.md)
 
+### Spring Cloud Deployer
+
+- [Spring Cloud Deployer](https://github.com/spring-cloud/spring-cloud-deployer) project defines a Service Provider Interface (SPI) for deploying long lived applications and short lived tasks.
+- [Spring Cloud Deployer for OpenShift](https://github.com/donovanmuller/spring-cloud-deployer-openshift)
+- [Spring Cloud Data Flow Server for OpenShift](https://github.com/donovanmuller/spring-cloud-dataflow-server-openshift)
+- [Spring Cloud Deployer OpenShift](https://donovanmuller.blog/spring-cloud-deployer-openshift/)
+- [SCDF OpenShift: Deploying Maven artifacts with custom Dockerfile](https://donovanmuller.blog/scdf-openshift-deploying-maven-artifacts-with-custom-dockerfile/)
+
 # Challenges
 
 ## [Minishift](Minishift.md)
